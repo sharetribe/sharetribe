@@ -1962,11 +1962,8 @@ de:
     paypal_account_connected: Das PayPal Konto <%{email}> wurde mit %{service_name}
       verbunden.
     change_account: PayPal-Konto ändern
-    missing: Du hast offene Angebote, aber weil du dein PayPal-Konto nicht verbunden
-      hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe dein PayPal Konto
-      in deinen %{settings_link} und gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr
-      zu berechnen.
-    from_your_payment_settings_link_text: Zahlungseinstellungen
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 'Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen
       Link anklicken: %{redirect_link}'
     redirect_link_text: hier
@@ -2578,9 +2575,7 @@ de:
     add_and_pay: Zahlung bestätigen
     card_not_stored: Deine Zahlung wird geschützt durch Stripe verarbeitet. %{service_name}
       speichert keinerlei Informationen über deine Kreditkarte.
-    missing_payment: Du hast offene Angebote, aber du hast die Zahlungseinstellungen
-      für dein Konto nicht eingerichtet. Um die Einstellungen einzurichten, gehe zu
-      %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Kontodetails erfolgreich eingerichtet!
     stripe_can_accept: Du bist bereit, Zahlungen mit Kreditkarten entgegenzunehmen
     stripe_credit_card: Kreditkarte

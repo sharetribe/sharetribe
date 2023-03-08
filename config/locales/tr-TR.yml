@@ -1776,10 +1776,8 @@ tr-TR:
     paypal_account_connected_title: 
     paypal_account_connected: 
     change_account: Hesabı Değiştir
-    missing: Aktif listeniz bulunmakta fakat PayPal hesabınızı sitemize bağlamadığınız
-      için ödeme alamayacaksınız. Lütfen %{settings_link} kısmından PayPal hesabınızı
-      en kısa zamanda bağlayın.
-    from_your_payment_settings_link_text: ödeme ayarları
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: PayPal'e yönlendiriliyorsunuz. Eğer hiç bir şey olmazsa %{redirect_link}
       tıklayın.
     redirect_link_text: buraya
@@ -2321,8 +2319,7 @@ tr-TR:
     pay_with_stripe: 
     add_and_pay: 
     card_not_stored: 
-    missing_payment: 'Açık ilanlarınız var ancak hesabınız ödeme alacak şekilde ayarlanmamış.Ödeme
-      tercihinizi yapılandırmak için, tıklayın %{settings_link} '
+    missing_payment: 
     stripe_bank_connected: Banka hesap bilgileri başarıyla yapılandırıldı!
     stripe_can_accept: 
     stripe_credit_card: 

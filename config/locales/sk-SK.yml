@@ -1864,10 +1864,8 @@ sk-SK:
     paypal_account_connected_title: PayPal účet bol pripojený
     paypal_account_connected: PayPal účet %{email} bol prepojený s trhoviskom %{service_name}
     change_account: Zmeniť PayPal účet
-    missing: Máte otvorené inzeráty, ale Váš PayPal účet nie je ešte nastavený aby
-      ste mohli prijať platby. Pripojte svoj PayPal účet a %{service_name} povolenia
-      zúčtovať transakčný poplatok z Vašeho %{settings_link}.
-    from_your_payment_settings_link_text: nastavenia platieb
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Prebieha presmerovanie na PayPal. Keď sa nič neudeje kliknite
       %{redirect_link}
     redirect_link_text: tu
@@ -2473,9 +2471,7 @@ sk-SK:
     add_and_pay: Potvrdenie platby
     card_not_stored: Vaša platba je bezpečne spracovaná spoločnosťou Stripe. %{service_name}
       neukladá informácie o Vašej kreditnej alebo debetnej karte.
-    missing_payment: Máte otvorené inzeráty, ale váš účet nie je nastavený na príjem
-      peňazí. Ak chcete nakonfigurovať svoje platobné preferencie, navštívte stránku
-      %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Údaje bankového účtu boli úspešne nastavené!
     stripe_can_accept: Teraz máte nastavený príjem peňazí na váš bankový účet
     stripe_credit_card: Kreditná karta

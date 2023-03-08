@@ -1498,8 +1498,8 @@ zh-HK:
     paypal_account_connected_title: 已成功連結PayPal帳戶
     paypal_account_connected: "%{email}的PayPal帳戶已連接至%{service_name}。"
     change_account: 更改帳戶
-    missing: 你有開放的訊息，但是並沒有連接你的PayPal帳戶以接收款項。通過你的%{settings_link}來連接你的Paypal帳戶並授權%{service_name}來收取交易的費用。
-    from_your_payment_settings_link_text: 付款設置
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 將重新導向至PayPal。若沒有任何事情發生，請按%{redirect_link}。
     redirect_link_text: 這裡
     paypal_account_all_set_up: 太好了！一切已經搞定了！

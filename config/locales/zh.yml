@@ -1518,8 +1518,8 @@ zh:
     paypal_account_connected_title: PayPal 帐号已连接成功
     paypal_account_connected: PayPal 账户 %{email} 已经和 %{service_name} 建立了连接
     change_account: 更改帐户
-    missing: 你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。
-    from_your_payment_settings_link_text: 付款设置
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 正在将你重定向到 PayPal. 如果你的浏览器没有自动跳转, 请点击 %{redirect_link}
     redirect_link_text: 这里
     paypal_account_all_set_up: 太棒了，一切就绪！
@@ -1997,7 +1997,7 @@ zh:
     pay_with_stripe: 
     add_and_pay: 确认付款
     card_not_stored: 您的付款将通过 Stripe 安全地处理。%{service_name} 并不会保存您的银行卡、信用卡资料。
-    missing_payment: 您有活跃的商品但是您的账号尚未设置收款资料。请到%{settings_link} 设置您的收款资料。
+    missing_payment: 
     stripe_bank_connected: 银行资料设置成功
     stripe_can_accept: 您已经准备好收钱进银行户口了
     stripe_credit_card: 信用卡

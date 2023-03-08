@@ -1950,10 +1950,9 @@ fr:
     paypal_account_connected_title: Compte PayPal connecté
     paypal_account_connected: Le compte PayPal <%{email}> a été connecté à %{service_name}.
     change_account: Changer de compte PayPal
-    missing: Vous avez des annonces actives mais votre compte PayPal n'est pas encore
-      configuré pour recevoir des paiements. Veuillez connecter votre compte PayPal
-      depuis vos %{settings_link} et y autoriser %{service_name} à prélever une commission.
-    from_your_payment_settings_link_text: paramètres de paiement
+    missing: Vos annonces ne peuvent pas être achetées ou réservées. %{settings_link}
+      pour activer les transactions.
+    from_your_payment_settings_link_text: Configurez vos détails de paiements
     redirect_message: Redirection vers PayPal. Si rien ne se produit, veuillez cliquer
       %{redirect_link}.
     redirect_link_text: ici
@@ -2557,9 +2556,8 @@ fr:
     add_and_pay: Confirmer le paiement
     card_not_stored: Votre paiement est sécurisé et géré par Stripe. %{service_name}
       ne collecte pas votre numéro de carte bancaire.
-    missing_payment: Vous avez des annonces actives mais votre compte n'est pas encore
-      configuré pour recevoir des paiements. Veuillez configurer vos paramètres de
-      paiements depuis vos %{settings_link}.
+    missing_payment: Vos annonces ne peuvent pas être achetées ou réservées. %{settings_link}
+      pour activer les transactions.
     stripe_bank_connected: Détails du compte en banque correctement configurés !
     stripe_can_accept: Vous êtes désormais prêt à recevoir votre argent sur votre
       compte en banque

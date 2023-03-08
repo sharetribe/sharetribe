@@ -1918,10 +1918,8 @@ ca:
     paypal_account_connected_title: Compte PayPal connectada
     paypal_account_connected: El compte PayPal <%{email}> s'ha connectat amb %{service_name}
     change_account: Cambiar compte de PayPal
-    missing: Tens anuncis oberts, però no has configurat el teu compte de Paypal per
-      rebre pagaments. Connecta el teu compte de Paypal en el teu %{settings_link}
-      i concedeix permís a%{service_name} a carregar una quota per transacció.
-    from_your_payment_settings_link_text: configuració de pagaments
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Redirigint a PayPal. Si no succeeix res, fes clic %{redirect_link}.
     redirect_link_text: aquí
     paypal_account_all_set_up: Molt bé! Tot està llest.
@@ -2514,8 +2512,7 @@ ca:
     add_and_pay: Confirmar el pagament
     card_not_stored: El teu pagament és processat de manera segura per Stripe. %{service_name}
       no guarda cap informació de targetes de crèdit o dèbit.
-    missing_payment: Tens anuncis oberts, no obstant això, el teu compte no està configurat
-      per rebre diners. Per realitzar la configuració de pagaments, visita %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Detalls del compte del banc configurats amb èxit!
     stripe_can_accept: Ja estàs llest per rebre diners en el teu compte del banc
     stripe_credit_card: Targeta de crèdit

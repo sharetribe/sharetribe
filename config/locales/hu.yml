@@ -1936,10 +1936,8 @@ hu:
     paypal_account_connected: A PayPal fiók <%{email}> csatlakoztatva lett a %{service_name}
       oldalával.
     change_account: Paypal fiók változtatás
-    missing: Önnek vannak hirdetései, de az ön PayPal fiókja még nem lett beállítva
-      átutalások fogadására. Csatlakoztassa a PayPal fiókját és engedélyezze a %{service_name}
-      számára, hogy tranzakciós dijat számoljon fel %{settings_link}.
-    from_your_payment_settings_link_text: Fizetési beállítások
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 'Átirányítás a PayPal-ra. Amennyiben nem történik semmi kattintson
       ide: %{redirect_link}.'
     redirect_link_text: itt
@@ -2489,9 +2487,7 @@ hu:
     add_and_pay: Fizetés jóváhagyása
     card_not_stored: A tranzakciót a Stripe biztonságos rendszere dolgozza fel. A
       %{service_name}  nem tárolja hitel- / bankkártya-adataidat.
-    missing_payment: Hirdetést már sikeresen feladtál, de a fiókod még nem lett beállítva
-      az átutalások fogadásához. A fizetési beállításokhoz kérünk látogass a %{settings_link}
-      oldalra.
+    missing_payment: 
     stripe_bank_connected: Bankszámla adataid sikeresen beállítva!
     stripe_can_accept: Most már minden készen áll, hogy pénz érkezhessen a bankszámládra.
     stripe_credit_card: Bankkártya

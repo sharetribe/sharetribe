@@ -1907,10 +1907,8 @@ uk:
     paypal_account_connected_title: Обліковий запис PayPal підключено
     paypal_account_connected: Обліковий запис PayPal <%{email}> підключено до %{service_name}.
     change_account: Змініть обліковий запис PayPal
-    missing: У вас відкриті оголошення, але ваш обліковий запис Paypal не налаштовано
-      для отримання платежів. Підключіть свій обліковий запис Paypal і надайте %{service_name}
-      дозвіл стягувати комісію за трансакцію зі свого %{settings_link}.
-    from_your_payment_settings_link_text: налаштування оплати
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Перенаправлення на PayPal. Якщо нічого не відбувається, натисніть
       %{redirect_link}.
     redirect_link_text: тут
@@ -2543,9 +2541,7 @@ uk:
     add_and_pay: Підтвердити платіж
     card_not_stored: Ваш платіж надійно оброблений Stripe. %{service_name} не зберігає
       інформацію про вашу кредитну/дебетову картку.
-    missing_payment: У вас є відкриті оголошення, але ваш обліковий запис не налаштований
-      для отримання грошей. Щоб налаштувати параметри оплати, перейдіть на сторінку
-      %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Дані банківського рахунку налаштовані успішно!
     stripe_can_accept: Тепер все готово, щоб отримати гроші на ваш банківський рахунок
     stripe_credit_card: Кредитна картка

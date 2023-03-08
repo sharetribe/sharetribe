@@ -1520,8 +1520,8 @@ zh-TW:
     paypal_account_connected_title: 已成功連結PayPal帳戶
     paypal_account_connected: "%{email}的PayPal帳戶已連接至%{service_name}。"
     change_account: 更改PayPal帳號
-    missing: 你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。
-    from_your_payment_settings_link_text: 付款設置
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 頁面導向PayPal。 如果沒有任何反應，請點擊%{redirect_link}。
     redirect_link_text: 這裡
     paypal_account_all_set_up: 太好了！一切已經搞定了！
@@ -2007,7 +2007,7 @@ zh-TW:
     pay_with_stripe: 
     add_and_pay: 
     card_not_stored: 
-    missing_payment: 您已啟動服務刊登，但尚未連結付款%{settings_link}
+    missing_payment: 
     stripe_bank_connected: 
     stripe_can_accept: 
     stripe_credit_card: 

@@ -1887,10 +1887,8 @@ ru:
     paypal_account_connected_title: PayPal аккаунт подключен
     paypal_account_connected: Аккаунт PayPal %{email} был подключен к %{service_name}.
     change_account: Сменить PayPal аккаунт
-    missing: У вас есть открытые объявления, но ваш PayPal счет не подключен для получения
-      платежей. Подключите ваш PayPal и разрешите %{service_name} снимать комиссию
-      за транзакцию через %{settings_link}.
-    from_your_payment_settings_link_text: настройки оплаты
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Перенаправление на PayPal. Если ничего не произойдет, нажмите
       %{redirect_link}
     redirect_link_text: здесь
@@ -2523,8 +2521,7 @@ ru:
     add_and_pay: Подтверждение оплаты
     card_not_stored: Ваш платеж надежно обработан Stripe. %{service_name} не хранит
       информацию о вашей кредитной / дебетовой карте.
-    missing_payment: У вас есть открытые списки, но ваш аккаунт не настроен для получения
-      денег. Чтобы настроить параметры оплаты, перейдите на страницу%{settings_link}
+    missing_payment: 
     stripe_bank_connected: Данные банковского счета настроены успешно!
     stripe_can_accept: Теперь все готово для получения денег на ваш банковский счет
     stripe_credit_card: Кредитная карта

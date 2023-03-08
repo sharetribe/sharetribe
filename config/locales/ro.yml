@@ -1868,10 +1868,8 @@ ro:
     paypal_account_connected_title: Cont PayPal conectat
     paypal_account_connected: Contul PayPal <%{email}> a fost conectat cu %{service_name}.
     change_account: Schimba contul de PayPal
-    missing: Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat
-      pentru a receptiona plati. Conectati contul dumneavoastra Paypal si acordati
-      permisiunea %{service_name} de a percepe o taxa de tranzactie din %{settings_link}.
-    from_your_payment_settings_link_text: Setarile sistemului de plati
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Te redirectionam catre PayPal. Daca nu se intampla nimic, click
       %{redirect_link}.
     redirect_link_text: aici
@@ -2470,8 +2468,7 @@ ro:
     add_and_pay: Autorizează plata
     card_not_stored: 'Plata dvs. este procesată în siguranță de către Stripe. %{service_name}
       nu salvează datele cardului dvs. '
-    missing_payment: Ai produse listate insa contul tau nu este setat pentru a incasa
-      bani. Ca sa iti configurezi preferintele de plati, viziteaza %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Detaliile contului bancar au fost configurate cu succes!
     stripe_can_accept: Acum sunteți gata să primiți bani în contul dvs. bancar
     stripe_credit_card: Card de credit

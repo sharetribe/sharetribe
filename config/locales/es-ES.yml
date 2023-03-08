@@ -1828,10 +1828,8 @@ es-ES:
     paypal_account_connected_title: Cuenta PayPal conectada
     paypal_account_connected: La cuenta PayPal <%{email}> se ha conectado con %{service_name}.
     change_account: Cambiar cuenta de PayPal
-    missing: Tienes publicaciones abiertas, pero no has configurado tu cuenta de Paypal
-      para recibir pagos. Conecta tu cuenta de Paypal en tu %{settings_link} y concede
-      permiso a %{service_name} a cargar una cuota por transacción.
-    from_your_payment_settings_link_text: configuración de pagos
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}.
     redirect_link_text: aquí
     paypal_account_all_set_up: "¡Muy bien! Todo está listo."
@@ -2419,8 +2417,7 @@ es-ES:
     add_and_pay: Confirmar el pago
     card_not_stored: Tu pago es procesado de manera segura por Stripe. %{service_name}
       no guarda ninguna información de tarjetas de crédito o débito.
-    missing_payment: Tienes anuncios abiertos, sin embargo, tu cuenta no está configurada
-      para recibir dinero. Para realizar la configuración de pagos, visita %{settings_link}
+    missing_payment: 
     stripe_bank_connected: "¡Detalles de la cuenta de banco configurados con éxito!"
     stripe_can_accept: Ya estás listo para recibir dinero en tu cuenta de banco
     stripe_credit_card: Tarjeta de crédito

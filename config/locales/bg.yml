@@ -1873,10 +1873,8 @@ bg:
     paypal_account_connected_title: PayPal акаунтът е свързан
     paypal_account_connected: PayPal акаунтът <%{email}> беше свързан с %{service_name}.
     change_account: Сменете PayPal акаунта си
-    missing: Вие имате отворена обява но вашият Paypal акаунт не е настроен да получава
-      плащания. Свържете вашия Paypal акаунт и дайте разрешение на %{service_name}
-      да надчислява такси за транзакции от вашия %{settings_link}
-    from_your_payment_settings_link_text: настройки на плащанията
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Пренасочваме Ви към PayPal. Ако нищо не се случи, кликнете на
       %{redirect_link}
     redirect_link_text: тук
@@ -2467,8 +2465,7 @@ bg:
     add_and_pay: Потвърдете плащането
     card_not_stored: Сигурността на вашето плащане е обезпечена от Stripe.%{service_name}
       не съхранява вашата кредитна/дебитна информация.
-    missing_payment: Имате качени обяви но вашият  профил не е настоен да приема плащания.
-      За да конфигурирате вашите предпочитания за плащане, посетете %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Вашите банкови детайли са конфигурирани успешно!
     stripe_can_accept: Вече можете да получавате плащания по банкова сметка
     stripe_credit_card: Кредитна карта

@@ -1783,9 +1783,8 @@ da-DK:
     paypal_account_connected_title: PayPal-konto forbundet
     paypal_account_connected: PayPal-kontoen <%{email}> er blevet forbundet med %{service_name}.
     change_account: Ret PayPal-konto
-    missing: Du har oprettet annoncer med betaling. For at kunne modtage betaling
-      skal du forbinde din PayPal med %{service_name} i %{settings_link}.
-    from_your_payment_settings_link_text: Betalinger
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du
       klikke %{redirect_link}.
     redirect_link_text: her
@@ -2334,9 +2333,7 @@ da-DK:
     pay_with_stripe: Betal med Stripe med %{card}
     add_and_pay: Bekræft betaling
     card_not_stored: 
-    missing_payment: Du har en offentlig annonce men din konto er ikke sat op til
-      at modtage betalinger. Du kan konfigurere dine betalingsindstillinger ved at
-      gå til %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Bankdetaljer tilføjet!
     stripe_can_accept: Du kan nu modtage betalinger
     stripe_credit_card: Credit kort

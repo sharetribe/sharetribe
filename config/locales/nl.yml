@@ -1930,11 +1930,8 @@ nl:
     paypal_account_connected_title: PayPal account gekoppeld
     paypal_account_connected: Het PayPal account <%{email}> is nu gekoppeld aan%{service_name}
     change_account: Wijzig Paypal account
-    missing: Je hebt openstaande advertentie, maar je hebt je PayPal account nog niet
-      gekoppeld. Daardoor kun je nog geen betalingen ontvangen. Koppel a.u.b. je PayPal
-      account in je %{settings_link} and sta %{service_name} toe transactiekosten
-      in rekening te brengen.
-    from_your_payment_settings_link_text: instellingen betalingen
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Je wordt doorgestuurd naar PayPal. Als er niets gebeurt, klik
       %{redirect_link}.
     redirect_link_text: hier
@@ -2528,9 +2525,7 @@ nl:
     add_and_pay: Bevestig betaling
     card_not_stored: Je betaling wordt veilig verwerkt door Stripe. %{service_name}
       slaat je credit/debit card informatie niet op.
-    missing_payment: Je hebt open advertenties, maar je account is niet ingesteld
-      om betalingen te ontvangen. Om je betalingsinstellingen aan te passen, ga naar
-      %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Bankrekening informatie succesvol ingesteld!
     stripe_can_accept: Je bent nu klaar om betalingen op je bankrekening te ontvangen
     stripe_credit_card: Credit card

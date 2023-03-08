@@ -1781,11 +1781,8 @@ ka:
     paypal_account_connected_title: PayPal-ის ანგარიში დაკავშირებულია
     paypal_account_connected: PayPal ანგარიში %{email} დაუკავშირდა %{service_name}ს.
     change_account: შეცვალე PayPal ანგარიში
-    missing: თქვენ დამატებული გაქვთ განცხადებები, თუმცა იმისათვის რომ მიიღოთ გადახდები,
-      უნდა მიაბათ სისტემას თქვენი Paypal ანგარიში. დაუკავშირდით თქვენს Paypal ანგარიშს
-      და დართეთ %{service_name}ს უფლება რომ დაგარიცხოთ ტრანზაქციის საფასური თქვენი
-      %{settings_link}დან.
-    from_your_payment_settings_link_text: გადახდის პარამეტრები
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: გადამისამართება თქვენ PayPal-ზე. თუ არაფერი მოხდა დააჭირე %{redirect_link}-ს.
     redirect_link_text: აქ
     paypal_account_all_set_up: გილოცავთ, უკვე ყველაფერი გამართულად მუშაობს!
@@ -2320,9 +2317,7 @@ ka:
     pay_with_stripe: 
     add_and_pay: 
     card_not_stored: 
-    missing_payment: თქვენ გაქვთ ღია განცხადებები, მაგრამ თქვენი ანგარიში ჯერ არ არის
-      დაყენებული ფულის მისაღებად. თქვენი გადახდის პარამეტრების კონფიგურაციისთვის ეწვიეთ
-      გადახდის პარამეტრებს %{settings_link}
+    missing_payment: 
     stripe_bank_connected: 
     stripe_can_accept: 
     stripe_credit_card: 
