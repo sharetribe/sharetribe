@@ -1874,10 +1874,8 @@ en:
     paypal_account_connected: The PayPal account <%{email}> has been connected with
       %{service_name}.
     change_account: Change PayPal account
-    missing: You have open listings but your Paypal account is not set up to receive
-      payments. Connect your Paypal account and grant %{service_name} permission to
-      charge a transaction fee from your %{settings_link}.
-    from_your_payment_settings_link_text: payment settings
+    missing: Your listings can't be bought or booked. %{settings_link} to enable transactions.
+    from_your_payment_settings_link_text: Set up payments
     redirect_message: Redirecting you to PayPal. If nothing happens, click %{redirect_link}.
     redirect_link_text: here
     paypal_account_all_set_up: Hooray, everything is set up!
@@ -2464,8 +2462,7 @@ en:
     add_and_pay: Confirm payment
     card_not_stored: Your payment is securely processed by Stripe. %{service_name}
       does not store your credit/debit card information.
-    missing_payment: You have open listings but your account is not set up to receive
-      money. To configure your payment preferences, visit %{settings_link}
+    missing_payment: Your listings can't be bought or booked. %{settings_link} to enable transactions.
     stripe_bank_connected: Bank account details configured successfully!
     stripe_can_accept: You are now all set to receive money to your bank account
     stripe_credit_card: Credit card
