@@ -1835,12 +1835,8 @@ it:
     paypal_account_connected_title: Conto PayPal connesso
     paypal_account_connected: L'account PayPal %{email} è stato connesso con %{service_name}
     change_account: Cambia il conto PayPal
-    missing: Le tue inserzioni sono attive, ma le tue impostazioni di pagamento non
-      sono abilitate per ricevere i pagamenti. Collega un account Paypal, tramite
-      le tue %{settings_link} e concedi a %{service_name} il permesso di percepire
-      la commissione sulle transazioni. Una volta finito il procedimento sarai in
-      gradi di ottenere le prenotazioni, ed i pagamenti da altri utenti.
-    from_your_payment_settings_link_text: Impostazioni di pagamento
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Reindirizzamento a PayPal. Se non succede niente, clicca %{redirect_link}.
     redirect_link_text: qui
     paypal_account_all_set_up: Hurra ! Tutto è al suo posto !
@@ -2385,8 +2381,7 @@ it:
     add_and_pay: Conferma pagamento
     card_not_stored: Il tuo pagamento è processato in sicurezza da Stripe. %{service_name}
       non colleziona informazioni di carte di credito/debito
-    missing_payment: Hai un'inserzione aperta, ma il tuo account non è stato configurato
-      per ricevere pagamenti. Per configurare i pagamenti, visita %{settings_link}
+    missing_payment: 
     stripe_bank_connected: I dettagli del conto corrente sono stati configurati correttamente!
     stripe_can_accept: Ora sei pronto per ricevere denaro sul tuo conto corrente
     stripe_credit_card: Carta di credito

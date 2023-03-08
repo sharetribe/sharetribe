@@ -1683,10 +1683,8 @@ sr:
     paypal_account_connected_title: 
     paypal_account_connected: 
     change_account: Promenite PayPal nalog
-    missing: Imate aktivne oglase ali vaš PayPal nalog nije podešen da prima uplate.
-      Povežite vaš PayPal nalog, i idite na %{settings_link} kako biste dozvolili
-      %{service_name} da naplati transakcionu proviziju.
-    from_your_payment_settings_link_text: podešavanja plaćanja
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 
     redirect_link_text: 
     paypal_account_all_set_up: 

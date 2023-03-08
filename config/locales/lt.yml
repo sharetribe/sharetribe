@@ -1855,10 +1855,8 @@ lt:
     paypal_account_connected_title: PayPal paskyra prijungta
     paypal_account_connected: PayPal paskyros paštas <%{email}> susietas su %{service_name}.
     change_account: Keisti PayPal paskyrą
-    missing: Turite atidarytus skelbimus, bet jūsų PayPal paskyra nenustatyta mokėjimams
-      gauti. Prijunkite savo PayPal paskyrą ir suteikite %{service_name} leidimą imti
-      operacijos mokestį iš savo %{settings_link}.
-    from_your_payment_settings_link_text: mokėjimo nustatymai
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Peradresuoti jus į PayPal. Jei niekas neįvyksta, spustelėkite
       %{redirect_link}.
     redirect_link_text: čia
@@ -2432,8 +2430,7 @@ lt:
     add_and_pay: Patvirtinkite mokėjimą
     card_not_stored: Stripe saugiai apdoroja jūsų mokėjimą. %{service_name} nesaugo
       jūsų kredito/debeto kortelės informacijos.
-    missing_payment: Turite atidarytus skelbimus, tačiau jūsų paskyroje nėra nustatytas
-      pinigų gavimas. Norėdami sukonfigūruoti mokėjimo parametrus, apsilankykite %{settings_link}.
+    missing_payment: 
     stripe_bank_connected: Banko sąskaitos informacija sukonfigūruota sėkmingai!
     stripe_can_accept: Dabar esate pasirengę gauti pinigus į savo banko sąskaitą
     stripe_credit_card: Kreditinė kortelė

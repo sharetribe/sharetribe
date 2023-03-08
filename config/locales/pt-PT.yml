@@ -1775,11 +1775,8 @@ pt-PT:
     paypal_account_connected_title: 
     paypal_account_connected: 
     change_account: 
-    missing: Tem anúncios ativos mas não pode receber pagamentos porque a sua conta
-      no PayPal ainda não foi configurada. Por favor conecte a sua conta do PayPal
-      em %{settings_link}. Também precisa de dar permissão para que o %{service_name}
-      cobre a taxa de transação.
-    from_your_payment_settings_link_text: configurações de pagamento
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: 
     redirect_link_text: 
     paypal_account_all_set_up: 

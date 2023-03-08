@@ -1870,10 +1870,8 @@ cs:
     paypal_account_connected_title: Účet PayPal byl připojen
     paypal_account_connected: Účet Paypal <%{email}> byl připojen se %{service_name}.
     change_account: Změnit účet
-    missing: Máte otevřené inzeráty, ale Váš PayPal účet není ještě nastaven k přijímání
-      plateb. Připojte svůj PayPal účet a prověďte %{service_name} povolení zúčtovat
-      transakční poplatek z Vašeho %{settings_link}.
-    from_your_payment_settings_link_text: nastavení plateb
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Probíhá přesměrování na PayPal. Pokud se nic nestane, klikni
       %{redirect_link}
     redirect_link_text: zde
@@ -2460,9 +2458,7 @@ cs:
     add_and_pay: Potvrzení platby
     card_not_stored: Vaše platba je bezpečně zpracována společností Stripe. %{service_name}  neukládá
       informace o vaší kreditní nebo debetní kartě.
-    missing_payment: Vaše záznamy jsou otevřené, ale váš účet zatím není nastaven
-      tak, abyste mohl přijímat platby. K nastavení vašich platebních priorit navštivte
-      prosím %{settings_link}.
+    missing_payment: 
     stripe_bank_connected: Údaje bankovního účtu byly úspěšně nastaveny!
     stripe_can_accept: Nyní máte nastaven příjem peněz na váš bankovní účet
     stripe_credit_card: Kreditní karta

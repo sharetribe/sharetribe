@@ -1767,10 +1767,8 @@ vi:
     paypal_account_connected_title: Đã kết nối tài khoản PayPal
     paypal_account_connected: Tài khoản PayPal <%{email}> đã được kết nối với %{service_name}.
     change_account: Thay đổi tài khoản PayPal
-    missing: Bạn có bài đăng nhưng tài khoản Paypal của bạn không được thiết lập để
-      nhận thanh toán. Kết nối tài khoản Paypal và cho phép %{service_name} thu lệ
-      phí giao dịch ở trang %{settings_link}.
-    from_your_payment_settings_link_text: Cài đặt thanh toán
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Chuyển hướng bạn đến PayPal. Nếu không có gì xảy ra, hãy nhấp
       vào %{redirect_link}.
     redirect_link_text: đây

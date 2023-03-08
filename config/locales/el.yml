@@ -1971,10 +1971,8 @@ el:
     paypal_account_connected: Ο λογαριασμός PayPal <%{email}> έχει συνδεθεί με το
       %{service_name}.
     change_account: Αλλαγή PayPal λογαριασμού
-    missing: Έχετε ανοιχτές καταχωρήσεις, αλλά ο  PayPal λογαριασμό σας δεν έχει ρυθμιστεί
-      για να λαμβάνει πληρωμές. Συνδέστε το λογαριασμό PayPal και εκχωρήστε στο %{service_name}
-      δικαιώματα για να χρεώσετε ένα τέλος συναλλαγής από το %{settings_link}.
-    from_your_payment_settings_link_text: ρυθμίσεις πληρωμής
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Ανακατευθύνεστε στο PayPal. Εάν δεν συμβεί τίποτα, κάντε κλικ
       στο κουμπί %{redirect_link}.
     redirect_link_text: εδώ
@@ -2579,9 +2577,7 @@ el:
     add_and_pay: Επιβεβαίωση πληρωμής
     card_not_stored: Η πληρωμή σας διεκπεραιώνεται με ασφάλεια απο το Stripe. %{service_name}
       δεν αποθηκεύει πληροφορίες της πιστωτικής/χρεωστικής σας κάρτας.
-    missing_payment: Έχετε ανοιχτές καταχωρήσεις, αλλά ο λογαριασμός σας δεν έχει
-      ρυθμιστεί για να λαμβάνει χρήματα. Για να ρυθμίσετε τις παραμέτρους των προτιμήσεων
-      πληρωμής, επισκεφθείτε την τοποθεσία %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Τα στοιχεία τραπεζικού λογαριασμού διαμορφώθηκαν με επιτυχία!
     stripe_can_accept: Τώρα είστε έτοιμοι να λάβετε χρήματα στον τραπεζικό σας λογαριασμό
     stripe_credit_card: Πιστωτική κάρτα

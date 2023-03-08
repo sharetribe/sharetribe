@@ -1820,10 +1820,8 @@ sv:
     paypal_account_connected_title: PayPal-kontot är anslutet
     paypal_account_connected: PayPal-kontot <%{email}> är nu anslutet till %{service_name}.
     change_account: Byt PayPal konto
-    missing: Du har öppna annonser, men ditt PayPal-konto är inte inställt för att
-      ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse
-      at ta en transaktionsavgift från dina %{settings_link}.
-    from_your_payment_settings_link_text: betalningsinställningar
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Skickar dig vidare till PayPal. Klicka %{redirect_link} om sidan
       inte öppnas automatiskt.
     redirect_link_text: här
@@ -2399,8 +2397,7 @@ sv:
     add_and_pay: Bekräfta betalning
     card_not_stored: Din betalning hanteras på ett säkert sätt av Stripe. %{service_name}
       sparar inte din kortinformation.
-    missing_payment: Du har öppna annonser, men ditt konto är inte inställt för att
-      ta emot betalningar. För att ställa in dina betalningsinställningar besök %{settings_link}.
+    missing_payment: 
     stripe_bank_connected: Bankkontoinformationen har sparats!
     stripe_can_accept: Du är nu redo att ta emot betalningar till ditt bankkonto
     stripe_credit_card: Kreditkort

@@ -1650,10 +1650,8 @@ th-TH:
     paypal_account_connected: บัญชี PayPal ของคุณคือ %{email} ได้เชื่อมต่อกับ %{service_name}
       แล้ว
     change_account: เปลี่ยนบัญชี PayPal
-    missing: คุณมีรายการที่เปิดอยู่ แต่บัญชี PayPal ของคุณไม่ได้ถูกตั้งค่าเพื่อที่จะได้รับการชำระเงิน
-      กรุณาเชื่อมต่อบัญชี PayPal ของคุณและให้อนุญาต %{service_name} ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรมจาก
-      %{settings_link} ของคุณ
-    from_your_payment_settings_link_text: การตั้งค่าการชำระเงิน
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: ระบบกำลังนำคุณไปสู่หน้าของ PayPal หากไม่มีความเคลื่อนไหว คลิกที่นี่
       %{redirect_link}
     redirect_link_text: 

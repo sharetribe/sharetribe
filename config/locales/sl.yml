@@ -1861,10 +1861,8 @@ sl:
     paypal_account_connected_title: PayPal račun je povezan
     paypal_account_connected: Račun PayPal <%{email}> je bil povezan z %{service_name}.
     change_account: Spremenite račun PayPal
-    missing: Imate odprte objave vendar vaš račun Paypal ni nastavljen za prejemanje
-      plačil. Povežite svoj Paypal račun in odobrite %{service_name}  dovoljenje za
-      zaračunavanje transakcijske provizije iz vašega %{settings_link}.
-    from_your_payment_settings_link_text: nastavitve plačila
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Preusmeritev na PayPal. Če se nič ne zgodi, kliknite %{redirect_link}.
     redirect_link_text: tukaj
     paypal_account_all_set_up: Huuura, vse je pripravljeno!
@@ -2490,8 +2488,7 @@ sl:
     add_and_pay: Potrdite plačilo
     card_not_stored: Stripe varno obdeluje vaše plačilo. %{service_name} ne shranjuje
       podatkov o vaši kreditni/debetni kartici.
-    missing_payment: Imate odprte oglase, vendar vaš račun ni nastavljen za prejemanje
-      denarja. Če želite konfigurirati svoje nastavitve plačila, obiščite %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Podatki o bančnem računu so uspešno konfigurirani!
     stripe_can_accept: Zdaj ste pripravljeni za prejemanje denarja na svoj bančni
       račun

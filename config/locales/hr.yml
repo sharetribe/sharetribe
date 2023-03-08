@@ -1800,10 +1800,8 @@ hr:
     paypal_account_connected_title: PayPal račun je povezan
     paypal_account_connected: 'PayPal račun %{email} povezan je s %{service_name} '
     change_account: Promijeniti PayPal korisnički račun
-    missing: Imate otvorene oglase ali vaš PayPal račun nije podešen za primanje uplata.
-      Molimo povežite vaš PayPal račun i odobrite %{service_name} da naplati naknadu
-      za transakciju od vašeg %{settings_link}.
-    from_your_payment_settings_link_text: postavke plaćanja
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: preusmjeravamo Vas na PayPal.Ako se ništa ne dogodi, pritisni
       %{redirect_link}
     redirect_link_text: ovdje
@@ -2400,8 +2398,7 @@ hr:
     add_and_pay: Potvrdi plaćanje
     card_not_stored: Vaše plaćanje je sigurno provedeno od strane Stripe-a. %{service_name}
       ne pohranjuje Vaše informacije za naplatu.
-    missing_payment: 'Imate oglase ali Vaš račun nije konfiguriran za primanje novaca.
-      Za konfiguraciju posjetite %{settings_link} '
+    missing_payment: 
     stripe_bank_connected: Informacije o bankovnom računu uspješno konfigurirane.
     stripe_can_accept: Sada ste spremni primati novac na Vaš bankovni račun.
     stripe_credit_card: Kreditna kartica

@@ -1873,10 +1873,8 @@ pl:
     paypal_account_connected_title: Konto PayPal zostało połączone
     paypal_account_connected: Konto PayPal <%{email}> zostało połączone z %{service_name}.
     change_account: Zmień konto PayPal
-    missing: Masz aktywne oferty, ale Twoje konto PayPal nie zostało ustawione do
-      otrzymywania płatności. Podłącz swoje konto PayPal i udziel %{service_name}
-      zgody na pobieranie opłaty za transakcje z Twoich %{settings_link}.
-    from_your_payment_settings_link_text: ustawienia płatności
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Przekierowanie do PayPal. Jeśli nic się nie wydarzy, kliknij
       %{redirect_link}.
     redirect_link_text: tutaj
@@ -2500,9 +2498,7 @@ pl:
     add_and_pay: Potwierdź płatność
     card_not_stored: Twoja płatność jest bezpiecznie realizowana przez Stripe. %{service_name}
       nie przechowuje danych dotyczących Twojej karty kredytowej/debtowej.
-    missing_payment: Masz otwarte oferty, ale Twoje konto nie jest dostosowane do
-      otrzymywania pieniędzy. Skonfiguruj preferencje płatności, w tym celu idź do
-      %{settings_link}.
+    missing_payment: 
     stripe_bank_connected: Szczegóły dotyczące konta bankowego zostały skonfigurowane
       poprawnie!
     stripe_can_accept: Już możesz otrzymywać pieniądze na swoje konto bankowe

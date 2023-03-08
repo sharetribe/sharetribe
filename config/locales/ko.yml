@@ -1631,9 +1631,8 @@ ko:
     paypal_account_connected_title: 연결된 PayPal 계정
     paypal_account_connected: PayPal 계정 <%{email}>이 %{service_name}에 연결 되었습니다.
     change_account: PayPal 계정 변경
-    missing: 등록된 광고가 있지만 PayPal 계정이 결제를 받을 수 있도록 설정되어 있지 않습니다. PayPal 계정을 연결하고 %{settings_link}에서
-      %{service_name}가 거래 수수료를 청구할 수 있는 권한을 부여하십시오.
-    from_your_payment_settings_link_text: 결제 설정
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: PayPal로 이동합니다. 진행이 안되면 %{redirect_link} 클릭 하세요.
     redirect_link_text: 여기
     paypal_account_all_set_up: 모든 셋업이 완료 되었습니다.
@@ -2141,7 +2140,7 @@ ko:
     add_and_pay: 결제 확인
     card_not_stored: 결제는 Stripe의 결제 시스템으로 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지
       않습니다.
-    missing_payment: 계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제환경을 설정하세요. %{settings_link}
+    missing_payment: 
     stripe_bank_connected: 결제 정보가 성공적으로 설정되었습니다!
     stripe_can_accept: 이제 등록하신 은행 계좌로 결제대금을 받을 수 있습니다.
     stripe_credit_card: 신용카드

@@ -1883,10 +1883,8 @@ lv:
     paypal_account_connected_title: PayPal konts pievienots
     paypal_account_connected: PayPal konts %{email} ir savienots ar %{service_name}.
     change_account: Mainīt PayPal kontu
-    missing: Jums ir aktīvi sludinājumi, bet Jūsu PayPal konts nav iestatīts, lai
-      saņemtu maksājumus. Pievienojiet savu Paypal kontu un piešķiriet %{service_name}
-      atļauju iekasēt darījuma maksu no Jūsu %{settings_link}.
-    from_your_payment_settings_link_text: maksājumu iestatījumi
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Novirzam Jūs uz PayPal. Ja nekas nenotiek, noklikšķiniet uz
       %{redirect_link}.
     redirect_link_text: šeit
@@ -2457,8 +2455,7 @@ lv:
     add_and_pay: Apstipriniet maksājumu
     card_not_stored: Stripe ir droši apstrādājusi Jūsu maksājumu. %{service_name}
       neuzglabā Jūsu kredītkartes / debetkartes informāciju.
-    missing_payment: Jums ir pievienoti sludinājumi, bet Jūsu konts nav iestatīts,
-      lai saņemtu naudu. Lai konfigurētu maksājumu iespējas, apmeklējiet %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Bankas konta dati ir veiksmīgi konfigurēti!
     stripe_can_accept: Tagad Jūs esat gatavs saņemtu naudu uz savu bankas kontu
     stripe_credit_card: Kredītkarte

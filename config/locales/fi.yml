@@ -1901,9 +1901,8 @@ fi:
     paypal_account_connected_title: PayPal-tili yhdistetty
     paypal_account_connected: PayPal-tili <%{email}> on yhdistetty %{service_name}-palveluun.
     change_account: Vaihda PayPal-tiliä
-    missing: Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi,
-      joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}.
-    from_your_payment_settings_link_text: maksuasetuksistasi
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Sinut ohjataan PayPaliin. Jos mitään ei tapahdu, klikkaa %{redirect_link}.
     redirect_link_text: tästä
     paypal_account_all_set_up: Hienoa, yhdistäminen onnistui!
@@ -2491,8 +2490,7 @@ fi:
     add_and_pay: Vahvista maksu
     card_not_stored: Stripe prosessoi maksutapahtumasi turvallisesti. %{service_name}
       ei saa luotto- tai debitkorttisi tietoja.
-    missing_payment: Sinulla on avoimia ilmoituksia, mutta et ole vielä valinnut maksunvälittäjää,
-      joten et voi ottaa maksuja vastaan. Päivitä maksuasetuksesi %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Tilitiedot asetettu onnistuneesti!
     stripe_can_accept: Voit nyt vastaanottaa maksuja pankkitilillesi
     stripe_credit_card: Luottokortti

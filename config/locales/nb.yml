@@ -1755,9 +1755,8 @@ nb:
     paypal_account_connected_title: PayPal-konto tilkoblet
     paypal_account_connected: PayPal-kontoen %{email} har blitt koblet til %{service_name}
     change_account: Endre konto
-    missing: Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil
-      ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}.
-    from_your_payment_settings_link_text: betalingsinnstillinger
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Omdirigerer deg til PayPal. Hvis ingenting skjer, klikk %{redirect_link}.
     redirect_link_text: her
     paypal_account_all_set_up: Perfekt, nå er alt klart!

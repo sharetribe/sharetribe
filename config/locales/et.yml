@@ -1851,10 +1851,8 @@ et:
     paypal_account_connected_title: PayPali konto on ühendatud
     paypal_account_connected: Sinu PayPali konto <%{email}> on ühendatud %{service_name}.
     change_account: Muutke PayPali kontot
-    missing: Teil on avatud kuulutused, aga teie Paypali konto pole maksete vastuvõtmiseks
-      seadistatud. Ühendage oma Paypali konto ja andke %{service_name} luba tehingutasu
-      võtmiseks teie %{settings_link}-lt.
-    from_your_payment_settings_link_text: makseseaded
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: Sind suunatakse PayPali. Kui midagi ei juhtu, vajuta %{redirect_link}.
     redirect_link_text: siin
     paypal_account_all_set_up: Hooray, kõik on valmis!
@@ -2427,8 +2425,7 @@ et:
     add_and_pay: Kinnita makse
     card_not_stored: Stripe töötleb Sinu makse turvaliselt. %{service_name} ei salvesta
       Sinu krediit- või deebetkaardi andmeid.
-    missing_payment: Sinu konto pole seadistatud raha vastuvõtmiseks, seega ostjad
-      ei saa Sulle raha kanda. Makse eelistuste seadistamiseks külasta %{settings_link}
+    missing_payment: 
     stripe_bank_connected: Pangakonto üksikasjad on edukalt konfigureeritud!
     stripe_can_accept: Nüüd oled kõik vajaliku teinud, et pangakontole laekuks raha.
     stripe_credit_card: Krediitkaart

@@ -1515,8 +1515,8 @@ ja:
     paypal_account_connected_title: ペイパルアカウントに接続しました。
     paypal_account_connected: PayPalのアカウント%{email} は%{service_name} と接続されました。
     change_account: Paypalアカウントの変更
-    missing: 公開されている投稿がありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続し、%{service_name}への課金許可を与えてください。
-    from_your_payment_settings_link_text: お支払い設定
+    missing: 
+    from_your_payment_settings_link_text: 
     redirect_message: ペイパルにリダイレクトしています。何も起きない場合は%{redirect_link} をクリックして下さい。
     redirect_link_text: こちら
     paypal_account_all_set_up: すべてのセットアップが完了しました！
@@ -2002,8 +2002,7 @@ ja:
     pay_with_stripe: "%{card} を使ってStripeで支払う"
     add_and_pay: お支払い確認
     card_not_stored: あなたの支払いは安全にStripeによって処理されます。%{service_name} はあなたのクレジットカードやデビットカードの情報を保存していません。
-    missing_payment: あなたの投稿は公開されていますが、あなたのアカウントはお金を受け取るように設定されていません。お支払い設定を設定するには%{settings_link}
-      にアクセスしてください。
+    missing_payment: 
     stripe_bank_connected: 銀行口座の詳細が正しく設定されました。
     stripe_can_accept: これにより銀行口座に入金する準備がすべて整いました。
     stripe_credit_card: クレジットカード
