@@ -27,7 +27,8 @@ class SocialLink < ApplicationRecord
     googleplus: 4,
     linkedin: 5,
     pinterest: 6,
-    soundcloud: 7
+    soundcloud: 7,
+    tiktok: 8
   }.freeze
 
   enum provider: SOCIAL_NETWORKS

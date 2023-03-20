@@ -325,7 +325,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         expect(second_link['label']).to eq 'Contact us'
         expect(second_link['href']['value']).to eq 'https://example.com/contact_us'
         social = section['social']
-        expect(social.size).to eq 8
+        expect(social.size).to eq 9
         enabled_social = social.select{|s| s['enabled']}
         expect(enabled_social.size).to eq 2
         first_social = enabled_social.first

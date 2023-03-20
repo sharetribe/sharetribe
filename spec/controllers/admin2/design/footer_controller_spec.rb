@@ -76,7 +76,12 @@ describe Admin2::Design::FooterController, type: :controller do
             {"id" => "",
              "sort_priority" => "7",
              "provider" => "soundcloud",
-             "url" => ""}
+             "url" => ""},
+           "8" =>
+             {"id" => "",
+              "sort_priority" => "8",
+              "provider" => "tiktok",
+              "url" => ""}
           }
         }
 
@@ -88,9 +93,10 @@ describe Admin2::Design::FooterController, type: :controller do
       patch :update_footer, params: params, xhr: true
       expect(community.footer_enabled).to eq true
       expect(community.reload.footer_menu_links.count).to eq 1
-      expect(community.social_links.count).to eq 8
+      expect(community.social_links.count).to eq 9
       expect(community.social_links.enabled.count).to eq 1
       expect(community.social_links.first.provider).to eq 'youtube'
+      expect(community.social_links.last.provider).to eq 'tiktok'
     end
   end
 end
