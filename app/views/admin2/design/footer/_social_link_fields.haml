@@ -3,7 +3,7 @@
   = f.hidden_field :id
   = f.hidden_field :sort_priority, class: %i[social-link-sort-prior]
   = f.hidden_field :provider
-  = f.label :url, social_link_name(social_link.provider)
-  = f.text_field :url, maxlength: 255, disabled: defined?(disabled) && disabled, url: true, placeholder: 'https://', class: %i[form-control social-link-row]
+  = f.label :url, social_link_name(social_link.provider), class: %i[social-link-label]
+  = f.text_field :url, maxlength: 255, disabled: defined?(disabled) && disabled, url: true, placeholder: social_link_placeholder(social_link.provider), class: %i[form-control social-link-row]
   - unless disabled
     %span.handle-move

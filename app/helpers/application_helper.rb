@@ -810,6 +810,10 @@ module ApplicationHelper
     soundcloud: {
       name: "SoundCloud",
       placeholder: "https://soundcloud.com/CHANGEME"
+    },
+    tiktok: {
+      name: 'TikTok',
+      placeholder: 'https://www.tiktok.com/CHANGEME'
     }
   }.freeze
 

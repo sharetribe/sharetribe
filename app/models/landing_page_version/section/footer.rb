@@ -89,7 +89,8 @@ module LandingPageVersion::Section
         {service: "googleplus", url: ""},
         {service: "linkedin", url: ""},
         {service: "pinterest", url: ""},
-        {service: "soundcloud", url: ""}
+        {service: "soundcloud", url: ""},
+        {service: "tiktok", url: ""}
       ],
       copyright: "",
       logo: { type: "marketplace_data", id: "logo" }
