@@ -415,7 +415,7 @@ class ListingPresenter < MemoisticPresenter
         color: color,
         fillcolor: fillcolor,
         weight: weight,
-        enc: FastPolylines::Encoder.encode(circle_polyline(lat, lng, radius))
+        enc: FastPolylines.encode(circle_polyline(lat, lng, radius))
       }.map{|k,v| "#{k}:#{v}"}.join('|')
     end
 
@@ -423,8 +423,8 @@ class ListingPresenter < MemoisticPresenter
       detail = 8
       r = 6371
 
-      lat_r = (lat * Math::PI) / 180
-      lng_r = (lng * Math::PI) / 180
+      lat_r = (lat.to_f * Math::PI) / 180
+      lng_r = (lng.to_f * Math::PI) / 180
       d = radius.to_f / 1000 / r
 
       points = []
@@ -444,10 +444,22 @@ class ListingPresenter < MemoisticPresenter
           Math::PI
         point_lat = (point_lat * 180) / Math::PI
 
+        point_lat = normalize(point_lat)
+        point_lng = normalize(point_lng)
+
         points.push([point_lat, point_lng])
       end
 
       points
+    end
+
+    def normalize(coord)
+      if coord < -180
+        coord += 360
+      elsif coord > 180
+        coord -= 360
+      end
+      coord
     end
   end
 
