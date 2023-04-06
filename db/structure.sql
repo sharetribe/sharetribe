@@ -666,7 +666,8 @@ CREATE TABLE `export_task_results` (
   `file_updated_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_on_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feature_flags`;
@@ -2534,6 +2535,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20220414125847'),
 ('20220929080535'),
 ('20221006100641'),
-('20221006100754');
+('20221006100754'),
+('20230405115307');
 
 
