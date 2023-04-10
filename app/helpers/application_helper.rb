@@ -266,7 +266,7 @@ module ApplicationHelper
     pattern = /[\.)]*$/
     text.gsub(/\b(https?:\/\/|www\.)\S+/i) do |link_url|
       site_url = (link_url.starts_with?("www.") ? "http://" + link_url : link_url)
-      link_to(link_url.gsub(pattern,""), site_url.gsub(pattern,""), class: "truncated-link") + link_url.match(pattern)[0]
+      link_to(link_url.gsub(pattern,""), site_url.gsub(pattern,""), class: "truncated-link", rel: 'nofollow') + link_url.match(pattern)[0]
     end
   end
 
