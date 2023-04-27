@@ -11,7 +11,7 @@ module FeatureTests
         new_listing = FeatureTests::Page::NewListing
 
         topbar.click_post_a_new_listing
-        new_listing.fill(title, price: price)
+        new_listing.fill(title: title, price: price)
         new_listing.save_listing
 
         expect(page).to have_content("Listing created successfully.")

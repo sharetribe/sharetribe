@@ -4,14 +4,14 @@ class MigrateListingImagesToPaperClip < ActiveRecord::Migration
     say "The old listing_images directory IS NOT DELETED (for backup and safety).", true
     say "So you can delete it manually later.", true
     say "Going through all #{Listing.count} listings now:"
-    if  File.exists?("public/images/listing_images")
+    if  File.exist?("public/images/listing_images")
       listing_images_path = "public/images/listing_images"
     else
       listing_images_path = "public/listing_images"
     end
     
      Listing.all.each do |listing|
-       if File.exists?("#{listing_images_path}/#{listing.id.to_s}.png")
+       if File.exist?("#{listing_images_path}/#{listing.id.to_s}.png")
          listing_image = ListingImage.new(:image => File.new("#{listing_images_path}/#{listing.id.to_s}.png"))
          listing.listing_images = [listing_image]
        end

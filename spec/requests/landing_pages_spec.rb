@@ -76,10 +76,10 @@ describe "Landing page", type: :request do
     @community.reload
 
     # Person with username with no substrings that match a valid locale
-    @person = FactoryGirl.create(:person, username: "u1234")
+    @person = FactoryGirl.create(:person, username: "u1234", community_id: @community.id)
 
     # Person with username with a locale present as substring
-    @person_with_locale_substring = FactoryGirl.create(:person, username: "fooen")
+    @person_with_locale_substring = FactoryGirl.create(:person, username: 'fooen', community_id: @community.id)
 
     10.times do
       FactoryGirl.create(:category, community_id: @community.id)

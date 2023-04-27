@@ -35,7 +35,7 @@ describe Admin::CommunitiesController, type: :controller do
     before do
       # mock NewLayoutViewUtils.enabled_features with params
       allow(NewLayoutViewUtils).to receive(:enabled_features)
-        .with(foo: "true", bar: "true").and_return([:foo, :bar])
+        .with({foo: "true", bar: "true"}).and_return([:foo, :bar])
       allow(NewLayoutViewUtils).to receive(:resolve_disabled)
         .with([:foo, :bar]).and_return([:wat])
 
@@ -53,8 +53,7 @@ describe Admin::CommunitiesController, type: :controller do
     end
 
     it "should enable given features for a user" do
-      expect(FeatureFlagService::API::Api.features)
-        .to receive(:enable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar])
+      expect(FeatureFlagService::API::Api.features).to receive(:enable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar])
       put :update_new_layout, params: { enabled_for_user: { foo: "true", bar: "true"  } }
     end
 

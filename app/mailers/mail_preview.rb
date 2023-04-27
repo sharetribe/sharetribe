@@ -79,7 +79,7 @@ class MailPreview < MailView
   end
 
   def community_updates
-    CommunityMailer.community_updates(member, community, [listing])
+    CommunityMailer.community_updates(member, community, [listing], nil)
   end
 
   def welcome_email

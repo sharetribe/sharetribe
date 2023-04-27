@@ -3,7 +3,7 @@ require 'active_support/core_ext/module/aliasing'
 require 'active_support/core_ext/object/blank'
 
 module Demoji
-  def create_or_update *args
+  def create_or_update(**args)
     _rescued_counter ||= 0
 
     ActiveSupport::Deprecation.silence { super }

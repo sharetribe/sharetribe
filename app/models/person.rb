@@ -324,7 +324,7 @@ class Person < ApplicationRecord
   end
 
   def picture_from_url(url)
-    self.image = open(url) # rubocop:disable Security/Open
+    self.image = URI.open(url) # rubocop:disable Security/Open
     self.save
   end
 

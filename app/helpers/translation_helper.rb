@@ -5,8 +5,8 @@ module TranslationHelper
       @new_translation = new_translation
     end
 
-    def or_fallback_to(tr_key, opts = {})
-      @new_translation || I18n.translate(tr_key, opts)
+    def or_fallback_to(tr_key, **kwargs)
+      @new_translation || I18n.translate(tr_key, **kwargs)
     end
   end
 
@@ -38,15 +38,16 @@ module TranslationHelper
   # use_new_translation("apples", count: "5").or_fallback_to("count_apples", count: 5)
   # => "There are 5 apples"
   #
-  def use_new_translation(tr_key, opts = {})
+  def use_new_translation(tr_key, **kwargs)
+    kwargs.merge(
+      # Throw error, if not found
+      # Disable fallbacks (no idea why the value needs to be `true`
+      # instead of `false`. Feels counter intuitive)
+      throw: true,
+      fallback: true
+    )
     translation =
-      I18n.translate(tr_key, opts.merge(
-                       # Throw error, if not found
-                       # Disable fallbacks (no idea why the value needs to be `true`
-                       # instead of `false`. Feels counter intuitive)
-                       throw: true,
-                       fallback: true
-                     ))
+      I18n.translate(tr_key, **kwargs)
 
     NewTranslationOrFallback.new(translation)
   rescue StandardError

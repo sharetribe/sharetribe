@@ -8,7 +8,7 @@
   = link_to remove_admin_category_path(category), remove_html_opts do
     = icon_tag("cross", ["icon-fix"])
 - else
-  = link_to admin_category_path(category), remove_html_opts.merge(:method => :delete, data: {:confirm => t("admin.categories.index.remove_category_confirmation", {category_name: category.display_name(I18n.locale)})}) do
+  = link_to admin_category_path(category), remove_html_opts.merge(:method => :delete, data: {:confirm => t("admin.categories.index.remove_category_confirmation", category_name: category.display_name(I18n.locale))}) do
     = icon_tag("cross", ["icon-fix"])
 
 - sort_disabled_class = category_count == 1 ? "disabled" : ""

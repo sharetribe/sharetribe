@@ -50,14 +50,18 @@ describe I18nHelper do
     }
 
     def expect_locale(opts)
-      expect(I18nHelper.select_locale(opts))
+      expect(I18nHelper.select_locale(user_locale: opts[:user_locale],
+                                      param_locale: opts[:param_locale],
+                                      community_locales: opts[:community_locales],
+                                      community_default: opts[:community_default],
+                                      all_locales: opts[:all_locales]))
     end
 
     it "uses user locale if available" do
       expect_locale(
         user_locale: "es",
         param_locale: "en",
-        community_locales: ["fr", "en", "es"],
+        community_locales: %w[fr en es],
         community_default: "fr",
         all_locales: all_locales
       ).to eq("es")
@@ -67,7 +71,7 @@ describe I18nHelper do
       expect_locale(
         user_locale: "es",
         param_locale: "en",
-        community_locales: ["fr", "en", "es-ES"],
+        community_locales: %w[fr en es-ES],
         community_default: "fr",
         all_locales: all_locales
       ).to eq("es-ES")
@@ -77,7 +81,7 @@ describe I18nHelper do
       expect_locale(
         user_locale: "en",
         param_locale: "es",
-        community_locales: ["fr", "es"],
+        community_locales: %w[fr es],
         community_default: "fr",
         all_locales: all_locales
       ).to eq("es")
@@ -87,7 +91,7 @@ describe I18nHelper do
       expect_locale(
         user_locale: "en",
         param_locale: "es",
-        community_locales: ["fr", "es-ES"],
+        community_locales: %w[fr es-ES],
         community_default: "fr",
         all_locales: all_locales
       ).to eq("es-ES")
@@ -97,7 +101,7 @@ describe I18nHelper do
       expect_locale(
         user_locale: "en",
         param_locale: "fi",
-        community_locales: ["fr", "es-ES"],
+        community_locales: %w[fr es-ES],
         community_default: "fr",
         all_locales: all_locales
       ).to eq("fr")

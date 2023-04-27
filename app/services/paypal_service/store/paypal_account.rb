@@ -161,7 +161,7 @@ module PaypalService::Store::PaypalAccount
 
   def create(opts:)
     if opts[:order_permission_request_token].present?
-      opts[:order_permission_request_token] = URI.decode(opts[:order_permission_request_token]) # rubocop:disable Lint/UriEscapeUnescape
+      opts[:order_permission_request_token] = URI.decode_www_form_component(opts[:order_permission_request_token])
     end
     entity = PaypalAccountCreate.call(opts)
     account = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
@@ -182,7 +182,9 @@ module PaypalService::Store::PaypalAccount
       payer_id: payer_id
     }
 
-    model = finder.find(find_params)
+    model = finder.find(community_id: community_id,
+                        person_id: person_id,
+                        payer_id: payer_id)
     update_model(model, opts, find_params)
   end
 
@@ -194,7 +196,10 @@ module PaypalService::Store::PaypalAccount
       order_permission_onboarding_id: order_permission_onboarding_id
     }
 
-    model = finder.find_pending(find_params)
+    model = finder.find_pending(community_id: community_id,
+                                person_id: person_id,
+                                order_permission_request_token: order_permission_request_token,
+                                order_permission_onboarding_id: order_permission_onboarding_id)
     update_model(model, opts, find_params)
   end
 
@@ -204,7 +209,8 @@ module PaypalService::Store::PaypalAccount
       person_id: person_id
     }
 
-    model = finder.find_active(find_params)
+    model = finder.find_active(community_id: community_id,
+                               person_id: person_id)
     update_model(model, opts, find_params)
   end
 

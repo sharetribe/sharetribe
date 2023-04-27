@@ -8,7 +8,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: small
     docker:
-      - image: cimg/ruby:2.7.5-browsers
+      - image: cimg/ruby:3.2.1-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
@@ -25,7 +25,6 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
-      - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       # Chrome driver installation leaves a license file in project dir, which
       # prevents checkout. The project dir must be empty.

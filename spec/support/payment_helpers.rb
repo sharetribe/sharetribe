@@ -19,7 +19,9 @@ module PaymentHelpers
       payment_process: :preauthorize,
       payment_gateway: payment_gateway
     }
-    tx_settings_api.activate(data)
+    tx_settings_api.activate(community_id: community.id,
+                             payment_process: :preauthorize,
+                             payment_gateway: payment_gateway)
     tx_settings_api.update(data.merge(
       commission_from_seller: commission_from_seller,
       minimum_price_cents: minimum_price_cents
@@ -29,7 +31,9 @@ module PaymentHelpers
         api_private_key: 'sk_test_123456789012345678901234',
         api_publishable_key: 'pk_test_123456789012345678901234'
       ))
-      tx_settings_api.api_verified(data)
+      tx_settings_api.api_verified(community_id: community.id,
+                                   payment_process: :preauthorize,
+                                   payment_gateway: payment_gateway)
     end
   end
 end

@@ -5,7 +5,9 @@ module TransactionService::API
 
     # Provision new settings (= new gateway and/or process) for a community
     def provision(settings)
-      existing_settings = PaymentSettingsStore.get(settings.slice(:community_id, :payment_gateway, :payment_process))
+      existing_settings = PaymentSettingsStore.get(community_id: settings[:community_id],
+                                                   payment_gateway: settings[:payment_gateway],
+                                                   payment_process: settings[:payment_process])
       unless existing_settings.nil?
         return Result::Error.new("gateway / process already provisioned. cid: #{settings[:community_id]}, gateway: #{settings[:payment_gateway]}, process: #{settings[:payment_process]}")
       end

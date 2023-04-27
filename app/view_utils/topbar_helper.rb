@@ -14,12 +14,12 @@ module TopbarHelper
         :keyword
       end
 
-    search_path_string = PathHelpers.search_url({
+    search_path_string = PathHelpers.search_url(
       community_id: community.id,
       opts: {
         only_path: true
       }
-    })
+    )
 
     given_name, family_name = *PersonViewUtils.person_display_names(user, community)
     avatar_image = user&.image&.present? && !user.image_processing ? { url: user.image.url(:thumb) } : nil

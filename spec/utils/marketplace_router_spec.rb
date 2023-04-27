@@ -207,9 +207,12 @@ describe MarketplaceRouter do
         host: "marketplace.sharetribe.com",
         no_communities: false,
         app_domain: "sharetribe.com"
-      }
+      }.deep_merge(opts)
 
-      reason = MarketplaceRouter.redirect_reason(defaults.deep_merge(opts))
+      reason = MarketplaceRouter.redirect_reason(community: defaults[:community],
+                                                 host: defaults[:host],
+                                                 no_communities: defaults[:no_communities],
+                                                 app_domain: defaults[:app_domain])
       expect(reason)
     end
 

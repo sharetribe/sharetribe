@@ -12,7 +12,7 @@ class TransactionCancellationDismissedJob < Struct.new(:transaction_id, :communi
 
   def perform
     tx = Transaction.find(transaction_id)
-    TransactionMailer.transaction_cancellation_dismissed(transaction: tx, recipient: tx.author).deliver_now
-    TransactionMailer.transaction_cancellation_dismissed(transaction: tx, recipient: tx.starter).deliver_now
+    TransactionMailer.transaction_cancellation_dismissed(tx, tx.author).deliver_now
+    TransactionMailer.transaction_cancellation_dismissed(tx, tx.starter).deliver_now
   end
 end

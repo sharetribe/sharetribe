@@ -6,13 +6,13 @@ module I18nActionMailer
   end
 
   module InstanceMethods
-    def translate(key, options = {})
-      I18n.translate(key, options)
+    def translate(key, **kwargs)
+      I18n.translate(key, **kwargs)
     end
     alias_method :t, :translate
 
-    def localize(key, options = {})
-      I18n.localize(key, options)
+    def localize(key, **kwargs)
+      I18n.localize(key, **kwargs)
     end
     alias_method :l, :localize
   end

@@ -130,7 +130,7 @@ describe "plan provisioning", type: :request do
     }
 
     it "returns 404 if external plan service is not in use" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: {plans: []}.to_json
+      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: { plans: [] }.to_json
       expect(response.status).to eq(404)
     end
   end

@@ -143,6 +143,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def update_new_layout
     h_params = params.to_unsafe_hash
     @community = @current_community
+
     enabled_for_user = Maybe(h_params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_user = NewLayoutViewUtils.resolve_disabled(enabled_for_user)
 

@@ -82,18 +82,16 @@ I18n.module_eval do
   class << self
 
     # Monkey patch the translate method to include service name options
-    def translate_with_service_name(*args)
+    def translate_with_service_name(key = nil, **kwargs)
       service_name = ApplicationHelper.fetch_community_service_name_from_thread
 
-      options  = args.last.is_a?(Hash) ? args.pop : {}
-
-      with_service_name = if !options.key?(:service_name)
-        options.merge(:service_name => service_name)
+      with_service_name = if !kwargs.key?(:service_name)
+        kwargs.merge(:service_name => service_name)
       else
-        options
+        kwargs
       end
 
-      translate_without_service_name(*(args << with_service_name))
+      translate_without_service_name(key, **with_service_name)
     end
 
     alias_method :translate_without_service_name, :translate # Save the original :translate to :translate_without_service_name
@@ -130,8 +128,8 @@ end
 #
 if Rails.env.test?
   module ActionView::Helpers::TranslationHelper
-    def t_with_raise(*args)
-      value = t_without_raise(*args)
+    def t_with_raise(key, **args)
+      value = t_without_raise(key, **args)
 
       if value.to_s.match(/title="translation missing: (.+)"/)
         raise "Translation missing: #{$1}"

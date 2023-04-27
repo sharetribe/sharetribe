@@ -27,7 +27,7 @@ module ConfigLoader
 
   def read_yaml_file(file)
     abs_path = "#{Rails.root}/#{file}"
-    file_content = if File.exists?(abs_path)
+    file_content = if File.exist?(abs_path)
       YAML.load_file(abs_path)[Rails.env]
     end
 

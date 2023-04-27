@@ -121,7 +121,7 @@ class ListingPresenter < MemoisticPresenter
       community_id: community_id
     }
 
-    TransactionService::API::Api.processes.get(opts)
+    TransactionService::API::Api.processes.get(community_id: community_id, process_id: transaction_process_id)
       .maybe
       .process
       .or_else(nil)

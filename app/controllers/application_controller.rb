@@ -288,13 +288,9 @@ class ApplicationController < ActionController::Base
   # Note: This filter is safe to run even if :fetch_community
   # filter is skipped
   def perform_redirect
-    redirect_params = {
-      community: @current_community,
-      plan: @current_plan,
-      request: request
-    }
-
-    MarketplaceRouter.perform_redirect(redirect_params) do |target|
+    MarketplaceRouter.perform_redirect(community: @current_community,
+                                       plan: @current_plan,
+                                       request: request) do |target|
       if target[:message] && params[:action] != 'not_available'
         redirect_to community_not_available_path
       elsif target[:message]
@@ -577,22 +573,7 @@ class ApplicationController < ActionController::Base
       locale_change_links: locale_change_links,
       icons: pick_icons(
         APP_CONFIG.icon_pack,
-        [
-          "dropdown",
-          "mail",
-          "user",
-          "list",
-          "settings",
-          "logout",
-          "rows",
-          "home",
-          "new_listing",
-          "information",
-          "feedback",
-          "invite",
-          "redirect",
-          "admin"
-        ])
+        %w[dropdown mail user list settings logout rows home new_listing information feedback invite redirect admin])
     }
 
     common.merge(user)
@@ -605,7 +586,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_not_found!(msg = "Not found")
-    raise ActionController::RoutingError.new(msg)
+    redirect_to error_not_found_path, status: :not_found, flash: { error: msg }
   end
 
   def make_onboarding_popup

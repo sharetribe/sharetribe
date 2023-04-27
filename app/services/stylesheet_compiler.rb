@@ -135,7 +135,7 @@ module StylesheetCompiler
       FileUtils.mkdir_p path
       yield path
     ensure
-      FileUtils.rm_rf( path ) if File.exists?( path )
+      FileUtils.rm_rf( path ) if File.exist?( path )
     end
 
   end

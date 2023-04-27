@@ -30,12 +30,7 @@ describe "CommunityMailer", type: :mailer do
 
       @p1_unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @p1.id).token
 
-      @email = CommunityMailer.community_updates(
-        recipient: @p1,
-        community: @p1.accepted_community,
-        listings: [@l2],
-        unsubscribe_token: @p1_unsubscribe_token
-      )
+      @email = CommunityMailer.community_updates(@p1, @p1.accepted_community, [@l2], @p1_unsubscribe_token)
     end
 
     it "should have correct address and subject" do

@@ -205,7 +205,7 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
-  def transaction_disputed(transaction:, recipient:, is_admin: false, is_seller: false)
+  def transaction_disputed(transaction, recipient, is_admin = false, is_seller = false)
     @transaction = transaction
     @is_admin = is_admin
     @is_seller = is_seller
@@ -227,7 +227,7 @@ class TransactionMailer < ActionMailer::Base
 
   end
 
-  def transaction_refunded(transaction:, recipient:)
+  def transaction_refunded(transaction, recipient)
     @transaction = transaction
     @is_seller = transaction.author == recipient
     community = transaction.community
@@ -245,7 +245,7 @@ class TransactionMailer < ActionMailer::Base
 
   end
 
-  def transaction_cancellation_dismissed(transaction:, recipient:)
+  def transaction_cancellation_dismissed(transaction, recipient)
     @transaction = transaction
     @is_seller = transaction.author == recipient
     community = transaction.community
@@ -262,7 +262,7 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
-  def transaction_commission_charge_failed(transaction:, recipient:)
+  def transaction_commission_charge_failed(transaction, recipient)
     @transaction = transaction
     community = transaction.community
     set_up_layout_variables(recipient, community)

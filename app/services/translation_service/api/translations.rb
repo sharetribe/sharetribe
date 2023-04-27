@@ -9,12 +9,12 @@ module TranslationService::API
 
     ## GET /translations/:community_id/
     def get(community_id, request_params = {})
-      params = TranslationService::DataTypes::Translation
-        .validate_find_params(request_params)
+      params = TranslationService::DataTypes::Translation.validate_find_params(request_params)
 
-      Result::Success.new(@store.get({
-                            community_id: community_id
-                            }.merge(params)))
+      Result::Success.new(@store.get(community_id: community_id,
+                                     translation_keys: params[:translation_keys],
+                                     locales: params[:locales],
+                                     fallback_locale: params[:fallback_locale]))
     end
 
 
@@ -28,11 +28,7 @@ module TranslationService::API
       groups = TranslationService::DataTypes::Translation
         .validate_translation_groups({translation_groups: translation_groups})
 
-      Result::Success.new(@store.create({
-                            community_id: community_id,
-                            translation_groups: groups[:translation_groups]
-                          }))
-
+      Result::Success.new(@store.create(community_id: community_id, translation_groups: groups[:translation_groups]))
     end
 
 
@@ -43,14 +39,8 @@ module TranslationService::API
         raise ArgumentError.new(msg)
       end
 
-
-      params = TranslationService::DataTypes::Translation
-        .validate_delete_params(translation_keys: translation_keys)
-
-      Result::Success.new(@store.delete({
-                            community_id: community_id
-                            }.merge(params)))
-
+      params = TranslationService::DataTypes::Translation.validate_delete_params(translation_keys: translation_keys)
+      Result::Success.new(@store.delete(community_id: community_id, translation_keys: params[:translation_keys]))
     end
 
   end

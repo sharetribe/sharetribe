@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.7.5'
+ruby '3.2.1'
 
-gem 'rails', '6.1.7.2'
+gem 'rails', '6.1.7.3'
 
 gem 'coffee-rails', '~> 5.0.0'
 gem 'uglifier', '~> 4.2.0'
 
 gem 'sass-rails', '~> 5.0.6'
+gem 'compass', git: 'https://github.com/Charly3X/compass.git'
 gem 'compass-rails', '~> 4.0.0'
 
 gem 'jquery-rails', '~> 4.3.1'
@@ -27,7 +28,7 @@ gem 'sass', '3.4.24'
 gem 'rack-attack', '~> 6.6.1'
 gem 'rest-client', '~> 2.1.0'
 
-gem 'paperclip', '~> 6.1.0'
+gem 'paperclip', '~> 6.1.1', git: 'https://github.com/Charly3X/paperclip.git', branch: 'main'
 gem 'delayed_paperclip', '~> 3.0.1'
 
 # Active Storage
@@ -39,7 +40,7 @@ gem 'aws-sdk-ses', '~> 1.47.0'
 gem 'will_paginate', '~> 3.3.1'
 gem 'redis', '~> 4.6.0'
 gem 'hiredis', '~> 0.6.3'
-gem 'thinking-sphinx', '~> 3.3.0'
+gem 'thinking-sphinx', '~> 5.5'
 gem 'flying-sphinx', '~> 1.2.0'
 # Use patched v2.0.2
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
@@ -59,7 +60,7 @@ gem 'omniauth-linkedin-oauth2', '~> 1.0.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 
 # Dynamic form adds helpers that are needed, e.g. error_messages
-gem 'dynamic_form', '~> 1.1.4'
+gem 'dynamic_form', '~> 1.1.5', git: 'https://github.com/Charly3X/dynamic_form.git'
 gem 'truncate_html', '~> 0.9.3'
 gem 'money-rails', '~> 1.15.0'
 
@@ -103,7 +104,7 @@ gem 'oj', '~> 3.13'
 gem 'request_store', '~> 1.5.1'
 
 # ActionMailer dependency that needs forced update for security patch
-gem 'mail', '~> 2.7.1'
+gem 'mail', '~> 2.8'
 
 gem 'tzinfo-data', '~> 1.2022.1'
 
@@ -165,7 +166,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry-byebug', '~> 3.9.0'
+  gem 'pry-byebug', '~> 3.10'
 end
 
 
@@ -173,12 +174,12 @@ gem 'mini_racer', '~> 0.6.0', platforms: :ruby
 gem 'js-routes', '~> 2.2.3'
 # Color utilities needed for landing page
 gem 'color', '~> 1.8'
-
+gem 'pry', '~> 0.14'
 gem 'uuidtools', '~> 2.2.0'
-gem 'transit-ruby', git: 'https://github.com/Charly3X/transit-ruby.git'
+gem 'transit-ruby', '0.9', git: 'https://github.com/Charly3X/transit-ruby.git'
 
 # Markdown parser
-gem 'redcarpet', '~> 3.5.1'
+gem 'redcarpet', '~> 3.6.0'
 
 gem 'intercom', '~> 4.1.3'
 
@@ -187,8 +188,10 @@ gem 'memoist', '~> 0.16.2'
 gem 'biz', '~> 1.8.2'
 gem 'ffi', '~> 1.15.5'
 gem 'rubyzip', '~> 2.3.2'
-gem 'bootsnap', '~> 1.4.5', require: false
+gem 'bootsnap', '~> 1.16', require: false
 gem 'select2-rails', '~> 4.0.13'
 gem 'cocoon', '~> 1.2.15'
 gem 'fast-polylines', '~> 2.2.2'
 gem 'rb-inotify', '~> 0.10', require: false
+gem 'psych', '< 4'
+gem 'sorted_set'

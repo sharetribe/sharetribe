@@ -222,22 +222,23 @@ Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |comm
                        community_id: community.id,
                        order_permission: FactoryGirl.build(:order_permission))
   end
-  data = {
-    community_id: community.id,
-    payment_process: :preauthorize,
-    payment_gateway: payment_gateway
-  }
-  tx_settings_api.activate(data)
-  tx_settings_api.update(data.merge(
-    commission_from_seller: 10,
-    minimum_price_cents: 100
-  ))
+  tx_settings_api.activate(community_id: community.id,
+                           payment_process: :preauthorize,
+                           payment_gateway: payment_gateway)
+  tx_settings_api.update({community_id: community.id,
+                          payment_process: :preauthorize,
+                          payment_gateway: payment_gateway,
+                          commission_from_seller: 10,
+                          minimum_price_cents: 1000})
   if payment_gateway == 'stripe'
-    tx_settings_api.update(data.merge(
-      api_private_key: 'sk_test_123456789012345678901234',
-      api_publishable_key: 'pk_test_123456789012345678901234'
-    ))
-    tx_settings_api.api_verified(data)
+    tx_settings_api.update({community_id: community.id,
+                            payment_process: :preauthorize,
+                            payment_gateway: payment_gateway,
+                            api_private_key: 'sk_test_123456789012345678901234',
+                            api_publishable_key: 'pk_test_123456789012345678901234'})
+    tx_settings_api.api_verified(community_id: community.id,
+                                 payment_process: :preauthorize,
+                                 payment_gateway: payment_gateway)
   end
 end
 

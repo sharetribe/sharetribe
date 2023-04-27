@@ -10,7 +10,7 @@ module AnalyticService
         EVENT_USER_INVITED
       ].freeze
 
-      def event(person_id:, event_data:)
+      def event(person_id, event_data)
         person = Person.find_by(id: person_id)
         if person
           get_intercom_user(person)
@@ -25,7 +25,7 @@ module AnalyticService
       end
       handle_asynchronously :event
 
-      def create_or_update_user(person_id:, community_id:)
+      def create_or_update_user(person_id, community_id)
         person = Person.find_by(id: person_id)
         if person
           intercom_user = client.users.create(
@@ -46,7 +46,7 @@ module AnalyticService
       end
       handle_asynchronously :create_or_update_user
 
-      def update_user_incremental_properties(person_id:, properties:)
+      def update_user_incremental_properties(person_id, properties)
         person = Person.find_by(id: person_id)
         if person
           intercom_user = get_intercom_user(person)
@@ -90,13 +90,10 @@ module AnalyticService
           event_name = event_data.try(:[], :event_name)
           if enabled_for_person?(person: person, community: community)
             if track_event?(event_name)
-              new.event(
-                person_id: person.id,
-                event_data: event_data
-              )
+              new.event(person.id, event_data)
             end
             if status_change_event?(event_name)
-              new.create_or_update_user(person_id: person.id, community_id: community.try(:id))
+              new.create_or_update_user(person.id, community.try(:id))
             end
           end
         end
@@ -111,16 +108,13 @@ module AnalyticService
 
         def setup_person(person:, community:)
           if enabled_for_person?(person: person, community: community)
-            new.create_or_update_user(person_id: person.id, community_id: community.try(:id))
+            new.create_or_update_user(person.id, community.try(:id))
           end
         end
 
         def send_incremental_properties(person:, community:, properties:)
           if enabled_for_person?(person: person, community: community)
-            new.update_user_incremental_properties(
-              person_id: person.id,
-              properties: properties.stringify_keys
-            )
+            new.update_user_incremental_properties(person.id, properties.stringify_keys)
           end
         end
       end

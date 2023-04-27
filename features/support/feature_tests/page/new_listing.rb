@@ -5,7 +5,7 @@ module FeatureTests
 
       module_function
 
-      def fill(title, price: "", description: "")
+      def fill(title:, price: "", description: "")
         choose_last_shape
         choose_pickup
         new_listing_form.fill_in("listing[title]", with: title)

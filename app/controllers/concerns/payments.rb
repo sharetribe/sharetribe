@@ -192,10 +192,10 @@ module Payments
     validate do |prefs|
       if minimum_listing_price.nil? || minimum_listing_price < (minimum_commission || 0)
         prefs.errors[:base] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_min",
-                                      { minimum_commission: minimum_commission })
+                                      minimum_commission: minimum_commission)
       elsif minimum_transaction_fee && minimum_listing_price < minimum_transaction_fee
         prefs.errors[:base] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_tx_fee",
-                                      { minimum_transaction_fee: minimum_transaction_fee })
+                                      minimum_transaction_fee: minimum_transaction_fee)
       end
     end
   end

@@ -1632,6 +1632,7 @@ Style/OneLineConditional:
 # AllowedMethods: respond_to_missing?
 Style/OptionalBooleanParameter:
   Exclude:
+    - 'app/mailers/transaction_mailer.rb'
     - 'app/helpers/application_helper.rb'
     - 'app/mailers/person_mailer.rb'
     - 'app/models/transaction/concerns/export_transaction.rb'

@@ -19,7 +19,7 @@
 </section>
 
 <% autoplay = !!s["autoplay"] %>
-<% autoplaymuted = s["autoplay"] =~ /mute/ %>
+<% autoplaymuted = autoplay && s["autoplay"] =~ /mute/ %>
 <% content_for :youtube_ready_js, flush: false do %>
  (function() {
 

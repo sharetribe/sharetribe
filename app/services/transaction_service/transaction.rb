@@ -225,8 +225,8 @@ module TransactionService::Transaction
       charge_request =
         {
           transaction_id: transaction_id,
-          payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction.listing_title }),
-          payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction.listing_title }),
+          payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", listing_title: transaction.listing_title),
+          payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", listing_title: transaction.listing_title),
           minimum_commission: transaction.minimum_commission,
           commission_to_admin: commission_to_admin
         }
@@ -250,9 +250,7 @@ module TransactionService::Transaction
         paypal_payment.charge_commision_failed
         transaction = Transaction.find(transaction_id)
         transaction.community.admins.each do |admin|
-          TransactionMailer.transaction_commission_charge_failed(
-            transaction: transaction,
-            recipient: admin).deliver_now
+          TransactionMailer.transaction_commission_charge_failed(transaction, admin).deliver_now
         end
       end
     end

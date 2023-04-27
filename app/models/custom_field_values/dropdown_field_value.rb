@@ -33,7 +33,7 @@ class DropdownFieldValue < OptionFieldValue
       return true unless question.required?
     end
     unless custom_field_option_selections.size == 1
-      errors.add(:custom_field_option_selections, :'wrong_length.one', {count: 1})
+      errors.add(:custom_field_option_selections, :'wrong_length.one', **{ count: 1 })
     end
   end
 end

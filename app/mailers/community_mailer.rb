@@ -28,10 +28,10 @@ class CommunityMailer < ActionMailer::Base
         token = AuthToken.create_unsubscribe_token(person_id: person.id).token
         MailCarrier.deliver_now(
           CommunityMailer.community_updates(
-          recipient: person,
-          community: community,
-          listings: listings_to_send,
-          unsubscribe_token: token
+          person,
+          community,
+          listings_to_send,
+          token
         ))
       rescue StandardError => e
         # Catch the exception and continue sending emails
@@ -43,7 +43,7 @@ class CommunityMailer < ActionMailer::Base
     end
   end
 
-  def community_updates(recipient:, community:, listings:, unsubscribe_token:)
+  def community_updates(recipient, community, listings, unsubscribe_token)
     @community = community
     @current_community = community
     @recipient = recipient

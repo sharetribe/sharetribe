@@ -29,19 +29,22 @@ class TransactionService::Confirmation
   end
 
   def complete_or_cancel_tx
-    data = {
-      community_id: community.id,
-      transaction_id: transaction.id,
-      message: message,
-      sender_id: user.id,
-      metadata: {
-        user_id: user.id
-      }
-    }
     if status == :confirmed
-      TransactionService::Transaction.complete(data)
+      TransactionService::Transaction.complete(community_id: community.id,
+                                               transaction_id: transaction.id,
+                                               message: message,
+                                               sender_id: user.id,
+                                               metadata: {
+                                                 user_id: user.id
+                                               })
     else
-      TransactionService::Transaction.cancel(data)
+      TransactionService::Transaction.cancel(community_id: community.id,
+                                             transaction_id: transaction.id,
+                                             message: message,
+                                             sender_id: user.id,
+                                             metadata: {
+                                               user_id: user.id
+                                             })
     end
   end
 

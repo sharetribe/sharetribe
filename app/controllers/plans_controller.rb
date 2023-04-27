@@ -186,5 +186,4 @@ class PlansController < ApplicationController
   def plans_api
     PlanService::API::Api.plans
   end
-
 end
