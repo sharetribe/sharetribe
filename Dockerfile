@@ -1,4 +1,4 @@
-FROM ruby:3.2.1-bullseye
+FROM ruby:3.2.2-bullseye
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
