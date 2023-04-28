@@ -7,6 +7,10 @@ on:
         description: The environment to deploy to
         required: true
         default: staging
+        type: choice
+        options:
+          - staging
+          - production
       git_ref:
         description: Git ref to deploy
         required: true
