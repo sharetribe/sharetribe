@@ -2462,7 +2462,8 @@ en:
     add_and_pay: Confirm payment
     card_not_stored: Your payment is securely processed by Stripe. %{service_name}
       does not store your credit/debit card information.
-    missing_payment: Your listings can't be bought or booked. %{settings_link} to enable transactions.
+    missing_payment: Your listings can't be bought or booked. %{settings_link} to
+      enable transactions.
     stripe_bank_connected: Bank account details configured successfully!
     stripe_can_accept: You are now all set to receive money to your bank account
     stripe_credit_card: Credit card
