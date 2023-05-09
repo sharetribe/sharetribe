@@ -156,8 +156,8 @@ da-DK:
       canceled_request: Afviste ordren
       canceled_offer: Tilbud afvist
       paid: betalt %{sum}
-      payment_preauthorized: Betaling godkendt
-      payment_preauthorized_wo_sum: Betaling godkendt
+      payment_preauthorized: Anmodning om at betale sendt
+      payment_preauthorized_wo_sum: Anmodning om at betale sendt
       stripe:
         held_payment: Accepterede anmodning. Betalingen bliver tilbageholdt af %{service_name}
           indtil ordren bliver bekræftet af lejeren.
@@ -237,7 +237,7 @@ da-DK:
       request_confirmed: Success
       request_canceled: Annulleret
       request_paid: Betaling godkendt
-      request_preauthorized: Betaling godkendt
+      request_preauthorized: Anmodning om at betale sendt
       skip_feedback: Spring over
       waiting_for_listing_author_to_accept_offer: Venter på at %{listing_author_name}
         accepterer dit tilbud
@@ -2140,7 +2140,7 @@ da-DK:
         siden om et øjeblik.
       shown_in_your_public_profile: "(vises på din profil)"
       editing_profile_of: Du ændre nu %{name}s profil
-      format_markdown_link: Formater din beskrivelse ved hjælp af Afmærkning
+      format_markdown_link: formatere din beskrivelse ved hjælp af Markdown
       format_markdown: Du kan %{link}.
       username: Brugernavn
       username_description: Dit brugernavn er en del af din profils link eller URL
