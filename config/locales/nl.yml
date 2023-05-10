@@ -87,7 +87,7 @@ nl:
     stripe_fee_info:
       title: Stripe's betalingsverwerkingskosten
       body_text: Voor betalingen met Stripe vraagt %{service_name} een commissie van
-        %{stripe_commission}. De minimum kosten per transactie zijn %{minimum_transaction_fee}.
+        %{stripe_commission}%. De minimum kosten per transactie zijn %{minimum_transaction_fee}.
         Stripe's kosten zijn in deze commissie inbegrepen.
       link_to_stripe_text: hier
   conversations:
