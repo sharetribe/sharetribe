@@ -71,7 +71,7 @@ jobs:
         run: if [ "${DEPLOY_REF}" = "*selected branch*" ] ; then echo "ref=$GITHUB_REF" >> $GITHUB_OUTPUT ; else echo "ref=$DEPLOY_REF" >> $GITHUB_OUTPUT ; fi
 
       - name: Create GitHub deployment
-        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3
         id: deployment
         with:
           step: start
@@ -251,10 +251,11 @@ jobs:
         run: ~/convox releases promote "${CONVOX_RELEASE}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --wait
 
       - name: Update GitHub deployment status
-        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3
         if: always()
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ github.event.inputs.environment }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
