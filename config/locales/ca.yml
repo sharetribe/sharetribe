@@ -817,6 +817,69 @@ ca:
       if_you_would_like_to_investigate: Si voleu investigar més endavant, un bon primer
         pas és contactar amb el venedor sobre aquest tema.
       contact_the_seller: Poseu-vos en contacte amb el venedor
+  admin:
+    communities:
+      manage_members:
+        search: Buscar
+      transactions:
+        transactions: Transaccions
+        search: Buscar
+        reset_search: Mostrar totes
+        status_filter:
+          all: Tot
+          selected: 'Estatus seleccionats: %{count}'
+          selected_js: 'Estatus seleccionats: '
+          free: Gratuïta
+          confirmed: Completada
+          paid: Pagada
+          canceled: Cancel·lada
+          disputed: Disputada
+          preauthorized: Preautoritzada
+          rejected: Rebutjada
+          payment_intent_requires_action: Pendent
+          payment_intent_action_expired: Expirat
+          refunded: Reembolsada
+          dismissed: Descartada
+        status:
+          free: Transacció gratuïta
+          disputed: Disputada
+          paypal:
+            disputed: Disputada
+            refunded: Reembolsada
+            dismissed: Descartada
+          stripe:
+            disputed: Disputada
+            payment_intent_requires_action: Pendent
+            payment_intent_action_expired: Expirat
+            refunded: Reembolsada
+            dismissed: Descartada
+      listings:
+        listings: Anuncis
+        search: Buscar
+        reset_search: Mostrar tots
+        status:
+          all: Tots
+          selected_js: 'Estatus seleccionats: '
+          open: Obert
+          closed: Tancat
+          expired: Expirat
+          approval_pending: Pendent
+          approval_rejected: Rebutjat
+        headers:
+          title: Títol
+          created: Creació
+          updated: Modificació
+          category: Categoria
+          status: Estatus
+        open: Obert
+        closed: Tancat
+        expired: Expirat
+        approved: Aprovat
+        approval_pending: Pendent
+        approval_rejected: Rebutjat
+      landing_pages:
+        sections:
+          listings: Anuncis
   error_messages:
     booking:
       booking_failed_payment_voided: La reserva ha fallat a causa d'un error inesperat.

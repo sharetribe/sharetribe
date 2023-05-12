@@ -794,6 +794,69 @@ ro:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Căutare
+      transactions:
+        transactions: Tranzactii
+        search: Căutare
+        reset_search: Arata tot
+        status_filter:
+          all: Toate stările
+          selected: 'Stări selectate: %{count}'
+          selected_js: 'Stări selectate:'
+          free: 
+          confirmed: Efectuat
+          paid: Plătit
+          canceled: Anulat
+          disputed: Contestată
+          preauthorized: Preautorizat
+          rejected: Respins
+          payment_intent_requires_action: 
+          payment_intent_action_expired: 
+          refunded: 
+          dismissed: 
+        status:
+          free: Tranzacție gratuită
+          disputed: Contestată
+          paypal:
+            disputed: Contestată
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: Contestată
+            payment_intent_requires_action: 
+            payment_intent_action_expired: 
+            refunded: 
+            dismissed: 
+      listings:
+        listings: Listări
+        search: Căutare
+        reset_search: Arata tot
+        status:
+          all: Toate stările
+          selected_js: 'Stări selectate:'
+          open: Deschis
+          closed: Închis
+          expired: Expirat
+          approval_pending: 
+          approval_rejected: 
+        headers:
+          title: Titlu
+          created: Creată
+          updated: Actualizat
+          category: Categorie
+          status: Stare
+        open: Deschis
+        closed: Inchis
+        expired: Expirat
+        approved: 
+        approval_pending: 
+        approval_rejected: 
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervarea a eșuat din cauza unei erori neașteptate.

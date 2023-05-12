@@ -648,6 +648,69 @@ ja:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 販売者に問い合わせる
+  admin:
+    communities:
+      manage_members:
+        search: 検索
+      transactions:
+        transactions: お支払い履歴の表示
+        search: 検索
+        reset_search: 全件表示
+        status_filter:
+          all: すべてのステータス
+          selected: '選択されたステータス: %{count} '
+          selected_js: '選択されたステータス :'
+          free: 無料の取引
+          confirmed: 完了しました
+          paid: 支払済み
+          canceled: キャンセルされた
+          disputed: 異議あり
+          preauthorized: 事前に承認済み
+          rejected: 拒否されました
+          payment_intent_requires_action: 保留中
+          payment_intent_action_expired: 期限切れ
+          refunded: 返金済み
+          dismissed: 却下
+        status:
+          free: 会話
+          disputed: 異議あり
+          paypal:
+            disputed: 異議あり
+            refunded: 返金済み
+            dismissed: 却下
+          stripe:
+            disputed: 異議あり
+            payment_intent_requires_action: 保留中
+            payment_intent_action_expired: 期限切れ
+            refunded: 返金済み
+            dismissed: 却下
+      listings:
+        listings: リスティング
+        search: 検索
+        reset_search: 全件表示
+        status:
+          all: すべてのステータス
+          selected_js: '選択されたステータス:'
+          open: 公開
+          closed: 非公開
+          expired: 期限切れ
+          approval_pending: 
+          approval_rejected: 却下されました
+        headers:
+          title: タイトル
+          created: 作成日
+          updated: 更新日
+          category: カテゴリ
+          status: ステータス
+        open: 公開
+        closed: 非公開
+        expired: 期限切れ
+        approved: 
+        approval_pending: 保留中
+        approval_rejected: 却下されました
+      landing_pages:
+        sections:
+          listings: リスティング
   error_messages:
     booking:
       booking_failed_payment_voided: 問題が起きたため取引リクエストが完了しませんでした、再度お試しください。お支払いも実行されませんでしたのでご安心ください。

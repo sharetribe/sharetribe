@@ -802,6 +802,69 @@ en:
       if_you_would_like_to_investigate: If you would like to investigate this further,
         a good first step is to contact the seller about this.
       contact_the_seller: Contact the seller
+  admin:
+    communities:
+      manage_members:
+        search: Search
+      transactions:
+        transactions: Transactions
+        search: Search
+        reset_search: Show all
+        status_filter:
+          all: All statuses
+          selected: 'Selected statuses: %{count}'
+          selected_js: 'Selected statuses: '
+          free: Free transaction
+          confirmed: Completed
+          paid: Paid
+          canceled: Canceled
+          disputed: Disputed
+          preauthorized: Preauthorized
+          rejected: Rejected
+          payment_intent_requires_action: Pending
+          payment_intent_action_expired: Expired
+          refunded: Refunded
+          dismissed: Dismissed
+        status:
+          free: Free transaction
+          disputed: Disputed
+          paypal:
+            disputed: Disputed
+            refunded: Refunded
+            dismissed: Dismissed
+          stripe:
+            disputed: Disputed
+            payment_intent_requires_action: Pending
+            payment_intent_action_expired: Expired
+            refunded: Refunded
+            dismissed: Dismissed
+      listings:
+        listings: Listings
+        search: Search
+        reset_search: Show all
+        status:
+          all: All statuses
+          selected_js: 'Selected statuses: '
+          open: Open
+          closed: Closed
+          expired: Expired
+          approval_pending: Pending
+          approval_rejected: Rejected
+        headers:
+          title: Title
+          created: Created
+          updated: Updated
+          category: Category
+          status: Status
+        open: Open
+        closed: Closed
+        expired: Expired
+        approved: Approved
+        approval_pending: Pending
+        approval_rejected: Rejected
+      landing_pages:
+        sections:
+          listings: Listings
   error_messages:
     booking:
       booking_failed_payment_voided: Booking failed due to an unexpected error. Please

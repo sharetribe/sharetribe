@@ -793,6 +793,69 @@ sk-SK:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Hľadať
+      transactions:
+        transactions: Zobraziť platby
+        search: Hľadať
+        reset_search: Všetko
+        status_filter:
+          all: Všetky stavy
+          selected: 'Vybrané stavy: %{count}'
+          selected_js: 'Vybrané stavy: '
+          free: Bezplatná transakcia
+          confirmed: Dokončené
+          paid: Zaplatené
+          canceled: Zrušené
+          disputed: Sporné
+          preauthorized: Predschválených
+          rejected: Odmietnuté
+          payment_intent_requires_action: Zadržané
+          payment_intent_action_expired: Vypršané
+          refunded: Vrátené
+          dismissed: Zamietnuté
+        status:
+          free: Konverzácia
+          disputed: Sporná
+          paypal:
+            disputed: Sporné
+            refunded: Vratené
+            dismissed: Zamietnuté
+          stripe:
+            disputed: Sporné
+            payment_intent_requires_action: Zadržané
+            payment_intent_action_expired: Vypršané
+            refunded: Vrátené
+            dismissed: Zamietnuté
+      listings:
+        listings: Inzeráty
+        search: Hľadať
+        reset_search: Všetko
+        status:
+          all: Všetky stavy
+          selected_js: 'Vybrané stavy: '
+          open: Otvorené
+          closed: Uzatvorené
+          expired: Vypršané
+          approval_pending: Zadržané
+          approval_rejected: Odmietnuté
+        headers:
+          title: Názov
+          created: Vytvorené
+          updated: Aktualizované
+          category: Kategória
+          status: Stav
+        open: Otvorené
+        closed: Uzatvorené
+        expired: Vypršala
+        approved: Schválené
+        approval_pending: Zadržané
+        approval_rejected: Odmietnuté
+      landing_pages:
+        sections:
+          listings: Inzeráty
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervácia zlyhala z dôvodu neočakávanej chyby.

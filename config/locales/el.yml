@@ -861,6 +861,69 @@ el:
       if_you_would_like_to_investigate: Εάν θα επιθυμούσατε να ερευνήσετε αυτό περαιτέρω,
         ένα καλό πρώτο βήμα είναι να έρθετε σε επαφή με τον πωλητή.
       contact_the_seller: Επικοινωνήστε με τον πωλητή
+  admin:
+    communities:
+      manage_members:
+        search: Αναζήτηση
+      transactions:
+        transactions: Συναλλαγές
+        search: Αναζήτηση
+        reset_search: Εμφάνιση όλων
+        status_filter:
+          all: Όλες οι καταστάσεις
+          selected: 'Επιλεγμένες καταστάσεις: %{count} '
+          selected_js: 'Επιλεγμένες καταστάσεις:'
+          free: Δωρεάν συναλλαγή
+          confirmed: Ολοκληρώθηκε
+          paid: Πληρωμένο
+          canceled: Ακυρωμένο
+          disputed: Αμφισβητήθηκε
+          preauthorized: Προ-εγκεκριμένο
+          rejected: Απορρίφθηκε
+          payment_intent_requires_action: Σε εκκρεμότητα
+          payment_intent_action_expired: Έληξε
+          refunded: Επιστροφή ποσού
+          dismissed: Απορρίφθηκε
+        status:
+          free: Δωρεάν συναλλαγή
+          disputed: Αμφισβητήθηκε
+          paypal:
+            disputed: Αμφισβητήθηκε
+            refunded: Επιστροφή ποσού
+            dismissed: Απορρίφθηκε
+          stripe:
+            disputed: Αμφισβητήθηκε
+            payment_intent_requires_action: Σε εκκρεμότητα
+            payment_intent_action_expired: Έληξε
+            refunded: Επιστροφή χρημάτων
+            dismissed: Έχει διεκπεραιωθεί
+      listings:
+        listings: Καταχωρήσεις
+        search: Αναζήτηση
+        reset_search: Εμφάνιση όλων
+        status:
+          all: Όλες οι καταστάσεις
+          selected_js: 'Επιλεγμένες καταστάσεις:'
+          open: Ανοιχτό
+          closed: Κλειστό
+          expired: Έχει ληξει
+          approval_pending: Σε εκκρεμότητα
+          approval_rejected: Απορριφθέν
+        headers:
+          title: Τίτλος
+          created: Δημιουργήθηκε
+          updated: Ενημερώθηκαν
+          category: Κατηγορία
+          status: Κατάσταση
+        open: Ανοιχτό
+        closed: Κλειστό
+        expired: Έληξε
+        approved: Εγκριθέν
+        approval_pending: Σε εκκρεμότητα
+        approval_rejected: Απορριφθέν
+      landing_pages:
+        sections:
+          listings: Καταχωρήσεις
   error_messages:
     booking:
       booking_failed_payment_voided: Η κράτηση απέτυχε λόγω μη αναμενόμενου σφάλματος.

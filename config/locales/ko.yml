@@ -696,6 +696,69 @@ ko:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: 검색
+      transactions:
+        transactions: 거래보기
+        search: 찾기
+        reset_search: 전체보기
+        status_filter:
+          all: 모든 상태
+          selected: 
+          selected_js: 
+          free: 무상거래
+          confirmed: 완료
+          paid: 결제완료
+          canceled: 취소
+          disputed: 분쟁중
+          preauthorized: 사전승인
+          rejected: 거부
+          payment_intent_requires_action: 보류
+          payment_intent_action_expired: 만료
+          refunded: 환불
+          dismissed: 무시
+        status:
+          free: 무상거래
+          disputed: 분쟁중
+          paypal:
+            disputed: 분쟁중
+            refunded: 환불
+            dismissed: 무시
+          stripe:
+            disputed: 분쟁중
+            payment_intent_requires_action: 보류
+            payment_intent_action_expired: 만료
+            refunded: 환불
+            dismissed: 무시
+      listings:
+        listings: 매물
+        search: 찾기
+        reset_search: 모두 보기
+        status:
+          all: 모든 상태
+          selected_js: 
+          open: 공개
+          closed: 비공개
+          expired: 만료
+          approval_pending: 보류
+          approval_rejected: 거부
+        headers:
+          title: 매물명
+          created: 생성일
+          updated: 업데이트
+          category: 카테고리
+          status: 상태
+        open: 공개
+        closed: 닫힘
+        expired: 만료
+        approved: 승인
+        approval_pending: 보류
+        approval_rejected: 거부
+      landing_pages:
+        sections:
+          listings: 매물
   error_messages:
     booking:
       booking_failed_payment_voided: 예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가

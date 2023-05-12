@@ -801,6 +801,69 @@ pl:
       if_you_would_like_to_investigate: Jeśli chcesz zbadać tą sytuację dalej, dobrym
         pierwszym krokiem jest skontaktować się z sprzedawcą.
       contact_the_seller: Skontaktuj się ze sprzedawcą
+  admin:
+    communities:
+      manage_members:
+        search: Szukaj
+      transactions:
+        transactions: Transakcje
+        search: Szukaj
+        reset_search: Pokaż wszystkie
+        status_filter:
+          all: Wszystkie statusy
+          selected: Wybrane statusy:%{count}
+          selected_js: 'Wybrane statusy: '
+          free: Bezpłatna transakcja
+          confirmed: Zakończone
+          paid: Zapłacone
+          canceled: Anulowane
+          disputed: Unieważnione
+          preauthorized: Preautoryzacja
+          rejected: Odrzucone
+          payment_intent_requires_action: W trakcie
+          payment_intent_action_expired: Wygasłe
+          refunded: Zwrot pieniędzy
+          dismissed: 
+        status:
+          free: Bezpłatna transakcja
+          disputed: Unieważnione
+          paypal:
+            disputed: Unieważnione
+            refunded: Zwrot pieniędzy
+            dismissed: 
+          stripe:
+            disputed: Unieważnione
+            payment_intent_requires_action: W trakcie
+            payment_intent_action_expired: Wygasłe
+            refunded: Zwrot pieniędzy
+            dismissed: 
+      listings:
+        listings: Oferty
+        search: Szukaj
+        reset_search: Pokaż wszystkie
+        status:
+          all: 'Wszystkie statusy:'
+          selected_js: 'Wybrane statusy: '
+          open: Otwarte
+          closed: Zamknięte
+          expired: Wygasło
+          approval_pending: Oczekujące
+          approval_rejected: Odrzucone
+        headers:
+          title: Tytuł
+          created: Stworzone
+          updated: Zaktualizowane
+          category: Kategoria
+          status: Status
+        open: Otwarta
+        closed: Zamknięte
+        expired: Wygasło
+        approved: Zatwierdzone
+        approval_pending: Oczekujące
+        approval_rejected: Odrzucone
+      landing_pages:
+        sections:
+          listings: Oferty
   error_messages:
     booking:
       booking_failed_payment_voided: Rezerwacja nie powiodła się ze względu na niespodziewany

@@ -824,6 +824,69 @@ fi:
       if_you_would_like_to_investigate: Jos haluat tutkia tätä tarkemmin, paras ensiaskel
         on ottaa myyjään yhteyttä tähän asiaan liittyen.
       contact_the_seller: Ota yhteyttä myyjään
+  admin:
+    communities:
+      manage_members:
+        search: Hae
+      transactions:
+        transactions: Tilaukset
+        search: Etsi
+        reset_search: Näytä kaikki
+        status_filter:
+          all: Kaikki tilat
+          selected: 'Valitut tilat: %{count}'
+          selected_js: 'Valitut tilat: '
+          free: Keskustelu
+          confirmed: Toteutunut
+          paid: Maksettu
+          canceled: Peruutettu
+          disputed: Riitautettu
+          preauthorized: Katevaraus tehty
+          rejected: Hylätty
+          payment_intent_requires_action: Odottaa
+          payment_intent_action_expired: Vanhentunut
+          refunded: Takaisinmaksettu
+          dismissed: Hylätty
+        status:
+          free: Keskustelu
+          disputed: Riitautettu
+          paypal:
+            disputed: Riitautettu
+            refunded: Takaisinmaksettu
+            dismissed: Hylätty
+          stripe:
+            disputed: Riitautettu
+            payment_intent_requires_action: Odottaa
+            payment_intent_action_expired: Vanhentunut
+            refunded: Takaisinmaksettu
+            dismissed: Hylätty
+      listings:
+        listings: Ilmoitukset
+        search: Etsi
+        reset_search: Näytä kaikki
+        status:
+          all: Kaikki tilat
+          selected_js: 'Valitut tilat: '
+          open: Avoin
+          closed: Suljettu
+          expired: Vanhentunut
+          approval_pending: Odottaa
+          approval_rejected: Hylätty
+        headers:
+          title: Otsikko
+          created: Luotu
+          updated: Päivitetty
+          category: Kategoria
+          status: Tila
+        open: Auki
+        closed: Suljettu
+        expired: Vanhentunut
+        approved: Hyväksytty
+        approval_pending: Odottaa
+        approval_rejected: Hylätty
+      landing_pages:
+        sections:
+          listings: Ilmoitukset
   error_messages:
     booking:
       booking_failed_payment_voided: Varaus epäonnistui tunnistamattoman virheen vuoksi.

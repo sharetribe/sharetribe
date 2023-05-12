@@ -718,6 +718,69 @@ he-IL:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: חיפוש
+      transactions:
+        transactions: טרנזקציות
+        search: חיפוש
+        reset_search: הצג הכל
+        status_filter:
+          all: כל הסטטוסים
+          selected: 'סטטוסים נבחרים ‎%{count}‎ '
+          selected_js: 'סטטוסים נבחרים:'
+          free: העברה חינמית
+          confirmed: הסתיים
+          paid: שולם
+          canceled: בוטל
+          disputed: 
+          preauthorized: מקדמי
+          rejected: נדחה
+          payment_intent_requires_action: ממתין
+          payment_intent_action_expired: פג תוקף
+          refunded: 
+          dismissed: 
+        status:
+          free: העברת חינמית
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: ממתין
+            payment_intent_action_expired: פג תוקף
+            refunded: 
+            dismissed: 
+      listings:
+        listings: מודעות
+        search: חיפוש
+        reset_search: הצג הכל
+        status:
+          all: כל הסטטוסים
+          selected_js: 'סטטוסים נבחרים:'
+          open: פתוח
+          closed: סגור
+          expired: פג תוקף
+          approval_pending: ממתין
+          approval_rejected: נדחה
+        headers:
+          title: כותרת
+          created: נוצרה
+          updated: עודכנה
+          category: קטגוריה
+          status: סטטוס
+        open: פתוחה
+        closed: סגורה
+        expired: פג תוקף
+        approved: אושר
+        approval_pending: ממתין
+        approval_rejected: נדחה
+      landing_pages:
+        sections:
+          listings: מודעות
   error_messages:
     booking:
       booking_failed_payment_voided: הזמנה נכשלה בגלל שאירעה תקלה בלתי צפויה. אנא

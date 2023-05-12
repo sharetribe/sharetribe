@@ -769,6 +769,69 @@ pt-PT:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: 
+      transactions:
+        transactions: Transações
+        search: 
+        reset_search: 
+        status_filter:
+          all: Todos os estados
+          selected: 
+          selected_js: 
+          free: 
+          confirmed: 
+          paid: 
+          canceled: 
+          disputed: 
+          preauthorized: 
+          rejected: Recusada
+          payment_intent_requires_action: Pendente
+          payment_intent_action_expired: 
+          refunded: 
+          dismissed: 
+        status:
+          free: 
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: Pendente
+            payment_intent_action_expired: 
+            refunded: 
+            dismissed: 
+      listings:
+        listings: 
+        search: 
+        reset_search: 
+        status:
+          all: Todos os estados
+          selected_js: 
+          open: 
+          closed: 
+          expired: 
+          approval_pending: Pendente
+          approval_rejected: Recusada
+        headers:
+          title: 
+          created: 
+          updated: 
+          category: 
+          status: 
+        open: 
+        closed: 
+        expired: 
+        approved: 
+        approval_pending: Pendente
+        approval_rejected: Recusada
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: Falha na reserva devido a um erro inesperado.

@@ -777,6 +777,69 @@ sv:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Sök
+      transactions:
+        transactions: Visa transaktioner
+        search: Sök
+        reset_search: Visa alla
+        status_filter:
+          all: Alla statusar
+          selected: 'Valda statusar: %{count}'
+          selected_js: 'Valda statusar: '
+          free: Gratis transaktion
+          confirmed: Avslutad
+          paid: Betald
+          canceled: Avbruten
+          disputed: Bestridd
+          preauthorized: Förhandsauktoriserad
+          rejected: Avslagen
+          payment_intent_requires_action: Väntar
+          payment_intent_action_expired: Löpts ut
+          refunded: Återbetalad
+          dismissed: Nekad
+        status:
+          free: Kostnadsfri transaktion
+          disputed: Bestridd
+          paypal:
+            disputed: Bestridd
+            refunded: Återbetalad
+            dismissed: Nekad
+          stripe:
+            disputed: Bestridd
+            payment_intent_requires_action: Avslagen
+            payment_intent_action_expired: Löpts ut
+            refunded: Återbetalad
+            dismissed: Nekad
+      listings:
+        listings: Annonser
+        search: Sök
+        reset_search: Visa alla
+        status:
+          all: Alla statusar
+          selected_js: 
+          open: Öppen
+          closed: Avslutad
+          expired: Löpts ut
+          approval_pending: 
+          approval_rejected: 
+        headers:
+          title: Titel
+          created: Skapad
+          updated: Uppdaterad
+          category: Kategori
+          status: Status
+        open: Öppen
+        closed: Avslutad
+        expired: Löpts ut
+        approved: 
+        approval_pending: 
+        approval_rejected: 
+      landing_pages:
+        sections:
+          listings: Annonser
   error_messages:
     booking:
       booking_failed_payment_voided: Bokningen misslyckades på grund av ett oväntat

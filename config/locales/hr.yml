@@ -758,6 +758,69 @@ hr:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Pretraži
+      transactions:
+        transactions: Pogledati transakcije
+        search: Pretraga
+        reset_search: Prikaži sve
+        status_filter:
+          all: Svi statusi
+          selected: 'Odabrani statusi: %{count}'
+          selected_js: 'Odabrani statusi: '
+          free: Besplatna transakcija
+          confirmed: Završeno
+          paid: Plaćeno
+          canceled: Poništeno
+          disputed: 
+          preauthorized: Predautorizirano
+          rejected: Odbijeno
+          payment_intent_requires_action: 
+          payment_intent_action_expired: 
+          refunded: 
+          dismissed: 
+        status:
+          free: 
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: 
+            payment_intent_action_expired: 
+            refunded: 
+            dismissed: 
+      listings:
+        listings: Oglasi
+        search: Pretraga
+        reset_search: Prikaži sve
+        status:
+          all: Svi statusi
+          selected_js: 'Odabrani statusi: '
+          open: Otvoreno
+          closed: Zatvoreno
+          expired: Isteklo
+          approval_pending: U tijeku
+          approval_rejected: Odbijeno
+        headers:
+          title: Naslov
+          created: Kreirano
+          updated: Ažurirano
+          category: Kategorija
+          status: Status
+        open: Otvoreno
+        closed: Zatvoreno
+        expired: Isteklo
+        approved: Odobreno
+        approval_pending: U tijeku
+        approval_rejected: Odbijeno
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervacija nije uspjela zbog neočekivane greške.Molimo

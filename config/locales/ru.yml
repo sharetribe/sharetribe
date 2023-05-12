@@ -815,6 +815,69 @@ ru:
       if_you_would_like_to_investigate: Если вы хотите выяснить это подробнее, первым
         делом лучше связаться с продавцом по этому поводу.
       contact_the_seller: Свяжитесь с продавцом
+  admin:
+    communities:
+      manage_members:
+        search: Поиск
+      transactions:
+        transactions: Посмотреть транзакции
+        search: Поиск
+        reset_search: Показать все
+        status_filter:
+          all: Все статусы
+          selected: Выбранные статусы:%{count}
+          selected_js: 'Выбранные статусы:'
+          free: Бесплатная транзакция
+          confirmed: Завершено
+          paid: Оплачено
+          canceled: Отменено
+          disputed: Спорный
+          preauthorized: Предварительно авторизован
+          rejected: Отклонено
+          payment_intent_requires_action: Ожидание
+          payment_intent_action_expired: Истекло
+          refunded: Возвращены деньги
+          dismissed: Отклонено
+        status:
+          free: Диалог
+          disputed: Спорный
+          paypal:
+            disputed: Спорный
+            refunded: Возвращены деньги
+            dismissed: Отклонен
+          stripe:
+            disputed: Спорный
+            payment_intent_requires_action: Ожидание
+            payment_intent_action_expired: Истекло
+            refunded: Возвращены деньги
+            dismissed: Отклонен
+      listings:
+        listings: Объявления
+        search: Поиск
+        reset_search: Показать все
+        status:
+          all: Все статусы
+          selected_js: 'Выбранные статусы:'
+          open: Открыто
+          closed: Закрыто
+          expired: Истекло
+          approval_pending: В ожидании
+          approval_rejected: Отклонено
+        headers:
+          title: Заглавие
+          created: Создано
+          updated: Обновлено
+          category: Категория
+          status: Статус
+        open: Открыто
+        closed: Закрыто
+        expired: Истекло
+        approved: Одобрено
+        approval_pending: В ожидании
+        approval_rejected: Отклонено
+      landing_pages:
+        sections:
+          listings: Листинги
   error_messages:
     booking:
       booking_failed_payment_voided: Бронирование не было осуществлено из-за неизвестной

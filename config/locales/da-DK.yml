@@ -799,6 +799,69 @@ da-DK:
       if_you_would_like_to_investigate: Hvis du kunne tænke dig at undersøge dette
         nærmere kan du kontakte sælgeren.
       contact_the_seller: Kontakt sælgeren
+  admin:
+    communities:
+      manage_members:
+        search: Søg
+      transactions:
+        transactions: Transaktioner
+        search: Søg
+        reset_search: Vis alle
+        status_filter:
+          all: Alle statusser
+          selected: 'Udvalgte statusser: %{count}'
+          selected_js: 'Udvalgte statusser: '
+          free: Gratis transaktion
+          confirmed: Afsluttet
+          paid: Betalt
+          canceled: Annulleret
+          disputed: Klaget over
+          preauthorized: Forhåndsgodkendt
+          rejected: Afvist
+          payment_intent_requires_action: I vente
+          payment_intent_action_expired: Udløbet
+          refunded: Refunderet
+          dismissed: Afvist
+        status:
+          free: Gratis transaktion
+          disputed: Klaget over
+          paypal:
+            disputed: Klaget over
+            refunded: Refunderet
+            dismissed: Afvist
+          stripe:
+            disputed: Klaget over
+            payment_intent_requires_action: I vente
+            payment_intent_action_expired: Udløbet
+            refunded: Refunderet
+            dismissed: Afvist
+      listings:
+        listings: Annoncer
+        search: Søg
+        reset_search: Vis alle
+        status:
+          all: Alle statusser
+          selected_js: 'Udvalgte statusser: '
+          open: Åben
+          closed: Lukket
+          expired: Udløbet
+          approval_pending: I vente
+          approval_rejected: Afvist
+        headers:
+          title: Titel
+          created: Oprettet
+          updated: Opdateret
+          category: Kategori
+          status: Status
+        open: Åben
+        closed: Lukket
+        expired: Udløbet
+        approved: Godkendt
+        approval_pending: I vente
+        approval_rejected: Afvist
+      landing_pages:
+        sections:
+          listings: Annoncer
   error_messages:
     booking:
       booking_failed_payment_voided: |-
