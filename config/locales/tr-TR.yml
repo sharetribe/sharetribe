@@ -758,6 +758,69 @@ tr-TR:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Ara
+      transactions:
+        transactions: İşlemleri görüntüle
+        search: Ara
+        reset_search: Hepsini göster
+        status_filter:
+          all: Bütün Durumlar
+          selected: 
+          selected_js: 
+          free: Ücretsiz işlem
+          confirmed: Tamamlananlar
+          paid: Ödenen
+          canceled: İptal Edilenler
+          disputed: Münakaşa
+          preauthorized: Önceden yetkilendirilmiş
+          rejected: Reddedilen
+          payment_intent_requires_action: Bekleyen
+          payment_intent_action_expired: Süresi dolan
+          refunded: İade edilmiş
+          dismissed: Reddedilenler
+        status:
+          free: Ücretsiz işlem
+          disputed: Münakaşa
+          paypal:
+            disputed: Münakaşa
+            refunded: İade edilmiş
+            dismissed: Reddedilenler
+          stripe:
+            disputed: Münakaşa
+            payment_intent_requires_action: Bekleyen
+            payment_intent_action_expired: Süresi dolan
+            refunded: İade edilmiş
+            dismissed: Reddedilenler
+      listings:
+        listings: İlanlar
+        search: Hepsini göster
+        reset_search: Hepsini göster
+        status:
+          all: Bütün Durumlar
+          selected_js: 
+          open: Açık
+          closed: Kapalı
+          expired: Süresi dolan
+          approval_pending: Bekleyen
+          approval_rejected: Reddedilen
+        headers:
+          title: Başlık
+          created: Oluşturulma Tarihi
+          updated: Güncellenme Tarihi
+          category: Kategori
+          status: Durum
+        open: Açık
+        closed: 
+        expired: 
+        approved: 
+        approval_pending: 
+        approval_rejected: 
+      landing_pages:
+        sections:
+          listings: İlanlar
   error_messages:
     booking:
       booking_failed_payment_voided: 

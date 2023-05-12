@@ -781,6 +781,69 @@ it:
       if_you_would_like_to_investigate: Se vuoi indagare ulteriormente, un buon primo
         passo è quello di contattare il venditore in merito.
       contact_the_seller: Contatta il venditore
+  admin:
+    communities:
+      manage_members:
+        search: Cerca
+      transactions:
+        transactions: Visualizza transazioni
+        search: Cerca
+        reset_search: Mostra tutti
+        status_filter:
+          all: Tutti gli stati
+          selected: 
+          selected_js: 
+          free: 
+          confirmed: 
+          paid: Pagata
+          canceled: Annullato
+          disputed: Contestato
+          preauthorized: Preautorizzata
+          rejected: Rifiutato
+          payment_intent_requires_action: In attesa
+          payment_intent_action_expired: Scaduto
+          refunded: Rimborsato
+          dismissed: Rimossa
+        status:
+          free: 
+          disputed: Contestato
+          paypal:
+            disputed: Contestato
+            refunded: Rimborsato
+            dismissed: Rimossa
+          stripe:
+            disputed: Contestato
+            payment_intent_requires_action: In attesa
+            payment_intent_action_expired: Scaduto
+            refunded: Rimborsato
+            dismissed: Rimossa
+      listings:
+        listings: Inserzioni
+        search: Cerca
+        reset_search: Mostra tutti
+        status:
+          all: Tutti gli stati
+          selected_js: 
+          open: Aperto
+          closed: Chiuso
+          expired: Scaduto
+          approval_pending: In attesa
+          approval_rejected: Rifiutato
+        headers:
+          title: Titolo
+          created: Creato
+          updated: Aggiornato
+          category: 
+          status: 
+        open: Aperto
+        closed: Chiuso
+        expired: Scaduto
+        approved: 
+        approval_pending: In attesa
+        approval_rejected: Rifiutato
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: La prenotazione è fallita per un errore inaspettato.

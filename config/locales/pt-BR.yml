@@ -809,6 +809,69 @@ pt-BR:
       if_you_would_like_to_investigate: Se você quiser investigar isto mais a fundo,
         um bom primeiro passo é entrar em contato com o vendedor.
       contact_the_seller: Contate o vendedor
+  admin:
+    communities:
+      manage_members:
+        search: Pesquisar
+      transactions:
+        transactions: Transações
+        search: Pesquisar
+        reset_search: Mostrar todos
+        status_filter:
+          all: Todos os Status
+          selected: 'Status selecionados: %{count}'
+          selected_js: 'Status selecionados: '
+          free: Transação livre
+          confirmed: Concluída
+          paid: Paga
+          canceled: Cancelada
+          disputed: Contestada
+          preauthorized: Pré-autorizada
+          rejected: Rejeitado
+          payment_intent_requires_action: Pendente
+          payment_intent_action_expired: Expirada
+          refunded: Reembolsada
+          dismissed: Rejeitada
+        status:
+          free: Mensagem livre
+          disputed: Contestada
+          paypal:
+            disputed: Contestada
+            refunded: Reembolsado
+            dismissed: Rejeitado
+          stripe:
+            disputed: Contestada
+            payment_intent_requires_action: Pendente
+            payment_intent_action_expired: Expirada
+            refunded: Reembolsada
+            dismissed: Rejeitada
+      listings:
+        listings: Anúncios
+        search: Buscar
+        reset_search: Mostrar todos
+        status:
+          all: Todos os status
+          selected_js: 
+          open: Ativo
+          closed: Encerrado
+          expired: Expirado
+          approval_pending: Pendente
+          approval_rejected: Rejeitado
+        headers:
+          title: Título
+          created: Criado em
+          updated: Atualizado em
+          category: Categoria
+          status: Status
+        open: Ativo
+        closed: Encerrado
+        expired: Expirado
+        approved: 
+        approval_pending: Pendente
+        approval_rejected: Rejeitado
+      landing_pages:
+        sections:
+          listings: Anúncios
   error_messages:
     booking:
       booking_failed_payment_voided: Falha na reserva devido a um erro inesperado.

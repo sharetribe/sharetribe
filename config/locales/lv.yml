@@ -807,6 +807,69 @@ lv:
       if_you_would_like_to_investigate: Ja vēlies turpināt šo izpētīt sīkāk, labs
         pirmais solis ir sazināties ar izīrētāju.
       contact_the_seller: Sazinies ar izīrētāju
+  admin:
+    communities:
+      manage_members:
+        search: Meklēt
+      transactions:
+        transactions: Darījumi
+        search: Meklēt
+        reset_search: Parādīt visus
+        status_filter:
+          all: Visi statusi
+          selected: 
+          selected_js: 
+          free: 
+          confirmed: 
+          paid: 
+          canceled: 
+          disputed: 
+          preauthorized: 
+          rejected: Noraidīts
+          payment_intent_requires_action: Gaida
+          payment_intent_action_expired: Beidzies
+          refunded: 
+          dismissed: 
+        status:
+          free: 
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: Gaida
+            payment_intent_action_expired: Beidzies
+            refunded: 
+            dismissed: 
+      listings:
+        listings: Sludinājumi
+        search: Meklēt
+        reset_search: Parādīt visus
+        status:
+          all: Visi statusi
+          selected_js: 
+          open: Pieejams
+          closed: Slēgts
+          expired: Beidzies
+          approval_pending: Gaida
+          approval_rejected: Noraidīts
+        headers:
+          title: Virsraksts
+          created: Izveidots
+          updated: Atjaunots
+          category: Kategorija
+          status: Statuss
+        open: Pieejams
+        closed: Slēgts
+        expired: Beidzies
+        approved: 
+        approval_pending: Gaida
+        approval_rejected: Noraidīts
+      landing_pages:
+        sections:
+          listings: Sludinājumi
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervēšana neizdevās neparedzētas kļūdas dēļ.

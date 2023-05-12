@@ -819,6 +819,69 @@ uk:
       if_you_would_like_to_investigate: Якщо ви хочете дослідити це глибше, зв’язатися
         із продавцем - чудовий перший крок.
       contact_the_seller: Зв'язатися із продавцем
+  admin:
+    communities:
+      manage_members:
+        search: Пошук
+      transactions:
+        transactions: Транзакції
+        search: Пошук
+        reset_search: Показати усі
+        status_filter:
+          all: Усі статуси
+          selected: 'Вибрані статуси:  %{count}'
+          selected_js: 'Вибрані статуси: '
+          free: Безкоштовна транзакція
+          confirmed: Завершено
+          paid: Оплачено
+          canceled: Відхилено
+          disputed: Оскаржено
+          preauthorized: Попередньо авторизований
+          rejected: Відхилено
+          payment_intent_requires_action: Очікується
+          payment_intent_action_expired: Термін дії закінчився
+          refunded: Кошти повернуто
+          dismissed: Відхилено
+        status:
+          free: Безкоштовна транзакція
+          disputed: Оскаржено
+          paypal:
+            disputed: Оскаржено
+            refunded: Кошти повернуто
+            dismissed: Відхилено
+          stripe:
+            disputed: Оскаржено
+            payment_intent_requires_action: Очікується
+            payment_intent_action_expired: Термін дії закінчився
+            refunded: Кошти повернуто
+            dismissed: Відхилено
+      listings:
+        listings: Оголошення
+        search: Пошук
+        reset_search: Показати усі
+        status:
+          all: Усі статуси
+          selected_js: 'Вибрані статуси: '
+          open: Відчинено
+          closed: Зачинено
+          expired: Термін дії закінчився
+          approval_pending: Очікується
+          approval_rejected: Відхилено
+        headers:
+          title: Назва
+          created: Створено
+          updated: Оновлено
+          category: Категорія
+          status: Статус
+        open: Відчинено
+        closed: Зачинено
+        expired: Tермін дії закінчився
+        approved: Схвалено
+        approval_pending: Очікується
+        approval_rejected: Відхилено
+      landing_pages:
+        sections:
+          listings: Списки
   error_messages:
     booking:
       booking_failed_payment_voided: Помилка бронювання через неочікувану помилку.

@@ -854,6 +854,69 @@ hu:
       if_you_would_like_to_investigate: Ha tovább szeretné ezt vizsgálni, akkor az
         a helyes első lépés, ha kapcsolatba lép az eladóval.
       contact_the_seller: Lépjen kapcsolatba az eladóval
+  admin:
+    communities:
+      manage_members:
+        search: Keresés
+      transactions:
+        transactions: Mutassa a tranzakciókat
+        search: Keresés
+        reset_search: Összes mutatása
+        status_filter:
+          all: Feladat státuszok
+          selected: 'Kiválasztott státuszok: %{count}'
+          selected_js: 'Kiválasztott státuszok: '
+          free: Ingyenes tranzakció
+          confirmed: Befejezett
+          paid: Fizetett
+          canceled: Törölve
+          disputed: Vitás
+          preauthorized: Előzetesen engedélyezett
+          rejected: Elutasítva
+          payment_intent_requires_action: Függőben
+          payment_intent_action_expired: Lejárt
+          refunded: Visszatérítve
+          dismissed: Elutasítva
+        status:
+          free: Üzenetváltás
+          disputed: Vitás
+          paypal:
+            disputed: Vitás
+            refunded: Visszatérítve
+            dismissed: Elutasítva
+          stripe:
+            disputed: Vitás
+            payment_intent_requires_action: Függőben
+            payment_intent_action_expired: Lejárt
+            refunded: Visszatérítve
+            dismissed: Elutasítva
+      listings:
+        listings: Hirdetések
+        search: Keresés
+        reset_search: Összes mutatása
+        status:
+          all: Összes státusz
+          selected_js: 'Kiválasztott státuszok: '
+          open: Nyitva
+          closed: Zárva
+          expired: Lejárt
+          approval_pending: Függőben
+          approval_rejected: Eutasítva
+        headers:
+          title: Cím
+          created: Létrehozva
+          updated: Frissítve
+          category: Kategória
+          status: Állapot
+        open: Nyitva
+        closed: Zárva
+        expired: Lejárt
+        approved: jóváhagyva
+        approval_pending: Függőben
+        approval_rejected: Elutasítva
+      landing_pages:
+        sections:
+          listings: Hirdetések
   error_messages:
     booking:
       booking_failed_payment_voided: Ismeretlen hiba történt a foglalása során. Próbálkozzunk

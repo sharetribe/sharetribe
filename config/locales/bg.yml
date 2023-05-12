@@ -802,6 +802,69 @@ bg:
       if_you_would_like_to_investigate: Ако искате да разследвате още, следващата
         стъпка е да се свържете с продавача.
       contact_the_seller: Свържете се с продавача
+  admin:
+    communities:
+      manage_members:
+        search: Търсене
+      transactions:
+        transactions: Транзакции
+        search: Търсене
+        reset_search: Покажи всичко
+        status_filter:
+          all: Всички статуси
+          selected: 'Изберете статуси: %{count}'
+          selected_js: 'Избрани статуси: '
+          free: Безплатни транзакции
+          confirmed: Завършено
+          paid: Платено
+          canceled: Прекъснато
+          disputed: Оспорено
+          preauthorized: Предварително разрешено
+          rejected: Отказано
+          payment_intent_requires_action: В очакване
+          payment_intent_action_expired: Изтекъл
+          refunded: Възстановени
+          dismissed: Освободени
+        status:
+          free: Безплатна транзакция
+          disputed: Оспорено
+          paypal:
+            disputed: Оспорено
+            refunded: Възстановени
+            dismissed: Освободени
+          stripe:
+            disputed: Оспорени
+            payment_intent_requires_action: В очакване
+            payment_intent_action_expired: Изтекъл
+            refunded: Възстановени
+            dismissed: Освободени
+      listings:
+        listings: Обяви
+        search: Търсене
+        reset_search: Покажи всичко
+        status:
+          all: Всички статуси
+          selected_js: 'Избрани статуси: '
+          open: Отвори
+          closed: Затворено
+          expired: Изтекло
+          approval_pending: В очакване
+          approval_rejected: Отказано
+        headers:
+          title: Заглавие
+          created: Създадени
+          updated: Обновени
+          category: Категория
+          status: Статус
+        open: Отворени
+        closed: Затворени
+        expired: Изтекло
+        approved: Одобрен
+        approval_pending: В очакване
+        approval_rejected: Отказан
+      landing_pages:
+        sections:
+          listings: Обяви
   error_messages:
     booking:
       booking_failed_payment_voided: Резервацията е неуспешна заради грешка. Моля

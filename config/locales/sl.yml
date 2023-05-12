@@ -796,6 +796,69 @@ sl:
       if_you_would_like_to_investigate: Če želite to dodatno raziskati, je dober prvi
         korak, da se o tem obrnete na prodajalca.
       contact_the_seller: Kontaktirajte prodajalca
+  admin:
+    communities:
+      manage_members:
+        search: Iskanje
+      transactions:
+        transactions: Transakcije
+        search: Iskanje
+        reset_search: Prikaži vse
+        status_filter:
+          all: Vsi statusi
+          selected: 'Izbrani statusi: %{count}'
+          selected_js: 'Izbrani statusi:  '
+          free: Brezplačna transakcija
+          confirmed: Dokončano
+          paid: Plačano
+          canceled: Preklicano
+          disputed: Konflikt
+          preauthorized: Predhodno pooblaščeno
+          rejected: Zavrnjeno
+          payment_intent_requires_action: V teku
+          payment_intent_action_expired: Potekel
+          refunded: Vrnjeno
+          dismissed: Odpuščeno
+        status:
+          free: Brezplačna transakcija
+          disputed: Konflikt
+          paypal:
+            disputed: Konflikt
+            refunded: Vrnjeno
+            dismissed: Odpuščeno
+          stripe:
+            disputed: Konflikt
+            payment_intent_requires_action: V teku
+            payment_intent_action_expired: Potekel
+            refunded: Vrnjeno
+            dismissed: Odpuščeno
+      listings:
+        listings: Oglasi
+        search: Iskanje
+        reset_search: Pokaži vse
+        status:
+          all: Vsi statusi
+          selected_js: 'Izbrani statusi:  '
+          open: Odprto
+          closed: Zaprto
+          expired: Poteklo
+          approval_pending: V teku
+          approval_rejected: Zavrnjeno
+        headers:
+          title: Naslov
+          created: Ustvarjeno
+          updated: Posodobljeno
+          category: Kategorija
+          status: Stanje
+        open: Odprto
+        closed: Zaprto
+        expired: Poteklo
+        approved: Sprejeto
+        approval_pending: V teku
+        approval_rejected: Zavrnjeno
+      landing_pages:
+        sections:
+          listings: Oglasi
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervacija ni uspela zaradi nepričakovane napake.

@@ -800,6 +800,69 @@ cs:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Hledání
+      transactions:
+        transactions: Transakce
+        search: Hledat
+        reset_search: Zobrazit vše
+        status_filter:
+          all: Všechny stavy
+          selected: 'Vybrané stavy: %{count}'
+          selected_js: 'Vybrané stavy: '
+          free: Volná transakce
+          confirmed: Hotovo
+          paid: Zaplaceno
+          canceled: Zrušeno
+          disputed: Sporné
+          preauthorized: Předschváleno
+          rejected: Odmítnuto
+          payment_intent_requires_action: Čekající
+          payment_intent_action_expired: Platnost vypršela
+          refunded: Vráceno
+          dismissed: Zamítnuto
+        status:
+          free: Konverzace
+          disputed: Sporné
+          paypal:
+            disputed: Sporné
+            refunded: Vráceno
+            dismissed: Zamítnuto
+          stripe:
+            disputed: Sporné
+            payment_intent_requires_action: Čekající
+            payment_intent_action_expired: Platnost vypršela
+            refunded: Vráceno
+            dismissed: Zamítnuto
+      listings:
+        listings: Seznam inzerátů
+        search: Hledat
+        reset_search: Zobrazit vše
+        status:
+          all: Všechny stavy
+          selected_js: 'Vybrané stavy: '
+          open: Otevřeno
+          closed: Zavřeno
+          expired: Vypršel
+          approval_pending: Čekající
+          approval_rejected: Odmítnuto
+        headers:
+          title: Nadpis
+          created: Vytvořeno
+          updated: Upraveno
+          category: Kategorie
+          status: Status
+        open: Otevřeno
+        closed: Zavřeno
+        expired: Platnost vypršela
+        approved: Schváleno
+        approval_pending: Čekající
+        approval_rejected: Odmítnuto
+      landing_pages:
+        sections:
+          listings: Výpisy
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervace se nezdařila, kvůli neočekávané chybě.

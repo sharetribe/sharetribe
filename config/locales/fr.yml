@@ -838,6 +838,69 @@ fr:
       if_you_would_like_to_investigate: Si vous voulez comprendre ce qui ne fonctionne
         pas, une première étape est de contacter le vendeur pour en savoir plus.
       contact_the_seller: Contacter le vendeur
+  admin:
+    communities:
+      manage_members:
+        search: Rechercher
+      transactions:
+        transactions: Transactions
+        search: Rechercher
+        reset_search: Voir tous
+        status_filter:
+          all: Tous les statuts
+          selected: 'Statuts sélectionnés : %{count}'
+          selected_js: 'Statuts sélectionnés : '
+          free: Transaction gratuite
+          confirmed: Réalisée
+          paid: Payée
+          canceled: Annulée
+          disputed: Contestée
+          preauthorized: Pré-autorisée
+          rejected: Rejetée
+          payment_intent_requires_action: En attente
+          payment_intent_action_expired: Expirée
+          refunded: Remboursée
+          dismissed: Écartée
+        status:
+          free: Transaction gratuite
+          disputed: Contestée
+          paypal:
+            disputed: Contestée
+            refunded: Remboursée
+            dismissed: Écartée
+          stripe:
+            disputed: Contestée
+            payment_intent_requires_action: En attente
+            payment_intent_action_expired: Expirée
+            refunded: Remboursée
+            dismissed: Écartée
+      listings:
+        listings: Annonces
+        search: Rechercher
+        reset_search: Voir tous
+        status:
+          all: Tous les statuts
+          selected_js: 'Statuts sélectionnés : '
+          open: Ouverte
+          closed: Close
+          expired: Expirée
+          approval_pending: En attente
+          approval_rejected: Rejetée
+        headers:
+          title: Titre
+          created: Publiée le
+          updated: Mise à jour le
+          category: Catégorie
+          status: Statut
+        open: Ouverte
+        closed: Close
+        expired: Expirée
+        approved: Approuvée
+        approval_pending: En attente
+        approval_rejected: Rejetée
+      landing_pages:
+        sections:
+          listings: Annonces
   error_messages:
     booking:
       booking_failed_payment_voided: La réservation a échoué à cause d'une erreur

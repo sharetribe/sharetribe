@@ -753,6 +753,69 @@ es-ES:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: Buscar
+      transactions:
+        transactions: Transacciones
+        search: Buscar
+        reset_search: Mostrar todas
+        status_filter:
+          all: Todo
+          selected: 'Estatus seleccionados: %{count}'
+          selected_js: 'Estatus seleccionados: '
+          free: Gratuita
+          confirmed: Completada
+          paid: Pagada
+          canceled: Cancelada
+          disputed: 
+          preauthorized: Preautorizada
+          rejected: Rechazada
+          payment_intent_requires_action: 
+          payment_intent_action_expired: 
+          refunded: 
+          dismissed: 
+        status:
+          free: Transacción gratuita
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: 
+            payment_intent_action_expired: 
+            refunded: 
+            dismissed: 
+      listings:
+        listings: Anuncios
+        search: Buscar
+        reset_search: Mostrar todos
+        status:
+          all: Todos
+          selected_js: 'Estatus seleccionados: '
+          open: Abierto
+          closed: Cerrado
+          expired: Expirado
+          approval_pending: 
+          approval_rejected: 
+        headers:
+          title: Título
+          created: Creación
+          updated: Modificación
+          category: Categoría
+          status: Estatus
+        open: Abierto
+        closed: Cerrado
+        expired: Expirado
+        approved: 
+        approval_pending: 
+        approval_rejected: 
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: La reserva falló debido a un error inesperado.

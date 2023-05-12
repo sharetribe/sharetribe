@@ -801,6 +801,69 @@ et:
       if_you_would_like_to_investigate: Kui soovite seda lähemalt uurida, siis esimese
         sammuna võiksid võtta müüjaga ühendust.
       contact_the_seller: Võta müüjaga ühendust
+  admin:
+    communities:
+      manage_members:
+        search: Otsi
+      transactions:
+        transactions: Tehingud
+        search: Otsing
+        reset_search: Näita kõiki
+        status_filter:
+          all: Kõik olekud
+          selected: 'Valitud olekud: %{count}'
+          selected_js: 'Valitud olekud: '
+          free: Tasuta tehing
+          confirmed: Täidetud
+          paid: Makstud
+          canceled: Tühistatud
+          disputed: Vaidlustatud
+          preauthorized: Eelvolitatud
+          rejected: Tagasi lükatud
+          payment_intent_requires_action: Ootel
+          payment_intent_action_expired: Aegunud
+          refunded: Tagastatud
+          dismissed: Tühistatud
+        status:
+          free: Tasuta tehing
+          disputed: Vaidlustatud
+          paypal:
+            disputed: Vaidlustatud
+            refunded: Tagastatud
+            dismissed: Tühistatud
+          stripe:
+            disputed: Vaidlustatud
+            payment_intent_requires_action: Ootel
+            payment_intent_action_expired: Aegunud
+            refunded: Tagastatud
+            dismissed: Tühistatud
+      listings:
+        listings: kuulutused
+        search: Otsi
+        reset_search: Näita kõiki
+        status:
+          all: Kõik olekud
+          selected_js: 'Valitud olekud: '
+          open: Avatud
+          closed: Suletud
+          expired: Aegunud
+          approval_pending: Ootel
+          approval_rejected: Tagasi lükatud
+        headers:
+          title: Pealkiri
+          created: Loodud
+          updated: Uuendatud
+          category: Kategooria
+          status: Olek
+        open: Avatud
+        closed: Suletud
+        expired: Aegunud
+        approved: Heaks kiidetud
+        approval_pending: Ootel
+        approval_rejected: Heaks kiidetud
+      landing_pages:
+        sections:
+          listings: Kuulutused
   error_messages:
     booking:
       booking_failed_payment_voided: Broneerimine nurjus ootamatu vea tõttu. Palun

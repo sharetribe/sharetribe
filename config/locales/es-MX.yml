@@ -627,6 +627,69 @@ es-MX:
       this_usually_means: 
       if_you_would_like_to_investigate: 
       contact_the_seller: 
+  admin:
+    communities:
+      manage_members:
+        search: 
+      transactions:
+        transactions: 
+        search: 
+        reset_search: 
+        status_filter:
+          all: 
+          selected: 
+          selected_js: 
+          free: 
+          confirmed: 
+          paid: 
+          canceled: 
+          disputed: 
+          preauthorized: 
+          rejected: 
+          payment_intent_requires_action: 
+          payment_intent_action_expired: 
+          refunded: 
+          dismissed: 
+        status:
+          free: 
+          disputed: 
+          paypal:
+            disputed: 
+            refunded: 
+            dismissed: 
+          stripe:
+            disputed: 
+            payment_intent_requires_action: 
+            payment_intent_action_expired: 
+            refunded: 
+            dismissed: 
+      listings:
+        listings: 
+        search: 
+        reset_search: 
+        status:
+          all: 
+          selected_js: 
+          open: 
+          closed: 
+          expired: 
+          approval_pending: 
+          approval_rejected: 
+        headers:
+          title: 
+          created: 
+          updated: 
+          category: 
+          status: 
+        open: 
+        closed: 
+        expired: 
+        approved: 
+        approval_pending: 
+        approval_rejected: 
+      landing_pages:
+        sections:
+          listings: 
   error_messages:
     booking:
       booking_failed_payment_voided: 

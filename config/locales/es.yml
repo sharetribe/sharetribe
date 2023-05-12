@@ -818,6 +818,69 @@ es:
       if_you_would_like_to_investigate: Si quieres investigar esto más a fondo, un
         buen paso es contactar al proveedor acerca de esto.
       contact_the_seller: Contacta al proveedor
+  admin:
+    communities:
+      manage_members:
+        search: Buscar
+      transactions:
+        transactions: Transacciones
+        search: Buscar
+        reset_search: Mostrar todas
+        status_filter:
+          all: Todo
+          selected: 'Estatus seleccionados: %{count}'
+          selected_js: 'Estatus seleccionados: '
+          free: Gratuita
+          confirmed: Completada
+          paid: Pagada
+          canceled: Cancelada
+          disputed: Disputada
+          preauthorized: Preautorizada
+          rejected: Rechazada
+          payment_intent_requires_action: Pendiente
+          payment_intent_action_expired: Expirada
+          refunded: Reembolsada
+          dismissed: Descartada
+        status:
+          free: Transacción gratuita
+          disputed: Disputada
+          paypal:
+            disputed: Disputada
+            refunded: Reembolsada
+            dismissed: Descartada
+          stripe:
+            disputed: Disputada
+            payment_intent_requires_action: Pendiente
+            payment_intent_action_expired: Expirada
+            refunded: Reembolsada
+            dismissed: Descartada
+      listings:
+        listings: Anuncios
+        search: Buscar
+        reset_search: Mostrar todos
+        status:
+          all: Todos
+          selected_js: 'Estatus seleccionados: '
+          open: Abierto
+          closed: Cerrado
+          expired: Expirado
+          approval_pending: Pendiente
+          approval_rejected: Rechazado
+        headers:
+          title: Título
+          created: Creación
+          updated: Modificación
+          category: Categoría
+          status: Estatus
+        open: Abierto
+        closed: Cerrado
+        expired: Expirado
+        approved: Aprobado
+        approval_pending: Pendiente
+        approval_rejected: Rechazado
+      landing_pages:
+        sections:
+          listings: Anuncios
   error_messages:
     booking:
       booking_failed_payment_voided: La reserva falló debido a un error inesperado.

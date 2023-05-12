@@ -844,6 +844,69 @@ nl:
       if_you_would_like_to_investigate: Als je dit verder wilt onderzoeken is een
         goede eerste stap om contact op te nemen met de verkoper.
       contact_the_seller: Neem contact op met de verkoper
+  admin:
+    communities:
+      manage_members:
+        search: Zoek
+      transactions:
+        transactions: Transacties
+        search: Zoek
+        reset_search: Toon alles
+        status_filter:
+          all: Alle statussen
+          selected: 'Gekozen statussen: %{count}'
+          selected_js: 'Gekozen statussen: '
+          free: Vrije transactie
+          confirmed: Voltooid
+          paid: Betaald
+          canceled: Geannuleerd
+          disputed: Aangevochten
+          preauthorized: Vooraf geauthoriseerd
+          rejected: Geweigerd
+          payment_intent_requires_action: In afwachting
+          payment_intent_action_expired: Verlopen
+          refunded: Teruggestort
+          dismissed: Verworpen
+        status:
+          free: Vrije transactie
+          disputed: Aangevochten
+          paypal:
+            disputed: Aangevochten
+            refunded: Teruggestort
+            dismissed: Verworpen
+          stripe:
+            disputed: Aangevochten
+            payment_intent_requires_action: in afwachting
+            payment_intent_action_expired: Verlopen
+            refunded: Teruggestort
+            dismissed: Verworpen
+      listings:
+        listings: Advertenties
+        search: Zoek
+        reset_search: Toon alles
+        status:
+          all: Alle statussen
+          selected_js: 'Gekozen statussen: '
+          open: Open
+          closed: Gesloten
+          expired: Verlopen
+          approval_pending: In afwachting
+          approval_rejected: Afgekeurd
+        headers:
+          title: Titel
+          created: Aangemaakt
+          updated: Bijgewerkt
+          category: Categorie
+          status: Status
+        open: Open
+        closed: Gesloten
+        expired: Verlopen
+        approved: Goedgekeurd
+        approval_pending: In afwachting
+        approval_rejected: Afgekeurd
+      landing_pages:
+        sections:
+          listings: Advertenties
   error_messages:
     booking:
       booking_failed_payment_voided: Boeking mislukt door een onverwachte fout. Probeer

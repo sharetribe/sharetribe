@@ -793,6 +793,69 @@ lt:
       if_you_would_like_to_investigate: Jei norėtumėte tai išnagrinėti toliau, pirmiausia
         reikia susisiekti dėl to su pardavėju.
       contact_the_seller: Susisiekite su pardavėju
+  admin:
+    communities:
+      manage_members:
+        search: Paieška
+      transactions:
+        transactions: Sandoriai
+        search: Paieška
+        reset_search: Rodyti viską
+        status_filter:
+          all: Visos būsenos
+          selected: 'Pasirinktos būsenos: %{count}'
+          selected_js: 'Pasirinktos būsenos:  '
+          free: Nemokama operacija
+          confirmed: Baigtas
+          paid: Mokama
+          canceled: Atšauktas
+          disputed: Užginčytas
+          preauthorized: Iš anksto autorizuotas
+          rejected: Atmestas
+          payment_intent_requires_action: Laukiama
+          payment_intent_action_expired: Pasibaigęs
+          refunded: Grąžintas
+          dismissed: Atleistas
+        status:
+          free: Nemokamas sandoris
+          disputed: Užginčytas
+          paypal:
+            disputed: Užginčytas
+            refunded: Grąžintas
+            dismissed: Nutrauktas
+          stripe:
+            disputed: Užginčytas
+            payment_intent_requires_action: Laukiama
+            payment_intent_action_expired: Pasibaigęs
+            refunded: Grąžintas
+            dismissed: Nutrauktas
+      listings:
+        listings: Sąrašai
+        search: Paieška
+        reset_search: Rodyti viską
+        status:
+          all: Visos būsenos
+          selected_js: 'Pasirinktos būsenos:  '
+          open: Atidarytas
+          closed: Uždarytas
+          expired: Pasibaigęs
+          approval_pending: Laukiama
+          approval_rejected: Atmestas
+        headers:
+          title: Pavadinimas
+          created: Sukurta
+          updated: Atnaujinta
+          category: Kategorija
+          status: Būsena
+        open: Atidarytas
+        closed: Uždarytas
+        expired: Pasibaigęs
+        approved: Patvirtintas
+        approval_pending: Laukiama
+        approval_rejected: Atmestas
+      landing_pages:
+        sections:
+          listings: Sąrašai
   error_messages:
     booking:
       booking_failed_payment_voided: Rezervuoti nepavyko dėl nenumatytos klaidos.
