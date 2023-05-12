@@ -20,7 +20,7 @@ jobs:
         id: branch
         run: |
           BRANCH="wti-update-gh-$(date +%Y-%m-%d-%H-%M-%S)"
-          echo "::set-output name=branch::$BRANCH"
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           git checkout -b "$BRANCH"
 
       - name: Run WTI
@@ -28,7 +28,7 @@ jobs:
         run: |
           wti pull
           if [ -n "$(git status -s)" ] ; then
-            echo "::set-output name=changes::true"
+            echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "No new changes in translations."
           fi
