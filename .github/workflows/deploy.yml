@@ -7,6 +7,10 @@ on:
         description: The environment to deploy to
         required: true
         default: staging
+        type: choice
+        options:
+          - staging
+          - production
       git_ref:
         description: Git ref to deploy
         required: true
@@ -47,12 +51,12 @@ jobs:
         run: |
           case "$DEPLOY_ENV" in
           production)
-            echo "::set-output name=app::anarchy"
-            echo "::set-output name=rack::sharetribe/production"
+            echo "app=anarchy" >> $GITHUB_OUTPUT
+            echo "rack=sharetribe/production" >> $GITHUB_OUTPUT
             ;;
           staging)
-            echo "::set-output name=app::anarchy"
-            echo "::set-output name=rack::sharetribe/staging"
+            echo "app=anarchy" >> $GITHUB_OUTPUT
+            echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
             ;;
           *)
             echo "Unknown deploy env"
@@ -64,10 +68,10 @@ jobs:
         id: resolve_ref
         env:
           DEPLOY_REF: ${{ github.event.inputs.git_ref }}
-        run: if [ "${DEPLOY_REF}" = "*selected branch*" ] ; then echo "::set-output name=ref::$GITHUB_REF" ; else echo "::set-output name=ref::$DEPLOY_REF" ; fi
+        run: if [ "${DEPLOY_REF}" = "*selected branch*" ] ; then echo "ref=$GITHUB_REF" >> $GITHUB_OUTPUT ; else echo "ref=$DEPLOY_REF" >> $GITHUB_OUTPUT ; fi
 
       - name: Create GitHub deployment
-        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3
         id: deployment
         with:
           step: start
@@ -82,7 +86,7 @@ jobs:
 
       - name: Resolve SHA
         id: resolve_sha
-        run: echo "::set-output name=sha::$(git rev-parse HEAD)"
+        run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Checkout toolbelt
         uses: actions/checkout@v2
@@ -98,7 +102,7 @@ jobs:
 
       - name: Resolve toolbelt short SHA
         id: resolve_toolbelt_short_sha
-        run: echo "::set-output name=sha::$(cd .toolbelt && git rev-parse --short HEAD)"
+        run: echo "sha=$(cd .toolbelt && git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Configure AWS credentials
         id: configure_aws_credentials
@@ -122,14 +126,14 @@ jobs:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
           RESOLVED_SHA: ${{ steps.resolve_sha.outputs.sha }}
           RESOLVED_TOOLBELT_SHA: ${{ steps.resolve_toolbelt_short_sha.outputs.sha }}
-        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}-${RESOLVED_TOOLBELT_SHA}" ; echo "::set-output name=release::$RELEASE"
+        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}-${RESOLVED_TOOLBELT_SHA}" ; echo "release=$RELEASE" >> $GITHUB_OUTPUT
 
       - name: Set ECR image
         id: set_ecr_image
         env:
           RELEASE: ${{ steps.set_release.outputs.release }}
           AWS_ACCOUNT_ID: ${{ steps.configure_aws_credentials.outputs.aws-account-id }}
-        run: echo "::set-output name=image::${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${RELEASE}"
+        run: echo "image=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${RELEASE}" >> $GITHUB_OUTPUT
 
       - name: Login to AWS ECR
         uses: aws-actions/amazon-ecr-login@v1
@@ -150,7 +154,7 @@ jobs:
           latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" | tr -d '"')
           echo "Latest image tag: ${latest_image_tag}"
           if [[ "${latest_image_tag}" != "None" ]] ; then
-            echo "::set-output name=image::${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}"
+            echo "image=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}" >> $GITHUB_OUTPUT
           fi
 
       - name: Pull latest image from ECR
@@ -211,7 +215,7 @@ jobs:
         run: |
           source .toolbelt/bin/common-definitions.sh
           ~/convox build --manifest docker-compose.app.yml --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --id --description "${RELEASE}" | tee out.txt
-          check_pipe_status && echo -e "\n::set-output name=release::$(tail -n1 out.txt)"
+          check_pipe_status && echo "release=$(tail -n1 out.txt)" >> $GITHUB_OUTPUT
 
       - name: Check pending migrations
         if: ${{ github.event.inputs.run_migrations != 'yes' }}
@@ -247,10 +251,11 @@ jobs:
         run: ~/convox releases promote "${CONVOX_RELEASE}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --wait
 
       - name: Update GitHub deployment status
-        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        uses: bobheadxi/deployments@88ce5600046c82542f8246ac287d0a53c461bca3
         if: always()
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ github.event.inputs.environment }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
