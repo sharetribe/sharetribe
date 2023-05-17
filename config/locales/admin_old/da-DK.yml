@@ -289,7 +289,7 @@ da-DK:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: Søg
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
@@ -460,25 +460,25 @@ da-DK:
       transactions:
         export_all_as_csv: "Eksporter alle som CSV"
         processing_export: ~
-        transactions: "Vis transaktioner"
+        transactions: "Transaktioner"
         search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search: Søg
+        reset_search: "Vis alle"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          disputed: ~
-          preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
-          refunded: ~
-          dismissed: ~
+          all: "Alle statusser"
+          selected: "Udvalgte statusser: %{count}"
+          selected_js: "Udvalgte statusser: "
+          free: "Gratis transaktion"
+          confirmed: Afsluttet
+          paid: Betalt
+          canceled: Annulleret
+          disputed: "Klaget over"
+          preauthorized: Forhåndsgodkendt
+          rejected: Afvist
+          payment_intent_requires_action: "I vente"
+          payment_intent_action_expired: Udløbet
+          refunded: Refunderet
+          dismissed: Afvist
         headers:
           conversation: Samtaletråd
           listing: Annonce
@@ -490,7 +490,7 @@ da-DK:
           other_party: "Tredje part"
         status:
           conversation: ~
-          free: ~
+          free: "Gratis transaktion"
           pending: Venter
           preauthorized: Preauthorized
           accepted: Accepteret
@@ -498,7 +498,7 @@ da-DK:
           paid: Betalt
           confirmed: Godkendt
           canceled: Annulleret
-          disputed: ~
+          disputed: "Klaget over"
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
           none:
@@ -512,11 +512,11 @@ da-DK:
             paid: Betalt
             confirmed: Bekræftet
             canceled: Annulleret
-            disputed: ~
+            disputed: Klaget over
             initiated: "Afventer PayPal betaling"
             pending_ext: "Afventer PayPal betaling"
-            refunded: ~
-            dismissed: ~
+            refunded: Refunderet
+            dismissed: Afvist
           stripe:
             free: Samtale
             pending: Venter
@@ -526,14 +526,14 @@ da-DK:
             paid: Betalt
             confirmed: Udført
             canceled: Annulleret
-            disputed: ~
+            disputed: "Klaget over"
             initiated: "Venter på Stripe betaling"
             pending_ext: "Venter på Strip betaling"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
+            payment_intent_requires_action: "I vente"
+            payment_intent_action_expired: "Udløbet"
             payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
+            refunded: Refunderet
+            dismissed: Afvist
         not_available: "Ikke tilgængelig"
       conversations:
         conversations: ~
@@ -604,33 +604,33 @@ da-DK:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
+        listings: Annoncer
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: Søg
+        reset_search: Vis alle
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          all: "Alle statusser"
+          selected_js: "Udvalgte statusser: "
+          open: Åben
+          closed: Lukket
+          expired: Udløbet
+          approval_pending: "I vente"
+          approval_rejected: Afvist
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
-        approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+          title: Titel
+          author: Forfatter
+          created: Oprettet
+          updated: Opdateret
+          category: Kategori
+          status: Status
+        open: Åben
+        closed: Lukket
+        expired: Udløbet
+        approved: Godkendt
+        approval_pending: "I vente"
+        approval_rejected: Afvist
         form:
           this_listing_has_not_not_been_approved_yet: ~
           approve: ~
@@ -737,7 +737,7 @@ da-DK:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: Annoncer
           categories: ~
           hero: ~
           locations: ~
