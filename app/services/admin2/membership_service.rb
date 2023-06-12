@@ -138,7 +138,7 @@ class Admin2::MembershipService
         paypal_account = paypal_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
         stripe_account = stripe_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
         user_data[:has_connected_paypal] = paypal_account[:state] == :verified
-        user_data[:has_connected_stripe] = stripe_account[:stripe_seller_id].present?
+        user_data[:has_connected_stripe] = stripe_account[:stripe_seller_id].present? && stripe_account[:stripe_bank_id].present?
         community.person_custom_fields.each do |field|
           field_value = user.custom_field_values.by_question(field).first
           user_data[field.name] = field_value.try(:display_value)
