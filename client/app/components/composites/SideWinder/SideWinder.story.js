@@ -1,6 +1,7 @@
 /* eslint-disable react/no-set-state */
 
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import r, { div, button, p } from 'r-dom';
 import withProps from '../../Styleguide/withProps';
 import SideWinder from './SideWinder';

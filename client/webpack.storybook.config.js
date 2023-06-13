@@ -10,7 +10,7 @@ config.module.rules = config.module.rules || [];
 config.module.rules.push(
   {
     test: /\.css$/,
-    loaders: [
+    roles: [
       {
         loader: 'style-loader',
         options: {
@@ -33,7 +33,7 @@ config.module.rules.push(
   },
   {
     test: /\.scss$/,
-    loaders: ['style-loader', 'css-loader', 'sass-loader'],
+    use: ['style-loader', 'css-loader', 'sass-loader'],
   },
   {
     test: /\.(woff2?)$/,

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-set-state */
 
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { form, input, button, span, div } from 'r-dom';
 import * as placesUtils from '../../../utils/places';
 import variables from '../../../assets/styles/variables';

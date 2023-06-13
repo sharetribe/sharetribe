@@ -1,5 +1,6 @@
-import { Component, PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactCSSTransitionGroup from 'react-transition-group';
 import r, { div, p } from 'r-dom';
 import classNames from 'classnames';
 import Immutable from 'immutable';

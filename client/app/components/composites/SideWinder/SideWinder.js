@@ -25,8 +25,9 @@ This is quite a dirty component that breaks away from the React world,
 but tries to contain all the hackiness within itself.
 
 */
-import { Component, PropTypes } from 'react';
-import ReactTransitionGroup from 'react-addons-transition-group';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactTransitionGroup from 'react-transition-group';
 import r, { div, button } from 'r-dom';
 import classNames from 'classnames';
 import Portal from '../Portal/Portal';

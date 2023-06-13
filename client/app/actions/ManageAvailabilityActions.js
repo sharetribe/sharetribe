@@ -30,11 +30,6 @@ const changeVisibleMonth = (day) => ({
   payload: day,
 });
 
-export const dataLoaded = (slots, loadedMonths) => ({
-  type: actionTypes.DATA_LOADED,
-  payload: slots.merge({ loadedMonths }),
-});
-
 export const dataBlockedDatesLoaded = (data, loadedMonths) => ({
   type: actionTypes.DATA_BLOCKED_DATES_LOADED,
   payload: { blocked_dates: data, loadedMonths: loadedMonths },

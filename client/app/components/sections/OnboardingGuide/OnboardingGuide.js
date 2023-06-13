@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import r from 'r-dom';
 import _ from 'lodash';
 
@@ -61,7 +62,7 @@ class OnboardingGuide extends React.Component {
     window.addEventListener('popstate', this.handlePopstate);
   }
 
-  componentWillUpdate(nextProps) {
+  UNSAFE_componentWillUpdate(nextProps) {
     // Back button clicks should not be saved with history.pushState
     if (nextProps.data.pathHistoryForward) {
       const path = nextProps.data.path;

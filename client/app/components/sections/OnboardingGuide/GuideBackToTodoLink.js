@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { a } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../../utils/i18n';

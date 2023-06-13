@@ -1,4 +1,5 @@
-import React, { Children, Component, PropTypes } from 'react';
+import React, { Children, Component } from 'react';
+import PropTypes from 'prop-types';
 import r, { div } from 'r-dom';
 import classNames from 'classnames';
 import PageSelection from '../../composites/PageSelection/PageSelection';

@@ -1,11 +1,11 @@
 /* eslint-disable react/no-set-state */
 
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import r, { div } from 'r-dom';
 import { DayPicker, isSameDay, isInclusivelyBeforeDay } from 'react-dates';
 import moment from 'moment';
 
-import 'react-dates/css/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
 import css from './ManageAvailabilityCalendar.css';
 
 const isPast = (day) => {

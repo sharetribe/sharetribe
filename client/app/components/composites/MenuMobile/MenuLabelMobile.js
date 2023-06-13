@@ -1,4 +1,5 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { div, span } from 'r-dom';
 import css from './MenuMobile.css';
 import hamburgerIcon from './images/hamburgerIcon.svg';
