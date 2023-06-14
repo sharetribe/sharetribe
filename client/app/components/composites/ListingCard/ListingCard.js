@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import r, { a, div, img, span } from 'r-dom';
 import classNames from 'classnames';
 import { t, fullLocaleCode, localizedString, localizedPricingUnit } from '../../../utils/i18n';

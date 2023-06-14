@@ -7,14 +7,10 @@ chai.use(chaiEnzyme());
 
 global.storybookFacade = { storiesOf, action, linkTo, specs, expect };
 
-const { JSDOM } = require('jsdom');
+import { jsdom } from 'jsdom';
 
 // Enzyme fix: load a document into the global scope before requiring React
-const { window } = new JSDOM('<!doctype html><html><body></body></html>', {
-  url: 'http://localhost',
-});
-global.document = window.document;
-
+global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 Object.keys(global.document.defaultView).forEach((property) => {
   if (typeof global[property] === 'undefined') {

@@ -23,8 +23,7 @@
 
 */
 
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import css from './Portal.css';

@@ -25,7 +25,7 @@ config.module.rules.push(
   },
   {
     test: /\.css$/,
-    rules: [
+    loader: [
       {
         loader: MiniCssExtractPlugin.loader,
       },
@@ -45,7 +45,7 @@ config.module.rules.push(
   },
   {
     test: /\.scss$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    loaders: ['style-loader', 'css-loader', 'sass-loader'],
   },
   {
     test: require.resolve('react'),

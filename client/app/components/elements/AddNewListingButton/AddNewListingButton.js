@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { PropTypes } from 'react';
 import { a, span } from 'r-dom';
 import classNames from 'classnames';
 

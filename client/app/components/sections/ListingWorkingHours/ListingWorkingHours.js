@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as FlashNotificationActions from '../../../actions/FlashNotificationActions';
@@ -48,7 +47,7 @@ class ListingWorkingHours extends Component {
     window.addEventListener('resize', this.resizeHandler);
   }
 
-  UNSAFE_componentWillUpdate(nextProps) {
+  componentWillUpdate(nextProps) {
     // manage location hash
     const containsHash = window.location.hash.indexOf(`#${ListingWorkingHoursActions.EDIT_VIEW_OPEN_HASH}`) >= 0;
     const href = window.location.href;

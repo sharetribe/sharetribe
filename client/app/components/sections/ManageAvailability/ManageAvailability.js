@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import r, { button, div, a } from 'r-dom';
 import Immutable from 'immutable';
 import classNames from 'classnames';
@@ -109,7 +108,7 @@ class ManageAvailability extends Component {
     window.addEventListener('resize', this.resizeHandler);
   }
 
-  UNSAFE_componentWillUpdate(nextProps) {
+  componentWillUpdate(nextProps) {
     // manage location hash
     const containsHash = window.location.hash.indexOf('#manage-availability') >= 0;
     const href = window.location.href;

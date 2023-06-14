@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import r, { div, span } from 'r-dom';
 import Link from '../../elements/Link/Link';
 import css from './MenuMobile.css';

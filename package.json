@@ -2,7 +2,7 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "18.16"
+    "node": "10.15"
   },
   "scripts": {
     "clean": "rm -f app/assets/webpack/*"
@@ -13,6 +13,6 @@
   ],
   "dependencies": {
     "check-node-version": "^4.2.1",
-    "codemirror": "^5.65.13"
+    "codemirror": "^5.65.12"
   }
 }

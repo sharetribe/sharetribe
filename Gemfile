@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 5.0.6'
 gem 'compass', git: 'https://github.com/Charly3X/compass.git'
 gem 'compass-rails', '~> 4.0.0'
 
-gem 'jquery-rails', '~> 4.4.0'
+gem 'jquery-rails', '~> 4.3.1'
 
 # Bundle the extra gems:
 
@@ -92,7 +92,7 @@ gem 'faraday', '~> 1.10.0'
 gem 'faraday_middleware', '~> 1.2.0'
 gem 'faraday-encoding', '~> 0.0.5'
 
-gem 'react_on_rails', '13.0.2'
+gem 'react_on_rails', '>= 11.3.0'
 
 gem 'sitemap_generator', '~> 6.2.1'
 

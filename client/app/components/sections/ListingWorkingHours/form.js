@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, PropTypes } from 'react';
 import { Form, StyledSelect, FormField, Checkbox } from 'react-form';
 import merge from 'lodash.merge';
 import { t } from '../../../utils/i18n';
@@ -139,7 +138,7 @@ class DayWrapper extends Component {
     return { remove: !this.props.enabled };
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({ // eslint-disable-line react/no-set-state
       timeSlots: nextProps.timeSlots,
       enabled: nextProps.enabled, // eslint-disable-line no-underscore-dangle
@@ -251,7 +250,7 @@ class ListingWorkingHoursForm extends Component {
     this.formApi = null;
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (this.formApi && nextProps.saveFinished) {
       this.formApi.setAllValues(nextProps.workingTimeSlots);
     }

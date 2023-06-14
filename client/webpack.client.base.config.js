@@ -5,10 +5,10 @@ module.exports = {
   entry: {
 
     // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
-    // vendor: [
-    //   'es6-shim',
-    //   'whatwg-fetch',
-    // ],
+    vendor: [
+      'es6-shim',
+      'whatwg-fetch',
+    ],
 
     // This will contain the app entry points
     app: [

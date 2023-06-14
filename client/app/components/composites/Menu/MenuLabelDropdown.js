@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component, PropTypes } from 'react';
 import { div, span } from 'r-dom';
 import css from './Menu.css';
 import openIcon from './images/dropdownTriangleOpen.svg';

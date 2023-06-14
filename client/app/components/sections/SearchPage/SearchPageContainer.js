@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { PropTypes } from 'react';
 import r from 'r-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
