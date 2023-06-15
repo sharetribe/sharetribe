@@ -98,7 +98,7 @@ ro:
       order_by: Comanda %{orderer_link}
       accept_offer: Acceptați oferta
       accept_request: Acceptă cererea și păstrează valabilă oferta.
-      accept_request_and_close: 
+      accept_request_and_close: Acceptă cererea și închide listarea
       reject_offer: Nu de data asta
       reject_request: Nu de data asta
       close_listing: Închideți anunțul %{listing_title_link}
@@ -248,7 +248,7 @@ ro:
         sa valideze rezervarea pentru %{listing_title}
       request_accepted: Cerere acceptată
       request_rejected: Cerere respinsă
-      request_confirmed: Finalizatăt
+      request_confirmed: Finalizată
       request_canceled: Anulat
       request_paid: Plata a fost procesată cu succes.
       request_preauthorized: Plata a fost autorizată

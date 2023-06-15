@@ -848,7 +848,7 @@ da-DK:
           approval_pending: I vente
           approval_rejected: Afvist
         headers:
-          author: 
+          author: Forfatter
           title: Titel
           created: Oprettet
           updated: Opdateret
@@ -2533,7 +2533,7 @@ da-DK:
     stripe_need_more_information: Stripe, betalingsgatewayen, har brug for flere informationer
       før du kan modtage betalinger.
     stripe_need_more_information_info: Før du kan modtage betalinger skal vi bruge
-      lidt flere informationer fra dig
+      lidt flere informationer fra dig. Nedenunder kan du begynde at modtage betalinger.
     form_new:
       need_info: Vi har brug for nogle oplysninger om dig for at kunne sende dig penge.
       select_country: Vælg land
@@ -2557,7 +2557,9 @@ da-DK:
       tos_link: Ved at tilføje dine udbetalingsdetaljer accepterer du %{stripe_link}.
       tos_link_title: Stripe Forbundet Konto Aftale
       save_details: Gem
-      edit: "\U0001D5E5\U0001D5F2\U0001D5F1\U0001D5F6\U0001D5F4\U0001D5F2\U0001D5FF"
+      edit: "\U0001D5D5\U0001D5F2\U0001D5F4\U0001D606\U0001D5FB\U0001D5F1 \U0001D5EE\U0001D601
+        \U0001D5FA\U0001D5FC\U0001D5F1\U0001D601\U0001D5EE\U0001D5F4\U0001D5F2 \U0001D5EF\U0001D5F2\U0001D601\U0001D5EE\U0001D5F9\U0001D5F6\U0001D5FB\U0001D5F4\U0001D5F2\U0001D5FF
+        \U0001D5F5\U0001D5F2\U0001D5FF!"
       cancel: Annuller
       gender: Køn
       phone_number: Telefonnummer
