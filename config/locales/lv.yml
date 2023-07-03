@@ -377,7 +377,7 @@ lv:
         ievadiet pieprasīto maksājumu informāciju.
       payment_settings_link: maksājumu iestatījumi
     payment_settings_reminder_v2:
-      fill_payout_details: Aizpildiet izmaksas detaļas
+      fill_payout_details: Aizpildiet maksājuma detaļas
       you_have_added_listing_with_payment: Jūs esat pievienojis sludinājumu %{listing_link},
         taču mēs pamanījām, ka Jūs vēl neesat pievienojis savu maksājuma informāciju.
         Lai saņemtu maksājumu, jums ir jānorāda sava maksājuma informācija.
@@ -755,7 +755,7 @@ lv:
       starter: 'Uzsācējs: %{name}'
       provider: 'Pārdevējs: %{name}'
     new_transaction_v2:
-      subject: 
+      subject: Jauns darījums %{service_name}
       there_is_a_new_transaction: 
       a_new_transaction: jauns darījums
       listing: 'Sludinājums:'
@@ -818,30 +818,30 @@ lv:
         status_filter:
           all: Visi statusi
           selected: 
-          selected_js: 
-          free: 
-          confirmed: 
-          paid: 
-          canceled: 
-          disputed: 
+          selected_js: 'Atzīmētie statusi: '
+          free: Bezmaksas darījums
+          confirmed: Pabeigts
+          paid: Samaksāts
+          canceled: Atcelts
+          disputed: Apstrīdēts
           preauthorized: 
           rejected: Noraidīts
           payment_intent_requires_action: Gaida
           payment_intent_action_expired: Beidzies
-          refunded: 
+          refunded: Atmaksāts
           dismissed: 
         status:
-          free: 
-          disputed: 
+          free: Bezmaksas darījums
+          disputed: Apstrīdēts
           paypal:
-            disputed: 
-            refunded: 
+            disputed: Apstrīdēts
+            refunded: Atmaksāts
             dismissed: 
           stripe:
-            disputed: 
+            disputed: Apstrīdēts
             payment_intent_requires_action: Gaida
             payment_intent_action_expired: Beidzies
-            refunded: 
+            refunded: Atmaksāts
             dismissed: 
       listings:
         listings: Sludinājumi
@@ -849,14 +849,14 @@ lv:
         reset_search: Parādīt visus
         status:
           all: Visi statusi
-          selected_js: 
+          selected_js: 'Atzīmētie statusi: '
           open: Pieejams
           closed: Slēgts
           expired: Beidzies
           approval_pending: Gaida
           approval_rejected: Noraidīts
         headers:
-          author: 
+          author: Autors
           title: Virsraksts
           created: Izveidots
           updated: Atjaunots
@@ -865,7 +865,7 @@ lv:
         open: Pieejams
         closed: Slēgts
         expired: Beidzies
-        approved: 
+        approved: Apstiprināts
         approval_pending: Gaida
         approval_rejected: Noraidīts
       landing_pages:
@@ -1947,8 +1947,9 @@ lv:
     paypal_account_connected_title: PayPal konts pievienots
     paypal_account_connected: PayPal konts %{email} ir savienots ar %{service_name}.
     change_account: Mainīt PayPal kontu
-    missing: 
-    from_your_payment_settings_link_text: 
+    missing: Tavus sludinājumus citi lietotāji nevar rezervēt. %{settings_link}, lai
+      pieslēgtu maksājumus.
+    from_your_payment_settings_link_text: Iestatīt maksājumus
     redirect_message: Novirzam Jūs uz PayPal. Ja nekas nenotiek, noklikšķiniet uz
       %{redirect_link}.
     redirect_link_text: šeit
@@ -2519,7 +2520,8 @@ lv:
     add_and_pay: Apstipriniet maksājumu
     card_not_stored: Stripe ir droši apstrādājusi Jūsu maksājumu. %{service_name}
       neuzglabā Jūsu kredītkartes / debetkartes informāciju.
-    missing_payment: 
+    missing_payment: Tavus sludinājumus citi lietotāji nevar rezervēt. %{settings_link},
+      lai pieslēgtu maksājumus.
     stripe_bank_connected: Bankas konta dati ir veiksmīgi konfigurēti!
     stripe_can_accept: Tagad Jūs esat gatavs saņemtu naudu uz savu bankas kontu
     stripe_credit_card: Kredītkarte
@@ -2541,9 +2543,10 @@ lv:
     stripe_account_pending_verification_info: Pārbaudiet vēlreiz vēlāk, lai pārliecinātos,
       ka viss ir kārtībā.
     seller_account_not_connected: 
-    bank_account_not_connected: 
+    bank_account_not_connected: Bankas konts nav pievienots
     stripe_need_more_information: 
-    stripe_need_more_information_info: 
+    stripe_need_more_information_info: Lai saņemtu maksājumus, norādiet dažas detaļas,
+      lai pabeigtu un verificētu savu kontu.
     form_new:
       need_info: Lai varētu Jums nosūtīt naudu, mums ir nepieciešama informācija par
         Jums.
@@ -2585,9 +2588,9 @@ lv:
       address_kanji_line1: Iela
       male: vīrietis
       female: sieviete
-      individual: 
-      company: 
-      account_type: 
+      individual: Esmu privātpersona
+      company: Esmu juridiska persona
+      account_type: Konta tips
     form_bank:
       bank_account_number: Bankas konta numurs
       bank_routing_number: "“Routing” numurs"
