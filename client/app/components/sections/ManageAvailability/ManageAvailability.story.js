@@ -4,6 +4,7 @@ import { Component } from 'react';
 import r from 'r-dom';
 import moment from 'moment';
 import Immutable from 'immutable';
+import 'react-dates/initialize';
 import { isSameDay } from 'react-dates';
 import withProps from '../../Styleguide/withProps';
 import ManageAvailability from './ManageAvailability';

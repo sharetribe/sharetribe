@@ -7,7 +7,7 @@ const nodeEnv = devBuild ? 'development' : 'production';
 const { replacePercentChar } = require('./webpackConfigUtil');
 const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 const assetHost = replacePercentChar(assetHostEnv);
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
+        rules: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
@@ -62,7 +62,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
@@ -79,18 +79,9 @@ module.exports = {
     ],
   },
   optimization: {
+    minimize: true,
     minimizer: [
-      // we specify a custom UglifyJsPlugin here to get source maps in production
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          compress: false,
-          ecma: 6,
-          mangle: true,
-        },
-        sourceMap: true,
-      }),
+      new TerserPlugin(),
     ],
   },
 };

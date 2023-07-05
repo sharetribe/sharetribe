@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { a, div, img } from 'r-dom';
 import classNames from 'classnames';
 import * as propTypeUtils from '../../../utils/PropTypes';

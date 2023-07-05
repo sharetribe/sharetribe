@@ -1,5 +1,6 @@
 import r from 'r-dom';
 import { shallow } from 'enzyme';
+
 import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';

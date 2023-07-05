@@ -1,6 +1,7 @@
 /* eslint-disable react/no-set-state  */
 
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { div } from 'r-dom';
 
 import css from './SideWinder.css';

@@ -30,11 +30,11 @@ If you're looking for a customizable and extendable marketplace solution, [check
 
 ## Technology stack
 
-- Ruby 2.7
-- Ruby on Rails 5.2.3
+- Ruby 3.2.2
+- Ruby on Rails 6.1.7.3
 - MySQL 5.7
 - React + jQuery
-- Node.js 10.15 (for compiling JavaScript assets)
+- Node.js 18.16 (for compiling JavaScript assets)
 - "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
 - Deploy: Custom Script (not using Mina or Cap3)
 - Server: Heroku
@@ -55,10 +55,10 @@ If you're looking for a customizable and extendable marketplace solution, [check
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.7.5 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+  * **Ruby**. Version 3.2.2 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
-  * **Node**. Version 10.15 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
+  * **Node**. Version 18.16 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
   * [**Git**](http://help.github.com/git-installation-redirect)
   * **A database**. Only MySQL 5.7 has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.

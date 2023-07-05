@@ -3,6 +3,7 @@
 /* eslint-disable no-magic-numbers */
 
 import { expect } from 'chai';
+import 'react-dates/initialize';
 import { isSameDay } from 'react-dates';
 import moment from 'moment';
 import Immutable from 'immutable';

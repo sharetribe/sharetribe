@@ -18,6 +18,12 @@ Feature: User books listing per hour
     And that listing availability is booking
     And that listing has default working hours
 
+  Scenario: Edit listing availability
+    When I am logged in as "kassi_testperson1"
+     And I go to the listing page
+     And I follow "Edit listing availability"
+    Then I should see "Default schedule"
+
   Scenario: Reach payment step successfully
     When I am logged in as "kassi_testperson2"
     And I am on the home page

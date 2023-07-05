@@ -1,11 +1,11 @@
 /* eslint-disable react/no-set-state */
 
-import { PropTypes } from 'react';
-import r, { div } from 'r-dom';
-import { DayPicker, isSameDay, isInclusivelyBeforeDay } from 'react-dates';
+import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
+import 'react-dates/initialize';
+import { DayPicker, isSameDay, isInclusivelyBeforeDay } from 'react-dates';
 
-import 'react-dates/css/styles.scss';
 import css from './ManageAvailabilityCalendar.css';
 
 const isPast = (day) => {
@@ -14,10 +14,10 @@ const isPast = (day) => {
 };
 
 const isReserved = (reservedDays, day) =>
-  !!reservedDays.find((d) => isSameDay(d, day));
+    !!reservedDays.find((d) => isSameDay(d, day));
 
 const isBlocked = (blockedDays, day) =>
-  !!blockedDays.find((d) => isSameDay(d, day));
+    !!blockedDays.find((d) => isSameDay(d, day));
 
 const ManageAvailabilityCalendar = (props) => {
 
@@ -33,8 +33,28 @@ const ManageAvailabilityCalendar = (props) => {
   };
 
   const pickerProps = {
-    id: 'ManageAvailabilityCalendar_picker',
     enableOutsideDays: true,
+    numberOfMonths: 1,
+    hideKeyboardShortcutsPanel: true,
+    // eslint-disable-next-line react/display-name
+    renderDayContents: (day) => {
+      const isPreviousDay = day.isBefore(moment(), 'day');
+      const currentDay = isSameDay(moment(), day);
+      const dayBlocked = isBlocked(props.blockedDays, day);
+      const dayReserved = isReserved(props.reservedDays, day);
+      const pastDayClass = isPreviousDay ? ' calendar-day-past ' : '';
+      const todayClass = currentDay ? ' calendar-day-today ' : '';
+      const blockedClass = dayBlocked ? ' calendar-day-blocked ' : '';
+      const reservedClass = dayReserved ? ' calendar-day-reserved' : '';
+
+      return (
+          <span className={`${pastDayClass}${todayClass}${blockedClass}${reservedClass}`}>
+              <span className='calendar-day-date'>
+                {day.format('D')}
+              </span>
+          </span>
+      );
+    },
     initialVisibleMonth: () => props.initialMonth,
     onDayClick: handleDayClick,
     onPrevMonthClick: () => {
@@ -51,26 +71,21 @@ const ManageAvailabilityCalendar = (props) => {
     },
   };
 
-  return div({ className: `${css.root} ${props.extraClasses || ''}` }, [
-    r(DayPicker, pickerProps),
-  ]);
+  return (
+      <div className={`${css.root} ${props.extraClasses || ''}`}>
+        <DayPicker {...pickerProps} />
+      </div>
+  );
 };
 
 ManageAvailabilityCalendar.propTypes = {
-
-  // moment.js instance
-  initialMonth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-
-  // array of moment date instances
+  // eslint-disable-next-line react/forbid-prop-types
+  initialMonth: PropTypes.object.isRequired,
   blockedDays: PropTypes.arrayOf(PropTypes.object).isRequired,
-
-  // array of moment date instances
   reservedDays: PropTypes.arrayOf(PropTypes.object).isRequired,
-
   onDayAllowed: PropTypes.func.isRequired,
   onDayBlocked: PropTypes.func.isRequired,
   onMonthChanged: PropTypes.func.isRequired,
-
   extraClasses: PropTypes.string,
 };
 

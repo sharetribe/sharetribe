@@ -51,7 +51,7 @@
   margin-left: 0.2857em;
 }
 
-.menuLabelDropdownIconOpen {
+.menuLabelDropdownIconOpen { /* stylelint-disable-next-line value-keyword-case */
   composes: menuLabelDropdownIcon;
   display: none;
 }
@@ -61,7 +61,7 @@
   display: inline-block;
 }
 
-.menuLabelDropdownIconClosed {
+.menuLabelDropdownIconClosed { /* stylelint-disable-next-line value-keyword-case */
   composes: menuLabelDropdownIcon;
   display: inline-block;
 }

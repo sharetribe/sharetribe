@@ -9,7 +9,6 @@ module.exports = {
     // Single quotes everywhere
     'font-family-name-quotes': 'always-where-recommended',
     'function-url-quotes': 'always',
-    'string-quotes': 'single',
 
     // Disallow using vendor prefixes to let Autoprefixer handle them
     'at-rule-no-vendor-prefix': true,
@@ -17,11 +16,12 @@ module.exports = {
     'property-no-vendor-prefix': true,
     'selector-no-vendor-prefix': true,
     'value-no-vendor-prefix': true,
-
-    // Warn about TODO comments
-    'comment-word-blacklist': [['/TODO\\b/', '/FIXME\\b/', '/XXX\\b/'], {
-      severity: 'warning',
-    }],
+    "custom-property-pattern": "^.*$",
+    'media-feature-range-notation': 'prefix',
+    'value-keyword-case': 'lower',
+    'alpha-value-notation': 'number',
+    'declaration-block-no-redundant-longhand-properties': null,
+    'color-function-notation': 'legacy',
 
     'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
 

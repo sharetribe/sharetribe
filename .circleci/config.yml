@@ -13,7 +13,7 @@ jobs:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
           DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
-          NODE_VERSION: 10.15.3
+          NODE_VERSION: 18.16.0
           NODE_ENV: test
           RAILS_ENV: test
           RACK_ENV: test
@@ -98,7 +98,7 @@ jobs:
           command: shopt -s globstar && echo $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
       - run:
           name: cucumber
-          command: shopt -s globstar && mkdir -p $CIRCLE_TEST_REPORTS/cucumber && bundle exec cucumber -p ci --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings --show-counts)
+          command: shopt -s globstar && mkdir -p $CIRCLE_TEST_REPORTS/cucumber && bundle exec cucumber -p ci --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings --show-counts)
       - run:
           name: npm test
           command: if [[ "$CIRCLE_NODE_INDEX" == "2" || ( "$CIRCLE_NODE_TOTAL" -lt "3" && "$CIRCLE_NODE_INDEX" == "1" ) ]] ; then npm test ; fi

@@ -29,7 +29,7 @@
 }
 
 .propsWrapper {
-  margin: 1em 0 0 0;
+  margin: 1em 0 0 0; /* stylelint-disable-next-line value-keyword-case */
   background: lightGrey;
   padding: 1em;
   display: inline-block;

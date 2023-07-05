@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
 import { t } from '../../../utils/i18n';
 

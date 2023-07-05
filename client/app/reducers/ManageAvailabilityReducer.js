@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import moment from 'moment';
+import 'react-dates/initialize';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 

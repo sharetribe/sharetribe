@@ -5,6 +5,7 @@ import r from 'r-dom';
 import withProps from '../../Styleguide/withProps';
 import ManageAvailabilityCalendar from './ManageAvailabilityCalendar';
 import moment from 'moment';
+import 'react-dates/initialize';
 import { isSameDay } from 'react-dates';
 
 const { storiesOf } = storybookFacade;
