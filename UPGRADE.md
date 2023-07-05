@@ -38,9 +38,13 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
-## Upgrade from 10.3.0 to X.X.X
+## Upgrade from 10.3.0 to 11.0.0
 
-Using memcached is no longer supported. Use Redis instead.
+The new version contains a Ruby upgrade to 3.2.2 and Node to v18.16, that you should review.
+
+Using memcached is no longer supported. You should use Redis instead.
+
+Otherwise, see the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 10.2.1 to 10.3.0
 
