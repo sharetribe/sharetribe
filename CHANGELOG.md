@@ -16,11 +16,41 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
-- Drop support for memcache
-
 ### Fixed
 
 ### Security
+
+## [11.0.0] - 2023-07-05
+
+### Added
+
+- TikTok option to footers icons [839226a](https://github.com/sharetribe/sharetribe/commit/839226a53fa9d4f53a82d3f71824b45204ed5048)
+- Index on token for export results [7f1eb83](https://github.com/sharetribe/sharetribe/commit/7f1eb83ac239f16feaf7c5c71b225c737a544b0e)
+
+### Changed
+
+- Links in comments are now nofollow [f208d9d](https://github.com/sharetribe/sharetribe/commit/f208d9d5f11bbfd5c7c290d85a09ae88f7cc1357)
+- Changed how "has_connected_stripe" in CSV exports is defined [1a02b32](https://github.com/sharetribe/sharetribe/commit/1a02b32c1271d5c74000871038e6930f8571ad59)
+
+### Removed
+
+- Removed support for memcache [#80058c0](https://github.com/sharetribe/sharetribe/commit/80058c0c9eaf7ce26310527d91e3b5e64a1f2ac0)
+
+### Fixed
+
+- Fixed PayPal IPN encoding issue [7a998c7](https://github.com/sharetribe/sharetribe/commit/7a998c72891b445c55f30082aadf7e5c2625b4f9)
+- Fixed an untranslated button in the new Admin panel [fbdbc0a](https://github.com/sharetribe/sharetribe/commit/fbdbc0a04ea081f6270d5eaec580cff58ae2a68f)
+- Fixed the syntax formatting in the Custom script field in the Admin panel [https://github.com/sharetribe/sharetribe/commit/fbdbc0a04ea081f6270d5eaec580cff58ae2a68f](https://github.com/sharetribe/sharetribe/commit/20f2126924e5102f894900752fc2cdca15483dff)
+- Fixed incorrect authorization check [04395c1](https://github.com/sharetribe/sharetribe/commit/04395c1469269a38e5cf183195bc5a5d29affdba)
+- Fixed Stripe Connect onboarding in France [e19727e](https://github.com/sharetribe/sharetribe/commit/e19727e1ed99557b7d3e9ed5d966606b11d599a8)
+- Fixed fuzzy location issue with null or extreme coordinate values [3585d27](https://github.com/sharetribe/sharetribe/commit/3585d27a2493803c5860272cf13b49fbb21e063d)
+
+### Security
+
+- Updated Dalli dependencies [9579e9d](https://github.com/sharetribe/go/commit/9579e9dc94952d98102511cdfc615dc47a60baf5)
+- Updated Ruby to 3.2.1 [f133562](https://github.com/sharetribe/sharetribe/commit/f133562eb3d8423ed52967bdbd6a68012d909aed)
+- Updated Ruby to 3.2.2 [a0d2970](https://github.com/sharetribe/sharetribe/commit/a0d29708e25ffbbddd50a180368e738c160852f4)
+- Dependencies and Node update [274c97d](https://github.com/sharetribe/sharetribe/commit/274c97d6c56e286f2ad1287734d7b7dd3137b5a8)
 
 ## [10.3.0] - 2023-02-07
 
@@ -56,6 +86,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Update the default Terms of Service and Privacy Policy content [#378e7e](https://github.com/sharetribe/sharetribe/commit/378e7e9019be5c357af6b88ed076d4bf5094deae)
 - Update font-family and get rid of "Source Sans Pro" [#ce9c51](https://github.com/sharetribe/sharetribe/commit/ce9c512a1159c2cd756d6ba72bb4c90a1696a428)
 - Update Facebook API graph version (v10.0 to v15.0) [#72f0cd](https://github.com/sharetribe/sharetribe/commit/72f0cd2beef381bc8e97de06e64315e0edc606f4)
+- Improvements to interactions with disabled user accounts [#7941b1](https://github.com/sharetribe/sharetribe/commit/7941b1275fbcfb4e41de0fc7524f1d6b24f37259)
 
 ### Fixed
 
@@ -1018,7 +1049,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.3.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v11.0.0...HEAD
+[11.0.0]: https://github.com/sharetribe/sharetribe/compare/v10.3.0...v11.0.0
 [10.3.0]: https://github.com/sharetribe/sharetribe/compare/v10.2.1...v10.3.0
 [10.2.1]: https://github.com/sharetribe/sharetribe/compare/v10.2.0...v10.2.1
 [10.2.0]: https://github.com/sharetribe/sharetribe/compare/v10.1.0...v10.2.0
