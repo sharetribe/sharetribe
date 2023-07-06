@@ -13709,12 +13709,10 @@ input#colorpicker-description {
     border-left: 1px solid #D8DCE6 !important; } }
 
 .sp-dd {
-  float: none !important;
-  font-size: 0 !important;
-  height: auto !important;
+  height: 8px!important;
   content: url(image_path("svg/arrow-down-big.svg"));
-  padding: 0 4px 0 8px !important;
-  margin-top: 3px; }
+  padding: 0 0 0 10px!important;
+  margin-top: 10px; }
 
 .sp-preview {
   border: none !important;
