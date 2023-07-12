@@ -245,7 +245,7 @@ lv:
       waiting_for_listing_author_to_accept_request: Gaida, kad %{listing_author_name}
         apstiprinās pieprasījumu. Tiklīdz %{listing_author_name} to apstiprinās, no
         Jums tiks ieturēta maksa.
-      waiting_for_you_to_accept_request: Gaida, kad Jūs piekritīsiet pieprasījumam
+      waiting_for_you_to_accept_request: Gaida, kad Jūs apstiprināsiet rezervāciju
       waiting_confirmation_from_requester: Gaida, kad %{requester_name} atzīmēs pasūtījumu
         kā izpildītu
       waiting_confirmation_from_you: Gaida uz Jums, kad atzīmēsiet, kas pasūtījums
@@ -292,7 +292,7 @@ lv:
       confirm: Atzīmēt, ka pabeigts
       cancel: Apstrīdēt
       mark_as_refunded: Atzīmēts kā atmaksāts
-      dismiss: 
+      dismiss: Atcelt un izmaksāt
   feedback:
     feedback_subject: Jauns kontakta formas ieraksts %{service_name}
     feedback_body: "%{author_name_and_email} ir iesūtījis info %{service_name} kontakta
@@ -463,7 +463,7 @@ lv:
         dalībnieks uzaicināja jūs pievienoties
       unsubscribe_from_invitation_emails: Atrakstīties no uzaicinājuma e-pastiem lai
         pievienoties %{service_name}
-      here_is_your_receipt: 
+      here_is_your_receipt: Šeit ir Tavs maksājuma apstiprinājums.
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ir apstiprinājums jūsu piedāvājumu %{listing}"
       has_accepted_your_request: "%{accepter} ir apstiprinājis jūsu pieprasījumu%{listing}"
@@ -559,7 +559,7 @@ lv:
         būsiet atzīmējis pieprasījumu kā izpildītu vai b) %{automatic_confirmation_days}
         dienas būs pagājušas kopš samaksājāt.
     payment_receipt_to_payer_v2:
-      headline: 
+      headline: 'Šeit ir Tavs maksājuma apstiprinājums par: %{listing_link}.'
       you_have_made_new_payment: Tu samaksāji %{payment_sum} par %{listing_title}
         .
     paypal_new_payment:
@@ -777,7 +777,8 @@ lv:
       subject_admin: Darījums tika apstrīdēts, tev jāizlemj, ko darīt tālāk
       order_about: Pasūtījums par %{listing_title}
       the_order_has_been_canceled: "%{transaction_link} ir apstrīdēts."
-      the_order_between_buyer_and_seller_has_been_canceled: 
+      the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} starp
+        %{buyer} un %{seller}  ir apstrīdēts."
       the_marketplace_has_been_notified: "%{service_name} ir informēta un izskata
         situāciju. Tu vari sazināties ar viņiem, lai nodotu papildus informāciju."
       contact_the_marketplace_team: Sazinies ar %{service_name} komandu
@@ -799,7 +800,7 @@ lv:
       marketplace_team_has_rejected_the_cancellation: "%{service_name} komanda noraidīja
         pretenziju par %{transaction_link} "
     transaction_commission_charge_failed:
-      subject: 
+      subject: Komisijas maksa netika nosūtīta uz Tavu PayPal kontu.
       transaction_about: Darījums par %{listing_title}
       the_commission_of_the_transaction: Komisijas maksu par %{transaction_link} no
         %{seller} neizdevās nosūtīt uz Tavu PayPal kontu.
@@ -817,7 +818,7 @@ lv:
         reset_search: Parādīt visus
         status_filter:
           all: Visi statusi
-          selected: 
+          selected: 'Atlasītie statusi: %{count}'
           selected_js: 'Atzīmētie statusi: '
           free: Bezmaksas darījums
           confirmed: Pabeigts
@@ -829,20 +830,20 @@ lv:
           payment_intent_requires_action: Gaida
           payment_intent_action_expired: Beidzies
           refunded: Atmaksāts
-          dismissed: 
+          dismissed: Atcelts
         status:
           free: Bezmaksas darījums
           disputed: Apstrīdēts
           paypal:
             disputed: Apstrīdēts
             refunded: Atmaksāts
-            dismissed: 
+            dismissed: Atcelts
           stripe:
             disputed: Apstrīdēts
             payment_intent_requires_action: Gaida
             payment_intent_action_expired: Beidzies
             refunded: Atmaksāts
-            dismissed: 
+            dismissed: Atcelts
       listings:
         listings: Sludinājumi
         search: Meklēt
@@ -982,7 +983,7 @@ lv:
       presence: Lauks nevar būt tukšs
       username_is_invalid: Šis lietotājvārds ir nederīgs vai ir aizņemts
       domain_name_is_invalid: Šis domēna vārds ir nederīgs vai nav pieejams
-      only_supported_variables: 
+      only_supported_variables: Pievienojiet tikai atbalstītos mainīgos lielumus
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} piekrita aizdot %{listing_title} %{requester_name}
@@ -1332,8 +1333,7 @@ lv:
       account_creation_successful: Laipni lūgti pie %{service_name}, %{person_name}!
       account_deleted: Jūsu profils tagad ir izdzēsts.
       login_successful: Laipni lūgti, %{person_name}!
-      logout_successful: Jūs tagad esat izrakstījies no %{service_name}. Uz drīzu
-        redzēšanos!
+      logout_successful: Jūs esat izrakstījies no %{service_name}. Uz tikšanos atkal!
       news_item_created: Raksts izveidots
       news_item_creation_failed: Raksta izveide neizdevās
       news_item_update_failed: Raksta atjaunināšana neizdevās
@@ -2204,7 +2204,7 @@ lv:
       given_name: Vārds
       first_name_with_initial: "(tikai pirmie burti tiek rādīti citiem lietotājiem)"
       first_name_only: "(netiek rādīts citiem lietotājiem)"
-      display_name: Labdarības organizācija
+      display_name: Organizācijas nosaukums
       display_name_description: Ja pārstāvat kādu organizāciju, varat izmantot tās
         nosaukumu kā redzamo vārdu. Citiem lietotājiem tiek parādīts redzamais vārds,
         nevis jūsu vārds un uzvārds.
@@ -2542,9 +2542,10 @@ lv:
       Gaidām konta verificēšanu no maksājuma sniedzēja.
     stripe_account_pending_verification_info: Pārbaudiet vēlreiz vēlāk, lai pārliecinātos,
       ka viss ir kārtībā.
-    seller_account_not_connected: 
+    seller_account_not_connected: Izīrētāja konts nav savienots
     bank_account_not_connected: Bankas konts nav pievienots
-    stripe_need_more_information: 
+    stripe_need_more_information: Maksājumu sistēmai Stripe ir nepieciešams norādīt
+      papildus informāciju.
     stripe_need_more_information_info: Lai saņemtu maksājumus, norādiet dažas detaļas,
       lai pabeigtu un verificētu savu kontu.
     form_new:
