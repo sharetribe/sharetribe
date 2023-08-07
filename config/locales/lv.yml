@@ -80,8 +80,8 @@ lv:
       link_to_stripe_text: šeit
   conversations:
     accept:
-      details: Pasūtījuma detaļas
-      order_by: Pasūtīt pēc %{orderer_link}
+      details: Rezervācijas detaļas
+      order_by: Rezervēt pēc %{orderer_link}
       accept_offer: Pieņemt piedāvājumu
       accept_request: Apstiprini pieprasījumu un saglabā sludinājumu aktīvu
       accept_request_and_close: Apstiprini pieprasījumu un slēdz sludinājumu
@@ -89,7 +89,7 @@ lv:
       reject_request: Vēlāk
       close_listing: Aizvērt sludinājumu %{listing_title_link}
       update_later: Atstāt sludinājumu atvērtu
-      optional_message: Sistēmas vēstule
+      optional_message: Rakstīt vēstuli
       price_to_pay: Kopā apmaksai
       accept: Piekrist
       decline: Noraidīt
@@ -107,7 +107,7 @@ lv:
       shipping_price_label: 'Piegāde:'
       stripe-fee_label: Maksājuma apstrādes komisijas maksa
     confirm:
-      confirm_description: Ja pasūtījums ir izpildīts, Jums vajadzētu to apstiprināt
+      confirm_description: Ja darījums ir izpildīts, Jums vajadzētu to apstiprināt
         kā izpildītu. Tad Jūs varēsiet sniegt atsauksmi par otru darījuma pusi.
       cancel_description_team: Ja darījums netika izpildīts, to var atzīmēt kā "Apstrīdēt".
         %{service_name} komanda izskatīs situāciju un nolems vai ir nepieciešams atmaksāt
@@ -115,7 +115,7 @@ lv:
       cancel_payed_description: Ja Jūsu pieprasījums tika apstiprināts, bet Jums ir
         otreizējas pārdomas, Jūs joprojām pirms maksājuma veikšanas varat atcelt pieprasījumu.
       canceling_payed_transaction: Atcelt tranzakciju
-      confirm: Atzīmēt kā pabeigtu
+      confirm: Atzīmēt kā izpildītu
       cancel: Apstrīdēt
       continue: Turpināt
       give_feedback_to: Sniedziet atsauksmes par %{person_link}
@@ -135,44 +135,44 @@ lv:
       accepted_offer: Piedāvājums pieņemts.
       rejected_request: Pieprasījums noraidīts.
       rejected_offer: Piedāvājums noraidīts.
-      confirmed_request: Pasūtījums pabeigts.
-      confirmed_offer: Piedāvājums pabeigts.
-      canceled_request: Pasūtījums apstrīdēts.
+      confirmed_request: Darījums izpildīts.
+      confirmed_offer: Piedāvājums izpildīts.
+      canceled_request: Darījums apstrīdēts.
       canceled_offer: Piedāvājums pārtraukts.
       message_from: Ziņa no %{person}
       about_listing: Par sludinājumu %{listing_title}
       free_message: Tieša ziņa
       message_content_not_available: Ziņas saturs nav pieejams
     message:
-      accepted_request: apstiprināja  pieprasījumu
-      received_payment: Apstiprināja pieprasījumu, saņēma maksājumu
+      accepted_request: apstiprināja rezervāciju
+      received_payment: Apstiprināja rezervāciju, saņēma maksājumu
       received_payment_wo_sum: pieņēma pieprasījumu, saņēma maksājumu
       accepted_offer: piedāvājumu pieņēma
       rejected_request: noraidīja pieprasījumu, atcēla maksājumu
       rejected_offer: piedāvājumu noraidīja
-      confirmed_request: atzīmēja pasūtījumu kā izpildītu
-      confirmed_offer: piedāvājums atzīmēts kā pabeigt
-      canceled_request: atcēla pasūtījumu
+      confirmed_request: darījums atzīmēts kā izpildīts
+      confirmed_offer: piedāvājums atzīmēts kā izpildīts
+      canceled_request: atcēla rezervāciju
       canceled_offer: atcēla piedāvājumu
       paid: apmaksāts %{sum}
       payment_preauthorized: Maksājums autorizēts
       payment_preauthorized_wo_sum: Maksājums autorizēts
       stripe:
-        held_payment: 'Apstiprināja pieprasījumu. Maksājumu aizturēs %{service_name}
-          līdz pasūtījums tiks atzīmēts kā izpildīts.  '
-        held_payment_wo_sum: Apstiprināja pasūtījumu. Maksājumu aizturēs %{service_name}  līdz
-          pasūtījums tiks atzīmēts kā izpildīts.
-        confirmed_request: Pasūtījums atzīmēts kā izpildīts. Maksājums ir pārskaitīts
-          uz %{author_name} bankas kontu vai arī drīz tiks pārskaitīts.
-      canceled_the_order: Apstrīdēja pasūtījumu. %{service_name} komanda ir informēta.
+        held_payment: Apstiprināja rezervāciju. Maksājumu aizturēs %{service_name}
+          līdz darījums tiks atzīmēts kā izpildīts.
+        held_payment_wo_sum: Rezervācija apstiprināta. Maksājumu aizturēs %{service_name}
+          līdz darījums tiks atzīmēts kā izpildīts.
+        confirmed_request: Draījums atzīmēts kā izpildīts. Maksājums tiks pārskaitīts
+          uz %{author_name} bankas kontu.
+      canceled_the_order: Darījums ir apstrīdēts. %{service_name} komanda ir informēta.
       marked_as_refunded: Atzīmēts kā atmaksāts
       dismissed_the_cancellation: Atcēla apstrīdēšanas pieteikumu.
       payment_has_now_been_transferred: Maksājums ir pārskaitīts uz %{seller} bankas
-        kontu vai drīz tiks pārskaitīts.
+        kontu.
     new:
       message: Ziņa
       message_to: Ziņa %{author_name}
-      optional_message_to: Izvēles ziņa %{author_name}
+      optional_message_to: Raksti ziņu %{author_name}
       send_message: Nosūtīt vēstuli
       send: Nosūtīts
       this_message_is_private: Šī ziņa ir privāta starp Jums un %{person}. %{person}
@@ -212,7 +212,7 @@ lv:
       offer_accepted: Apstiprināts
       offer_rejected: Noraidīts
       offer_canceled: Atcelts
-      offer_confirmed: Pabeigts
+      offer_confirmed: Izpildīts
       offer_paid: Maksājums veiksmīgs
       offer_preauthorized: Maksājums veiksmīgs
       offer_waiting_for_payment: Gaida, kad %{requester_name} samaksās
@@ -229,13 +229,13 @@ lv:
           intl: Mēs nevarējām apstrādāt PayPal maksājumu, jo jūsu PayPal kontam nav
             aiziešanas mehānisma. Ejiet uz savu %{paypal_url}, lai manuāli apstiprinātu
             vai noraidītu maksājumus.
-      waiting_for_current_user_to_deliver_listing: Gaida, ka izpildīsiet pasūtījumu
+      waiting_for_current_user_to_deliver_listing: Gaida, ka izpildīsiet darījumu
         %{listing_title}
       waiting_for_listing_author_to_deliver_listing: Gaida, kad %{listing_author_name}
-        izpildīs pasūtījumu %{listing_title}
+        izpildīs darījumu %{listing_title}
       request_accepted: Apstiprināts
       request_rejected: Noraidīts
-      request_confirmed: Pabeigts
+      request_confirmed: Izpildīts
       request_canceled: Atcelts
       request_paid: Maksājums veiksmīgs
       request_preauthorized: Maksājums autorizēts
@@ -246,9 +246,9 @@ lv:
         apstiprinās pieprasījumu. Tiklīdz %{listing_author_name} to apstiprinās, no
         Jums tiks ieturēta maksa.
       waiting_for_you_to_accept_request: Gaida, kad Jūs apstiprināsiet rezervāciju
-      waiting_confirmation_from_requester: Gaida, kad %{requester_name} atzīmēs pasūtījumu
+      waiting_confirmation_from_requester: Gaida, kad %{requester_name} atzīmēs darījumu
         kā izpildītu
-      waiting_confirmation_from_you: Gaida uz Jums, kad atzīmēsiet, kas pasūtījums
+      waiting_confirmation_from_you: Gaida uz Jums, kad atzīmēsiet, ka darījums ir
         izpildīts
       waiting_payment_from_requester: Gaidam, kad %{requester_name} samaksās
       waiting_payment_from_you: Gaida, kad samaksāsiet
@@ -262,15 +262,15 @@ lv:
           verify: Gaida, kad Jūs verisifēciet savu PayPal kontu
       stripe:
         waiting_confirmation_from_requester: Gaida uz %{requester_name}, kad atzīmēs,
-          ka pasūtījums izpildīts. Tiklīdz pasūtījums tiks atzīmēts, kā izpildīts,
-          maksājums tiks pārskaitīts uz Jūsu bankas kontu.
+          ka darījums ir izpildīts. Tiklīdz darījums tiks atzīmēts kā izpildīts, maksājums
+          tiks pārskaitīts uz Jūsu bankas kontu.
       order_canceled: Darījums ir apstrīdēts.
       waiting_for_marketplace_review: Gaida, kad %{service_name} komanda izskatīs
         situāciju
       marketplace_notified: "%{service_name} komanda ir informēta. Tu vari %{contact_link}
         %, ja vēlies dalīties ar sīkāku informāciju."
       contact_them: sazinieties ar viņiem
-      refunded: Pasūtījums atzīmēts kā atmaksāts
+      refunded: Darījums atzīmēts kā atmaksāts
       dismissed: Darījuma apstrīdēšanas pieteikums noraidīts.
       order_refunded: Darījums atzīmēts kā atmaksāts. %{service_name} komanda apstiprināja
         apstrīdēšanas pieteikumu.
@@ -289,7 +289,7 @@ lv:
       accept_preauthorized_request: Pieņemt pieprasījumu
       reject_preauthorized_offer: Šoreiz ne
       reject_preauthorized_request: Šoreiz ne
-      confirm: Atzīmēt, ka pabeigts
+      confirm: Atzīmēt, ka izpildīts
       cancel: Apstrīdēt
       mark_as_refunded: Atzīmēts kā atmaksāts
       dismiss: Atcelt un izmaksāt
@@ -353,19 +353,19 @@ lv:
       create_own: Vēlaties izveidot savu vietni, piemēram, kā %{service_name}? %{learn_more}.
       learn_more: Uzzināt vairāk
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: Jūs vēl neesat izpildījis vai
-        atcēlis pasūtījumu %{request_link}. Ja pasūtījums ir izpildīts, Jums to vajadzētu
-        apstiprināt. Pēc tam Jūs varat sniegt atsauksmi par %{other_party_given_name}.
+      you_have_not_yet_confirmed_or_canceled_request: Vēl nav izpildīts vai apstrīdēts
+        darījums %{request_link}. Ja darījums ir izpildīts, Jums to vajadzētu apstiprināt.
+        Pēc tam Jūs varat sniegt atsauksmi par %{other_party_given_name}.
       remember_to_confirm_request: Neaizmirstiet apstiprināt vai atcelt pieprasījumu
-      if_will_not_happen_you_should_cancel: Ja Jūs domājat, ka šis pasūtījums kaut
-        kāda iemesla dēļ netiks izpildīts, Jūs to varat %{cancel_it_link}.
+      if_will_not_happen_you_should_cancel: Ja Jūs domājat, ka šis darījums kaut kāda
+        iemesla dēļ netiks izpildīts, Jūs to varat %{cancel_it_link}.
       cancel_it_link_text: apstrīdēt to
-      automatic_confirmation: Ja neapstiprināsi vai neapstrīdēsi pasūtījuma izpildi
-        %{days_to_automatic_confirmation} dienu laikā pēc pieprasījuma apstiprināšanas,
+      automatic_confirmation: Ja neapstiprināsi vai neapstrīdēsi darījuma izpildi
+        %{days_to_automatic_confirmation} dienu laikā pēc rezervācijas apstiprināšanas,
         mēs automātiski atzīmēsim to kā izpildītu.
     confirm_reminder_v2:
-      headline: Tu vēl neesi pabeidzis vai apstrīdējis pasūtījumu %{request_link}.
-      you_have_not_yet_confirmed_or_canceled_request: Ja pasūtījums tika izpildīts,
+      headline: Tu vēl neesi pabeidzis vai apstrīdējis darījumu %{request_link}.
+      you_have_not_yet_confirmed_or_canceled_request: Ja darījums tika izpildīts,
         tad apstiprini to. Pēc tam varēsi atstāt atsauksmi par %{other_party_given_name}.
     payment_settings_reminder:
       remember_to_add_payment_details: Neaizmirstiet pievienot maksājuma informāciju,
@@ -383,23 +383,23 @@ lv:
         Lai saņemtu maksājumu, jums ir jānorāda sava maksājuma informācija.
     transaction_confirmed:
       here_is_a_message_from: 'Šeit ir ziņa no %{other_party_given_name}:'
-      request_marked_as_confirmed: Pasūtījums izpildīts. Atceries sniegt atsauksmes.
-      request_marked_as_canceled: Pasūtījums apstrīdēts
-      has_marked_request_as_confirmed: "%{other_party_full_name} atzīmēja, ka pasūtījums
+      request_marked_as_confirmed: Darījums izpildīts - atceries sniegt atsauksmi.
+      request_marked_as_canceled: Darījums apstrīdēts
+      has_marked_request_as_confirmed: "%{other_party_full_name} atzīmēja, ka darījums
         par '%{request}' ir izpildīts. Tagad Jūs varat sniegt atsauksmi par %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} ir atcēlis pasūtījumu
+      has_marked_request_as_canceled: "%{other_party_full_name} apstrīdēja darījumu
         par '%{request}'. Jūs joprojām varat sniegt atsauksmi par %{other_party_given_name}."
       giving_feedback_is_good_idea: Sniegt atsauksmi vienmēr ir laba ideja. Ja viss
         noritēja labi, Jums vajadzētu ļaut citiem uzzināt, ka var uzticēties %{other_party_given_name}.
         Ja radās kādas problēmas, ir labi pieminēt arī to.
       give_feedback_to: Novērtēt %{other_party_given_name}
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} ir atzīmējis pasūtījumu
-          '%{request}' kā pabeigtu. Maksājums par šo darījumu tagad ir pārskaitīts
-          uz Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
+        has_marked_request_as_confirmed: "%{other_party_full_name} atzīmēja darījumu
+          '%{request}' kā izpildītu. Maksājums par šo darījumu tiks pārskaitīts uz
+          Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
       team_title: "%{service_name} komanda"
     transaction_confirmed_v2:
-      headline_confirmed: "%{other_party_full_name} atzīmēja pasūtījumu par %{listing_link}
+      headline_confirmed: "%{other_party_full_name} atzīmēja darījumu par %{listing_link}
         kā izpildītu."
       headline_canceled: "%{other_party_full_name} apstrīdēja darījumu par %{listing_link}
         ."
@@ -409,22 +409,22 @@ lv:
       can_give_feedback: Tagad varat atstāt atsauksmi par %{other_party_given_name}.
       team_title: "%{service_name} komanda"
     transaction_automatically_confirmed:
-      subject: Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmi
-      we_have_marked_request_as_confirmed: Mēs esam atzīmējuši, ka pasūtījums par
-        '%{request}' ir izpildīts. Pasūtījums tika izpildīts automātiski, jo bija
-        pagājušas %{days_passed} dienas kopš pieprasījuma apstiprināšanas.
+      subject: Darījums automātiski atzīmēts kā izpildīts - atcerieties sniegt atsauksmi
+      we_have_marked_request_as_confirmed: Mēs esam atzīmējuši, ka darījums par '%{request}'
+        ir izpildīts. Darījums tika izpildīts automātiski, jo bija pagājušas %{days_passed}
+        dienas kopš rezervācijas apstiprināšanas.
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: Mēs atzīmējām pasūtījumu par %{request}
-        kā izpildītu.
-      order_automatically_confirmed: Darījums tika automātiski pabeigts, jo ir pagājušas
+      we_have_marked_request_as_confirmed: Mēs atzīmējām darījumu par %{request} kā
+        izpildītu.
+      order_automatically_confirmed: Darījums tika automātiski izpildīts, jo ir pagājušas
         %{days_passed} dienas kopš apstiprinājāt piedāvājumu.
     booking_transaction_automatically_confirmed:
-      subject: Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmes
-      we_have_marked_request_as_confirmed: Mēs esam atzīmējuši pasūtījumu par '%{request}'
-        kā izpildītu. Pieprasījums tika pabeigts automātiski, jo ir pagājusi viena
-        diena kopš rezervēšanas perioda beigām.
+      subject: Darījums izpildīts automātiski - atcerieties sniegt atsauksmi
+      we_have_marked_request_as_confirmed: Mēs esam atzīmējuši darījumu par '%{request}'
+        kā izpildītu. Darījums tika pabeigts automātiski, jo ir pagājusi viena diena
+        kopš rezervēšanas perioda beigām.
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: Piedāvājums tika automātiski pabeigts, jo ir
+      order_automatically_confirmed: Piedāvājums tika automātiski izpildīts, jo ir
         pagājusi viena diena kopš rezervēšanas periods beidzās.
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: Tagad varat sniegt atsauksmes par %{other_party_given_name}.
@@ -476,13 +476,13 @@ lv:
       your_request_was_rejected: Jūsu pieprasījums ir noraidīts
       you_can_now_pay_to: Tagad Jūs varat apmaksāt pieprasīto summu %{payment_receiver}.
       pay_now: Apmaksāt tagad
-      remember_to_confirm: Kad pasūtījums ir izpildīts, atceries to atzīmēt kā izpildītu.
-        Ja pasūtījums nav izpildīts, Tev ir %{days_to_automatic_confirmation} dienas,
+      remember_to_confirm: Kad darījums ir izpildīts, atceries to atzīmēt kā izpildītu.
+        Ja darījums nav izpildīts, Tev ir %{days_to_automatic_confirmation} dienas,
         lai to apstrīdētu. Pretējā gadījumā tas tiks automātiski atzīmēts kā izpildīts.
     conversation_status_changed_v2:
       has_accepted_your_request: Jūsu pieprasījums tika apstiprināts.
-      has_accepted_your_request_text: "%{accepter} apstiprināja Jūsu pieprasījumu
-        par %{listing}."
+      has_accepted_your_request_text: "%{accepter} apstiprināja Jūsu rezervāciju par
+        %{listing}."
       has_rejected_your_request: Diemžēl Jūsu pieprasījums tika noraidīts.
       has_rejected_your_request_text: "%{accepter} noraidīja Jūsu pieprasījumu par
         %{listing}."
@@ -533,12 +533,12 @@ lv:
         no %{payer_full_name}. Šeit ir Jūsu kvīts.
       stripe:
         you_have_received_new_payment: "%{payer_full_name} samaksāja summu <b>%{payment_sum}</b>
-          par <b>%{listing_title}</b>. Naudu aiztur %{service_name}, līdz pasūtījums
-          tiek atzīmēts kā pabeigts. Šeit ir jūsu kvīts."
+          par <b>%{listing_title}</b>. Naudu aiztur %{service_name}, līdz darījums
+          tiek atzīmēts kā pabeigts. Šeit ir jūsu maksājuma apstiprinājums."
     payment_receipt_to_seller_v2:
       headline: Tu saņēmi %{payment_sum} par %{listing_link} no %{payer_name}.
-      main_text_stripe: 'Naudu aizturēs %{service_name} līdz pasūtījums tiks atzīmēts
-        kā izpildīts. '
+      main_text_stripe: Naudu aizturēs %{service_name} līdz darījums tiks atzīmēts
+        kā izpildīts.
       price_breakdown: Cenu sadalījums
     payment_receipt_to_payer:
       receipt_of_payment: Maksājuma saņemšana
@@ -590,8 +590,8 @@ lv:
       listing_per_unit_title: "%{title}, %{unit_type}"
       stripe:
         you_have_made_new_payment: Jūs esat samaksājis <b>%{payment_sum}</b> par <b>%{listing_title}</b>.
-          Naudu aiztur %{service_name}, un, tiklīdz jūs atzīmēsiet pasūtījumu kā izpildītu,
-          nauda tiks izmaksāta %{recipient_full_name} . Šeit ir maksājuma kvīts.
+          Naudu aiztur %{service_name}, un, tiklīdz jūs atzīmēsiet darījumu kā izpildītu,
+          nauda tiks izmaksāta %{recipient_full_name}. Šeit ir maksājuma apstirpinājums.
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ir iesniedzis jums atsauksmi %{service_name}"
       you_can_give_feedback_to: Jūs vēl neesat novertējis lietotāju %{name}
@@ -764,7 +764,7 @@ lv:
       provider: 'Pārdevējs:'
       view_transaction: 'Skatīt darījumu:'
     transaction_cancel_flow:
-      the_order_about: 'pasūtījums par %{listing_title} '
+      the_order_about: darījums par %{listing_title}
       you_can_contact_the_marketplace_team: Ja rodas vēl kādas problēmas, varat sazināties
         ar %{service_name} komandu
       you_can_now_give_feedback: Tagad varat sniegt atsauksmi %{name}. Sniegt atsauksmes
@@ -773,9 +773,9 @@ lv:
         arī tās.
       give_feedback_to: Atstāj atsauksmi par %{name}
     transaction_disputed:
-      subject: Pasūtījums ir apstrīdēts - %{service_name} komanda izskata situāciju
+      subject: Darījums ir apstrīdēts - %{service_name} komanda izskata situāciju
       subject_admin: Darījums tika apstrīdēts, tev jāizlemj, ko darīt tālāk
-      order_about: Pasūtījums par %{listing_title}
+      order_about: Draījums par %{listing_title}
       the_order_has_been_canceled: "%{transaction_link} ir apstrīdēts."
       the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} starp
         %{buyer} un %{seller}  ir apstrīdēts."
@@ -821,7 +821,7 @@ lv:
           selected: 'Atlasītie statusi: %{count}'
           selected_js: 'Atzīmētie statusi: '
           free: Bezmaksas darījums
-          confirmed: Pabeigts
+          confirmed: Izpildīts
           paid: Samaksāts
           canceled: Atcelts
           disputed: Apstrīdēts
@@ -1091,7 +1091,7 @@ lv:
       processing_uploaded_image: "(Apstrādā augšupielādēto attēlu...)"
     index:
       no_listings_with_your_search_criteria: Atvainojiet, sludinājumi, pēc ievadītajiem
-        meklēšanas kritērijiem, netika atrasti. Pamēģiniet citus meklēšanas kritērijus?
+        meklēšanas kritērijiem, netika atrasti. Pamēģiniet citus meklēšanas kritērijus.
       no_listings_notification: Nav sludinājumu. %{add_listing_link}.
       add_listing_link_text: Pievienot jaunu sludinājumu
       open_listing: atvērts sludinājums
@@ -1340,7 +1340,7 @@ lv:
       news_item_updated: Raksts atjaunināts
       news_item_deleted: Raksts izņemts
       offer_accepted: Piedāvājums pieņemts.
-      offer_confirmed: Piedāvājums izpildīts
+      offer_confirmed: Darījums izpildīts
       offer_closed: Piedāvājums slēgts
       listing_created_successfully: Sludinājums veiksmīgi izveidots. %{new_listing_link}
       offer_rejected: Piedāvājums noraidīts
@@ -1384,7 +1384,7 @@ lv:
       request_accepted: Pieprasījums pieņemts
       request_accepted_and_closed: Pieprasījums ir apstiprināts un sludinājums ir
         slēgts
-      request_confirmed: Pasūtījums izpildīts
+      request_confirmed: Darījums izpildīts
       request_rejected: Pieprasījums noraidīts
       request_canceled: Darījums apstrīdēts
       message_sent: Vēstule nosūtīta
@@ -1490,8 +1490,8 @@ lv:
       delete: dzēst
       are_you_sure: Vai tiešām vēlaties izdzēst šo komentāru?
     comment_form:
-      ask_a_question: Komentējiet šo sludinājumu vai sniedziet savu vērtējumu. Visi
-        lietotāji varēs redzēt Jūsu rakstīto.
+      ask_a_question: Komentējiet šo sludinājumu vai jautājiet papildus informāciju.
+        Visi lietotāji varēs redzēt Jūsu rakstīto.
       log_in: iereģistrēties
       send_comment: Nosūtīt komentāru
       to_send_a_comment: ", lai nosūtītu jaunu komentāru"
@@ -1499,7 +1499,7 @@ lv:
       you_cannot_send_a_new_comment_because_listing_is_closed: Jūs nevarat pievienot
         jaunus komentārus, jo šis sludinājums ir slēgts.
       you_must: Jums vajag
-      subscribe_to_comments: Paziņojiet man par jauniem komentāriem un jaunumiem
+      subscribe_to_comments: Paziņojiet man par jauniem komentāriem
     deleting_a_listing_cannot_be_undone: Sludinājuma dzēšanu nevarēs atsaukt. Vai
       tiešām vēlaties turpināt?
     edit:
@@ -1984,7 +1984,7 @@ lv:
       this_person_is_not_active_in_kassi: Šis lietotājs vairs nav aktīvs %{service_name}
       inactive_description: Šis lietotājs ir pārtraucis lietot %{service_name}. Jūs
         nevarat sazināties ar šo lietotāju, sniedziet viņiem atsauksmes vai komentējiet
-        viņu piedāvājumus.
+        viņu sludinājumus.
     new:
       create_new_account: Izveidot profilu
       email: E-pasta adrese
@@ -2169,11 +2169,11 @@ lv:
       i_want_to_get_email_notification_when: Es vēlos saņemt e-pasta paziņojumu, kad
       newsletters: E-pasti no administratoriem
       community_updates: Jaunumi
-      email_about_confirm_reminders: "...es esmu aizmirsis atzīmēt pasūtījumu kā izpildītu"
+      email_about_confirm_reminders: "...es esmu aizmirsis atzīmēt darījumu kā izpildītu"
       email_about_new_comments_to_own_listing: "...kāds komentē manu piedāvājumu"
       email_about_new_messages: "...kāds man sūta ziņu"
       email_about_new_received_testimonials: "...kāds man dod atsauksmi"
-      email_about_testimonial_reminders: "...esmu aizmirsis sniegt atsauksmi par pasūtījumu"
+      email_about_testimonial_reminders: "...esmu aizmirsis sniegt atsauksmi par darījumu"
       email_daily_community_updates: Sūtiet man <b>ikdienas</b> jaunumus, par jauniem
         sludinājumiem
       email_weekly_community_updates: Sūtiet man <b>iknedēļas</b> jaunumus, par jauniem
@@ -2181,7 +2181,7 @@ lv:
       do_not_email_community_updates: Nesūtiet man jaunumus
       email_when_conversation_accepted: "...kāds apstiprina manu piedāvājumu vai pieprasījumu"
       email_when_conversation_rejected: "...kāds noraida manu piedāvājumu vai pieprasījumu"
-      email_about_completed_transactions: "...kāds atzīmē manu pasūtījumu kā izpildītu"
+      email_about_completed_transactions: "...kāds atzīmē manu darījumu kā izpildītu"
       email_about_new_payments: "...es saņemu jaunu maksājumu"
       email_about_new_listings_by_followed_people: "...kāds kuram es sekoju pievieno
         jaunu sludinājumu"
@@ -2339,7 +2339,7 @@ lv:
       december: Dec
     today: Šodien
     clear: Brīvs
-    format: mm/dd/yyyy
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
@@ -2518,7 +2518,7 @@ lv:
     commission: "%{commission} %"
     pay_with_stripe: Maksājiet ar Stripe izmantojot %{card}
     add_and_pay: Apstipriniet maksājumu
-    card_not_stored: Stripe ir droši apstrādājusi Jūsu maksājumu. %{service_name}
+    card_not_stored: Maksājumu sistēma Stripe apstrādās Jūsu maksājumu. %{service_name}
       neuzglabā Jūsu kredītkartes / debetkartes informāciju.
     missing_payment: Tavus sludinājumus citi lietotāji nevar rezervēt. %{settings_link},
       lai pieslēgtu maksājumus.
