@@ -18,6 +18,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Fixed incorrect "git clone" link in the Readme instructions, thanks [@romanzes](https://github.com/romanzes)
+
 ### Security
 
 ## [11.0.0] - 2023-07-05
