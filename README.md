@@ -71,7 +71,7 @@ Before you get started, the following needs to be installed:
 1.  Get the code. Clone this git repository and check out the latest release:
 
     ```bash
-    git clone git://github.com/sharetribe/sharetribe.git
+    git clone git@github.com:sharetribe/sharetribe.git
     cd sharetribe
     git checkout latest
     ```
