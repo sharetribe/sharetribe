@@ -421,7 +421,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     newrelic_rpm (8.15.0)
-    nio4r (2.5.8)
+    nio4r (2.5.9)
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -489,7 +489,7 @@ GEM
       pry (>= 0.13, < 0.15)
     psych (3.3.4)
     public_suffix (4.0.7)
-    puma (5.6.4)
+    puma (5.6.7)
       nio4r (~> 2.0)
     pusher-client (0.6.2)
       json
@@ -792,7 +792,7 @@ DEPENDENCIES
   pry-byebug (~> 3.10)
   psych (< 4)
   public_suffix
-  puma (~> 5.6.4)
+  puma (~> 5.6.7)
   rack-attack (~> 6.6.1)
   rails (= 6.1.7.3)
   rails-controller-testing (~> 1.0.5)
