@@ -254,6 +254,7 @@ class Person::OmniauthService
           end
         when LINKEDIN
           if community.linkedin_connect_enabled?
+            strategy.options[:scope] = "openid,profile,email"
             strategy.options[:client_id] = community.linkedin_connect_id
             strategy.options[:client_secret] = community.linkedin_connect_secret
           else
