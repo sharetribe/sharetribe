@@ -1,17 +1,17 @@
-# Sharetribe
+# Sharetribe Go
 
 [![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
 
-Sharetribe develops advanced marketplace software for every business life cycle stage.
+**IMPORTANT: Sharetribe Go is no longer actively maintained.**
 
-Sharetribe Go gives you the complete feature set to launch a marketplace for rentals, services, events, or products. The platform is source-available under the Sharetribe Community Public License.
+Sharetribe's new marketplace builder, The New Sharetribe, replaces Sharetribe Go as the easiest, fastest way to build a marketplace. Learn more about [what The New Sharetribe means for Sharetribe Go](https://www.sharetribe.com/from-go-to-new-sharetribe).
 
-To launch your marketplace in minutes without touching code or worrying about hosting and backups, [head to the SaaS version of Sharetribe Go](https://www.sharetribe.com/products/go).
+Sharetribe Go remains source-available under the Sharetribe Community Public License.
 
-If you're looking for a customizable and extendable marketplace solution, [check out Sharetribe Flex](https://www.sharetribe.com/products/flex). Flex is an API-based marketplace solution designed with a developers-first mindset. It allows you to develop your marketplace with the programming language of your choice, build a mobile app, design a customized transaction flow, and easily integrate third party services.
+To build and launch a marketplace without writing a single line of code, and extend indefinitely with custom code and scale to any size, head to the SaaS version of [The New Sharetribe](https://www.sharetribe.com).
 
 
-### Contents
+## Contents
 
 - [Technology stack](#technology-stack)
 - [Installation](#installation)
@@ -25,7 +25,7 @@ If you're looking for a customizable and extendable marketplace solution, [check
 - [Translation](#translation)
 - [Bug tracker](#bug-tracker)
 - [Documentation](#documentation)
-- [Community forum](#community-forum)
+- [Sharetribe Go Community forum](#community-forum)
 - [License](#license)
 
 ## Technology stack
@@ -387,7 +387,7 @@ React components can be created using hot module replacement HMR technique in St
 
 Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
 
-If you have installation instructions that you would like to share, don't hesitate to share them at the [Sharetribe community forum](https://www.sharetribe.com/community).
+If you have installation instructions that you would like to share, don't hesitate to share them at the [Sharetribe Go community forum](https://www.sharetribe.com/community).
 
 - [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
 - [How to install Sharetribe on Centos 7.x](https://medium.com/@resilientbeast/how-to-install-sharetribe-on-centos-7-x-cbdb6d0366e5) by [Arek Hukalowicz](https://www.linkedin.com/in/arek-hukalowicz-8ab0228a/)
@@ -457,7 +457,7 @@ See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
 ## Translation
 
-Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [info@sharetribe.com](mailto:info@sharetribe.com) and mention that you would like to become a translator.
+Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [hello@sharetribe.com](mailto:hello@sharetribe.com) and mention that you would like to become a translator.
 
 All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (except English).
 
@@ -466,9 +466,9 @@ All language additions and modifications (except for English) should be done thr
 
 Browse open issues and submit new ones in [Github Issues](http://github.com/sharetribe/sharetribe/issues).
 
-We are dedicating the Github Issue only for bugs in the Sharetribe codebase. For general questions, start a new thread in the [Community forum](https://www.sharetribe.com/community/) instead of opening a new Issue.
+We are dedicating the Github Issue only for bugs in the Sharetribe Go codebase. For general questions, start a new thread in the [Sharetribe Go Community forum](https://www.sharetribe.com/community/) instead of opening a new Issue.
 
-After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md)
+After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md).
 
 
 ## Documentation
@@ -476,11 +476,11 @@ After you have opened a new issue, the team will handle it according to these in
 More detailed technical documentation is located in [docs/](docs/)
 
 
-## Community forum
+## Sharetribe Go Community forum
 
-The Sharetribe Community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
+The Sharetribe Go Community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
 
-The forum is a great place to ask support and help for example with issues during the installation.
+The forum is a great place to ask support and help regarding Sharetribe Go Community Edition, for example with issues during the installation.
 
 
 ## License
