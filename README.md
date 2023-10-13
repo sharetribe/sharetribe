@@ -54,7 +54,7 @@ To build and launch a marketplace without writing a single line of code, and ext
 
 ### Requirements
 
-Before you get started, the following needs to be installed:
+Before you get started, install the following:
   * **Ruby**. Version 3.2.2 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
