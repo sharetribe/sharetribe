@@ -10,7 +10,14 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- Information about *The New Sharetribe* [62b29b2](https://github.com/sharetribe/sharetribe/commit/62b29b27766ed53b2c604d5a3ed3d721196961a0)
+
 ### Changed
+
+- Updated translations to remove uses of non `example.com` domain, thanks [villu164](https://github.com/villu164)
+- Updates to Facebook SDK and Like button [3fdbf1e](https://github.com/sharetribe/sharetribe/commit/3fdbf1ed41fa5816a081ce9d1425724975dfda91)
+- Support for LinkedIn Sign In v2 [a64113c](https://github.com/sharetribe/sharetribe/commit/a64113c0058e575954aad7d9e9260f463d9f11ec)
+- Add support for KWD currency [df1eb1d](https://github.com/sharetribe/sharetribe/commit/df1eb1d9bcd9fe4b31617afdaf603820ebf25b1d)
 
 ### Deprecated
 
