@@ -499,6 +499,8 @@ zh-TW:
       unsubscribe_link_text: 取消订阅
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: 嗨，%{name}
       newest_offers: 大家都提供了些什么服務？
@@ -2046,6 +2048,8 @@ zh-TW:
       transaction:
         zero: 交易
         other: 交易
+      listing:
+        other: ''
     previous_label: "&#8592;上一页"
     next_label: 下一页 &#8594;
     page_gap: "&hellip;"
@@ -2061,6 +2065,10 @@ zh-TW:
         个
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

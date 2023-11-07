@@ -576,6 +576,9 @@ fr-CA:
       unsubscribe_link_text: désabonnez-vous
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: Bonjour %{name},
       newest_offers: Ce que les membres proposent aux autres en ce moment
@@ -1031,7 +1034,7 @@ fr-CA:
         les par une virgule.
       add_lots_of_email_addresses: 
       this_article_link: 
-      invitation_emails_field_placeholder: ami1@exemple.fr, ami2@exemple.fr, ...
+      invitation_emails_field_placeholder: ami1@example.com, ami2@example.com, ...
       invitation_message_field_placeholder: J'ai rejoint cette super place de marché.
         Tu devrais aussi !
       errors_in_emails: Vérifiiez que les adresses email que vous ajoutez sont valides.
@@ -1339,6 +1342,9 @@ fr-CA:
         Merci de contacter l'auteur de l'annonce.
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        one: ''
+        other: ''
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -2205,10 +2211,32 @@ fr-CA:
     days_since:
       one: hier
       other: "%{count} jours"
+    time_to:
+      seconds:
+        one: ''
+        other: ''
+      minutes:
+        one: ''
+        other: ''
+      hours:
+        one: ''
+        other: ''
+      days:
+        one: ''
+        other: ''
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
+      booked_days_label:
+        one: ''
+        other: ''
+      booked_nights_label:
+        one: ''
+        other: ''
+      booked_hours_label:
+        one: ''
+        other: ''
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -2217,6 +2245,9 @@ fr-CA:
       subtotal: 'Sous-total : '
       shipping-price: 'Frais de livraison : '
       stripe-fee: 
+      duration_in_hours:
+        one: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -2294,6 +2325,12 @@ fr-CA:
         zero: utilisateur
         one: utilisateur
         other: utilisateurs
+      transaction:
+        one: ''
+        other: ''
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Précédent"
     next_label: Suivant &#8594;
     page_gap: "&hellip;"
@@ -2311,6 +2348,12 @@ fr-CA:
         un total de <b>%{count}</b>
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

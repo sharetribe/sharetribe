@@ -1177,7 +1177,8 @@ hu:
         sok e-mailes meghívást tervez, használjon egy e-mail eszközt. Itt %{this_article_link}
         találhat több információt az alkalmas e-mail szolgáltatásokról.'
       this_article_link: ez a termék
-      invitation_emails_field_placeholder: barat1@pelda.com, barat2@pelda.com, ...
+      invitation_emails_field_placeholder: barat1@example.com, barat2@example.com,
+        ...
       invitation_message_field_placeholder: Csatlakoztam ehhez a bámulatos piactérhez.
         Csatlakozz te is!
       errors_in_emails: Ellenőrizd, hogy a megadott e-mail címek érvényesek-e. Ha
@@ -2521,6 +2522,8 @@ hu:
         other: Felhasználó
       transaction:
         other: tranzakciók
+      listing:
+        other: ''
     previous_label: "&#8592; Előző"
     next_label: Következő &#8594;
     page_gap: "&hellip;"
@@ -2534,6 +2537,8 @@ hu:
         amely <b>%{count}</b>
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
         single_page_html:
           zero: "%{model} nem található"
           other: Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and

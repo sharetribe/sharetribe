@@ -1131,7 +1131,7 @@ lv:
         sūtīšanas rīku. Apskatiet %{this_article_link}, lai noskaidrotu piemērotus
         e-pasta pakalpojumus.'
       this_article_link: šis raksts
-      invitation_emails_field_placeholder: draugs1@piemērs.lv, draugs2@piemērs.lv,
+      invitation_emails_field_placeholder: draugs1@example.com, draugs2@example.com,
         ...
       invitation_message_field_placeholder: Es jau pievienojos šai lieliskajai mājaslapai.
         Jums arī vajadzētu!
@@ -2505,6 +2505,14 @@ lv:
         kopā
     person:
       community_members_entries_info:
+        single_page:
+          zero: ''
+          one: ''
+          other: ''
+        single_page_html:
+          zero: ''
+          one: ''
+          other: ''
         multi_page: Rāda %{model} %{from} -%{to} no %{accepted_count} pieņemtajiem
           %{accepted_model} un %{other_count} citiem %{other_model}
         multi_page_html: Rāda %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b>

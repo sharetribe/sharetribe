@@ -493,6 +493,8 @@ km-KH:
       unsubscribe_link_text: 
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: 
       newest_offers: 
@@ -1141,6 +1143,8 @@ km-KH:
       listing_author_payment_details_missing: 
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        other: ''
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -1582,6 +1586,8 @@ km-KH:
       email_is_in_use_or_not_allowed: 
       email_not_allowed: 
       invalid_username_or_email: 
+      email_restriction_instructions:
+        other: ''
       family_name: 
       given_name: 
       i_accept_the_terms_and_privacy: 
@@ -1889,10 +1895,27 @@ km-KH:
     seconds_ago: 
     year_ago: 
     years_ago: 
+    days_since:
+      other: ''
+    time_to:
+      seconds:
+        other: ''
+      minutes:
+        other: ''
+      hours:
+        other: ''
+      days:
+        other: ''
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
+      booked_days_label:
+        other: ''
+      booked_nights_label:
+        other: ''
+      booked_hours_label:
+        other: ''
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -1901,6 +1924,8 @@ km-KH:
       subtotal: 
       shipping-price: 
       stripe-fee: 
+      duration_in_hours:
+        other: ''
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -1973,14 +1998,29 @@ km-KH:
       create_own: 
       learn_more: 
   will_paginate:
+    models:
+      person:
+        other: ''
+      transaction:
+        other: ''
+      listing:
+        other: ''
     previous_label: 
     next_label: 
     page_gap: 
     page_entries_info:
+      single_page:
+        other: ''
+      single_page_html:
+        other: ''
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

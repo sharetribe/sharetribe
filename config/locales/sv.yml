@@ -1090,7 +1090,7 @@ sv:
         rekommenderar vi att du använder en e-posttjänst. Kolla in %{this_article_link}
         för att hitta lämpliga e-posttjänster.
       this_article_link: denna artikel
-      invitation_emails_field_placeholder: kompis1@exempel.com, kompis2@exempel.com,
+      invitation_emails_field_placeholder: kompis1@example.com, kompis2@example.com,
         ...
       invitation_message_field_placeholder: Jag har gått med i denna fantastiska marknadsplats.
         Det borde du också göra!
@@ -2447,6 +2447,12 @@ sv:
         totalt
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -546,6 +546,9 @@ ta-IN:
       unsubscribe_link_text: குளுவிலகவும்
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: வணக்கம் %{name},
       newest_offers: மக்கள் தற்போது மற்றவர்களுக்கு வழங்குவது
@@ -1253,6 +1256,9 @@ ta-IN:
       listing_author_payment_details_missing: 
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        one: ''
+        other: ''
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -2034,10 +2040,32 @@ ta-IN:
     days_since:
       one: "%{count} ஆம் நாள்"
       other: "%{count} நாட்கள்"
+    time_to:
+      seconds:
+        one: ''
+        other: ''
+      minutes:
+        one: ''
+        other: ''
+      hours:
+        one: ''
+        other: ''
+      days:
+        one: ''
+        other: ''
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
+      booked_days_label:
+        one: ''
+        other: ''
+      booked_nights_label:
+        one: ''
+        other: ''
+      booked_hours_label:
+        one: ''
+        other: ''
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -2046,6 +2074,9 @@ ta-IN:
       subtotal: 
       shipping-price: 
       stripe-fee: 
+      duration_in_hours:
+        one: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -2123,14 +2154,32 @@ ta-IN:
         zero: உபயோகிப்பாளர்கள்
         one: உபயோகிப்பாளர்
         other: உபயோகிப்பாளர்கள்
+      transaction:
+        one: ''
+        other: ''
+      listing:
+        one: ''
+        other: ''
     previous_label: 
     next_label: 
     page_gap: 
     page_entries_info:
+      single_page:
+        one: ''
+        other: ''
+      single_page_html:
+        one: ''
+        other: ''
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

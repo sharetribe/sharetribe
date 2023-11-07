@@ -578,6 +578,9 @@ en-NZ:
       unsubscribe_link_text: unsubscribe
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: Hi %{name},
       newest_offers: What people currently offer to others
@@ -2267,6 +2270,9 @@ en-NZ:
       booked_nights_label:
         one: 'Booked night:'
         other: 'Booked nights:'
+      booked_hours_label:
+        one: ''
+        other: ''
       price_per_day: 'Price per day:'
       price_per_night: 'Price per night:'
       price_per_hour: 
@@ -2275,6 +2281,9 @@ en-NZ:
       subtotal: 'Subtotal:'
       shipping-price: 'Shipping:'
       stripe-fee: 'Stripe Fee (estimated):'
+      duration_in_hours:
+        one: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 'Price per %{unit_type}:'
     price: 'Price:'
@@ -2365,6 +2374,9 @@ en-NZ:
         one: transaction
         few: transactions
         other: transactions
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Previous"
     next_label: Next &#8594;
     page_gap: "&hellip;"
@@ -2382,6 +2394,12 @@ en-NZ:
         in total
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

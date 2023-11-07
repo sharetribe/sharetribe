@@ -542,6 +542,8 @@ az-AZ:
       unsubscribe_link_text: abunəlikdən çıx
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: Salam %{name}!
       newest_offers: İndiki təkliflər
@@ -2170,15 +2172,25 @@ az-AZ:
       transaction:
         zero: əməliyyat
         other: əməliyyat
+      listing:
+        other: ''
     previous_label: "&#8592; Əvvəlki"
     next_label: Sonrakı &#8594;
     page_gap: "&hellip;"
     page_entries_info:
+      single_page:
+        other: ''
+      single_page_html:
+        other: ''
       multi_page: "%{count}-dan %{from} - %{to} %{model} göstərilir"
       multi_page_html: "<b>%{count}-dan</b> <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model}
         göstərilir"
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}}</b> из <b>%{accepted_count}</b>
           принятых%{accepted_model} и %{other_count}  других %{other_model}

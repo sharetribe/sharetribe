@@ -1061,7 +1061,7 @@ tr-TR:
         ile ayırın.
       add_lots_of_email_addresses: 
       this_article_link: 
-      invitation_emails_field_placeholder: arkadas1@ornek.com, arkadas2@ornek.com,
+      invitation_emails_field_placeholder: arkadas1@example.com, arkadas2@example.com,
         ...
       invitation_message_field_placeholder: Harika bir platforma katıldım. Sen de
         bir göz at!
@@ -1370,6 +1370,8 @@ tr-TR:
         iletişime geçerek, ilan sahibinin ödeme alabilmesi için ödeme  detaylarını
         güncellemesini tavsiye etmelerini isteyin.
       images_are_processing: Görseller yükleniyor. Kısa süre içinde görünecekler.
+      maintenance_mode:
+        other: ''
       automatically_logged_out_please_sign_in: Otomatik olarak çıkış yaptınız. Lütfen
         tekrar giriş yapın.
       stripe_you_account_balance_is_not_0: 
@@ -2270,6 +2272,8 @@ tr-TR:
       booked_nights_label:
         zero: 'Rezervasyonlu gece:'
         other: 'Rezervasyonlu geceler:'
+      booked_hours_label:
+        other: ''
       price_per_day: 'Günlük ücret:'
       price_per_night: 'Fiyat her bir gece:'
       price_per_hour: 
@@ -2278,6 +2282,8 @@ tr-TR:
       subtotal: 'Ara Toplam:'
       shipping-price: 'Kargo:'
       stripe-fee: 
+      duration_in_hours:
+        other: ''
       start_end_time: 
     price_per_quantity: "%{unit_type} başına fiyat"
     price: 'Fiyat:'
@@ -2358,6 +2364,10 @@ tr-TR:
       person:
         zero: kullanıcı
         other: kullanıcılar
+      transaction:
+        other: ''
+      listing:
+        other: ''
     previous_label: "&#8592; Önceki"
     next_label: Sonraki &#8594;
     page_gap: "&hellip;"
@@ -2373,6 +2383,10 @@ tr-TR:
         görüntüleniyor
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

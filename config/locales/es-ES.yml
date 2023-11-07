@@ -597,6 +597,9 @@ es-ES:
       unsubscribe_link_text: cancela tu suscripción
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: Hola %{name},
       newest_offers: Lo que la gente actualmente ofrece a los demás
@@ -1078,7 +1081,7 @@ es-ES:
         enviar correos electrónicos. Lee %{this_article_link} para encontrar recursos
         sobre servicios de envío de correo electrónico que se adapten a tus necesidades.'
       this_article_link: este artículo
-      invitation_emails_field_placeholder: amigo1@ejemplo.com, amigo2@ejemplo.com,
+      invitation_emails_field_placeholder: amigo1@example.com, amigo2@example.com,
         ...
       invitation_message_field_placeholder: Me uní a este fantástica comunidad. ¡Deberías
         hacer lo mismo!
@@ -2437,6 +2440,9 @@ es-ES:
         zero: transacciones
         one: transacción
         other: transacciones
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Anterior"
     next_label: Siguiente &#8594;
     page_gap: "&hellip;"

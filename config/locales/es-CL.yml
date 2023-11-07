@@ -546,6 +546,9 @@ es-CL:
       unsubscribe_link_text: cancelar suscripción
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: Hola %{name},
       newest_offers: Lo que la gente actualmente ofrece a los demás
@@ -989,7 +992,7 @@ es-CL:
         una coma.
       add_lots_of_email_addresses: 
       this_article_link: 
-      invitation_emails_field_placeholder: amigo1@ejemplo.com, amigo2@ejemplo.com,
+      invitation_emails_field_placeholder: amigo1@example.com, amigo2@example.com,
         ...
       invitation_message_field_placeholder: Me uní a este fantástico servicio. Deberías
         hacer lo mismo!
@@ -1283,6 +1286,9 @@ es-CL:
       listing_author_payment_details_missing: 
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        one: ''
+        other: ''
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -2078,10 +2084,32 @@ es-CL:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+    time_to:
+      seconds:
+        one: ''
+        other: ''
+      minutes:
+        one: ''
+        other: ''
+      hours:
+        one: ''
+        other: ''
+      days:
+        one: ''
+        other: ''
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
+      booked_days_label:
+        one: ''
+        other: ''
+      booked_nights_label:
+        one: ''
+        other: ''
+      booked_hours_label:
+        one: ''
+        other: ''
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -2090,6 +2118,9 @@ es-CL:
       subtotal: 
       shipping-price: 
       stripe-fee: 
+      duration_in_hours:
+        one: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -2162,14 +2193,36 @@ es-CL:
       create_own: 
       learn_more: 
   will_paginate:
+    models:
+      person:
+        one: ''
+        other: ''
+      transaction:
+        one: ''
+        other: ''
+      listing:
+        one: ''
+        other: ''
     previous_label: 
     next_label: 
     page_gap: 
     page_entries_info:
+      single_page:
+        one: ''
+        other: ''
+      single_page_html:
+        one: ''
+        other: ''
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:
