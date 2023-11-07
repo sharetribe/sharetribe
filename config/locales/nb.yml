@@ -573,6 +573,9 @@ nb:
       unsubscribe_link_text: avmeld
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: Hei %{name},
       newest_offers: Hva folk for øyeblikket tilbyr
@@ -1038,7 +1041,7 @@ nb:
         du bruke et epostverktøy. Sjekk ut %{this_article_link} for å finne ut om
         slike tjenester.
       this_article_link: denne artikkelen
-      invitation_emails_field_placeholder: venn1@eksempel.no, venn2@eksempel.no,...
+      invitation_emails_field_placeholder: venn1@example.com, venn2@example.com,...
       invitation_message_field_placeholder: Jeg ble medlem av denne fantastiske markedsplassen.
         Det bør du også!
       errors_in_emails: Sjekk at e-posten du la til er gyldig. Dersom du la til flere,
@@ -2248,6 +2251,9 @@ nb:
       booked_nights_label:
         one: 'Reservert natt:'
         other: 'Reserverte netter:'
+      booked_hours_label:
+        one: ''
+        other: ''
       price_per_day: 'Pris per dag:'
       price_per_night: 'Pris per natt:'
       price_per_hour: 
@@ -2256,6 +2262,9 @@ nb:
       subtotal: 'Delsum:'
       shipping-price: 'Frakt:'
       stripe-fee: 
+      duration_in_hours:
+        one: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 'Pris per %{unit_type}:'
     price: 'Pris:'
@@ -2364,6 +2373,12 @@ nb:
         totalt
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

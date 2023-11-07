@@ -606,6 +606,10 @@ lt:
       unsubscribe_link_text: Atsisakyti prenumeratos
     community_updates_v2:
       headline: peržiūrėkite naujausią %{service_name} veiklą.
+      intro_paragraph:
+        one: ''
+        few: ''
+        other: ''
     newsletter:
       hi: Sveiki %{name},
       newest_offers: Ką šiuo metu žmonės siūlo kitiems
@@ -1116,7 +1120,7 @@ lt:
         Peržiūrėkite %{this_article_link}, norėdami sužinoti išteklius apie tinkamas
         el. pašto paslaugas.'
       this_article_link: šis straipsnis
-      invitation_emails_field_placeholder: draugas1@pavyzdys.lt, draugė2@pavyzdys.lt,
+      invitation_emails_field_placeholder: draugas1@example.com, draugė2@example.com,
         ...
       invitation_message_field_placeholder: Aš prisijungiau prie puikaus turgaus.
         Pamėgink ir tu!
@@ -1435,6 +1439,10 @@ lt:
         mokėjimo informaciją, kad gautų mokėjimus.
       images_are_processing: Mes apdorojame jūsų vaizdus. Duokite mums minutę ar dvi
         ir jie bus matomi.
+      maintenance_mode:
+        one: ''
+        few: ''
+        other: ''
       automatically_logged_out_please_sign_in: Jūs buvote automatiškai atsijungę.
         Prisijunkite dar kartą.
       stripe_you_account_balance_is_not_0: Sąskaitos likutis nėra 0, todėl jo panaikinti
@@ -2335,6 +2343,10 @@ lt:
       few: "%{count} dienos"
       other: "%{count} dienos"
     time_to:
+      seconds:
+        one: ''
+        few: ''
+        other: ''
       minutes:
         one: "%{count} minutė"
         few: "%{count} minutės"
@@ -2359,6 +2371,10 @@ lt:
         one: 'Užsakyta naktis:'
         few: 'Užsakytos naktys:'
         other: 'Užsakytos naktys:'
+      booked_hours_label:
+        one: ''
+        few: ''
+        other: ''
       price_per_day: 'Dienos kaina:'
       price_per_night: 'Kaina už naktį:'
       price_per_hour: 'Valandos kaina:'
@@ -2367,6 +2383,10 @@ lt:
       subtotal: 'Tarpinė suma:'
       shipping-price: 'Pristatymas:'
       stripe-fee: 'Stripe mokestis (apskaičiuotas):'
+      duration_in_hours:
+        one: ''
+        few: ''
+        other: ''
       start_end_time: "%{start_time} iki %{end_time}"
     price_per_quantity: 'Kaina per %{unit_type}:'
     price: 'Kaina:'
@@ -2479,6 +2499,14 @@ lt:
       multi_page_html: Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          few: ''
+          other: ''
+        single_page_html:
+          one: ''
+          few: ''
+          other: ''
         multi_page: Rodoma %{model} %{from} – %{to} iš %{accepted_count} priimta %{accepted_model}
           ir %{other_count} kita %{other_model}
         multi_page_html: Rodoma %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{accepted_count}</b>

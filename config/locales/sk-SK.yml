@@ -1113,7 +1113,7 @@ sk-SK:
         použite špeciálny nástroj. Pozrite sa na  %{this_article_link}, kde se dozviete
         viac o vhodných e-mailových službách.
       this_article_link: tento článok
-      invitation_emails_field_placeholder: kamarát1@priklad.sk, kamarát2@priklad.com,
+      invitation_emails_field_placeholder: kamarát1@example.com, kamarát2@example.com,
         ...
       invitation_message_field_placeholder: Navštívil som toto úžasné miesto. Mal
         by si tiež!
@@ -2484,6 +2484,10 @@ sk-SK:
         one: transakcia
         few: transakcie
         other: transakcie
+      listing:
+        one: ''
+        few: ''
+        other: ''
     previous_label: "&#8592; Predchádzajúci"
     next_label: Ďalší &#8594;
     page_gap: "&hellip;"

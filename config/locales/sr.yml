@@ -570,6 +570,11 @@ sr:
       unsubscribe_link_text: odjavite se
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     newsletter:
       hi: 'Zdravo%{name} '
       newest_offers: Šta ljudi trenutno nude drugima
@@ -1016,7 +1021,7 @@ sr:
         ispod. Da dodaš više adresa, odvoji ih zarezom.
       add_lots_of_email_addresses: 
       this_article_link: 
-      invitation_emails_field_placeholder: prijatelj1@primer.com, prijatelj2@primer.com,
+      invitation_emails_field_placeholder: prijatelj1@example.com, prijatelj2@example.com,
         ...
       invitation_message_field_placeholder: Pristupio sam ovom sjajnom tržištu. I
         ti bi trebao!
@@ -1312,6 +1317,11 @@ sr:
         bi primili istu.
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -1793,6 +1803,11 @@ sr:
         vas da koristite e-mail adresu koja je odobrena. Ukoliko to niste u mogućnosti,
         molimo vas da nas kontaktirate.
       invalid_username_or_email: 
+      email_restriction_instructions:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
       family_name: Prezime
       given_name: Ime
       i_accept_the_terms_and_privacy: 
@@ -2146,10 +2161,46 @@ sr:
       few: "%{count} dana"
       many: "%{count} dana"
       other: "%{count} dana"
+    time_to:
+      seconds:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      minutes:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      hours:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      days:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
   transactions:
     initiate:
       booked_days: 'Bukirani dani:'
       booked_nights: 
+      booked_days_label:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      booked_nights_label:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      booked_hours_label:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
       price_per_day: 'Cena po danu:'
       price_per_night: 
       price_per_hour: 
@@ -2158,6 +2209,11 @@ sr:
       subtotal: 'Iznos:'
       shipping-price: 'Slanje:'
       stripe-fee: 
+      duration_in_hours:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
       start_end_time: 
     price_per_quantity: 'Cena po %{unit_type}:'
     price: 'Cena:'
@@ -2237,14 +2293,44 @@ sr:
         few: korisnika
         many: korisnika
         other: korisnika
+      transaction:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      listing:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     previous_label: "&#8592; Prethodni"
     next_label: Sledeći &#8594;
     page_gap: "&hellip;"
     page_entries_info:
+      single_page:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
+      single_page_html:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          few: ''
+          many: ''
+          other: ''
+        single_page_html:
+          one: ''
+          few: ''
+          many: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

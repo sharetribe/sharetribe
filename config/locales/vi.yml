@@ -566,6 +566,8 @@ vi:
       unsubscribe_link_text: Hủy đăng ký
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: Chào %{name},
       newest_offers: Hiện tại người nào hỗ trợ những người khác
@@ -1884,6 +1886,8 @@ vi:
         kết ở bên trái.
       invalid_username_or_email: Tên người dùng hoặc e-mail không hợp lệ hoặc đã được
         sử dụng
+      email_restriction_instructions:
+        other: ''
       family_name: Họ
       given_name: Tên
       i_accept_the_terms_and_privacy: 
@@ -2261,6 +2265,8 @@ vi:
         other: Ngày đặt
       booked_nights_label:
         other: 'Đặt đêm:'
+      booked_hours_label:
+        other: ''
       price_per_day: Giá mỗi ngày
       price_per_night: 'Giá mỗi đêm:'
       price_per_hour: 
@@ -2269,6 +2275,8 @@ vi:
       subtotal: 'Tổng phụ:'
       shipping-price: 'Vận chuyển:'
       stripe-fee: 
+      duration_in_hours:
+        other: ''
       start_end_time: 
     price_per_quantity: 'Giá mỗi %{unit_type}:'
     price: 'Giá:'
@@ -2351,6 +2359,10 @@ vi:
       person:
         zero: Người dùng
         other: Người dùng
+      transaction:
+        other: ''
+      listing:
+        other: ''
     previous_label: "&#8592; Trước"
     next_label: Kế tiếp &#8594;
     page_gap: "&ba chấm;"
@@ -2366,6 +2378,10 @@ vi:
         tổng số <b>%{count}</b>
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -1118,7 +1118,7 @@ cs:
         použijte speciální nástroj. Podívejte se na  %{this_article_link}, kde se
         dozvíte více o vhodných e-mailových službách.
       this_article_link: tento článek
-      invitation_emails_field_placeholder: kamarad1@priklad.cz, kamarad2@priklad2.cz,...
+      invitation_emails_field_placeholder: kamarad1@example.com, kamarad2@example.com,...
       invitation_message_field_placeholder: Připojil jsem se k tomuto úžasnému tržišti.
         Měl bys také!
       errors_in_emails: Zkontrolujte, zda Vámi přidané emailové adresy jsou platné.
@@ -2483,6 +2483,10 @@ cs:
         one: transakce
         few: transakcí
         other: transakce
+      listing:
+        one: ''
+        few: ''
+        other: ''
     previous_label: "&#8592; Předchozí"
     next_label: Následující &#8594;
     page_gap: "&hellip;"
@@ -2502,6 +2506,10 @@ cs:
         <b> celkem
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          few: ''
+          other: ''
         single_page_html:
           zero: Žádný %{model} nenalezen
           one: Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a

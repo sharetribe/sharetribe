@@ -1084,7 +1084,8 @@ pt-PT:
         vírgula.
       add_lots_of_email_addresses: 
       this_article_link: neste artigo
-      invitation_emails_field_placeholder: amigo1@exemplo.com, amigo2@exemplo.com
+      invitation_emails_field_placeholder: amigo1@example.com, amigo2@example.com,
+        ...
       invitation_message_field_placeholder: Eu acabei de entrar nesta plataforma brutal.
         Entre também!
       errors_in_emails: Verifique se os endereços de email que adicionou são válidos
@@ -1399,6 +1400,9 @@ pt-PT:
         seus dados para que possa receber pagamentos.
       images_are_processing: Estamos a processar as suas imagens. Estarão visíveis
         dentro de um ou dois minutos.
+      maintenance_mode:
+        one: ''
+        other: ''
       automatically_logged_out_please_sign_in: Você foi desconectado automaticamente.
         Por favor faça o login novamente.
       stripe_you_account_balance_is_not_0: A balanço da sua conta não está zerado
@@ -2263,6 +2267,12 @@ pt-PT:
     initiate:
       booked_days: 'Dias reservados:'
       booked_nights: 
+      booked_days_label:
+        one: ''
+        other: ''
+      booked_nights_label:
+        one: ''
+        other: ''
       booked_hours_label:
         one: 'Hora contratada:'
         other: 'Horas contratadas:'
@@ -2361,6 +2371,12 @@ pt-PT:
         zero: utilizador
         one: utilizador
         other: utilizadores
+      transaction:
+        one: ''
+        other: ''
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Anterior"
     next_label: Próximo &#8594;
     page_gap: 
@@ -2378,6 +2394,12 @@ pt-PT:
         em total
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

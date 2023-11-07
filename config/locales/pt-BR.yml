@@ -1136,7 +1136,7 @@ pt-BR:
         você deverá usar uma ferramenta de envio de e-mails. Dê uma olhada %{this_article_link}
         para encontrar alguns serviços de envio de e-mails.
       this_article_link: neste artigo
-      invitation_emails_field_placeholder: convidado1@exemplo.com.br, convidado2@exemplo.com.br,
+      invitation_emails_field_placeholder: convidado1@example.com, convidado2@example.com,
         ......
       invitation_message_field_placeholder: Entrei para este marketplace incrível.
         Você também deveria!
@@ -2530,6 +2530,9 @@ pt-BR:
       community_members_entries_info:
         single_page:
           zero: Nenhum %{model} foi encontrado.
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -595,6 +595,11 @@ hr:
       unsubscribe_link_text: Odjava
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     newsletter:
       hi: Pozdrav %{name}
       newest_offers: Što ljudi trenutačno nude drugima
@@ -1071,7 +1076,7 @@ hr:
         e-pošte. Provjerite %{this_article_link} kako biste saznali resurse o prikladnim
         uslugama e-pošte.'
       this_article_link: Ovaj članak
-      invitation_emails_field_placeholder: prijatelj1@primjer.com, prijatelj2@primjer.com,
+      invitation_emails_field_placeholder: prijatelj1@example.com, prijatelj2@example.com,
         ...
       invitation_message_field_placeholder: Pridružio sam se ovoj super zajednici.
         Pridruži se i ti!
@@ -2406,6 +2411,11 @@ hr:
         few: transakcije
         many: transakcije
         other: transakcije
+      listing:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     previous_label: "&#8592; Prethodno"
     next_label: Sljedeće &#8594;
     page_gap: "&hellip;"

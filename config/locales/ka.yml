@@ -580,6 +580,8 @@ ka:
       unsubscribe_link_text: გამოწერის გაუქმება
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: გამარჯობა %{name}
       newest_offers: რას თავაზობს ეხლა ხალხი სხვებს
@@ -2267,6 +2269,8 @@ ka:
         other: 'დაჯავშნილი დღე:'
       booked_nights_label:
         other: დაჯავშნილი ღამე
+      booked_hours_label:
+        other: ''
       price_per_day: ფასი დღიურად
       price_per_night: 'ერთი ღამის ფასი:'
       price_per_hour: 
@@ -2275,6 +2279,8 @@ ka:
       subtotal: 'ჯამი:'
       shipping-price: 'მიტანის სერვისი:'
       stripe-fee: 
+      duration_in_hours:
+        other: ''
       start_end_time: 
     price_per_quantity: ფასი ყოველ %{unit_type}
     price: 'ფასი:'
@@ -2356,6 +2362,10 @@ ka:
       person:
         zero: მომხმარებლები
         other: მომხმარებელი
+      transaction:
+        other: ''
+      listing:
+        other: ''
     previous_label: "&#8592 წინა"
     next_label: შემდეგი &#8594
     page_gap: "&hellip"
@@ -2371,6 +2381,10 @@ ka:
         <b>%{count}</b>-ის ჯამის"
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

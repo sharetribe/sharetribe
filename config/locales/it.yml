@@ -1099,7 +1099,7 @@ it:
         con una virgola.
       add_lots_of_email_addresses: 
       this_article_link: 
-      invitation_emails_field_placeholder: amico1@esempio.com, amico2@esempio.com,
+      invitation_emails_field_placeholder: amico1@example.com, amico2@example.com,
         ...
       invitation_message_field_placeholder: Mi sono unito a questo fantastico marketplace.
         Dovresti farlo pure tu!
@@ -2312,6 +2312,12 @@ it:
       one: "%{count} giorno"
       other: "%{count} giorni"
     time_to:
+      seconds:
+        one: ''
+        other: ''
+      minutes:
+        one: ''
+        other: ''
       hours:
         one: "%{count} ora"
         other: "%{count} ore"
@@ -2420,6 +2426,16 @@ it:
       create_own: 
       learn_more: 
   will_paginate:
+    models:
+      person:
+        one: ''
+        other: ''
+      transaction:
+        one: ''
+        other: ''
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Precedente"
     next_label: Successivo &#8594;
     page_gap: 
@@ -2428,10 +2444,19 @@ it:
         zero: Nessuna %{model} trovata
         one: 'Visualizza 1 %{model} '
         other: 'Visualizza tutte %{count} le %{model} '
+      single_page_html:
+        one: ''
+        other: ''
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          one: ''
+          other: ''
+        single_page_html:
+          one: ''
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:

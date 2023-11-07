@@ -1122,7 +1122,8 @@ et:
         plaanite saata palju kutseid, peaksite kasutama e-posti saatmise tööriista.
         Vaadake %{this_article_link}, et leida sobivate e-teenuste kohta allikaid.'
       this_article_link: see artikkel
-      invitation_emails_field_placeholder: sõber1@näide.com, sõber2@näide.com, ...
+      invitation_emails_field_placeholder: sõber1@example.com, sõber2@example.com,
+        ...
       invitation_message_field_placeholder: Ma liitusin fantastilise rendiplatvormiga
         inimeselt inimesele. Liitu ka!
       errors_in_emails: Kontrolli, kas lisatud e-posti aadressid on õiged ega sisalda
@@ -2447,6 +2448,9 @@ et:
         zero: tehingut
         one: tehing
         other: tehingud
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; Eelmine"
     next_label: Järgmine &#8594;
     page_gap: otsi siin &hellip;

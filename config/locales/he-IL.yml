@@ -565,6 +565,9 @@ he-IL:
       unsubscribe_link_text: ביטול מנוי
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: ''
+        other: ''
     newsletter:
       hi: "‎%{name}‎ שלום ‎"
       newest_offers: מה אנשים כרגע מציעים
@@ -1017,7 +1020,7 @@ he-IL:
       add_email_addresses_description: עזרו לנו לבנות הקהילה! שתפו עם החברים.
       add_lots_of_email_addresses: 
       this_article_link: המאמר הזה
-      invitation_emails_field_placeholder: חבר1@דוגמא.COM חבר2@דוגמא.COM...
+      invitation_emails_field_placeholder: 
       invitation_message_field_placeholder: אני כבר הצטרפתי. כדאי לך!
       errors_in_emails: ודא שכתובות האימייל שהוספת תקינות ואינן מכילות תווים יוצאי
         דופן. אם הוספת מספר כתובות, ודא שהן מופרדות בפסיקים.
@@ -2253,6 +2256,9 @@ he-IL:
         zero: טרנזקציות
         one: טרנזקציות
         other: טרנזקציות
+      listing:
+        one: ''
+        other: ''
     previous_label: "&#8592; הקודם"
     next_label: 'הבא& # 8594 '
     page_gap: חפש כאן &;

@@ -618,6 +618,11 @@ pl:
       unsubscribe_link_text: wypisz się
     community_updates_v2:
       headline: Sprawdź ostatnią aktywność na%{service_name}.
+      intro_paragraph:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     newsletter:
       hi: Cześć %{name},
       newest_offers: Co aktualnie ludzie oferują innym
@@ -1129,7 +1134,7 @@ pl:
         z narzędzi e-mailingowych. Przeczytaj %{this_article_link} aby poznać materiały
         dotyczące odpowiednich usług.'
       this_article_link: ten artykuł
-      invitation_emails_field_placeholder: kumpel1@przyklad.pl, kumpel2@przyklad.pl,
+      invitation_emails_field_placeholder: kumpel1@example.com, kumpel2@example.com,
         ...
       invitation_message_field_placeholder: Dołączyłem do tej platformy. Ty też powinieneś/aś!
       errors_in_emails: Sprawdź czy adresy e-mail, które dodałeś są poprawne i nie
@@ -2505,6 +2510,11 @@ pl:
         few: transakcje
         many: transakcje
         other: transakcje
+      listing:
+        one: ''
+        few: ''
+        many: ''
+        other: ''
     previous_label: "&#8592; Poprzedni"
     next_label: Kolejny, &#8594;
     page_gap: "&hellip;"

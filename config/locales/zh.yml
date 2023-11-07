@@ -501,6 +501,8 @@ zh:
       unsubscribe_link_text: 取消订阅
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        other: ''
     newsletter:
       hi: Hi %{name},
       newest_offers: 大家都提供了些什么？
@@ -1175,6 +1177,8 @@ zh:
       listing_author_payment_details_missing: 请点击下面的‘联系’按钮联系卖家。他们需要更新付款信息来接收付款。
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        other: ''
       automatically_logged_out_please_sign_in: 你已被自动登出。请重新登录。
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: "%{username} 用户的Stripe 余额不等于0，所以账号不能被关闭。这可能是因为有其他的交易正在进行中，或者金额正等待被汇到银行账号。请查询您的
@@ -1946,6 +1950,12 @@ zh:
     initiate:
       booked_days: '预订的天数:'
       booked_nights: 
+      booked_days_label:
+        other: ''
+      booked_nights_label:
+        other: ''
+      booked_hours_label:
+        other: ''
       price_per_day: '每天的价格:'
       price_per_night: 每晚价格
       price_per_hour: 
@@ -1954,6 +1964,8 @@ zh:
       subtotal: '小结:'
       shipping-price: '运费:'
       stripe-fee: 
+      duration_in_hours:
+        other: ''
       start_end_time: 
     price_per_quantity: '每%{unit_type}:'
     price: '总共:'
@@ -2051,6 +2063,10 @@ zh:
         个
     person:
       community_members_entries_info:
+        single_page:
+          other: ''
+        single_page_html:
+          other: ''
         multi_page: 
         multi_page_html: 
   stripe_accounts:
