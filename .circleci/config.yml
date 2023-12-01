@@ -83,7 +83,7 @@ jobs:
           working_directory: client
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: db setup
           command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
