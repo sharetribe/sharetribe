@@ -161,7 +161,6 @@ group :test do
   gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '56fe73dc420d161ecf9842739af7d857031ca1b2'
   gem 'poltergeist', '~> 1.18.1'
   gem 'puma', '~> 5.6.7'
-  gem 'webdrivers', '~> 5.0.0'
   gem 'multi_test', '0.1.2'
 end
 

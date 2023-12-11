@@ -188,6 +188,11 @@ To update your local database schema to the newest version, run database migrati
 
 Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
 
+Install the following extra dependencies:
+
+  * [**Chromedriver**](https://chromedriver.chromium.org/home). Make sure to
+    install a driver version that matches your browser's.
+
 Remember to follow *all* the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
 
 1.  Navigate to the root directory of the sharetribe project
@@ -419,7 +424,7 @@ and
 
 Sharetribe Go includes a Custom Landing Page add-on and editor. You can [learn more about it here](https://www.sharetribe.com/products/go/landing-page/).
 
-The Custom Landing Page Editor should be available automatically, from [v9.1.0](https://github.com/sharetribe/sharetribe/releases/tag/v9.1.0). If this is not the case, you can find plenty of useful information in the *[Landing Pages for Idiots Like Me](https://www.sharetribe.com/community/t/landing-pages-for-idiots-like-me/2788)* post written by [Jeremy D Evans](https://github.com/jeremyevans6). 
+The Custom Landing Page Editor should be available automatically, from [v9.1.0](https://github.com/sharetribe/sharetribe/releases/tag/v9.1.0). If this is not the case, you can find plenty of useful information in the *[Landing Pages for Idiots Like Me](https://www.sharetribe.com/community/t/landing-pages-for-idiots-like-me/2788)* post written by [Jeremy D Evans](https://github.com/jeremyevans6).
 
 ## Versioning
 

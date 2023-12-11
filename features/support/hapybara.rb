@@ -18,12 +18,6 @@ if false # rubocop:disable Lint/LiteralAsCondition
   end
   Capybara.javascript_driver = :poltergeist
 else
-  # It does not work proper. It cannot fill in fields.
-  # https://github.com/teamcapybara/capybara/issues/1890
-  # Google Chrome 71.0.3578.80
-  require 'webdrivers'
-  # Webdrivers::Chromedriver.version = '2.46'
-
   # :selenium_chrome_headless
   Capybara.javascript_driver = :selenium_chrome_headless
 end

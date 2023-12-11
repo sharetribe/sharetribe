@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.3.0
+  browser-tools: circleci/browser-tools@1.4.6
 jobs:
   test:
     parallelism: 12
@@ -21,7 +21,7 @@ jobs:
           BUNDLE_JOBS: 4
           BUNDLE_RETRY: 3
           RUBYOPT: "-W0"
-      - image: mysql:5.7.41
+      - image: mysql:8.0.35
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
@@ -75,15 +75,8 @@ jobs:
           name: prepare
           command: script/ci-prepare.sh
       - run:
-          name: rubocop
-          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop ; fi
-      - run:
-          name: npm lint
-          command: if [[ "$CIRCLE_NODE_INDEX" == "1" || "$CIRCLE_NODE_TOTAL" == "1" ]] ; then npm run lint ; fi
-          working_directory: client
-      - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: db setup
           command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
@@ -110,8 +103,74 @@ jobs:
       - store_artifacts:
           path: ~/project/tmp/capybara
           destination: test-screenshots
+  lint:
+    parallelism: 2
+    # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
+    shell: /bin/bash -ileo pipefail
+    resource_class: small
+    docker:
+      - image: cimg/ruby:3.2.2-browsers
+        environment:
+          CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+          MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
+          DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
+          NODE_VERSION: 18.16.0
+          NODE_ENV: test
+          RAILS_ENV: test
+          RACK_ENV: test
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+          RUBYOPT: "-W0"
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
+      - run:
+          name: install system deps
+          command: script/ci-install-deps.sh
+      - run:
+          name: Update rubygems and bundler
+          command: sudo gem update --system 3.4.6 --no-document
+      - run:
+          name: Configure bundler
+          command: bundle config set --local without development
+      - run:
+          name: bundle install
+          command: bundle check || bundle install
+      - run:
+          name: npm ci
+          command: npm ci && cd client && npm ci
+      - save_cache:
+          key: bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+            - ~/.bundle
+      - save_cache:
+          key: node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
+          paths:
+            - ~/.nvm
+            - ~/.npm
+            - ~/.bashrc
+            - client/node_modules
+            - ./node_modules
+      - run:
+          name: prepare
+          command: script/ci-prepare.sh
+      - run:
+          name: rubocop
+          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop ; fi
+      - run:
+          name: npm lint
+          command: if [[ "$CIRCLE_NODE_INDEX" == "1" || "$CIRCLE_NODE_TOTAL" == "1" ]] ; then npm run lint ; fi
+          working_directory: client
 workflows:
   version: 2
   test:
     jobs:
       - test
+      - lint
