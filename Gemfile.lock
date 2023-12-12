@@ -461,7 +461,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    passenger (6.0.14)
+    passenger (6.0.19)
       rack
       rake (>= 0.8.1)
     paypal-sdk-core (0.3.4)
@@ -784,7 +784,7 @@ DEPENDENCIES
   omniauth-linkedin-openid
   omniauth-rails_csrf_protection (~> 1.0.1)
   paperclip (~> 6.1.1)!
-  passenger (~> 6.0.14)
+  passenger (~> 6.0.19)
   paypal-sdk-merchant (~> 1.117.2)
   paypal-sdk-permissions (~> 1.96.4)
   poltergeist (~> 1.18.1)
