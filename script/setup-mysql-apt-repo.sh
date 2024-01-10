@@ -4,7 +4,7 @@ set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
-DEB="mysql-apt-config_0.8.22-1_all.deb"
+DEB="mysql-apt-config_0.8.29-1_all.deb"
 
 apt-get update --allow-releaseinfo-change && apt-get install -y lsb-release
 
