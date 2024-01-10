@@ -10,6 +10,7 @@ on:
         type: choice
         options:
           - staging
+          - staging-gen2
           - production
       git_ref:
         description: Git ref to deploy
@@ -56,6 +57,10 @@ jobs:
             ;;
           staging)
             echo "app=anarchy" >> $GITHUB_OUTPUT
+            echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
+            ;;
+          staging-gen2)
+            echo "app=anarchy2" >> $GITHUB_OUTPUT
             echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
             ;;
           *)
