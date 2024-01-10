@@ -10,7 +10,6 @@ on:
         type: choice
         options:
           - staging
-          - staging-gen2
           - production
       git_ref:
         description: Git ref to deploy
@@ -57,11 +56,6 @@ jobs:
             echo "rack=sharetribe/production" >> $GITHUB_OUTPUT
             ;;
           staging)
-            echo "app=anarchy" >> $GITHUB_OUTPUT
-            echo "convox_manifest=docker-compose.app.yml" >> $GITHUB_OUTPUT
-            echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
-            ;;
-          staging-gen2)
             echo "app=anarchy2" >> $GITHUB_OUTPUT
             echo "convox_manifest=convox.yml" >> $GITHUB_OUTPUT
             echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
