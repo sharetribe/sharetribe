@@ -158,7 +158,7 @@ jobs:
         run: |
           latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" | tr -d '"')
           echo "Latest image tag: ${latest_image_tag}"
-          if [[ "${latest_image_tag}" != "None" ]] ; then
+          if [[ "${latest_image_tag}" != "null" ]] ; then
             echo "image=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}" >> $GITHUB_OUTPUT
           fi
 
