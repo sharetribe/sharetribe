@@ -52,10 +52,12 @@ jobs:
           case "$DEPLOY_ENV" in
           production)
             echo "app=anarchy" >> $GITHUB_OUTPUT
+            echo "convox_manifest=docker-compose.app.yml" >> $GITHUB_OUTPUT
             echo "rack=sharetribe/production" >> $GITHUB_OUTPUT
             ;;
           staging)
-            echo "app=anarchy" >> $GITHUB_OUTPUT
+            echo "app=anarchy2" >> $GITHUB_OUTPUT
+            echo "convox_manifest=convox.yml" >> $GITHUB_OUTPUT
             echo "rack=sharetribe/staging" >> $GITHUB_OUTPUT
             ;;
           *)
@@ -153,7 +155,7 @@ jobs:
         run: |
           latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" | tr -d '"')
           echo "Latest image tag: ${latest_image_tag}"
-          if [[ "${latest_image_tag}" != "None" ]] ; then
+          if [[ "${latest_image_tag}" != "null" ]] ; then
             echo "image=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}" >> $GITHUB_OUTPUT
           fi
 
@@ -202,7 +204,8 @@ jobs:
       - name: Update Convox manifest
         env:
           ECR_IMAGE: ${{ steps.set_ecr_image.outputs.image }}
-        run: 'sed -E -i "s|build: .*|image: ${ECR_IMAGE}|" "docker-compose.app.yml"'
+          CONVOX_MANIFEST: ${{ steps.convox_env.outputs.convox_manifest }}
+        run: 'sed -E -i "s|build: .*|image: ${ECR_IMAGE}|" "${CONVOX_MANIFEST}"'
 
       - name: Create Convox release
         id: convox_build
@@ -211,10 +214,11 @@ jobs:
           CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
           CONVOX_RACK: ${{ steps.convox_env.outputs.rack }}
           CONVOX_APP: ${{ steps.convox_env.outputs.app }}
+          CONVOX_MANIFEST: ${{ steps.convox_env.outputs.convox_manifest }}
           RELEASE: ${{ steps.set_release.outputs.release }}
         run: |
           source .toolbelt/bin/common-definitions.sh
-          ~/convox build --manifest docker-compose.app.yml --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --id --description "${RELEASE}" | tee out.txt
+          ~/convox build --manifest "${CONVOX_MANIFEST}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --id --description "${RELEASE}" | tee out.txt
           check_pipe_status && echo "release=$(tail -n1 out.txt)" >> $GITHUB_OUTPUT
 
       - name: Check pending migrations

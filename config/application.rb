@@ -113,6 +113,7 @@ module Kassi
     config.middleware.insert_before ActionDispatch::Cookies, ::CustomCookieRenamer
 
     # Resolve current marketplace and append it to env
+    config.middleware.use ::MarketplaceHostFromCustomHeader
     config.middleware.use ::MarketplaceLookup
     config.middleware.use ::SessionContextMiddleware
 
