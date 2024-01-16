@@ -8,8 +8,9 @@ class MarketplaceHostFromCustomHeader
 
   def call(env)
     custom_host = env['HTTP_ST_GO_HOST']
+    custom_host_auth = env['HTTP_ST_GO_PROXY_AUTH']
 
-    if custom_host
+    if custom_host && custom_host_auth == ::APP_CONFIG.proxy_auth_secret
       @app.call(env.merge!(
                   'HTTP_HOST' => custom_host,
                   'SERVER_NAME' => custom_host))

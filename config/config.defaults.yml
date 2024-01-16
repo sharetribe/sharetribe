@@ -496,6 +496,9 @@ default: &default_settings
   # Set to 'log', 'enforce' or 'disabled'
   recaptcha_mode: 'disabled'
 
+  # Auth secret for validating custom proxy headers
+  proxy_auth_secret: 'changeme'
+
 production: &production_settings
   <<: *default_settings
 
