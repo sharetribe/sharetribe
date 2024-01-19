@@ -98,6 +98,9 @@ module Kassi
       # Rack attack middleware for throttling and blocking unwanted traffic
       config.middleware.insert_after ActionDispatch::RemoteIp, Rack::Attack
     end
+    # Note that this insert happens after Rack::Attack is potentially inserted,
+    # so the custom header applies before Rack::Attack.
+    config.middleware.insert_after ActionDispatch::RemoteIp, ::MarketplaceHostFromCustomHeader
 
     # HealthCheck endpoint
     config.middleware.insert_before Rack::Sendfile, ::HealthCheck
@@ -113,7 +116,6 @@ module Kassi
     config.middleware.insert_before ActionDispatch::Cookies, ::CustomCookieRenamer
 
     # Resolve current marketplace and append it to env
-    config.middleware.use ::MarketplaceHostFromCustomHeader
     config.middleware.use ::MarketplaceLookup
     config.middleware.use ::SessionContextMiddleware
 

@@ -39,6 +39,9 @@ services:
       cpu: 0
       memory: 512
     singleton: false
+    deployment:
+      minimum: 0
+      maximum: 200
     environment:
       - QUEUES=default,paperclip,mailers
       - MAGICK_MAP_LIMIT=64MiB

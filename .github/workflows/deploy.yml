@@ -52,7 +52,7 @@ jobs:
           case "$DEPLOY_ENV" in
           production)
             echo "app=anarchy" >> $GITHUB_OUTPUT
-            echo "convox_manifest=docker-compose.app.yml" >> $GITHUB_OUTPUT
+            echo "convox_manifest=convox.yml" >> $GITHUB_OUTPUT
             echo "rack=sharetribe/production" >> $GITHUB_OUTPUT
             ;;
           staging)
