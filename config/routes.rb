@@ -886,6 +886,7 @@ Rails.application.routes.draw do
             get :account
             get :notifications
             get :unsubscribe
+            post :unsubscribe
             get :listings
             get :transactions
           end
