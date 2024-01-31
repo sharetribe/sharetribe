@@ -145,7 +145,11 @@ module EmailService::API
       if @ses_client
         fulldomain = email.split("@").second
 
-        fulldomain.include?("yahoo.") ? Result::Error.new("disallowed domain", domain: fulldomain) : Result::Success.new()
+        if fulldomain.include?("yahoo.") || fulldomain.include?("gmail.") || fulldomain.include?("googlemail.")
+          Result::Error.new("disallowed domain", domain: fulldomain)
+        else
+          Result::Success.new()
+        end
       else
         Result::Success.new()
       end
