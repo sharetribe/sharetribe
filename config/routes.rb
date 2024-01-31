@@ -731,6 +731,7 @@ Rails.application.routes.draw do
     resources :invitations, only: [:new, :create ] do
       collection do
         get :unsubscribe
+        post :unsubscribe
       end
     end
     resources :user_feedbacks, :controller => :feedbacks

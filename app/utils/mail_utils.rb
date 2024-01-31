@@ -27,6 +27,15 @@ module MailUtils
     end
   end
 
+  def set_invitation_unsubscribe_headers!
+    headers(
+      one_click_unsubscribe_headers(
+        unsubscribe_invitations_url(@url_params)
+      )
+    )
+  end
+
+
   def unsubscribe_url(recipient, token, email_type, url_params)
     unsubscribe_person_settings_url(
       recipient,

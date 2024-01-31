@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
   end
 
   before_action :users_can_invite_new_users, except: :unsubscribe
+  skip_before_action :verify_authenticity_token, only: :unsubscribe
 
   def new
     @selected_tribe_navi_tab = "members"
@@ -68,13 +69,26 @@ class InvitationsController < ApplicationController
   end
 
   def unsubscribe
-    invitation_unsubscribe = Invitation::Unsubscribe.unsubscribe(params[:code])
-    if invitation_unsubscribe.persisted?
-      flash[:notice] = t("layouts.notifications.invitation_successfully_unsubscribed")
+    if request.get? ||
+       (request.post? && params["List-Unsubscribe"] == "One-Click")
+      invitation_unsubscribe = Invitation::Unsubscribe.unsubscribe(params[:code])
+      if invitation_unsubscribe.persisted?
+        flash[:notice] = t("layouts.notifications.invitation_successfully_unsubscribed")
+      else
+        flash[:error] = t("layouts.notifications.invitation_cannot_unsubscribe")
+      end
+      if request.post?
+        if invitation_unsubscribe.persisted?
+          render plain: "OK"
+        else
+          render plain: "Unauthorized", status: :unauthorized
+        end
+      else
+        redirect_to landing_page_path
+      end
     else
-      flash[:error] = t("layouts.notifications.invitation_cannot_unsubscribe")
+      render plain: "Bad request", status: :bad_request
     end
-    redirect_to landing_page_path
   end
 
   private
