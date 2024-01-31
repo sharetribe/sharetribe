@@ -4,6 +4,8 @@ class SettingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
+  skip_before_action :verify_authenticity_token, only: :unsubscribe
+
   before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: [:unsubscribe, :show]
   before_action EnsureCanAccessPerson.new(:person_id, allow_admin: true, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: :show
 
@@ -33,7 +35,10 @@ class SettingsController < ApplicationController
   def unsubscribe
     target_user = find_person_to_unsubscribe(@current_user, params[:auth])
 
-    if target_user && target_user.username == params[:person_id] && params[:email_type].present?
+    if target_user &&
+       target_user.username == params[:person_id] &&
+       params[:email_type].present? &&
+       (request.get? || (request.post? && params["List-Unsubscribe"] == "One-Click"))
       if params[:email_type] == "community_updates"
         target_user.unsubscribe_from_community_updates
       elsif [Person::EMAIL_NOTIFICATION_TYPES, Person::EMAIL_NEWSLETTER_TYPES].flatten.include?(params[:email_type])

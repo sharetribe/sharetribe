@@ -72,6 +72,8 @@ class CommunityMailer < ActionMailer::Base
 
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
 
+      set_unsubscribe_headers!
+
       mail(:to => @recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => subject,

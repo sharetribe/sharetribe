@@ -10,5 +10,4 @@ module EmailHelper
       email_allowed?(email.address)
     end
   end
-
 end

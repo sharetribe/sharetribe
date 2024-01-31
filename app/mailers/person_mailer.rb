@@ -25,6 +25,8 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @transaction = transaction
 
+      set_unsubscribe_headers!
+
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}")) do |format|
@@ -44,6 +46,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
       sending_params = {:to => recipient.confirmed_notification_emails_to,
                         :subject => t("emails.new_message.you_have_a_new_message", :sender_name => PersonViewUtils.person_display_name(message.sender, community)),
                         :from => community_specific_sender(community)}
+      set_unsubscribe_headers!
 
       mail(sending_params) do |format|
         format.html do
@@ -61,6 +64,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     recipient = @recipient_is_seller ? conversation.seller : conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}")) do |format|
@@ -75,6 +79,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     recipient = conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.transaction_automatically_confirmed.subject")) do |format|
@@ -89,6 +94,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     recipient = @transaction.buyer
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      set_unsubscribe_headers!
       mail(:to => @recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.booking_transaction_automatically_confirmed.subject")) do |format|
@@ -105,6 +111,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @testimonial = testimonial
       @wating_testimonial = @testimonial.tx.waiting_testimonial_from?(@testimonial.receiver.id)
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(testimonial.author, community))) do |format|
@@ -145,6 +152,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @days_to_cancel = days_to_cancel
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
@@ -160,6 +168,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @other_party = @conversation.other_party(recipient)
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => PersonViewUtils.person_display_name(@other_party, community))) do |format|
@@ -174,6 +183,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
@@ -187,6 +197,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     @email_type = 'email_listing_new_comment'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
@@ -200,6 +211,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     @email_type = 'email_listing_updated'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated")) do |format|
@@ -217,6 +229,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
       @translate_scope = [:emails, :new_listing_by_followed_person]
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_listing_by_followed_person.subject",
@@ -237,6 +250,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     @invitation_community = invitation.community.full_name_with_separator(invitation.inviter.locale)
     with_locale(mail_locale, invitation.community.locales.map(&:to_sym), invitation.community.id) do
       subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => PersonViewUtils.person_display_name(invitation.inviter, invitation.community), :community => @invitation_community)
+      set_invitation_unsubscribe_headers!
       mail(:to => invitation.email,
            :from => community_specific_sender(invitation.community),
            :subject => subject,
@@ -265,6 +279,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
       @hello_line = hello_line
       @no_recipient_name = true
       @recipient = recipient
+      set_unsubscribe_headers!
       mail(:to => recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => email_subject,

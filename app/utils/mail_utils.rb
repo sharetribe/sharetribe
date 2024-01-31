@@ -17,6 +17,39 @@ module MailUtils
     end
   end
 
+  def set_unsubscribe_headers!
+    if @unsubscribe_token && @email_type && @recipient
+      headers(
+        one_click_unsubscribe_headers(
+          unsubscribe_url(@recipient, @unsubscribe_token, @email_type, @url_params)
+        )
+      )
+    end
+  end
+
+  def set_invitation_unsubscribe_headers!
+    headers(
+      one_click_unsubscribe_headers(
+        unsubscribe_invitations_url(@url_params)
+      )
+    )
+  end
+
+
+  def unsubscribe_url(recipient, token, email_type, url_params)
+    unsubscribe_person_settings_url(
+      recipient,
+      url_params.merge({email_type: email_type, auth: token})
+    )
+  end
+
+  def one_click_unsubscribe_headers(unsubscribe_url)
+    {
+      "List-Unsubscribe" => "<#{unsubscribe_url}>",
+      "List-Unsubscribe-Post" => "List-Unsubscribe=One-Click"
+    }
+  end
+
   def with_locale(recipient_locale, community_locales, community_id = nil, &block)
     set_locale(recipient_locale) {
       set_community(community_id, community_locales) {
