@@ -134,7 +134,7 @@ module EmailService::API
 
     def valid_email_address?(email)
       domain = email.split("@").second
-      if domain == 'sharetribe.com'
+      if domain.match?(/(^|\.)sharetribe\./)
         Result::Error.new("invalid email format")
       else
         Result::Success.new

@@ -214,7 +214,7 @@ window.ST = window.ST || {};
 
     $.validator.addMethod("custom_email",
         function(value, element) {
-            return /^([a-zA-Z0-9_.\-+])+\@(?!sharetribe\.com)(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,8})+$/.test(value);
+            return /^([a-zA-Z0-9_.\-+])+\@(?!sharetribe\.)(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,8})+$/.test(value);
         },
         "Please enter a valid email address."
     );
