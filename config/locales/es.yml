@@ -1478,8 +1478,8 @@ es:
       images_are_processing: Estamos procesando tus imágenes. Danos un minuto o dos
         y estarán listas.
       maintenance_mode:
-        zero: La página estará fuera de servicio por mantenimiento
         one: La página estará fuera de servicio por mantenimiento en %{count} minuto
+        zero: La página estará fuera de servicio por mantenimiento
         other: La página estará fuera de servicio por mantenimiento en %{count} minutos
       automatically_logged_out_please_sign_in: Por favor, inicia sesión de nuevo,
         ya que tu sesión ha caducado.
@@ -2525,28 +2525,28 @@ es:
   will_paginate:
     models:
       person:
-        zero: usuarios
         one: usuario
+        zero: usuarios
         other: usuarios
       transaction:
-        zero: transacciones
         one: transacción
+        zero: transacciones
         other: transacciones
       listing:
-        zero: anuncios
         one: anuncio
+        zero: anuncios
         other: anuncios
     previous_label: "&#8592; Anterior"
     next_label: Siguiente &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "%{model} no encontrado"
         one: Mostrando un %{model}
+        zero: "%{model} no encontrado"
         other: 'Mostrando todo: %{count} %{model}'
       single_page_html:
-        zero: "%{model} no encontrado"
         one: Mostrando 1 %{model}
+        zero: "%{model} no encontrado"
         other: 'Mostrando todo: %{count} %{model}'
       multi_page: Mostrando %{model} %{from} - %{to} de %{count}
       multi_page_html: Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b>
@@ -2554,15 +2554,15 @@ es:
     person:
       community_members_entries_info:
         single_page:
-          zero: Ningún %{model} encontrado
           one: Mostrando %{accepted_count} %{accepted_model} aceptado y %{other_count}
             otro %{other_model}
+          zero: Ningún %{model} encontrado
           other: Mostrando %{accepted_count} %{accepted_model} aceptados y %{other_count}
             otros %{other_model}
         single_page_html:
-          zero: Ningún %{model} encontrado
           one: 'Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptado y %{other_count}
             otro %{other_model} '
+          zero: Ningún %{model} encontrado
           other: 'Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptados y%{other_count}
             otros %{other_model} '
         multi_page: Mostrando %{model} %{from} - %{to} de %{accepted_count} %{accepted_model}

@@ -571,10 +571,10 @@ sr:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     newsletter:
       hi: 'Zdravo%{name} '
       newest_offers: Šta ljudi trenutno nude drugima
@@ -1318,10 +1318,10 @@ sr:
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
       maintenance_mode:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -1804,10 +1804,10 @@ sr:
         molimo vas da nas kontaktirate.
       invalid_username_or_email: 
       email_restriction_instructions:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       family_name: Prezime
       given_name: Ime
       i_accept_the_terms_and_privacy: 
@@ -2157,50 +2157,50 @@ sr:
     year_ago: "%{count} pre godinu dana"
     years_ago: pre %{count} godina
     days_since:
-      one: "%{count} dan"
       few: "%{count} dana"
+      one: "%{count} dan"
       many: "%{count} dana"
       other: "%{count} dana"
     time_to:
       seconds:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       minutes:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       hours:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       days:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
   transactions:
     initiate:
       booked_days: 'Bukirani dani:'
       booked_nights: 
       booked_days_label:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       booked_nights_label:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       booked_hours_label:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       price_per_day: 'Cena po danu:'
       price_per_night: 
       price_per_hour: 
@@ -2210,10 +2210,10 @@ sr:
       shipping-price: 'Slanje:'
       stripe-fee: 
       duration_in_hours:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       start_end_time: 
     price_per_quantity: 'Cena po %{unit_type}:'
     price: 'Cena:'
@@ -2288,49 +2288,49 @@ sr:
   will_paginate:
     models:
       person:
-        zero: korisnika
-        one: korisnik
         few: korisnika
+        one: korisnik
         many: korisnika
+        zero: korisnika
         other: korisnika
       transaction:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       listing:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     previous_label: "&#8592; Prethodni"
     next_label: Sledeći &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       single_page_html:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          few: ''
-          many: ''
-          other: ''
+          one: 
+          few: 
+          many: 
+          other: 
         single_page_html:
-          one: ''
-          few: ''
-          many: ''
-          other: ''
+          one: 
+          few: 
+          many: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

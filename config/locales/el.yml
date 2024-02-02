@@ -1530,8 +1530,8 @@ el:
       images_are_processing: Επεξεργαζόμαστε τις εικόνες σας. Δώστε μας ένα ή δύο
         λεπτά και θα είναι ορατές.
       maintenance_mode:
-        zero: Η τοποθεσία Web θα αποσυνδεθεί τώρα για συντήρηση
         one: Η τοποθεσία Web θα είναι εκτός σύνδεσης για συντήρηση σε %{count} λεπτό
+        zero: Η τοποθεσία Web θα αποσυνδεθεί τώρα για συντήρηση
         other: Η τοποθεσία Web θα είναι εκτός σύνδεσης για συντήρηση σε %{count} λεπτά
       automatically_logged_out_please_sign_in: Έχετε αποσυνδεθεί αυτόματα. Συνδεθείτε
         ξανά.
@@ -2585,28 +2585,28 @@ el:
   will_paginate:
     models:
       person:
-        zero: Κανένας χρήστης
         one: Χρήστης
+        zero: Κανένας χρήστης
         other: Χρήστες
       transaction:
-        zero: Συναλλαγές
         one: Συναλλαγή
+        zero: Συναλλαγές
         other: Συναλλαγές
       listing:
-        zero: Καταχώρηση
         one: Καταχώρηση
+        zero: Καταχώρηση
         other: Καταχωρήσεις
     previous_label: "&#8592; Προηγούμενο"
     next_label: Επόμενο &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Δεν βρέθηκε %{model}
         one: 'Βρέθηκε 1 %{model} '
+        zero: Δεν βρέθηκε %{model}
         other: Βρέθηκαν σύνολο %{count} %{model}
       single_page_html:
-        zero: 'Δεν βρέθηκε '
         one: 'Βρέθηκε <b> 1</b> %{model} '
+        zero: 'Δεν βρέθηκε '
         other: Βρέθηκαν <b>σύνολο&nbsp;%{count}</b> %{model}
       multi_page: Εμφάνιση του %{model} %{from} - %{to} του %{count} στο σύνολο
       multi_page_html: Εμφάνιση %{model} <b> %{from} & nbsp - & nbsp ; %{to} </b>
@@ -2614,15 +2614,15 @@ el:
     person:
       community_members_entries_info:
         single_page:
-          zero: 'Δεν βρέθηε %{model} '
           one: Εμφανίζεται %{accepted_count} αποδέχτηκε %{accepted_model} και %{other_count}
             άλλο %{other_model}
+          zero: 'Δεν βρέθηε %{model} '
           other: Εμφανίζονται %{accepted_count} αποδέχτηκαν %{accepted_model} και
             %{other_count} άλλα %{other_model}
         single_page_html:
-          zero: 'Δεν βρέθηκε %{model} '
           one: 'Εμφανίζεται <b> %{accepted_count} </b> αποδέχτηκε %{accepted_model}
             και %{other_count} άλλο %{other_model} '
+          zero: 'Δεν βρέθηκε %{model} '
           other: 'Εμφανίζονται <b> %{accepted_count} </b> αποδέχτηκαν %{accepted_model}
             και %{other_count} άλλα %{other_model} '
         multi_page: 'Εμφάνιση%{model} %{from} %{to} από %{accepted_count} αποδεκτός/η

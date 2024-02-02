@@ -1442,8 +1442,8 @@ da-DK:
       images_are_processing: Vi behandler dine nye billeder, de vil være synlige om
         et par sekunder.
       maintenance_mode:
-        zero: Dette website vil nu være offline for vedligeholdelse
         one: Dette website vil være offline for vedligeholdelse i %{count} minut
+        zero: Dette website vil nu være offline for vedligeholdelse
         other: Dette website vil være offline for vedligeholdelse i %{count} minutter
       automatically_logged_out_please_sign_in: Du er blevet automatisk logget ud.
         Log venligst ind igen.
@@ -2450,28 +2450,28 @@ da-DK:
   will_paginate:
     models:
       person:
-        zero: brugere
         one: bruger
+        zero: brugere
         other: brugere
       transaction:
-        zero: Transaktioner
         one: Transaktion
+        zero: Transaktioner
         other: Transaktioner
       listing:
-        zero: annonce
         one: annonce
+        zero: annonce
         other: annoncer
     previous_label: "&#8592; <- Før"
     next_label: Næste &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Ingen %{model} fundet
         one: Viser 1 %{model}
+        zero: Ingen %{model} fundet
         other: Viser alle %{count} %{model}
       single_page_html:
-        zero: Ingen %{model} fundet
         one: Viser <b>1</b> %{model}
+        zero: Ingen %{model} fundet
         other: Viser <b>all&nbsp;%{count}</b> %{model}
       multi_page: Viser %{model} %{from} - %{to} af %{count} i alt
       multi_page_html: Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> af <b>%{count}</b>
@@ -2479,15 +2479,15 @@ da-DK:
     person:
       community_members_entries_info:
         single_page:
-          zero: Ingen %{model} fundet
           one: Visning af %{accepted_count} accepteret %{accepted_model} og %{other_count}
             andre %{other_model}
+          zero: Ingen %{model} fundet
           other: Visning af %{accepted_count} accepteret %{accepted_model} og %{other_count}
             andre %{other_model}
         single_page_html:
-          zero: Ingen %{model} fundet
           one: Visning af <b>%{accepted_count}</b> accepteret %{accepted_model} og
             %{other_count} andre %{other_model}
+          zero: Ingen %{model} fundet
           other: Visning af <b>%{accepted_count}</b> accepteret %{accepted_model}
             og %{other_count} andre %{other_model}
         multi_page: Visning af %{model} %{from} - %{to} af %{accepted_count} accepteret

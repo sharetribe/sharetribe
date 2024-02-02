@@ -596,10 +596,10 @@ hr:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     newsletter:
       hi: Pozdrav %{name}
       newest_offers: Što ljudi trenutačno nude drugima
@@ -1386,10 +1386,10 @@ hr:
       images_are_processing: Obrađujemo vaše fotografije. Molimo pričekajte minutu
         ili dvije kada će biti vidljive.
       maintenance_mode:
-        zero: Web stranica će od sada biti nedostupna zbog održavanja
-        one: Web stranica će biti nedostupna zbog održavanja u roku od %{count} minute
         few: Web stranica ce biti nedostupna zbog održavanja u roku od %{count} minuta
+        one: Web stranica će biti nedostupna zbog održavanja u roku od %{count} minute
         many: Web stranica ce biti nedostupna zbog održavanja u roku od %{count}minuta
+        zero: Web stranica će od sada biti nedostupna zbog održavanja
         other: Web stranica ce biti nedostupna zbog održavanja u roku od %{count}
           minuta
       automatically_logged_out_please_sign_in: Automatski ste odjavljeni. Molimo ponovno
@@ -1916,10 +1916,12 @@ hr:
         dozvoljenu email adresu. Ukoliko imate poteškoća, kontaktirajte nas
       invalid_username_or_email: Korisničko ime ili e-mail je već u upotrebi.
       email_restriction_instructions:
-        one: pristup %{service_name} je ograničen.da biste pristupili treba Vam%{allowed_emails}
-          email adresa
         few: pristup %{service_name} je ograničen.Treba Vam email adresa koja dokazuje
           da Vam je pristup odobren
+        one: pristup %{service_name} je ograničen.da biste pristupili treba Vam%{allowed_emails}
+          email adresa
+        many: ''
+        other: ''
       family_name: Prezime
       given_name: Ime
       i_accept_the_terms_and_privacy: Prihvaćam %{terms}  i %{privacy}.
@@ -2277,36 +2279,48 @@ hr:
     year_ago: "%{count} godinu prije"
     years_ago: "%{count} godina prije"
     days_since:
-      one: "%{count} dan"
       few: "%{count} dani"
+      one: "%{count} dan"
       many: "%{count} dana"
       other: "%{count} dan"
     time_to:
       seconds:
-        one: "%{count} sekunde"
         few: "%{count} sekunde"
+        one: "%{count} sekunde"
+        many: ''
+        other: ''
       minutes:
-        one: "%{count}minute"
         few: "%{count}minute"
+        one: "%{count}minute"
+        many: ''
+        other: ''
       hours:
-        one: "%{count} sat"
         few: "%{count} sate"
+        one: "%{count} sat"
+        many: ''
+        other: ''
       days:
-        one: "%{count} dan"
         few: "%{count} dane"
+        one: "%{count} dan"
+        many: ''
+        other: ''
   transactions:
     initiate:
       booked_days: 'Rezervirani dani:'
       booked_nights: 'Rezervirane noći:'
       booked_days_label:
-        one: 'Rezerviran dan:'
         few: 'Rezervirani dani:'
+        one: 'Rezerviran dan:'
+        many: ''
+        other: ''
       booked_nights_label:
-        one: 'Rezervirana noć:'
         few: 'Rezervirane noći:'
+        one: 'Rezervirana noć:'
+        many: ''
+        other: ''
       booked_hours_label:
-        one: 'Rezervirani sat:'
         few: 'Rezervirani sati:'
+        one: 'Rezervirani sat:'
         many: 'Rezervirani sati:'
         other: 'Rezervirani sati:'
       price_per_day: 'Cijena po danu:'
@@ -2318,8 +2332,8 @@ hr:
       shipping-price: 'Isporuka:'
       stripe-fee: Stripe naknada (otprilike)
       duration_in_hours:
-        one: "(1 sat)"
         few: "(%{count} sati)"
+        one: "(1 sat)"
         many: "(%{count} sati)"
         other: "(%{count} sati)"
       start_end_time: Od %{start_time} do %{end_time}
@@ -2402,35 +2416,37 @@ hr:
   will_paginate:
     models:
       person:
-        zero: korisnici
-        one: korisnik
         few: korisnici
+        one: korisnik
+        many: ''
+        zero: korisnici
+        other: ''
       transaction:
-        zero: transakcije
-        one: transakcije
         few: transakcije
+        one: transakcije
         many: transakcije
+        zero: transakcije
         other: transakcije
       listing:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     previous_label: "&#8592; Prethodno"
     next_label: Sljedeće &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Nije %{model}  pronađen
-        one: Prikazujemo 1 %{model}
         few: Prikazujemo par  %{count}%{model}
+        one: Prikazujemo 1 %{model}
         many: Prikazujemo sve %{count}%{model}
+        zero: Nije %{model}  pronađen
         other: Prikazujemo sve %{count}%{model}
       single_page_html:
-        zero: Nije pronađen niti jedan %{model}
-        one: 'Pronađen je %{count} %{model} '
         few: 'Pronađeno je %{count} %{model} '
+        one: 'Pronađen je %{count} %{model} '
         many: 'Pronađeno je %{count} %{model} '
+        zero: Nije pronađen niti jedan %{model}
         other: 'Pronađeno je %{count} %{model} '
       multi_page: Prikaz %{model}%{from} - %{to} od %{count} ukupno
       multi_page_html: Prikaz %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b>
@@ -2438,23 +2454,23 @@ hr:
     person:
       community_members_entries_info:
         single_page:
-          zero: Nije pronađen
-          one: 'Prikaz %{accepted_count} prihvaćeno %{accepted_model}  i %{other_count}  drugi
-            %{other_model} '
           few: 'Prikaz %{accepted_count} prihvaćeno %{accepted_model}  i %{other_count}  drugi
+            %{other_model} '
+          one: 'Prikaz %{accepted_count} prihvaćeno %{accepted_model}  i %{other_count}  drugi
             %{other_model} '
           many: 'Prikaz %{accepted_count} prihvaćeno %{accepted_model} i %{other_count}  drugi
             %{other_model} '
+          zero: Nije pronađen
           other: 'Prikaz %{accepted_count} prihvaćeno %{accepted_model} i %{other_count}  drugi
             %{other_model} '
         single_page_html:
-          zero: Nije pronađen %{model}.
-          one: Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i
-            %{other_count} drugih %{other_model}
           few: Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i
+            %{other_count} drugih %{other_model}
+          one: Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i
             %{other_count} drugih %{other_model}
           many: Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model}
             i %{other_count} drugih %{other_model}
+          zero: Nije pronađen %{model}.
           other: Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model}
             i %{other_count} drugih %{other_model}
         multi_page: Prikazujem %{model} %{from} %{to} od %{accepted_count} prihvaćenih

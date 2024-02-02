@@ -1472,8 +1472,8 @@ fi:
       images_are_processing: Prosessoimme kuviasi. Ole hyvä ja odota pari minuuttia,
         niin ne tulevat valmiiksi ja näkyvät.
       maintenance_mode:
-        zero: Sivusto menee nyt offline-tilaan huoltoa varten
         one: Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten
+        zero: Sivusto menee nyt offline-tilaan huoltoa varten
         other: Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten
       automatically_logged_out_please_sign_in: Sinut kirjattiin ulos automaattisesti.
         Kirjaudu uudelleen sisään.
@@ -2497,29 +2497,29 @@ fi:
   will_paginate:
     models:
       person:
-        zero: käyttäjää
-        one: käyttäjä
         few: käyttäjää
+        one: käyttäjä
+        zero: käyttäjää
         other: käyttäjää
       transaction:
-        zero: tilausta
         one: tilaus
+        zero: tilausta
         other: tilausta
       listing:
-        zero: ilmoitusta
         one: ilmoitus
+        zero: ilmoitusta
         other: ilmoitusta
     previous_label: "&#8592; Edellinen"
     next_label: Seuraava &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Ei yhtään %{model}
         one: Näytetään 1 %{model}
+        zero: Ei yhtään %{model}
         other: Näytetään kaikki %{count} %{model}
       single_page_html:
-        zero: Ei yhtään %{model}
         one: Näytetään <b>1</b> %{model}
+        zero: Ei yhtään %{model}
         other: Näytetään kaikki <b>%{count}</b> %{model}
       multi_page: Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count}).
       multi_page_html: Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä
@@ -2527,15 +2527,15 @@ fi:
     person:
       community_members_entries_info:
         single_page:
-          zero: 0 %{model} löydetty
           one: Näytetään %{accepted_count} hyväksyttyä %{accepted_model} ja %{other_count}
             muuta %{other_model}
+          zero: 0 %{model} löydetty
           other: Näytetään %{accepted_count} hyväksyttyä %{accepted_model} ja %{other_count}
             muuta %{other_model}
         single_page_html:
-          zero: 0 %{model} löydetty
           one: 'Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model} ja
             %{other_count} muuta %{other_model} '
+          zero: 0 %{model} löydetty
           other: Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model}
             ja %{other_count} muuta %{other_model}
         multi_page: Näytetään käyttäjät %{from} - %{to}, yhteensä %{accepted_count}

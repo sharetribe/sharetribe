@@ -1521,8 +1521,8 @@ de:
       images_are_processing: Wir bearbeiten deine Bilder. Nach ein paar Minuten werden
         die angezeigt.
       maintenance_mode:
-        zero: Die Webseite geht nun offline für Wartungsarbeiten.
         one: Die Webseite geht offline für Wartungsarbeiten in %{count} Minute.
+        zero: Die Webseite geht nun offline für Wartungsarbeiten.
         other: Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten.
       automatically_logged_out_please_sign_in: Du wurdest automatisch ausgeloggt.
         Bitte melde dich erneut an.
@@ -2583,28 +2583,28 @@ de:
   will_paginate:
     models:
       person:
-        zero: Benutzer
         one: Benutzer
+        zero: Benutzer
         other: Benutzer
       transaction:
-        zero: Transaktionen
         one: Transaktion
+        zero: Transaktionen
         other: Transaktionen
       listing:
-        zero: Eintrag
         one: Eintrag
+        zero: Eintrag
         other: Einträge
     previous_label: "&#8592; Zurück"
     next_label: Vor &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Keine %{model} gefunden
         one: "%{model} wird angezeigt"
+        zero: Keine %{model} gefunden
         other: "%{count} %{model} werden angezeigt"
       single_page_html:
-        zero: Kein %{model} gefunden
         one: "<b>1</b> %{model} wird angezeigt"
+        zero: Kein %{model} gefunden
         other: "<b>all&nbsp;%{count}</b> %{model} werden angezeigt"
       multi_page: "%{model} %{from} wird dargestellt - %{to} von %{count} gesamt"
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b>
@@ -2612,15 +2612,15 @@ de:
     person:
       community_members_entries_info:
         single_page:
-          zero: Keine %{model} gefunden
           one: "%{accepted_count} genehmigter %{accepted_model} und %{other_count}
             anderer %{other_model} werden angezeigt"
+          zero: Keine %{model} gefunden
           other: "%{accepted_count} genehmigte %{accepted_model} und %{other_count}
             andere %{other_model} werden angezeigt"
         single_page_html:
-          zero: Keine %{model} gefunden
           one: "<b>%{accepted_count} </b> genehmigter %{accepted_model} und %{other_count}
             anderer %{other_model} werden angezeigt"
+          zero: Keine %{model} gefunden
           other: "<b>%{accepted_count} </b> genehmigte %{accepted_model} und %{other_count}
             andere %{other_model} werden angezeigt"
         multi_page: "%{model} %{from} - %{to} von %{accepted_count} genehmigte %{accepted_model}

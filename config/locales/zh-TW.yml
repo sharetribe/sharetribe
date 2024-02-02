@@ -500,7 +500,7 @@ zh-TW:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        other: ''
+        other: 
     newsletter:
       hi: 嗨，%{name}
       newest_offers: 大家都提供了些什么服務？
@@ -2049,7 +2049,7 @@ zh-TW:
         zero: 交易
         other: 交易
       listing:
-        other: ''
+        other: 
     previous_label: "&#8592;上一页"
     next_label: 下一页 &#8594;
     page_gap: "&hellip;"
@@ -2066,9 +2066,9 @@ zh-TW:
     person:
       community_members_entries_info:
         single_page:
-          other: ''
+          other: 
         single_page_html:
-          other: ''
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -622,10 +622,10 @@ uk:
     community_updates_v2:
       headline: перегляньте останні дії на %{service_name}.
       intro_paragraph:
-        one: Ось деякі найцікавіші події, які відбулися на %{service_name} протягом
-          минулого дня.
         few: Ось деякі найцікавіші події, які відбулися на %{service_name} протягом
           останніх %{count} днів.
+        one: Ось деякі найцікавіші події, які відбулися на %{service_name} протягом
+          минулого дня.
         many: Ось деякі найцікавіші події, які відбулися на %{service_name} протягом
           останніх %{count} днів.
         other: Ось деякі найцікавіші події, які відбулися на %{service_name} протягом
@@ -1463,13 +1463,13 @@ uk:
       images_are_processing: Ми обробляємо ваші зображення. Дайте нам хвилину-дві,
         і вони будуть помітні.
       maintenance_mode:
-        zero: Сайт буде недоступний через проведення профілактичних робіт
-        one: Сайт буде недоступний через проведення профілактичних робіт через %{count}
-          хвилину
         few: Сайт буде недоступний через проведення профілактичних робіт через %{count}
           хвилин
+        one: Сайт буде недоступний через проведення профілактичних робіт через %{count}
+          хвилину
         many: Сайт буде недоступний через проведення профілактичних робіт через %{count}
           хвилин
+        zero: Сайт буде недоступний через проведення профілактичних робіт
         other: Сайт буде недоступний через проведення профілактичних робіт через %{count}
           хвилин
       automatically_logged_out_please_sign_in: Ви автоматично вийшли з системи. Будь
@@ -2020,10 +2020,10 @@ uk:
       invalid_username_or_email: Ім'я користувача або адреса електронної пошти неправильні
         або вже використовуються
       email_restriction_instructions:
-        one: 'Доступ до %{service_name} заблоковано. Щоб доєднатись, вам потрібно
-          %{allowed_emails} email '
         few: 'Доступ до %{service_name} заблоковано. Вам потрібна адреса email, яка
           підтверджує ваш доступ. '
+        one: 'Доступ до %{service_name} заблоковано. Щоб доєднатись, вам потрібно
+          %{allowed_emails} email '
         many: 'Доступ до %{service_name} заблоковано. Вам потрібна адреса email, яка
           підтверджує ваш доступ. '
         other: 'Доступ до %{service_name} заблоковано. Вам потрібна адреса email,
@@ -2396,29 +2396,29 @@ uk:
     year_ago: "%{count} років назад"
     years_ago: "%{count} років назад"
     days_since:
-      one: "%{count} день"
       few: "%{count} дні"
+      one: "%{count} день"
       many: "%{count} дні"
       other: "%{count} дні"
     time_to:
       seconds:
-        one: "%{count} сек."
         few: "%{count} сек."
+        one: "%{count} сек."
         many: "%{count} сек."
         other: "%{count} сек."
       minutes:
-        one: "%{count} хвилина"
         few: "%{count} хвилин"
+        one: "%{count} хвилина"
         many: "%{count} хвилин"
         other: "%{count} хвилин"
       hours:
-        one: "%{count} година"
         few: "%{count} годин"
+        one: "%{count} година"
         many: "%{count} годин"
         other: "%{count} годин"
       days:
-        one: "%{count} день"
         few: "%{count} днів"
+        one: "%{count} день"
         many: "%{count} днів"
         other: "%{count} днів"
   transactions:
@@ -2426,18 +2426,18 @@ uk:
       booked_days: 'Заброньовані дні:'
       booked_nights: 'Заброньовані ночі:'
       booked_days_label:
-        one: 'Заброньований день:'
         few: 'Заброньовані дні:'
+        one: 'Заброньований день:'
         many: 'Заброньовані дні:'
         other: 'Заброньовані дні:'
       booked_nights_label:
-        one: 'Заброньована ніч:'
         few: 'Заброньовані ночі:'
+        one: 'Заброньована ніч:'
         many: 'Заброньовані ночі:'
         other: 'Заброньовані ночі:'
       booked_hours_label:
-        one: Заброньована година
         few: Заброньовані години
+        one: Заброньована година
         many: Заброньовані години
         other: Заброньовані години
       price_per_day: 'Ціна за день:'
@@ -2449,8 +2449,8 @@ uk:
       shipping-price: 'Доставка:'
       stripe-fee: 'Stripe оплата (приблизно):'
       duration_in_hours:
-        one: "(одна година)"
         few: "(%{count} годин)"
+        one: "(одна година)"
         many: "(%{count} годин)"
         other: "(%{count} годин)"
       start_end_time: від%{start_time} до%{end_time}
@@ -2532,38 +2532,38 @@ uk:
   will_paginate:
     models:
       person:
-        zero: користувачів
-        one: користувач
         few: користувачів
+        one: користувач
         many: користувачів
+        zero: користувачів
         other: користувачів
       transaction:
-        zero: транзакцій
-        one: транзакція
         few: транзакцій
+        one: транзакція
         many: транзакцій
+        zero: транзакцій
         other: транзакцій
       listing:
-        zero: оголошеннь
-        one: оголошення
         few: оголошеннь
+        one: оголошення
         many: оголошеннь
+        zero: оголошеннь
         other: оголошеннь
     previous_label: "&#8592; Попередній"
     next_label: Наступний &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Знайдено %{model} моделей
-        one: Відображення 1%{model}
         few: Відображення усіх %{count} %{model}
+        one: Відображення 1%{model}
         many: Відображення усіх %{count} %{model}
+        zero: Знайдено %{model} моделей
         other: Відображення усіх %{count} %{model}
       single_page_html:
-        zero: Знайдено %{model} моделей
-        one: Відображення <b>1</b> %{model}
         few: Відображення <b>all&nbsp;%{count}</b> %{model}
+        one: Відображення <b>1</b> %{model}
         many: Відображення <b>all&nbsp;%{count}</b> %{model}
+        zero: Знайдено %{model} моделей
         other: Відображення <b>all&nbsp;%{count}</b> %{model}
       multi_page: Відображення %{model} %{from} - %{to} з %{count} в загальному
       multi_page_html: Відображення %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> з <b>%{count}</b>
@@ -2571,23 +2571,23 @@ uk:
     person:
       community_members_entries_info:
         single_page:
-          zero: "%{model} не знайдено"
-          one: "Відображення %{accepted_count} прийнято %{accepted_model} та %{other_count}
-            інших %{other_model}\n\n"
           few: "Відображення %{accepted_count} прийнятих %{accepted_model} та %{other_count}
+            інших %{other_model}\n\n"
+          one: "Відображення %{accepted_count} прийнято %{accepted_model} та %{other_count}
             інших %{other_model}\n\n"
           many: "Відображення %{accepted_count} прийнято %{accepted_model} та %{other_count}
             інших %{other_model}\n\n"
+          zero: "%{model} не знайдено"
           other: "Відображення %{accepted_count} прийнято %{accepted_model} та %{other_count}
             інших %{other_model}\n\n"
         single_page_html:
-          zero: "%{model} не знайдено"
-          one: Відображення <b>%{accepted_count}</b> прийнятих %{accepted_model} та
-            %{other_count} інших %{other_model}
           few: Відображення <b>%{accepted_count}</b> прийнятих %{accepted_model} та
+            %{other_count} інших %{other_model}
+          one: Відображення <b>%{accepted_count}</b> прийнятих %{accepted_model} та
             %{other_count} інших %{other_model}
           many: Відображення <b>%{accepted_count}</b> прийнятих %{accepted_model}
             та %{other_count} інших %{other_model}
+          zero: "%{model} не знайдено"
           other: Відображення <b>%{accepted_count}</b> прийнятих %{accepted_model}
             та %{other_count} інших %{other_model}
         multi_page: Відображення %{model} %{from} - %{to} з %{accepted_count} прийнятих

@@ -1506,8 +1506,8 @@ fr:
       images_are_processing: Nous traitons vos images. Donnez nous une ou deux minutes
         et elle seront visibles.
       maintenance_mode:
-        zero: Le site va maintenant être rendu inaccessible pour maintenance
         one: Le site sera inaccessible pour maintenance dans %{count} minute
+        zero: Le site va maintenant être rendu inaccessible pour maintenance
         other: Le site sera inaccessible pour maintenance dans %{count} minutes
       automatically_logged_out_please_sign_in: Vous avez été déconnecté automatiquement.
         Veuillez vous connecter de nouveau.
@@ -2564,28 +2564,28 @@ fr:
   will_paginate:
     models:
       person:
-        zero: utilisateur
         one: utilisateur
+        zero: utilisateur
         other: utilisateurs
       transaction:
-        zero: transaction
         one: transaction
+        zero: transaction
         other: transactions
       listing:
-        zero: annonce
         one: annonce
+        zero: annonce
         other: annonces
     previous_label: "&#8592; Précédent"
     next_label: Suivant &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Aucun(e) %{model} trouvé(e)
         one: Affichage de 1 %{model}
+        zero: Aucun(e) %{model} trouvé(e)
         other: Affichage des %{count} %{model}
       single_page_html:
-        zero: Aucun(e) %{model} trouvé(e)
         one: Affichage de <b>1</b> %{model}
+        zero: Aucun(e) %{model} trouvé(e)
         other: Affichage des <b>%{count}</b> %{model}
       multi_page: Affichage des %{model} %{from} - %{to} sur un total de %{count}
       multi_page_html: Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur
@@ -2593,15 +2593,15 @@ fr:
     person:
       community_members_entries_info:
         single_page:
-          zero: Aucun %{model} trouvé
           one: Affichage de %{accepted_count} %{accepted_model} confirmé et de %{other_count}
             autres %{other_model}
+          zero: Aucun %{model} trouvé
           other: Affichage de %{accepted_count} %{accepted_model} confirmés et de
             %{other_count} autres %{other_model}
         single_page_html:
-          zero: Aucun %{model} trouvé
           one: Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmé et
             de %{other_count} autres %{other_model}
+          zero: Aucun %{model} trouvé
           other: Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmés
             et de %{other_count} autres %{other_model}
         multi_page: Affichage des %{model} %{from} - %{to} de %{accepted_count} %{accepted_model}

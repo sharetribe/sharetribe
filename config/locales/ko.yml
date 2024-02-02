@@ -548,7 +548,7 @@ ko:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        other: ''
+        other: 
     newsletter:
       hi: "%{name}님 안녕하세요,"
       newest_offers: 진행 중인 제안
@@ -2180,7 +2180,7 @@ ko:
         zero: 거래들
         other: 거래
       listing:
-        other: ''
+        other: 
     previous_label: "&#8592; 이전"
     next_label: 다음 &#8594;
     page_gap: "&hellip;"
@@ -2197,9 +2197,9 @@ ko:
     person:
       community_members_entries_info:
         single_page:
-          other: ''
+          other: 
         single_page_html:
-          other: ''
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

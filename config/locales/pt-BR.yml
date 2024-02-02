@@ -1465,8 +1465,8 @@ pt-BR:
       images_are_processing: Estamos processando suas imagens. Estarão visíveis em
         um ou dois minutos.
       maintenance_mode:
-        zero: O site sairá do ar agora para manutenção
         one: O site sairá do ar para manutenção em %{count} minuto
+        zero: O site sairá do ar agora para manutenção
         other: O site sairá do ar para manutenção em %{count} minutos
       automatically_logged_out_please_sign_in: Você foi desconectado automaticamente.
         Por favor faça o login novamente.
@@ -2498,28 +2498,28 @@ pt-BR:
   will_paginate:
     models:
       person:
-        zero: usuário
         one: usuário
+        zero: usuário
         other: usuários
       transaction:
-        zero: transação
         one: transação
+        zero: transação
         other: transações
       listing:
-        zero: Anúncio
         one: Anúncio
+        zero: Anúncio
         other: Anúncios
     previous_label: "&#8592; Anterior"
     next_label: Próximo &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Nenhum(a) %{model} encontrado(a)
         one: Visualização de 1 %{model}
+        zero: Nenhum(a) %{model} encontrado(a)
         other: Visualização dos %{count}%{model}
       single_page_html:
-        zero: Nenhum(a) %{model} encontrado(a)
         one: Visualização do <b>1</b> %{model}
+        zero: Nenhum(a) %{model} encontrado(a)
         other: Visualização dos <b>%{count}</b> %{model}
       multi_page: Visualização dos {model} %{from} - %{to} por um total de %{count}
       multi_page_html: 'Visualização dos %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>
@@ -2529,10 +2529,12 @@ pt-BR:
     person:
       community_members_entries_info:
         single_page:
-          zero: Nenhum %{model} foi encontrado.
-        single_page_html:
           one: ''
+          zero: Nenhum %{model} foi encontrado.
           other: ''
+        single_page_html:
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

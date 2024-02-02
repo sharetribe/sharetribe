@@ -1413,8 +1413,8 @@ it:
       images_are_processing: Stiamo elaborando le tue immagini. Attendi per favore
         uno o due minuti e saranno visibili.
       maintenance_mode:
-        zero: Il sito web sarà messo ora offline per manutenzione.
         one: Il sito web sarà offline per manutenzione per %{count} minuto.
+        zero: Il sito web sarà messo ora offline per manutenzione.
         other: Il sito web sarà offline per %{count} minuti.
       automatically_logged_out_please_sign_in: Log out automatico. Per favore effettua
         nuovamente il login.
@@ -2313,11 +2313,11 @@ it:
       other: "%{count} giorni"
     time_to:
       seconds:
-        one: ''
-        other: ''
+        one: 
+        other: 
       minutes:
-        one: ''
-        other: ''
+        one: 
+        other: 
       hours:
         one: "%{count} ora"
         other: "%{count} ore"
@@ -2428,35 +2428,35 @@ it:
   will_paginate:
     models:
       person:
-        one: ''
-        other: ''
+        one: 
+        other: 
       transaction:
-        one: ''
-        other: ''
+        one: 
+        other: 
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; Precedente"
     next_label: Successivo &#8594;
     page_gap: 
     page_entries_info:
       single_page:
-        zero: Nessuna %{model} trovata
         one: 'Visualizza 1 %{model} '
+        zero: Nessuna %{model} trovata
         other: 'Visualizza tutte %{count} le %{model} '
       single_page_html:
-        one: ''
-        other: ''
+        one: 
+        other: 
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -2040,7 +2040,7 @@ ja:
         zero: お支払い履歴
         other: お支払い履歴
       listing:
-        other: ''
+        other: 
     previous_label: "&#8592; 前へ"
     next_label: 次へ &#8594;
     page_gap: "&hellip;"
@@ -2058,7 +2058,7 @@ ja:
           other: "%{accepted_count} の承認済み%{accepted_model} および%{other_count} その他の%{other_model}
             を表示しています"
         single_page_html:
-          other: ''
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

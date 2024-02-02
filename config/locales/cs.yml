@@ -618,6 +618,8 @@ cs:
     community_updates_v2:
       headline: překontrolujte nejnovější aktivity na %{service_name}.
       intro_paragraph:
+        few: ''
+        one: ''
         other: Podívejte se, co se na %{service_name} událo za posledních %{count}
           dní.
     newsletter:
@@ -1438,9 +1440,9 @@ cs:
       images_are_processing: Zpracováváme vaše obrázky. Dejte nám minutku nebo dvě
         a budou vidět.
       maintenance_mode:
-        zero: Webová stránka je nyní offline, probíhá údržba
-        one: Webová stránka bude offline %{count} minutu, probíhá údržba
         few: Webová stránka bude offline %{count} minut, probíhá údržba
+        one: Webová stránka bude offline %{count} minutu, probíhá údržba
+        zero: Webová stránka je nyní offline, probíhá údržba
         other: Webová stránka bude offline %{count} minut, probíhá údržba
       automatically_logged_out_please_sign_in: Byl jsi automaticky odhlášen. Přihlas
         se prosím znovu
@@ -1983,10 +1985,10 @@ cs:
       invalid_username_or_email: Uživatelské jméno nebo email je neplatný nebo je
         již použit
       email_restriction_instructions:
-        one: Přístup do %{service_name} je omezený. K připojení budete potřebovat
-          %{allowed_emails} e-mailovou adresu.
         few: Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu,
           díky které se budete moci přihlásit.
+        one: Přístup do %{service_name} je omezený. K připojení budete potřebovat
+          %{allowed_emails} e-mailovou adresu.
         other: Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou
           adresu, díky které se budete moci přihlásit.
       family_name: Příjmení
@@ -2347,41 +2349,43 @@ cs:
     year_ago: před %{count} rokem
     years_ago: před %{count} roky
     days_since:
-      one: "%{count} den"
       few: "%{count} dny"
+      one: "%{count} den"
       other: "%{count} dnů"
     time_to:
       seconds:
-        one: "%{count} sekunda"
         few: "%{count} sekundy"
+        one: "%{count} sekunda"
         other: "%{count} sekund"
       minutes:
-        one: "%{count} minuta"
         few: "%{count} minuty"
+        one: "%{count} minuta"
         other: "%{count} minut"
       hours:
-        one: "%{count} hodina"
         few: "%{count} hodiny"
+        one: "%{count} hodina"
         other: "%{count} hodin"
       days:
-        one: "%{count} den"
         few: "%{count} dny"
+        one: "%{count} den"
         other: "%{count} dnů"
   transactions:
     initiate:
       booked_days: 'Zarezervované dny:'
       booked_nights: 'Zarezervované dny:'
       booked_days_label:
-        one: 'Rezervovaný den:'
         few: 'Rezervované dny:'
+        one: 'Rezervovaný den:'
+        other: ''
       booked_nights_label:
-        one: 'Rezervovaná noc:'
         few: |-
           Rezervované noci:
            :
+        one: 'Rezervovaná noc:'
+        other: ''
       booked_hours_label:
-        one: 'Doba rezervace:'
         few: 'Doba rezervace:'
+        one: 'Doba rezervace:'
         other: 'Doba rezervace:'
       price_per_day: 'Cena za den:'
       price_per_night: 'Cena za noc:'
@@ -2392,8 +2396,8 @@ cs:
       shipping-price: 'Doprava:'
       stripe-fee: 'Poplatek Stripe (odhad):'
       duration_in_hours:
-        one: "( 1 hodina)"
         few: "(%{count} hodiny)"
+        one: "( 1 hodina)"
         other: "(%{count} hodin)"
       start_end_time: "%{end_time} do %{start_time}"
     price_per_quantity: 'Cena za %{unit_type}:'
@@ -2474,32 +2478,32 @@ cs:
   will_paginate:
     models:
       person:
-        zero: uživatelů
-        one: uživatel
         few: uživatelé
+        one: uživatel
+        zero: uživatelů
         other: uživatelů
       transaction:
-        zero: transakce
-        one: transakce
         few: transakcí
+        one: transakce
+        zero: transakce
         other: transakce
       listing:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
     previous_label: "&#8592; Předchozí"
     next_label: Následující &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Žádný %{model} nenalezen
-        one: Nalezen 1 %{model}
         few: Nalezeny %{count} %{model}
+        one: Nalezen 1 %{model}
+        zero: Žádný %{model} nenalezen
         other: Nalezeno všech %{count} %{model}
       single_page_html:
-        zero: Žádný %{model} nebyl nalezen
-        one: Nalezen <b>1</b> %{model}
         few: Nalezeny </b> %{count}</b>  %{model}
+        one: Nalezen <b>1</b> %{model}
+        zero: Žádný %{model} nebyl nalezen
         other: Nalezeno všech  <b>&nbsp %{count}</b>  %{model}
       multi_page: Nalezen %{model} %{from} - %{to} z %{count} celkem
       multi_page_html: Nalezen %{model} <b> %{from}&nbsp;-&nbsp;%{to} <b> z <b> %{count}
@@ -2507,15 +2511,15 @@ cs:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          few: ''
-          other: ''
+          one: 
+          few: 
+          other: 
         single_page_html:
-          zero: Žádný %{model} nenalezen
-          one: Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a
-            %{other_count} jiné %{other_model}
           few: Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a
             %{other_count} jiné %{other_model}
+          one: Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a
+            %{other_count} jiné %{other_model}
+          zero: Žádný %{model} nenalezen
           other: Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model}
             a %{other_count} jiné %{other_model}
         multi_page: 

@@ -606,11 +606,11 @@ sl:
     community_updates_v2:
       headline: preverite najnovejšo ponudbo na %{service_name}.
       intro_paragraph:
+        few: Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih
+          %{count} dni.
         one: Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} od preteklega
           dne.
         two: Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih
-          %{count} dni.
-        few: Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih
           %{count} dni.
         other: Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih
           %{count} dni.
@@ -1434,10 +1434,10 @@ sl:
       images_are_processing: Vaše slike obdelujemo. Dajte nam minuto ali dve in bodo
         vidne.
       maintenance_mode:
-        zero: Spletno mesto bo zdaj zaradi vzdrževanja izklopljeno
+        few: Spletno mesto bo zaradi vzdrževanja brez povezave čez %{count} minute
         one: Spletno mesto bo zaradi vzdrževanja brez povezave čez %{count} minuto
         two: Spletno mesto bo zaradi vzdrževanja brez povezave čez %{count} minuti
-        few: Spletno mesto bo zaradi vzdrževanja brez povezave čez %{count} minute
+        zero: Spletno mesto bo zdaj zaradi vzdrževanja izklopljeno
         other: Spletno mesto bo zaradi vzdrževanja brez povezave čez %{count} minut
       automatically_logged_out_please_sign_in: Bili ste samodejno odjavljeni. Prosimo,
         prijavite se znova.
@@ -1971,11 +1971,11 @@ sl:
         dovoljen e-poštni naslov. Če se še vedno ne morete prijaviti, nas kontaktirajte.
       invalid_username_or_email: E-pošta ni veljavna ali je že v uporabi
       email_restriction_instructions:
+        few: Dostop do %{service_name} je omejen. Potrebujete e-poštni naslov, ki
+          dokazuje, da ste upravičeni do pridružitve.
         one: Dostop do %{service_name} je omejen. Če se želite pridružiti, potrebujete
           e-poštni naslov »%{allowed_emails}«.
         two: Dostop do %{service_name} je omejen. Potrebujete e-poštni naslov, ki
-          dokazuje, da ste upravičeni do pridružitve.
-        few: Dostop do %{service_name} je omejen. Potrebujete e-poštni naslov, ki
           dokazuje, da ste upravičeni do pridružitve.
         other: Dostop do %{service_name} je omejen. Potrebujete e-poštni naslov, ki
           dokazuje, da ste upravičeni do pridružitve.
@@ -2343,49 +2343,49 @@ sl:
     year_ago: Pred %{count} letom
     years_ago: Pred %{count} leti
     days_since:
+      few: "%{count} dni"
       one: "%{count} dan"
       two: "%{count} dneva"
-      few: "%{count} dni"
       other: "%{count} dni"
     time_to:
       seconds:
+        few: "%{count} sekunde"
         one: "%{count} sekunda"
         two: "%{count} sekundi"
-        few: "%{count} sekunde"
         other: "%{count} sekund"
       minutes:
+        few: "%{count} minute"
         one: "%{count} minuta"
         two: "%{count} minuti"
-        few: "%{count} minute"
         other: "%{count} minut"
       hours:
+        few: "%{count} ure"
         one: "%{count} ura"
         two: "%{count} uri"
-        few: "%{count} ure"
         other: "%{count} ur"
       days:
+        few: "%{count} dni"
         one: "%{count} dan"
         two: "%{count} dni"
-        few: "%{count} dni"
         other: "%{count} dni"
   transactions:
     initiate:
       booked_days: 'Rezervirani dnevi:'
       booked_nights: 'Rezervirane nočitve:'
       booked_days_label:
+        few: 'Rezervirani dnevi:'
         one: 'Rezerviran dan:'
         two: 'Rezervirana dneva:'
-        few: 'Rezervirani dnevi:'
         other: 'Rezerviranih dni:'
       booked_nights_label:
+        few: 'Rezervirane nočitve:'
         one: 'Rezervirana noč:'
         two: 'Rezervirani nočitvi:'
-        few: 'Rezervirane nočitve:'
         other: 'Rezerviranih noči:'
       booked_hours_label:
+        few: 'Rezervirane ure:'
         one: 'Rezervirana ura:'
         two: 'Rezervirani uri:'
-        few: 'Rezervirane ure:'
         other: 'Rezerviranih ur:'
       price_per_day: 'Cena na dan:'
       price_per_night: 'Cena na noč:'
@@ -2396,9 +2396,9 @@ sl:
       shipping-price: Poštnina
       stripe-fee: 'Stripe provizija (približno):'
       duration_in_hours:
+        few: "(%{count} ure)"
         one: "(1 uro)"
         two: "(%{count} uri)"
-        few: "(%{count} ure)"
         other: "(%{count} ur)"
       start_end_time: "%{start_time} do %{end_time}"
     price_per_quantity: 'Cena na %{unit_type}:'
@@ -2479,38 +2479,38 @@ sl:
   will_paginate:
     models:
       person:
-        zero: Uporabniki
+        few: Uporabniki
         one: Uporabnik
         two: Uporabnika
-        few: Uporabniki
+        zero: Uporabniki
         other: Uporabnik
       transaction:
-        zero: Transakcij
+        few: Transakcije
         one: Transakcija
         two: Transakciji
-        few: Transakcije
+        zero: Transakcij
         other: Transakcij
       listing:
-        zero: oglasov
+        few: oglasi
         one: oglas
         two: oglasa
-        few: oglasi
+        zero: oglasov
         other: oglasov
     previous_label: "&#8592; Prejšnji"
     next_label: Naprej &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "%{model} ni bilo mogoče najti"
+        few: Nekaj %{model} ni bilo mogoče najti
         one: "%{model} ni bilo mogoče najti"
         two: "%{model} ni bilo mogoče najti"
-        few: Nekaj %{model} ni bilo mogoče najti
+        zero: "%{model} ni bilo mogoče najti"
         other: "%{model} ni bilo mogoče najti"
       single_page_html:
-        zero: "%{model} ni bilo mogoče najti"
+        few: Prikazani <b>%{count}</b> %{model}
         one: Prikazan <b>1</b> %{model}
         two: Prikazana <b>%{count}</b> %{model}
-        few: Prikazani <b>%{count}</b> %{model}
+        zero: "%{model} ni bilo mogoče najti"
         other: Prikazanih <b>%{count}</b> %{model}
       multi_page: Prikaz %{model} %{from} - %{to} od %{count} skupaj
       multi_page_html: Prikaz %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b>
@@ -2518,23 +2518,23 @@ sl:
     person:
       community_members_entries_info:
         single_page:
-          zero: "%{model} ni bilo mogoče najti"
+          few: Prikaz %{accepted_count} sprejetih %{accepted_model} in %{other_count}
+            drugih %{other_model}
           one: Prikaz %{accepted_count} sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
           two: Prikaz %{accepted_count} sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
-          few: Prikaz %{accepted_count} sprejetih %{accepted_model} in %{other_count}
-            drugih %{other_model}
+          zero: "%{model} ni bilo mogoče najti"
           other: Prikaz %{accepted_count} sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
         single_page_html:
-          zero: "%{model} ni bilo mogoče najti"
+          few: Prikaz <b>%{accepted_count}</b> sprejetih %{accepted_model} in %{other_count}
+            drugih %{other_model}
           one: Prikaz <b>%{accepted_count}</b> sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
           two: Prikaz <b>%{accepted_count}</b> sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
-          few: Prikaz <b>%{accepted_count}</b> sprejetih %{accepted_model} in %{other_count}
-            drugih %{other_model}
+          zero: "%{model} ni bilo mogoče najti"
           other: Prikaz <b>%{accepted_count}</b> sprejetih %{accepted_model} in %{other_count}
             drugih %{other_model}
         multi_page: Prikaz %{model} %{from} - %{to} od %{accepted_count} sprejetih

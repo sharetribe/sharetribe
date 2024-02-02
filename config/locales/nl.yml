@@ -1492,8 +1492,8 @@ nl:
       images_are_processing: We verwerken momenteel je afbeeldingen. Geef ons een
         minuut of twee en ze zijn zichtbaar.
       maintenance_mode:
-        zero: De website gaat nu offline voor onderhoud
         one: De website gaat over %{count} minuut offline voor onderhoud
+        zero: De website gaat nu offline voor onderhoud
         other: De website gaat over %{count} minuten offline voor onderhoud
       automatically_logged_out_please_sign_in: Je bent automatisch uitgelogd. Log
         opnieuw in.
@@ -2533,28 +2533,28 @@ nl:
   will_paginate:
     models:
       person:
-        zero: gebruikers
         one: gebruiker
+        zero: gebruikers
         other: gebruikers
       transaction:
-        zero: transacties
         one: transactie
+        zero: transacties
         other: transacties
       listing:
-        zero: advertenties
         one: advertentie
+        zero: advertenties
         other: advertenties
     previous_label: "&#8592; Vorige"
     next_label: Volgende &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Geen %{model} gevonden
         one: Tonen %{count} %{model}
+        zero: Geen %{model} gevonden
         other: Tonen alle %{count} %{model}
       single_page_html:
-        zero: Geen %{model} gevonden
         one: Tonen <b>%{count}</b> %{model}
+        zero: Geen %{model} gevonden
         other: Tonen <b>alle&nbsp;%{count}</b> %{model}
       multi_page: Tonen %{model} %{from} - %{to} van %{count} in totaal
       multi_page_html: Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b>
@@ -2562,15 +2562,15 @@ nl:
     person:
       community_members_entries_info:
         single_page:
-          zero: Geen %{model} gevonden
           one: Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en %{other_count}
             andere %{other_model}
+          zero: Geen %{model} gevonden
           other: Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en
             %{other_count} andere %{other_model}
         single_page_html:
-          zero: Geen %{model} gevonden
           one: Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model}
             en %{other_count} andere %{other_model}
+          zero: Geen %{model} gevonden
           other: Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model}
             en %{other_count} andere %{other_model}
         multi_page: Weergegeven %{model} %{from} - %{to} van %{accepted_count} geaccepteerde

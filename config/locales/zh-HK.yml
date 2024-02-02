@@ -496,7 +496,7 @@ zh-HK:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        other: ''
+        other: 
     newsletter:
       hi: "%{name}, 你好!"
       newest_offers: 大家最近提出的交易
@@ -1916,23 +1916,23 @@ zh-HK:
       other: "%{count}天前"
     time_to:
       seconds:
-        other: ''
+        other: 
       minutes:
-        other: ''
+        other: 
       hours:
-        other: ''
+        other: 
       days:
-        other: ''
+        other: 
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
       booked_days_label:
-        other: ''
+        other: 
       booked_nights_label:
-        other: ''
+        other: 
       booked_hours_label:
-        other: ''
+        other: 
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -1942,7 +1942,7 @@ zh-HK:
       shipping-price: 
       stripe-fee: 
       duration_in_hours:
-        other: ''
+        other: 
       start_end_time: 
     price_per_quantity: 
     price: '總共:'
@@ -2020,26 +2020,26 @@ zh-HK:
         zero: 用戶
         other: 用戶
       transaction:
-        other: ''
+        other: 
       listing:
-        other: ''
+        other: 
     previous_label: "&#8592;上一頁"
     next_label: 下一頁 &#8594;
     page_gap: 
     page_entries_info:
       single_page:
-        other: ''
+        other: 
       single_page_html:
-        other: ''
+        other: 
       multi_page: 顯示 %{model} %{from} - %{to} 總共 %{count} 个
       multi_page_html: 顯示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 總共 <b>%{count}</b>
         個
     person:
       community_members_entries_info:
         single_page:
-          other: ''
+          other: 
         single_page_html:
-          other: ''
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

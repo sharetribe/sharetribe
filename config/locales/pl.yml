@@ -619,10 +619,10 @@ pl:
     community_updates_v2:
       headline: Sprawdź ostatnią aktywność na%{service_name}.
       intro_paragraph:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     newsletter:
       hi: Cześć %{name},
       newest_offers: Co aktualnie ludzie oferują innym
@@ -1446,10 +1446,10 @@ pl:
       images_are_processing: Procesujemy Twoje zdjęcia. Daj nam minutę lub dwie i
         będą widoczne.
       maintenance_mode:
-        zero: Strona staje się właśnie niedostępna ze względów serwisowych
-        one: Strona stanie się niedostępna ze względów serwisowych za %{count} minutę
         few: Strona stanie się niedostępna ze względów serwisowych za %{count} minuty
+        one: Strona stanie się niedostępna ze względów serwisowych za %{count} minutę
         many: Strona stanie się niedostępna ze względów serwisowych za %{count} minut
+        zero: Strona staje się właśnie niedostępna ze względów serwisowych
         other: Strona stanie się niedostępna ze względów serwisowych za %{count} minut
       automatically_logged_out_please_sign_in: Zostałeś automatycznie wylogowany.
         Proszę zaloguj się ponownie.
@@ -1990,10 +1990,10 @@ pl:
         z nami.
       invalid_username_or_email: Adres e-mail nie jest poprawny lub jest już w użyciu
       email_restriction_instructions:
-        one: Dostęp do %{service_name} jest ograniczony. Aby dołączyć potrzebujesz
-          %{allowed_emails} adres email.
         few: Dostęp do %{service_name} jest ograniczony. Potrzebujesz adresu email,
           który potwierdzi, że jesteś uprawniony, aby dołączyć.
+        one: Dostęp do %{service_name} jest ograniczony. Aby dołączyć potrzebujesz
+          %{allowed_emails} adres email.
         many: Dostęp do %{service_name} jest ograniczony. Potrzebujesz adresu email,
           który potwierdzi, że jesteś uprawniony, aby dołączyć.
         other: Dostęp do %{service_name} jest ograniczony. Potrzebujesz adresu email,
@@ -2362,29 +2362,29 @@ pl:
     year_ago: "%{count} rok temu"
     years_ago: "%{count} lat temu"
     days_since:
-      one: "%{count} dzień"
       few: "%{count} dni"
+      one: "%{count} dzień"
       many: "%{count} dni"
       other: "%{count} dni"
     time_to:
       seconds:
-        one: "%{count} sekunda"
         few: "%{count} sekundy"
+        one: "%{count} sekunda"
         many: "%{count} sekund"
         other: "%{count} sekund"
       minutes:
-        one: "%{count} minuta"
         few: "%{count} minuty"
+        one: "%{count} minuta"
         many: "%{count} minut"
         other: "%{count} minut"
       hours:
-        one: "%{count} godzina"
         few: "%{count} godziny"
+        one: "%{count} godzina"
         many: "%{count} godzin"
         other: "%{count} godzin"
       days:
-        one: "%{count} dzień"
         few: "%{count} dni"
+        one: "%{count} dzień"
         many: "%{count} dni"
         other: "%{count} dni"
   transactions:
@@ -2392,18 +2392,18 @@ pl:
       booked_days: 'Zarezerwowanych dni:'
       booked_nights: 'Zarezerwowanych nocy:'
       booked_days_label:
-        one: 'Zarezerwowane dzień:'
         few: 'Zarezerwowane dni:'
+        one: 'Zarezerwowane dzień:'
         many: 'Zarezerwowane dni:'
         other: 'Zarezerwowane dni:'
       booked_nights_label:
-        one: 'Zarezerwowana noc:'
         few: 'Zarezerwowanych nocy:'
+        one: 'Zarezerwowana noc:'
         many: 'Zarezerwowanych nocy:'
         other: 'Zarezerwowanych nocy:'
       booked_hours_label:
-        one: Zarezerwowana godzina
         few: Zarezerwowane godziny
+        one: Zarezerwowana godzina
         many: Zarezerwowane godziny
         other: Zarezerwowane godziny
       price_per_day: 'Cena za dzień:'
@@ -2415,8 +2415,8 @@ pl:
       shipping-price: 'Transport:'
       stripe-fee: 'Opłata Stripe (szacunkowa):'
       duration_in_hours:
-        one: "(1 godzina)"
         few: "(%{count} godziny)"
+        one: "(1 godzina)"
         many: "(%{count} godziny)"
         other: "(%{count} godziny)"
       start_end_time: "%{start_time} do %{end_time}"
@@ -2499,37 +2499,37 @@ pl:
   will_paginate:
     models:
       person:
-        zero: użytkowników
-        one: użytkownik
         few: użytkowników
+        one: użytkownik
         many: użytkowników
+        zero: użytkowników
         other: użytkowników
       transaction:
-        zero: transakcja
-        one: transakcje
         few: transakcje
+        one: transakcje
         many: transakcje
+        zero: transakcja
         other: transakcje
       listing:
-        one: ''
-        few: ''
-        many: ''
-        other: ''
+        one: 
+        few: 
+        many: 
+        other: 
     previous_label: "&#8592; Poprzedni"
     next_label: Kolejny, &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Nie znaleziono %{model}.
-        one: Wyświetlany %{count} %{model}.
         few: Wyświetlane %{count} %{model}
+        one: Wyświetlany %{count} %{model}.
         many: Wyświetlane %{count} %{model}
+        zero: Nie znaleziono %{model}.
         other: Wyświetlane %{count} %{model}
       single_page_html:
-        zero: Nie znaleziono %{model}.
-        one: Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}
         few: Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}
+        one: Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}
         many: Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}
+        zero: Nie znaleziono %{model}.
         other: Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}
       multi_page: Wyświetlanie %{from} - %{to} %{model} z %{count} łącznie.
       multi_page_html: Wyświetlanie <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} z <b>%{count}</b>
@@ -2537,23 +2537,23 @@ pl:
     person:
       community_members_entries_info:
         single_page:
-          zero: Nie znaleziono %{model}
-          one: Wyświetlono %{accepted_count} zaakceptowanych %{accepted_model} i %{other_count}
-            innych %{other_model}
           few: Wyświetlono %{accepted_count} zaakceptowanych %{accepted_model} i %{other_count}
+            innych %{other_model}
+          one: Wyświetlono %{accepted_count} zaakceptowanych %{accepted_model} i %{other_count}
             innych %{other_model}
           many: Wyświetlono %{accepted_count} zaakceptowanych %{accepted_model} i
             %{other_count} innych %{other_model}
+          zero: Nie znaleziono %{model}
           other: Wyświetlono %{accepted_count} zaakceptowanych %{accepted_model} i
             %{other_count} innych %{other_model}
         single_page_html:
-          zero: Nie znaleziono %{model}
-          one: Wyświetlono <b>%{accepted_count}</b> zaakceptowanych %{accepted_model}
-            i %{other_count} innych %{other_model}
           few: Wyświetlono <b>%{accepted_count}</b> zaakceptowanych %{accepted_model}
+            i %{other_count} innych %{other_model}
+          one: Wyświetlono <b>%{accepted_count}</b> zaakceptowanych %{accepted_model}
             i %{other_count} innych %{other_model}
           many: Wyświetlono <b>%{accepted_count}</b> zaakceptowanych %{accepted_model}
             i %{other_count} innych %{other_model}
+          zero: Nie znaleziono %{model}
           other: Wyświetlono <b>%{accepted_count}</b> zaakceptowanych %{accepted_model}
             i %{other_count} innych %{other_model}
         multi_page: Wyświetlono %{model} %{from} - %{to} z  %{accepted_count} zaakceptowanych
