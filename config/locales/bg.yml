@@ -1442,8 +1442,8 @@ bg:
         си детайли за да получава плащания.
       images_are_processing: Обработваме вашите снимки. Моля, дайте ни малко време.
       maintenance_mode:
-        zero: Уеб сайтът ще бъде неактивен заради поддръжка
         one: Уеб сайтът ще бъде неактивен заради поддръжка след %{count} минута
+        zero: Уеб сайтът ще бъде неактивен заради поддръжка
         other: Уеб сайтът ще бъде неактивен заради поддръжка след %{count} минути
       automatically_logged_out_please_sign_in: Вие автоматично излязохте от сайта.
         Моля влезте отново.
@@ -2476,28 +2476,28 @@ bg:
   will_paginate:
     models:
       person:
-        zero: потребители
         one: потребител
+        zero: потребители
         other: потребители
       transaction:
-        zero: транзакция
         one: транзакция
+        zero: транзакция
         other: транзакции
       listing:
-        zero: обява
         one: обява
+        zero: обява
         other: обяви
     previous_label: "&#8592; Предишен"
     next_label: Следващ &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Не са намерени %{model}
         one: Показване на 1 %{model}
+        zero: Не са намерени %{model}
         other: Показване на всички %{count} %{model}
       single_page_html:
-        zero: Не са намерени %{model}
         one: Показване на <b>1</b> %{model}
+        zero: Не са намерени %{model}
         other: Показване на <b>all&nbsp;%{count}</b> %{model}
       multi_page: Показват се %{model} %{from} - %{to} общо %{count}
       multi_page_html: Показват се %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>  <b>%{count}</b>
@@ -2505,13 +2505,13 @@ bg:
     person:
       community_members_entries_info:
         single_page:
-          zero: не е открит
           one: "%{model} не е открит"
+          zero: не е открит
           other: Показват се %{accepted_count} приети %{accepted_model}  и %{other_count}
             други %{other_model}
         single_page_html:
-          zero: няма открит
           one: Показват се <b> %{accepted_count} </b> приет%{accepted_model} и %{other_count}  друг%{other_model}
+          zero: няма открит
           other: Показват се <b> %{accepted_count} </b> приети%{accepted_model} и
             %{other_count} други %{other_model}
         multi_page: Показва%{model} %{from} -%{to} от%{accepted_count} приети%{accepted_model}

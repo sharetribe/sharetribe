@@ -617,10 +617,10 @@ ru:
     community_updates_v2:
       headline: проверить последние действия на %{service_name}
       intro_paragraph:
-        one: Здесь некоторые важные события, произошедшие в %{service_name} за прошедший
-          день.
         few: Здесь некоторые важные события, произошедшие в %{service_name} за последние
           %{count} дн.
+        one: Здесь некоторые важные события, произошедшие в %{service_name} за прошедший
+          день.
         many: Здесь некоторые важные события, произошедшие в %{service_name} за %{count}
           дн.
         other: Здесь некоторые важные события, произошедшие в %{service_name} за все
@@ -1453,13 +1453,13 @@ ru:
       images_are_processing: Мы обрабатываем ваши изображения. Подождите несколько
         минут, и они будут загружены на сайт.
       maintenance_mode:
-        zero: Сайт будет недоступен по причине проведения профилактических работ
-        one: Сайт будет недоступен через %{count} минуту по причине проведения профилактических
-          работ
         few: Сайт будет недоступен через %{count} минут по причине проведения профилактических
+          работ
+        one: Сайт будет недоступен через %{count} минуту по причине проведения профилактических
           работ
         many: Сайт будет недоступен через %{count} минут по причине проведения профилактических
           работ
+        zero: Сайт будет недоступен по причине проведения профилактических работ
         other: Сайт будет недоступен через %{count} минут по причине проведения профилактических
           работ
       automatically_logged_out_please_sign_in: Вы автоматически вышли из системы.
@@ -2002,10 +2002,10 @@ ru:
       invalid_username_or_email: Имя пользователя или адрес электронной почты неверны
         или уже используются
       email_restriction_instructions:
-        one: Доступ к %{service_name} ограничен. Для того, чтобы присоединиться к
-          нему, адрес вашей электронной почты должен быть вида «%{allowed_emails}».
         few: Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий
           что вы имеете право на участие.
+        one: Доступ к %{service_name} ограничен. Для того, чтобы присоединиться к
+          нему, адрес вашей электронной почты должен быть вида «%{allowed_emails}».
         many: Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий
           что вы имеете право на участие.
         other: Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий
@@ -2375,29 +2375,29 @@ ru:
     year_ago: "%{count} г. назад"
     years_ago: "%{count} г. назад"
     days_since:
-      one: "%{count} дн."
       few: "%{count} дн."
+      one: "%{count} дн."
       many: "%{count} дн."
       other: "%{count} дн."
     time_to:
       seconds:
-        one: "%{count} сек."
         few: "%{count} сек."
+        one: "%{count} сек."
         many: "%{count} сек."
         other: "%{count} сек."
       minutes:
-        one: "%{count} мин."
         few: "%{count} мин."
+        one: "%{count} мин."
         many: "%{count} мин."
         other: "%{count} мин."
       hours:
-        one: "%{count} ч."
         few: "%{count} ч."
+        one: "%{count} ч."
         many: "%{count} ч."
         other: "%{count} ч."
       days:
-        one: "%{count} дн."
         few: "%{count} дн."
+        one: "%{count} дн."
         many: "%{count} дн."
         other: "%{count} дн."
   transactions:
@@ -2405,18 +2405,18 @@ ru:
       booked_days: 'Забронировано дней:'
       booked_nights: 'Забронированные дни:'
       booked_days_label:
-        one: 'Забронированный день:'
         few: 'Забронированные дни:'
+        one: 'Забронированный день:'
         many: 'Забронированные дни:'
         other: 'Забронированные дни:'
       booked_nights_label:
-        one: 'Забронированная ночь:'
         few: 'Забронированные ночи:'
+        one: 'Забронированная ночь:'
         many: 'Забронированные ночи:'
         other: 'Забронированные ночи:'
       booked_hours_label:
-        one: 'Бронированный час:'
         few: 'Бронированный час:'
+        one: 'Бронированный час:'
         many: 'Бронированные часы:'
         other: 'Бронированные часы:'
       price_per_day: 'Цена за день:'
@@ -2428,8 +2428,8 @@ ru:
       shipping-price: 'Доставка:'
       stripe-fee: 'Stripe оплата (по оценкам):'
       duration_in_hours:
-        one: 1 час%{count}
         few: '1 час%{count} '
+        one: 1 час%{count}
         many: 'часы%{count} '
         other: 'часы%{count} '
       start_end_time: от%{start_time} до%{end_time}
@@ -2513,37 +2513,38 @@ ru:
   will_paginate:
     models:
       person:
-        zero: Участников
-        one: Участник
         few: Участников
+        one: Участник
         many: Участника
+        zero: Участников
         other: Участников
       transaction:
-        zero: " транзакции"
-        one: " транзакция"
         few: " транзакции"
+        one: " транзакция"
         many: " транзакции"
+        zero: " транзакции"
         other: транзакции
       listing:
-        zero: объявлений
-        one: объявление
         few: объявления
+        one: объявление
         many: объявлений
+        zero: объявлений
+        other: ''
     previous_label: "&#8592; Назад"
     next_label: Далее &#8594;
     page_gap: "&hellip:"
     page_entries_info:
       single_page:
-        zero: "%{model} не найдено"
-        one: Отображена 1 %{model}
         few: Отображены все %{count} %{model}
+        one: Отображена 1 %{model}
         many: Отображены все %{count} %{model}
+        zero: "%{model} не найдено"
         other: Отображены все %{count} %{model}
       single_page_html:
-        zero: "%{model} не найдено "
-        one: Показывается <b>1</b> %{model}
         few: Показываются <b>all&nbsp;%{count}</b> %{model}
+        one: Показывается <b>1</b> %{model}
         many: Показываются <b>all&nbsp;%{count}</b> %{model}
+        zero: "%{model} не найдено "
         other: Показываются <b>all&nbsp;%{count}</b> %{model}
       multi_page: Отображается %{model} %{from}-%{to} из %{count} в общем
       multi_page_html: Показываются %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>
@@ -2551,23 +2552,23 @@ ru:
     person:
       community_members_entries_info:
         single_page:
-          zero: "%{model}не найден"
-          one: Отображение%{accepted_count} принято%{accepted_model} и %{other_count}
-            другое %{other_model}
           few: Отображение%{accepted_count} принято%{accepted_model} и %{other_count}
+            другое %{other_model}
+          one: Отображение%{accepted_count} принято%{accepted_model} и %{other_count}
             другое %{other_model}
           many: Отображение%{accepted_count} принято%{accepted_model} и %{other_count}
             другое %{other_model}
+          zero: "%{model}не найден"
           other: Отображение%{accepted_count} принято%{accepted_model} и %{other_count}
             другое %{other_model}
         single_page_html:
-          zero: "%{model} не найден"
-          one: Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count}
-            другой %{other_model}
           few: Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count}
+            другой %{other_model}
+          one: Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count}
             другой %{other_model}
           many: Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count}
             другой %{other_model}
+          zero: "%{model} не найден"
           other: Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count}
             другой %{other_model}
         multi_page: Отображение %{model} %{from} -%{to} из%{accept_count} принято

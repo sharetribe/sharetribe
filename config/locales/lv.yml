@@ -618,9 +618,9 @@ lv:
     community_updates_v2:
       headline: apskatiet jaunākās aktivitātes %{service_name} portālā.
       intro_paragraph:
-        zero: Šeit ir daži jaunumi, kas portālā %{service_name} notika pēdējās dienas
-          laikā.
         one: Šeit ir jaunums, kas portālā %{service_name} notika pēdējo %{count} dienu
+          laikā.
+        zero: Šeit ir daži jaunumi, kas portālā %{service_name} notika pēdējās dienas
           laikā.
         other: Šeit ir daži jaunumi, kas portālā %{service_name} notika pēdējo %{count}
           dienu laikā.
@@ -1450,8 +1450,8 @@ lv:
       images_are_processing: Mēs apstrādājam Jūsu fotoattēlus. Dodiet mums minūti
         vai divas un tie būs redzami.
       maintenance_mode:
-        zero: 'Vietne tagad nebūs pieejama '
         one: Vietne nebūs pieejama pēc %{count} minūtes
+        zero: 'Vietne tagad nebūs pieejama '
         other: Vietne nebūs pieejama pēc %{count} minūtēm
       automatically_logged_out_please_sign_in: Jūs automātiski izgājāt no konta. Lūdzu
         ienāciet vēlreiz.
@@ -2359,8 +2359,8 @@ lv:
     year_ago: "%{count} gadu atpakaļ"
     years_ago: "%{count} gadus atpakaļ"
     days_since:
-      zero: "%{count} diena"
       one: "%{count} dienas"
+      zero: "%{count} diena"
       other: "%{count} dienas"
     time_to:
       seconds:
@@ -2478,12 +2478,12 @@ lv:
   will_paginate:
     models:
       person:
-        zero: lietotāji
         one: lietotājs
+        zero: lietotāji
         other: lietotāji
       transaction:
-        zero: darījumi
         one: darījums
+        zero: darījumi
         other: darījumi
       listing:
         one: sludinājums
@@ -2493,12 +2493,12 @@ lv:
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Netika %{model} atrasts
         one: Parādīts 1 %{model}
+        zero: Netika %{model} atrasts
         other: Parādīti visi %{count} %{model}
       single_page_html:
-        zero: Netika %{model} atrasts
         one: Parādīts <b>1</b> %{model}
+        zero: Netika %{model} atrasts
         other: Parādīti <b>all&nbsp;%{count}</b> %{model}
       multi_page: Parādot %{model} %{from} - %{to} no %{count} kopā
       multi_page_html: Parādot %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> no <b>%{count}</b>
@@ -2506,13 +2506,13 @@ lv:
     person:
       community_members_entries_info:
         single_page:
-          zero: ''
-          one: ''
-          other: ''
+          zero: 
+          one: 
+          other: 
         single_page_html:
-          zero: ''
-          one: ''
-          other: ''
+          zero: 
+          one: 
+          other: 
         multi_page: Rāda %{model} %{from} -%{to} no %{accepted_count} pieņemtajiem
           %{accepted_model} un %{other_count} citiem %{other_model}
         multi_page_html: Rāda %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b>

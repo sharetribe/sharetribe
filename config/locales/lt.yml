@@ -607,9 +607,9 @@ lt:
     community_updates_v2:
       headline: peržiūrėkite naujausią %{service_name} veiklą.
       intro_paragraph:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
     newsletter:
       hi: Sveiki %{name},
       newest_offers: Ką šiuo metu žmonės siūlo kitiems
@@ -1440,9 +1440,9 @@ lt:
       images_are_processing: Mes apdorojame jūsų vaizdus. Duokite mums minutę ar dvi
         ir jie bus matomi.
       maintenance_mode:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
       automatically_logged_out_please_sign_in: Jūs buvote automatiškai atsijungę.
         Prisijunkite dar kartą.
       stripe_you_account_balance_is_not_0: Sąskaitos likutis nėra 0, todėl jo panaikinti
@@ -1973,10 +1973,10 @@ lt:
         leidžiamą el. paštą. Jei negalite prisijungti, susisiekite su mumis.
       invalid_username_or_email: El. paštas yra netinkamas arba jau naudojamas
       email_restriction_instructions:
-        one: Priėjimas prie %{service_name} yra apribotas. Prisijungimui būtinas %{allowed_emails}
-          el. pašto adresas.
         few: Priėjimas prie %{service_name} yra apribotas. Jums reikia el. pašto adreso,
           kuris įrodo, kad galite prisijungti.
+        one: Priėjimas prie %{service_name} yra apribotas. Prisijungimui būtinas %{allowed_emails}
+          el. pašto adresas.
         other: Priėjimas prie %{service_name} yra apribotas. Jums reikia el. pašto
           adreso, kuris įrodo, kad galite prisijungti.
       family_name: Pavardė
@@ -2339,42 +2339,42 @@ lt:
     year_ago: Prieš %{count} metus
     years_ago: Prieš %{count} metus
     days_since:
-      one: "%{count} diena"
       few: "%{count} dienos"
+      one: "%{count} diena"
       other: "%{count} dienos"
     time_to:
       seconds:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
       minutes:
-        one: "%{count} minutė"
         few: "%{count} minutės"
+        one: "%{count} minutė"
         other: "%{count} minutės"
       hours:
-        one: "%{count} valandai"
         few: "%{count} valandoms"
+        one: "%{count} valandai"
         other: "%{count} valanda"
       days:
-        one: "%{count} diena"
         few: "%{count} dienos"
+        one: "%{count} diena"
         other: "%{count} dienos"
   transactions:
     initiate:
       booked_days: 'Užsakytos dienos:'
       booked_nights: 'Užsakytos naktys:'
       booked_days_label:
-        one: 'Užsakyta diena:'
         few: 'Užsakytos dienos:'
+        one: 'Užsakyta diena:'
         other: 'Užsakytos dienos:'
       booked_nights_label:
-        one: 'Užsakyta naktis:'
         few: 'Užsakytos naktys:'
+        one: 'Užsakyta naktis:'
         other: 'Užsakytos naktys:'
       booked_hours_label:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
       price_per_day: 'Dienos kaina:'
       price_per_night: 'Kaina už naktį:'
       price_per_hour: 'Valandos kaina:'
@@ -2384,9 +2384,9 @@ lt:
       shipping-price: 'Pristatymas:'
       stripe-fee: 'Stripe mokestis (apskaičiuotas):'
       duration_in_hours:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
       start_end_time: "%{start_time} iki %{end_time}"
     price_per_quantity: 'Kaina per %{unit_type}:'
     price: 'Kaina:'
@@ -2467,46 +2467,46 @@ lt:
   will_paginate:
     models:
       person:
-        zero: vartotojai
-        one: vartotojai
         few: vartotojai
+        one: vartotojai
+        zero: vartotojai
         other: vartotojai
       transaction:
-        zero: transakcijos
-        one: transakcija
         few: transakcijos
+        one: transakcija
+        zero: transakcijos
         other: transakcijos
       listing:
-        zero: Uždaryti %{count} skelbimus
-        one: skelbimas
         few: skelbimas
+        one: skelbimas
+        zero: Uždaryti %{count} skelbimus
         other: skelbimai
     previous_label: "&#8592; Atgal"
     next_label: Kitas &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "%{model} nerastas"
-        one: Rodomas 1 %{model}
         few: Rodomi %{count} %{model}
+        one: Rodomas 1 %{model}
+        zero: "%{model} nerastas"
         other: Rodomi %{count} %{model}
       single_page_html:
-        zero: " %{model} nėra"
-        one: Rodomas <b>1</b> %{model}
         few: 'Rodomi <b>%{count}</b> %{model} '
+        one: Rodomas <b>1</b> %{model}
+        zero: " %{model} nėra"
         other: Rodomi <b>visi&nbsp;%{count}</b> %{model}
       multi_page: Rodomi %{model} %{from} - %{to} iš %{count}
       multi_page_html: Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          few: ''
-          other: ''
+          one: 
+          few: 
+          other: 
         single_page_html:
-          one: ''
-          few: ''
-          other: ''
+          one: 
+          few: 
+          other: 
         multi_page: Rodoma %{model} %{from} – %{to} iš %{accepted_count} priimta %{accepted_model}
           ir %{other_count} kita %{other_model}
         multi_page_html: Rodoma %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{accepted_count}</b>

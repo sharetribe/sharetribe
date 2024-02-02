@@ -577,8 +577,8 @@ fr-CA:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        other: ''
+        one: 
+        other: 
     newsletter:
       hi: Bonjour %{name},
       newest_offers: Ce que les membres proposent aux autres en ce moment
@@ -1343,8 +1343,8 @@ fr-CA:
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
       maintenance_mode:
-        one: ''
-        other: ''
+        one: 
+        other: 
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -2213,30 +2213,30 @@ fr-CA:
       other: "%{count} jours"
     time_to:
       seconds:
-        one: ''
-        other: ''
+        one: 
+        other: 
       minutes:
-        one: ''
-        other: ''
+        one: 
+        other: 
       hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       days:
-        one: ''
-        other: ''
+        one: 
+        other: 
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
       booked_days_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_nights_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_hours_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -2246,8 +2246,8 @@ fr-CA:
       shipping-price: 'Frais de livraison : '
       stripe-fee: 
       duration_in_hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -2322,26 +2322,26 @@ fr-CA:
   will_paginate:
     models:
       person:
-        zero: utilisateur
         one: utilisateur
+        zero: utilisateur
         other: utilisateurs
       transaction:
-        one: ''
-        other: ''
+        one: 
+        other: 
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; Précédent"
     next_label: Suivant &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Aucun(e) %{model} trouvé(e)
         one: Affichage de 1 %{model}
+        zero: Aucun(e) %{model} trouvé(e)
         other: Affichage des %{count} %{model}
       single_page_html:
-        zero: Aucun(e) %{model} trouvé(e)
         one: Affichage de <b>1</b> %{model}
+        zero: Aucun(e) %{model} trouvé(e)
         other: Affichage des <b>%{count}</b> %{model}
       multi_page: Affichage des %{model} %{from} - %{to} sur un total de %{count}
       multi_page_html: Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur
@@ -2349,11 +2349,11 @@ fr-CA:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

@@ -623,9 +623,9 @@ ro:
     community_updates_v2:
       headline: iata un rezumat al activitatatii de pe platforma %{service_name}.
       intro_paragraph:
-        one: Iata noutatile de pe %{service_name} din ultimele %{count} zile.
         few: Iata cateva dintre listarile noi de pe %{service_name} din ultimele %{count}
           zile.
+        one: Iata noutatile de pe %{service_name} din ultimele %{count} zile.
         other: Iata cateva dintre listarile noi de pe %{service_name} din ultimele
           %{count} zile.
     newsletter:
@@ -1441,9 +1441,9 @@ ro:
       images_are_processing: Vă procesăm imaginile. Dă-ne un minut sau două și vor
         fi vizibile.
       maintenance_mode:
-        zero: Site-ul este offline pentru mentenanță.
-        one: Site-ul este offline pentru mentenanță pentru %{count} minut.
         few: Site-ul este offline pentru mentenanță pentru %{count} minute.
+        one: Site-ul este offline pentru mentenanță pentru %{count} minut.
+        zero: Site-ul este offline pentru mentenanță.
         other: Site-ul este offline pentru mentenanță pentru %{count} minute.
       automatically_logged_out_please_sign_in: Ai fost deconectat/ă automat. Te rugăm
         să te conectezi din nou.
@@ -1979,10 +1979,10 @@ ro:
         o adresă de e-mail care este permisă. Dacă tot nu puteți intra, contactați-ne.
       invalid_username_or_email: E-mailul este invalid sau este deja utilizat
       email_restriction_instructions:
-        one: Accesul la %{service_name}  este restricţionat.  Pentru a vă alătura
-          aveţi nevoie de o '%{allowed_emails}' adresă de e-mail.
         few: Accesul la %{service_name} sunt restricționate. Aveți nevoie de o adresă
           de e-mail ce dovedește că aveți dreptul de a vă alătura.
+        one: Accesul la %{service_name}  este restricţionat.  Pentru a vă alătura
+          aveţi nevoie de o '%{allowed_emails}' adresă de e-mail.
         other: Accesul la %{service_name} sunt restricționate. Aveți nevoie de o adresă
           de e-mail ce dovedește că aveți dreptul de a vă alătura.
       family_name: Nume
@@ -2347,41 +2347,41 @@ ro:
     year_ago: acum %{count} an
     years_ago: acum %{count} ani
     days_since:
-      one: "%{count} zi"
       few: "%{count} zile "
+      one: "%{count} zi"
       other: "%{count} zile "
     time_to:
       seconds:
-        one: "%{count} secundă"
         few: "%{count} secunde"
+        one: "%{count} secundă"
         other: "%{count} secunde"
       minutes:
-        one: "%{count} minut"
         few: "%{count} minute"
+        one: "%{count} minut"
         other: "%{count} minute"
       hours:
-        one: "%{count} oră"
         few: "%{count} ore"
+        one: "%{count} oră"
         other: "%{count} ore"
       days:
-        one: "%{count} zi"
         few: "%{count} zile"
+        one: "%{count} zi"
         other: "%{count} zile"
   transactions:
     initiate:
       booked_days: 'Zile rezervate:'
       booked_nights: 'Nopți rezervate:'
       booked_days_label:
-        one: 'Zi rezervata:'
         few: 'Zile rezervate:'
+        one: 'Zi rezervata:'
         other: Zile rezervate
       booked_nights_label:
-        one: Noapte rezervată
         few: Nopți rezervate
+        one: Noapte rezervată
         other: Nopți rezervate
       booked_hours_label:
-        one: 'Ora rezervata:'
         few: 'Orele rezervate:'
+        one: 'Ora rezervata:'
         other: 'Orele rezervate:'
       price_per_day: 'Pret pe zi - 24h:'
       price_per_night: Preț pe noapte
@@ -2392,8 +2392,8 @@ ro:
       shipping-price: 'Transport:'
       stripe-fee: 'Taxa Stripe (estimată):'
       duration_in_hours:
-        one: "(1 oră)"
         few: "(%{count} ore)"
+        one: "(1 oră)"
         other: "(%{count} ore)"
       start_end_time: "%{start_time} până la %{end_time}"
     price_per_quantity: 'Pret pe %{unit_type}:'
@@ -2472,32 +2472,32 @@ ro:
   will_paginate:
     models:
       person:
-        zero: utilizatori
-        one: utilizator
         few: utilizatori
+        one: utilizator
+        zero: utilizatori
         other: utilizatori
       transaction:
-        zero: tranzacţii
-        one: tranzacţie
         few: tranzacţii
+        one: tranzacţie
+        zero: tranzacţii
         other: tranzacţii
       listing:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
     previous_label: "&#8592; Anterior"
     next_label: Urmatorul &#8594;
     page_gap: "&hellip"
     page_entries_info:
       single_page:
-        zero: Nu au fost găsite %{model}
-        one: Afișeaza 1%{model}
         few: Afișeaza toate %{count}%{model}
+        one: Afișeaza 1%{model}
+        zero: Nu au fost găsite %{model}
         other: Afișeaza toate %{count}%{model}
       single_page_html:
-        zero: "%{model} gasite"
-        one: Afișeaza <b> 1 </b>%{model}
         few: Afișând <b> toate&nbsp;%{count} </b>%{model}
+        one: Afișeaza <b> 1 </b>%{model}
+        zero: "%{model} gasite"
         other: Afișând <b> toate&nbsp;%{count} </b>%{model}
       multi_page: Afiseaza %{model} %{from} - %{to} dintr-un total de %{count}
       multi_page_html: Se afiseaza %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> din <b>%{count}</b>
@@ -2505,19 +2505,19 @@ ro:
     person:
       community_members_entries_info:
         single_page:
-          zero: Nu s-a găsit %{model}
-          one: Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count}
-            alt %{other_model}
           few: Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count}
             alt %{other_model}
+          one: Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count}
+            alt %{other_model}
+          zero: Nu s-a găsit %{model}
           other: Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count}
             alt %{other_model}
         single_page_html:
-          zero: Nu s-a găsit %{model}
-          one: Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și
-            %{other_count} alt %{other_model}
           few: Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și
             %{other_count} alt %{other_model}
+          one: Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și
+            %{other_count} alt %{other_model}
+          zero: Nu s-a găsit %{model}
           other: Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și
             %{other_count} alt %{other_model}
         multi_page: Se afișează %{model} %{from} - %{to} din %{accepted_count} acceptat

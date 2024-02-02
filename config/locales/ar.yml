@@ -540,12 +540,12 @@ ar:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
     newsletter:
       hi: "،‎%{name}‎ مرحبا"
       newest_offers: ماذا يقدم الآخرين حاليا
@@ -1277,12 +1277,12 @@ ar:
       listing_author_payment_details_missing_no_free: 
       images_are_processing: نقوم حاليا بمعالجة الصور. ستكون جاهزة في دقائق.
       maintenance_mode:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       automatically_logged_out_please_sign_in: لقدم تم تسجيل خروجك تلقائيا. يرجى تسجيل
         الدخول مرة أخرى.
       stripe_you_account_balance_is_not_0: 
@@ -1744,12 +1744,12 @@ ar:
       invalid_username_or_email: اسم المستخدم أو البريد الإلكتروني غير صحيح أو مستخدم
         مسبقا
       email_restriction_instructions:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       family_name: إسم العائلة
       given_name: الإسم الأول
       i_accept_the_terms_and_privacy: 
@@ -2086,66 +2086,66 @@ ar:
     year_ago: سنة ‎%{count}‎ قبل
     years_ago: سنوات ‎%{count}‎ قبل
     days_since:
-      zero: يوم ‎%{count}‎
+      few: أيام ‎%{count}‎
       one: يوم ‎%{count}‎
       two: أيام ‎%{count}‎
-      few: أيام ‎%{count}‎
       many: أيام ‎%{count}‎
+      zero: يوم ‎%{count}‎
       other: أيام ‎%{count}‎
     time_to:
       seconds:
-        zero: "‎%{count}‎ ثانية"
+        few: "‎%{count}‎ ثواني"
         one: "‎%{count}‎ ثواني"
         two: "‎%{count}‎ ثواني"
-        few: "‎%{count}‎ ثواني"
         many: "‎%{count}‎ ثواني"
+        zero: "‎%{count}‎ ثانية"
         other: "‎%{count}‎ ثواني"
       minutes:
-        zero: "‎%{count}‎ دقيقة"
+        few: "‎%{count}‎ دقائق"
         one: "‎%{count}‎ دقيقة"
         two: "‎%{count}‎ دقائق"
-        few: "‎%{count}‎ دقائق"
         many: "‎%{count}‎ دقائق"
+        zero: "‎%{count}‎ دقيقة"
         other: "‎%{count}‎ دقائق"
       hours:
-        zero: "‎%{count}‎ ساعة"
+        few: "‎%{count}‎ ساعات"
         one: "‎%{count}‎ ساعة"
         two: "‎%{count}‎ ساعة"
-        few: "‎%{count}‎ ساعات"
         many: "‎%{count}‎ ساعة"
+        zero: "‎%{count}‎ ساعة"
         other: "‎%{count}‎ ساعة"
       days:
-        zero: يوم ‎%{count}‎
+        few: أيام ‎%{count}‎
         one: يوم ‎%{count}‎
         two: يوم ‎%{count}‎
-        few: أيام ‎%{count}‎
         many: أيام ‎%{count}‎
+        zero: يوم ‎%{count}‎
         other: أيام ‎%{count}‎
   transactions:
     initiate:
       booked_days: 'أيام الحجز:'
       booked_nights: 'احجز ليلة:'
       booked_days_label:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       booked_nights_label:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       booked_hours_label:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       price_per_day: 'السعر باليوم:'
       price_per_night: 'السعر بالليلة:'
       price_per_hour: 
@@ -2155,12 +2155,12 @@ ar:
       shipping-price: 'الشحن:'
       stripe-fee: 
       duration_in_hours:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       start_end_time: 
     price_per_quantity: ":‎%{unit_type}‎ السعر بـ"
     price: 'السعر:'
@@ -2239,62 +2239,62 @@ ar:
   will_paginate:
     models:
       person:
-        zero: مستخدمين
+        few: مستخدمين
         one: مستخدم
         two: مستخدمين
-        few: مستخدمين
         many: مستخدمين
+        zero: مستخدمين
         other: مستخدمين
       transaction:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       listing:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
     previous_label: "&#8592; Previous"
     next_label: Next &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       single_page_html:
-        zero: ''
-        one: ''
-        two: ''
-        few: ''
-        many: ''
-        other: ''
+        zero: 
+        one: 
+        two: 
+        few: 
+        many: 
+        other: 
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
         single_page:
-          zero: ''
-          one: ''
-          two: ''
-          few: ''
-          many: ''
-          other: ''
+          zero: 
+          one: 
+          two: 
+          few: 
+          many: 
+          other: 
         single_page_html:
-          zero: ''
-          one: ''
-          two: ''
-          few: ''
-          many: ''
-          other: ''
+          zero: 
+          one: 
+          two: 
+          few: 
+          many: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

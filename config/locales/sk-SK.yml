@@ -607,10 +607,10 @@ sk-SK:
     community_updates_v2:
       headline: pozrite si poslednú aktivitu na %{service_name}
       intro_paragraph:
-        one: Tu je niekoľko upozornení, ktoré sa udiali na %{service_name} za posledný
-          deň.
         few: Tu je niekoľko upozornení, ktoré sa udiali na %{service_name} za posledných
           %{count} dní.
+        one: Tu je niekoľko upozornení, ktoré sa udiali na %{service_name} za posledný
+          deň.
         other: Tu je niekoľko upozornení, ktoré sa udiali na %{service_name} za posledných
           %{count} dní.
     newsletter:
@@ -1434,9 +1434,9 @@ sk-SK:
       images_are_processing: Vaše nové obrázky, ktoré práve spracovávame budú viditeľné
         za niekoľko sekúnd.
       maintenance_mode:
-        zero: Webová stránka sa pre údržbu prepne do offline režimu.
-        one: Webová stánka bude pre údržbu v offline režime %{count} minút
         few: Webová stánka bude pre údržbu v offline režime %{count} minúty
+        one: Webová stánka bude pre údržbu v offline režime %{count} minút
+        zero: Webová stránka sa pre údržbu prepne do offline režimu.
         other: Webová stánka bude pre údržbu v offline režime %{count} minút
       automatically_logged_out_please_sign_in: Boli ste automaticky odhlásený. Prosím
         prihláste sa znovu.
@@ -1978,10 +1978,10 @@ sk-SK:
       invalid_username_or_email: Užívateľské meno alebo e-mail je neplatný alebo sa
         už používa
       email_restriction_instructions:
-        one: Prístup do %{service_name} je obmedzený. K pripojeniu budete potrebovať
-          %{allowed_emails} e-mailovú adresu.
         few: Prístup do %{service_name} je obmedzený. Budete potrebovať e-mailovú
           adresu, vďaka ktorej sa budete môcť prihlásiť.
+        one: Prístup do %{service_name} je obmedzený. K pripojeniu budete potrebovať
+          %{allowed_emails} e-mailovú adresu.
         other: Prístup do %{service_name} je obmedzený. Budete potrebovať e-mailovú
           adresu, vďaka ktorej sa budete môcť prihlásiť.
       family_name: Priezvisko
@@ -2348,41 +2348,41 @@ sk-SK:
     year_ago: "%{count} pred rokom"
     years_ago: "%{count} rokov dozadu"
     days_since:
-      one: "%{count} deň"
       few: "%{count} dni"
+      one: "%{count} deň"
       other: "%{count} dní"
     time_to:
       seconds:
-        one: "%{count} sekunda"
         few: "%{count} sekundy"
+        one: "%{count} sekunda"
         other: "%{count} sekúnd"
       minutes:
-        one: "%{count} minúta"
         few: "%{count} minúty"
+        one: "%{count} minúta"
         other: "%{count} minút"
       hours:
-        one: "%{count} hodina"
         few: "%{count} hodiny"
+        one: "%{count} hodina"
         other: "%{count} hodín"
       days:
-        one: "%{count} deň"
         few: "%{count} dni"
+        one: "%{count} deň"
         other: "%{count} dní"
   transactions:
     initiate:
       booked_days: 'Rezervované dni:'
       booked_nights: 'Rezervované noci:'
       booked_days_label:
-        one: 'Rezervovaný deň:'
         few: 'Rezervované dni:'
+        one: 'Rezervovaný deň:'
         other: 'Rezervovaných dní:'
       booked_nights_label:
-        one: 'Rezervovaná noc:'
         few: 'Rezervované noci:'
+        one: 'Rezervovaná noc:'
         other: 'Rezervovaných nocí:'
       booked_hours_label:
-        one: 'Rezervovaná hodina:'
         few: 'Rezervované hodiny:'
+        one: 'Rezervovaná hodina:'
         other: 'Rezervované hodiny:'
       price_per_day: 'Cena za deň:'
       price_per_night: 'Cena za noc:'
@@ -2393,8 +2393,8 @@ sk-SK:
       shipping-price: 'Doprava:'
       stripe-fee: 'Poplatok Stripe (odhad):'
       duration_in_hours:
-        one: "(1 hodina)"
         few: "(%{count} hodiny)"
+        one: "(1 hodina)"
         other: "(%{count} hodiny)"
       start_end_time: "%{start_time} do %{end_time}"
     price_per_quantity: 'Cena za %{unit_type}:'
@@ -2475,32 +2475,32 @@ sk-SK:
   will_paginate:
     models:
       person:
-        zero: užívateľov
-        one: užívateľ
         few: užívatelia
+        one: užívateľ
+        zero: užívateľov
         other: užívateľov
       transaction:
-        zero: transakcií
-        one: transakcia
         few: transakcie
+        one: transakcia
+        zero: transakcií
         other: transakcie
       listing:
-        one: ''
-        few: ''
-        other: ''
+        one: 
+        few: 
+        other: 
     previous_label: "&#8592; Predchádzajúci"
     next_label: Ďalší &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Nenašla sa žiadna %{model}
-        one: Nájdená 1 %{model}
         few: Nájdené %{count} %{model}
+        one: Nájdená 1 %{model}
+        zero: Nenašla sa žiadna %{model}
         other: Nájdených %{count} %{model}
       single_page_html:
-        zero: Nenašla sa žiadna %{model}
-        one: Nájdená <b>1</b> %{model}
         few: Nájdené <b>all&nbsp;%{count}</b> %{model}
+        one: Nájdená <b>1</b> %{model}
+        zero: Nenašla sa žiadna %{model}
         other: Nájdených <b>all&nbsp;%{count}</b> %{model}
       multi_page: Nájdený %{model} %{from} - %{to} z %{count} celkovo
       multi_page_html: Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b>
@@ -2508,19 +2508,19 @@ sk-SK:
     person:
       community_members_entries_info:
         single_page:
-          zero: "%{model} nebolo nájdených"
-          one: Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count}
-            ostatné %{other_model}
           few: Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count}
             ostatné %{other_model}
+          one: Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count}
+            ostatné %{other_model}
+          zero: "%{model} nebolo nájdených"
           other: Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count}
             ostatné %{other_model}
         single_page_html:
-          zero: Žiadny% {model} nebol nájdený
-          one: Zobrazujem <b>%{accepted_count}</b> odsúhlaseného %{accepted_model}
-            a %{other_count} ostatných %{other_model}
           few: Zobrazujem <b>%{accepted_count}</b> odsúhlasených %{accepted_model}
             a %{other_count} ostatných %{other_model}
+          one: Zobrazujem <b>%{accepted_count}</b> odsúhlaseného %{accepted_model}
+            a %{other_count} ostatných %{other_model}
+          zero: Žiadny% {model} nebol nájdený
           other: Zobrazujem <b>%{accepted_count}</b> odsúhlasených %{accepted_model}
             a %{other_count} ostatných %{other_model}
         multi_page: Zobrazuje sa %{model} %{from}  - %{to} z %{accepted_count} prijatých

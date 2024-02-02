@@ -550,7 +550,7 @@ th-TH:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        other: ''
+        other: 
     newsletter:
       hi: สวัสดี %{name},
       newest_offers: สิ่งที่ผู้คนในขณะนี้เสนอให้กับคนอื่น ๆ
@@ -1275,7 +1275,7 @@ th-TH:
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
       maintenance_mode:
-        other: ''
+        other: 
       automatically_logged_out_please_sign_in: คุณใช้งานเกินระยะเวลาที่กำหนด โปรดเข้าสู่ระบบอีกครั้งเพื่อดำเนินการต่อ
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -2119,11 +2119,11 @@ th-TH:
       booked_days: 'วันที่จอง:'
       booked_nights: 
       booked_days_label:
-        other: ''
+        other: 
       booked_nights_label:
-        other: ''
+        other: 
       booked_hours_label:
-        other: ''
+        other: 
       price_per_day: 'ราคาต่อวัน:'
       price_per_night: 
       price_per_hour: 
@@ -2133,7 +2133,7 @@ th-TH:
       shipping-price: จัดส่ง
       stripe-fee: 
       duration_in_hours:
-        other: ''
+        other: 
       start_end_time: 
     price_per_quantity: 'ราคาต่อ: %{unit_type}'
     price: ราคา
@@ -2209,26 +2209,26 @@ th-TH:
     models:
       person: 
       transaction:
-        other: ''
+        other: 
       listing:
-        other: ''
+        other: 
     previous_label: "&#8592; ก่อนหน้านี้"
     next_label: ถัดไป &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        other: ''
+        other: 
       single_page_html:
-        other: ''
+        other: 
       multi_page: กำลังแสดง %{model} %{from} - %{to} จาก %{count} ของทั้งหมด
       multi_page_html: กำลังแสดง %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> จาก <b>%{count}</b>
         ของทั้งหมด
     person:
       community_members_entries_info:
         single_page:
-          other: ''
+          other: 
         single_page_html:
-          other: ''
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

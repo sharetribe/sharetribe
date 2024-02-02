@@ -493,6 +493,9 @@ crp:
       unsubscribe_link_text: 
     community_updates_v2:
       headline: 
+      intro_paragraph:
+        one: 
+        other: 
     newsletter:
       hi: 
       newest_offers: 
@@ -1141,6 +1144,9 @@ crp:
       listing_author_payment_details_missing: 
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
+      maintenance_mode:
+        one: 
+        other: 
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -1582,6 +1588,9 @@ crp:
       email_is_in_use_or_not_allowed: 
       email_not_allowed: 
       invalid_username_or_email: 
+      email_restriction_instructions:
+        one: 
+        other: 
       family_name: 
       given_name: 
       i_accept_the_terms_and_privacy: 
@@ -1889,10 +1898,35 @@ crp:
     seconds_ago: 
     year_ago: 
     years_ago: 
+    days_since:
+      one: 
+      other: 
+    time_to:
+      seconds:
+        one: 
+        other: 
+      minutes:
+        one: 
+        other: 
+      hours:
+        one: 
+        other: 
+      days:
+        one: 
+        other: 
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
+      booked_days_label:
+        one: 
+        other: 
+      booked_nights_label:
+        one: 
+        other: 
+      booked_hours_label:
+        one: 
+        other: 
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -1901,6 +1935,9 @@ crp:
       subtotal: 
       shipping-price: 
       stripe-fee: 
+      duration_in_hours:
+        one: 
+        other: 
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -1973,14 +2010,36 @@ crp:
       create_own: 
       learn_more: 
   will_paginate:
+    models:
+      person:
+        one: 
+        other: 
+      transaction:
+        one: 
+        other: 
+      listing:
+        one: 
+        other: 
     previous_label: 
     next_label: 
     page_gap: 
     page_entries_info:
+      single_page:
+        one: 
+        other: 
+      single_page_html:
+        one: 
+        other: 
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
+        single_page:
+          one: 
+          other: 
+        single_page_html:
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

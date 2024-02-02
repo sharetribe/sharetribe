@@ -579,8 +579,8 @@ en-NZ:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        other: ''
+        one: 
+        other: 
     newsletter:
       hi: Hi %{name},
       newest_offers: What people currently offer to others
@@ -1365,8 +1365,8 @@ en-NZ:
       images_are_processing: We are processing your images. Give us a minute or two
         and they'll be visible.
       maintenance_mode:
-        zero: The website will now go offline for maintenance
         one: The website will be offline for maintenance in %{count} minute
+        zero: The website will now go offline for maintenance
         other: The website will be offline for maintenance in %{count} minutes
       automatically_logged_out_please_sign_in: You have been automatically logged
         out. Please log in again.
@@ -2271,8 +2271,8 @@ en-NZ:
         one: 'Booked night:'
         other: 'Booked nights:'
       booked_hours_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       price_per_day: 'Price per day:'
       price_per_night: 'Price per night:'
       price_per_hour: 
@@ -2282,8 +2282,8 @@ en-NZ:
       shipping-price: 'Shipping:'
       stripe-fee: 'Stripe Fee (estimated):'
       duration_in_hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       start_end_time: 
     price_per_quantity: 'Price per %{unit_type}:'
     price: 'Price:'
@@ -2365,29 +2365,29 @@ en-NZ:
   will_paginate:
     models:
       person:
-        zero: users
-        one: user
         few: users
+        one: user
+        zero: users
         other: users
       transaction:
-        zero: transactions
-        one: transaction
         few: transactions
+        one: transaction
+        zero: transactions
         other: transactions
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; Previous"
     next_label: Next &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: No %{model} found
         one: Displaying 1 %{model}
+        zero: No %{model} found
         other: Displaying all %{count} %{model}
       single_page_html:
-        zero: No %{model} found
         one: Displaying <b>1</b> %{model}
+        zero: No %{model} found
         other: Displaying <b>all&nbsp;%{count}</b> %{model}
       multi_page: Displaying %{model} %{from} - %{to} of %{count} in total
       multi_page_html: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b>
@@ -2395,11 +2395,11 @@ en-NZ:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

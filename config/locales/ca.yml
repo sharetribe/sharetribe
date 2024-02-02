@@ -1479,8 +1479,8 @@ ca:
       images_are_processing: Estem processant les teves imatges. Dona'ns un minut
         o dos i estaran llestes.
       maintenance_mode:
-        zero: La pàgina està fora de servei per manteniment
         one: La pàgina estarà fora de servei per manteniment en %{count} minut
+        zero: La pàgina està fora de servei per manteniment
         other: La pàgina estarà fora de servei per manteniment en %{count} minuts
       automatically_logged_out_please_sign_in: Si us plau, inicia la sessió una altra
         vegada, ja que la teva sessió ha caducat.
@@ -2426,6 +2426,7 @@ ca:
         other: 'Dies reservats:'
       booked_nights_label:
         one: 'Nit reservada:'
+        other: ''
       booked_hours_label:
         one: 'Hora reservada:'
         other: 'Hores reservades:'
@@ -2521,28 +2522,28 @@ ca:
   will_paginate:
     models:
       person:
-        zero: usuaris
         one: usuari
+        zero: usuaris
         other: usuaris
       transaction:
-        zero: transaccions
         one: transacció
+        zero: transaccions
         other: transaccions
       listing:
-        zero: anunci
         one: anunci
+        zero: anunci
         other: anuncis
     previous_label: "&#8592; Anterior"
     next_label: Següent &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "%{model} no trobat"
         one: 'Mostrant un %{model} '
+        zero: "%{model} no trobat"
         other: 'Mostrant tot: %{count} %{model}'
       single_page_html:
-        zero: Res trobat
         one: Mostrant <b>1}</b> %{model}
+        zero: Res trobat
         other: Mostrant <b>%{count}</b> %{model}
       multi_page: Mostrant %{model} %{from} - %{to}  de %{count}
       multi_page_html: Mostrant %{model} <b> %{from}&nbsp;-&nbsp;%{to} </b> de<b>
@@ -2550,15 +2551,15 @@ ca:
     person:
       community_members_entries_info:
         single_page:
-          zero: No s'ha trobat cap %{model}
           one: Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count}
             un altre %{other_model}
+          zero: No s'ha trobat cap %{model}
           other: Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count}
             un altre %{other_model}
         single_page_html:
-          zero: No s'ha trobat cap %{model}
           one: Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count}
             un altre %{other_model}
+          zero: No s'ha trobat cap %{model}
           other: Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count}
             un altre %{other_model}
         multi_page: Mostrant %{model} %{from} - %{to} de %{accepted_count} %{accepted_model}

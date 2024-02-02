@@ -494,8 +494,8 @@ eu-ES:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        other: ''
+        one: 
+        other: 
     newsletter:
       hi: 
       newest_offers: 
@@ -1145,8 +1145,8 @@ eu-ES:
       listing_author_payment_details_missing_no_free: 
       images_are_processing: 
       maintenance_mode:
-        one: ''
-        other: ''
+        one: 
+        other: 
       automatically_logged_out_please_sign_in: 
       stripe_you_account_balance_is_not_0: 
       stripe_balance_for_username_is_not_0: 
@@ -1589,8 +1589,8 @@ eu-ES:
       email_not_allowed: 
       invalid_username_or_email: 
       email_restriction_instructions:
-        one: ''
-        other: ''
+        one: 
+        other: 
       family_name: 
       given_name: 
       i_accept_the_terms_and_privacy: 
@@ -1899,34 +1899,34 @@ eu-ES:
     year_ago: 
     years_ago: 
     days_since:
-      one: ''
-      other: ''
+      one: 
+      other: 
     time_to:
       seconds:
-        one: ''
-        other: ''
+        one: 
+        other: 
       minutes:
-        one: ''
-        other: ''
+        one: 
+        other: 
       hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       days:
-        one: ''
-        other: ''
+        one: 
+        other: 
   transactions:
     initiate:
       booked_days: 
       booked_nights: 
       booked_days_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_nights_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_hours_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       price_per_day: 
       price_per_night: 
       price_per_hour: 
@@ -1936,8 +1936,8 @@ eu-ES:
       shipping-price: 
       stripe-fee: 
       duration_in_hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       start_end_time: 
     price_per_quantity: 
     price: 
@@ -2012,34 +2012,34 @@ eu-ES:
   will_paginate:
     models:
       person:
-        one: ''
-        other: ''
+        one: 
+        other: 
       transaction:
-        one: ''
-        other: ''
+        one: 
+        other: 
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: 
     next_label: 
     page_gap: 
     page_entries_info:
       single_page:
-        one: ''
-        other: ''
+        one: 
+        other: 
       single_page_html:
-        one: ''
-        other: ''
+        one: 
+        other: 
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

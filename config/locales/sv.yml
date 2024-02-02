@@ -1405,8 +1405,8 @@ sv:
       images_are_processing: Vi prossesserar dina bilder. Ge oss en minut eller två
         och de kommer vara synliga.
       maintenance_mode:
-        zero: Hemsidan kommer nu gå offline för underhåll
         one: Hemsidan kommer gå offline for underhåll om %{count} minut
+        zero: Hemsidan kommer nu gå offline för underhåll
         other: Hemsidan kommer gå offline for underhåll om %{count} minuter
       automatically_logged_out_please_sign_in: Du har blivit utloggad. Vänligen logga
         in igen.
@@ -2419,28 +2419,28 @@ sv:
   will_paginate:
     models:
       person:
-        zero: användare
         one: användare
+        zero: användare
         other: användare
       transaction:
-        zero: transaktioner
         one: transaktion
+        zero: transaktioner
         other: transaktioner
       listing:
-        zero: annons
         one: annons
+        zero: annons
         other: annonser
     previous_label: "&#8592; Föregående"
     next_label: Nästa &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Ingen %{model} hittades
         one: Visar 1 %{model}
+        zero: Ingen %{model} hittades
         other: Visar alla %{count} %{model}
       single_page_html:
-        zero: Inga %{model} hittades
         one: Visar <b>1</b> %{model}
+        zero: Inga %{model} hittades
         other: Visar <b>alla&nbsp;%{count}</b> %{model}
       multi_page: Visar %{model} %{from} - %{to} av %{count} totalt
       multi_page_html: Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b>
@@ -2448,11 +2448,11 @@ sv:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

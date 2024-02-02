@@ -1401,8 +1401,8 @@ pt-PT:
       images_are_processing: Estamos a processar as suas imagens. Estarão visíveis
         dentro de um ou dois minutos.
       maintenance_mode:
-        one: ''
-        other: ''
+        one: 
+        other: 
       automatically_logged_out_please_sign_in: Você foi desconectado automaticamente.
         Por favor faça o login novamente.
       stripe_you_account_balance_is_not_0: A balanço da sua conta não está zerado
@@ -2268,11 +2268,11 @@ pt-PT:
       booked_days: 'Dias reservados:'
       booked_nights: 
       booked_days_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_nights_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       booked_hours_label:
         one: 'Hora contratada:'
         other: 'Horas contratadas:'
@@ -2368,26 +2368,26 @@ pt-PT:
   will_paginate:
     models:
       person:
-        zero: utilizador
         one: utilizador
+        zero: utilizador
         other: utilizadores
       transaction:
-        one: ''
-        other: ''
+        one: 
+        other: 
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; Anterior"
     next_label: Próximo &#8594;
     page_gap: 
     page_entries_info:
       single_page:
-        zero: Nenhum %{model} encontrado
         one: A mostrar 1 %{model}
+        zero: Nenhum %{model} encontrado
         other: A mostrar todos %{count} %{model}
       single_page_html:
-        zero: Nenhum %{model} encontrado
         one: A mostar <b>1</b> %{model}
+        zero: Nenhum %{model} encontrado
         other: A mostrar <b>all&nbsp;%{count}</b> %{model}
       multi_page: A mostrar %{model} %{from} - %{to} do %{count} em total
       multi_page_html: A mostrar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b>
@@ -2395,11 +2395,11 @@ pt-PT:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

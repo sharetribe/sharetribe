@@ -574,8 +574,8 @@ nb:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        other: ''
+        one: 
+        other: 
     newsletter:
       hi: Hei %{name},
       newest_offers: Hva folk for øyeblikket tilbyr
@@ -1348,8 +1348,8 @@ nb:
       images_are_processing: Vi behandler de nye bildene dine. De vil bli synlige
         i løpet av noen sekunder.
       maintenance_mode:
-        zero: Nettstedet vil nå gå offline for vedlikehold
         one: Nettstedet vil være offline i %{count} minutt
+        zero: Nettstedet vil nå gå offline for vedlikehold
         other: Nettstedet vil være offline i %{count} minutter
       automatically_logged_out_please_sign_in: Du har blitt logget ut automatisk.
         Vennligst logg inn igjen.
@@ -2252,8 +2252,8 @@ nb:
         one: 'Reservert natt:'
         other: 'Reserverte netter:'
       booked_hours_label:
-        one: ''
-        other: ''
+        one: 
+        other: 
       price_per_day: 'Pris per dag:'
       price_per_night: 'Pris per natt:'
       price_per_hour: 
@@ -2263,8 +2263,8 @@ nb:
       shipping-price: 'Frakt:'
       stripe-fee: 
       duration_in_hours:
-        one: ''
-        other: ''
+        one: 
+        other: 
       start_end_time: 
     price_per_quantity: 'Pris per %{unit_type}:'
     price: 'Pris:'
@@ -2345,28 +2345,28 @@ nb:
   will_paginate:
     models:
       person:
-        zero: brukere
         one: bruker
+        zero: brukere
         other: brukere
       transaction:
-        zero: transaksjoner
         one: transaksjon
+        zero: transaksjoner
         other: transaksjoner
       listing:
-        zero: oppføringer
         one: oppføring
+        zero: oppføringer
         other: oppføringer
     previous_label: "&#8592; Forrige"
     next_label: Neste &#8594;
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: Ingen %{model} funnet
         one: Viser 1 %{model}
+        zero: Ingen %{model} funnet
         other: Viser alle %{count} %{model}
       single_page_html:
-        zero: Ingen %{model} funnet
         one: Viser <b>1</b> %{model}
+        zero: Ingen %{model} funnet
         other: Viser <b>alle&nbsp;%{count}</b> %{model}
       multi_page: Viser %{model} %{from} - %{to} av %{count} totalt
       multi_page_html: Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b>
@@ -2374,11 +2374,11 @@ nb:
     person:
       community_members_entries_info:
         single_page:
-          one: ''
-          other: ''
+          one: 
+          other: 
         single_page_html:
-          one: ''
-          other: ''
+          one: 
+          other: 
         multi_page: 
         multi_page_html: 
   stripe_accounts:

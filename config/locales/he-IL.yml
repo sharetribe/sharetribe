@@ -566,8 +566,8 @@ he-IL:
     community_updates_v2:
       headline: 
       intro_paragraph:
-        one: ''
-        other: ''
+        one: 
+        other: 
     newsletter:
       hi: "‎%{name}‎ שלום ‎"
       newest_offers: מה אנשים כרגע מציעים
@@ -1306,8 +1306,8 @@ he-IL:
       images_are_processing: אנחנו מעבדים את התמונות, תן לנו דקה או שתיים כדי שהן
         יוצגו.
       maintenance_mode:
-        zero: האתר ירד לצורך תחזוקה
         one: 'האתר יהיה לא זמין במשך ‎%{count}‎  דקות '
+        zero: האתר ירד לצורך תחזוקה
         other: 'האתר יהיה לא זמין במשך ‎%{count}‎  דקות '
       automatically_logged_out_please_sign_in: "‎ התנתקת באופן אוטומטי, אנא התחבר
         שוב."
@@ -2249,27 +2249,27 @@ he-IL:
   will_paginate:
     models:
       person:
-        zero: משתמשים
         one: משתמש
+        zero: משתמשים
         other: משתמשים
       transaction:
-        zero: טרנזקציות
         one: טרנזקציות
+        zero: טרנזקציות
         other: טרנזקציות
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; הקודם"
     next_label: 'הבא& # 8594 '
     page_gap: חפש כאן &;
     page_entries_info:
       single_page:
-        zero: " %{model} לא נמצא"
         one: 'מציג ‎%{count}‎  ‎%{model}‎ '
+        zero: " %{model} לא נמצא"
         other: 'מציג את כל ה‎%{count}‎ ‎%{model}‎ '
       single_page_html:
-        zero: " %{model} לא נמצא"
         one: "מציג‎<b>‎ 1 ‎</b>‎ ‎%\n‎%{model}‎ "
+        zero: " %{model} לא נמצא"
         other: 'מציג ‎<b>‎  הכל‎%{count}‎ ‎</b>‎ ‎%{model}‎ '
       multi_page: "‏ מציג ‎%{model}‎ ‎%{from}‎ -‎%{to}‎  מתוך‎%{count}‎  מסה''כ"
       multi_page_html: "מציג ‎%{model}‎ \n <b>‎%{from}‎ &nbsp;-&nbsp‎%{to}‎ ‎%{to}‎
@@ -2277,13 +2277,13 @@ he-IL:
     person:
       community_members_entries_info:
         single_page:
-          zero: "‎%{model}‎  לא נמצא"
           one: 'מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ '
+          zero: "‎%{model}‎  לא נמצא"
           other: 'מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ '
         single_page_html:
-          zero: " %{model} לא נמצא"
           one: 'מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎  מאושר‎%{accepted_model}‎ ו‎%{other_count}‎
             אחר‎%{other_model}‎ '
+          zero: " %{model} לא נמצא"
           other: 'מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎ מאושר‎%{accepted_model}‎ ו‎%{other_count}‎
             אחר‎%{other_model}‎ '
         multi_page: 

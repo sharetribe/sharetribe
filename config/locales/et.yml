@@ -1437,8 +1437,8 @@ et:
         värskendada makseinfot.
       images_are_processing: Töötleme Sinu pilte. Paari minuti pärast on need nähtavad.
       maintenance_mode:
-        zero: Veebisait läheb nüüd hoolduseks võrguühenduseta
         one: Veebisait on sisselogimiseks võrguühenduseta %{count} minutit
+        zero: Veebisait läheb nüüd hoolduseks võrguühenduseta
         other: Veebisait on sisselogimiseks võrguühenduseta %{count} minutit
       automatically_logged_out_please_sign_in: Sind logiti automaatselt välja. Logi
         uuesti sisse.
@@ -2441,42 +2441,42 @@ et:
   will_paginate:
     models:
       person:
-        zero: kasutajad
         one: kasutajad
+        zero: kasutajad
         other: kasutajad
       transaction:
-        zero: tehingut
         one: tehing
+        zero: tehingut
         other: tehingud
       listing:
-        one: ''
-        other: ''
+        one: 
+        other: 
     previous_label: "&#8592; Eelmine"
     next_label: Järgmine &#8594;
     page_gap: otsi siin &hellip;
     page_entries_info:
       single_page:
-        zero: Ei %{model} leitud
         one: Kuvatakse 1 %{model}
+        zero: Ei %{model} leitud
         other: Kuvatakse kõik %{count} %{model}
       single_page_html:
-        zero: Ei %{model} leitud
         one: Kuvatakse <b>1</b> %{model}
+        zero: Ei %{model} leitud
         other: Kuvatakse <b>all&nbsp;%{count}</b> %{model}
       multi_page: 
       multi_page_html: 
     person:
       community_members_entries_info:
         single_page:
-          zero: "%{model} ei leitud"
           one: 'Kuvatakse %{accepted_count} kinnitatud %{accepted_model} ja %{other_count}
             muu %{other_model} '
+          zero: "%{model} ei leitud"
           other: 'Kuvatakse %{accepted_count} kinnitatud %{accepted_model} ja %{other_count}
             muud %{other_model} '
         single_page_html:
-          zero: "%{model} ei leitud"
           one: Kuvatakse <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja
             %{other_count} muu %{other_model}
+          zero: "%{model} ei leitud"
           other: Kuvatakse <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja
             %{other_count} muud %{other_model}
         multi_page: Kuvatakse %{model} %{from} - %{to} %{accepted_count} kinnitatud
