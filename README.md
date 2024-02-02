@@ -462,9 +462,7 @@ See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
 ## Translation
 
-Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [hello@sharetribe.com](mailto:hello@sharetribe.com) and mention that you would like to become a translator.
-
-All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (except English).
+Translations are available through YAML files in the `/config/locales` folder.
 
 
 ## Bug tracker
