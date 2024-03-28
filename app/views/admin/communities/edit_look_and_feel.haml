@@ -38,7 +38,7 @@
       .col-12
         = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => (t(".cover_photo_visibility") + " " +  t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450, :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link", :target => :_blank))).html_safe}
-        - link = link_to t(".we_have_you_covered"), 'https://help.sharetribe.com/en/articles/666084', target: '_blank'
+        - link = link_to t(".we_have_you_covered"), 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.fw13fn2qvjfb', target: '_blank'
         = render :partial => "layouts/info_text", :locals => { :text => t(".cover_photo_ready_made", link: link).html_safe }
 
         = render 'layouts/filename', file_field: @community.cover_photo

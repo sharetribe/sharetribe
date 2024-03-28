@@ -10,7 +10,7 @@
     %h2
       = t('admin2.sitemap_robots.sitemap')
     %p.ingress
-      = t('admin2.sitemap_robots.sitemap_info_text_1', url: 'https://help.sharetribe.com/en/articles/674130').html_safe
+      = t('admin2.sitemap_robots.sitemap_info_text_1', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.f7tjqq8byv2n').html_safe
     %p.ingress
       - if @current_community.private?
         = t('admin2.sitemap_robots.sitemap_info_private')
@@ -21,6 +21,6 @@
     %h2
       = t('admin2.sitemap_robots.robots')
     %p.ingress
-      = t('admin2.sitemap_robots.robots_info_text_1', url: 'https://help.sharetribe.com/en/articles/674555').html_safe
+      = t('admin2.sitemap_robots.robots_info_text_1', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.onsmxtk8z1am').html_safe
     %p.ingress
       = t('admin2.sitemap_robots.robots_info_text_2', url: "#{@current_community.full_url}/robots.txt").html_safe

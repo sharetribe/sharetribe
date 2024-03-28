@@ -40,14 +40,14 @@ const GuidePaypalPage = (props) => {
       }),
       div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.payments.advice.content_paypal_stripe', {
         disable_payments_link: a(
-          { href: 'https://help.sharetribe.com/payment-with-paypal/how-to-disable-payments-or-add-free-listings-to-your-marketplace',
+          { href: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.bze42gize39y',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.payments.advice.disable_payments_alt'),
           },
           t('web.admin.onboarding.guide.payments.advice.disable_payments_link')),
         stripe_paypal_link: a(
-          { href: 'https://help.sharetribe.com/differences-between-stripe-and-paypal',
+          { href: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.1t23qgqd07fe',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.payments.advice.stripe_paypal_link'),

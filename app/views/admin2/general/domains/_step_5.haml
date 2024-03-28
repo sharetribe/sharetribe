@@ -3,7 +3,7 @@
   %section.content-card-section
     %h2= t('admin2.domain.custom_domain')
     %p.ingress
-      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+      = t('admin2.domain.set_custom_domain_info', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.wjrb9ccyih5k').html_safe
     .form-group
       = label_tag :marketplaceName, t('admin2.domain.custom_domain')
       .statusbar.negative
@@ -24,7 +24,7 @@
               = t('admin2.domain.error')
               %ul
                 %li= t('admin2.domain.redirect_error')
-          = t('admin2.domain.follow_instructions', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+          = t('admin2.domain.follow_instructions', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.wjrb9ccyih5k').html_safe
         = link_to t('admin2.domain.retest_dns', domain: @presenter.domain_checked), test_dns_admin2_general_domains_path, remote: true, class: %i[btn-sm btn-secondary], style: 'margin-top: 16px'
       %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain_checked}
       %small#customDomain-help.form-text

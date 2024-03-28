@@ -33,7 +33,7 @@ const GuideStatusPage = (props) => {
     p({ className: css.description },
       t('web.admin.onboarding.guide.status_page.congratulation_p1.content',
         { knowledge_base_link: a(
-          { href: 'https://help.sharetribe.com/configuration-and-how-to/what-to-do-after-the-basic-setup-of-your-marketplace',
+          { href: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.e5f6qox8q1q5',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.status_page.congratulation_p1.knowledge_base_alt'),

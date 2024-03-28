@@ -30,7 +30,7 @@
         %b= t('admin2.domain.pro_feature')
         = t('admin2.domain.pro_upgrade', url: admin2_plan_path).html_safe
     %p.ingress
-      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+      = t('admin2.domain.set_custom_domain_info', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.wjrb9ccyih5k').html_safe
     .form-group
       = label_tag :marketplaceName, t('admin2.domain.custom_domain')
       %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain}
