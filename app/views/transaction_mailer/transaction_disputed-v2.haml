@@ -20,7 +20,7 @@
     %p.text-bold
       - if @is_admin
         - learn_more_link = link_to t("emails.transaction_disputed.learn_more_about"),
-          "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573"
+          "#{APP_CONFIG.knowledge_base_url}/#heading=h.e6ap8narkgk6"
         = t("emails.transaction_disputed.you_must_now_decide", learn_more_link: learn_more_link).html_safe
       - else
         = t("emails.transaction_disputed.the_marketplace_has_been_notified")

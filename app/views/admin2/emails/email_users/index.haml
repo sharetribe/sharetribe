@@ -14,7 +14,7 @@
         = form.label :recipients, t('admin2.email_users.recipients.title')
         = form.select :recipients, admin_email_options, {}, class: %i[form-control]
         %small#emailRecipients-help.form-text
-          = t('admin2.email_users.learn_segments', url: 'https://help.sharetribe.com/en/articles/1133668').html_safe
+          = t('admin2.email_users.learn_segments', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.dzcrduxcpoen').html_safe
 
       - if available_locales.size > 1
         .form-group

@@ -38,7 +38,7 @@ const GuideCoverPhotoPage = (props) => {
             {
               link: a(
                 {
-                  href: 'https://help.sharetribe.com/configuration-and-how-to/how-to-get-good-looking-cover-photos-logos-favicon-profiles-and-listing-pictures',
+                  href: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.d9vqnj9u47uj',
                   target: '_blank',
                   rel: 'noreferrer',
                   alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
@@ -47,7 +47,7 @@ const GuideCoverPhotoPage = (props) => {
               ),
               link_images: a(
                 {
-                  href: 'https://help.sharetribe.com/look-and-feel/design-and-customisation/6-great-cover-photos-ready-to-use-and-where-to-find-more',
+                  href: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.fw13fn2qvjfb',
                   target: '_blank',
                   rel: 'noreferrer',
                   alt: t('web.admin.onboarding.guide.cover_photo.advice.alt_images'),

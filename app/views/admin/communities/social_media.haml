@@ -64,7 +64,7 @@
     .row
       .col-6
         - if display_knowledge_base_articles
-          - twitter_instructions_link = link_to(t("admin.communities.social_media.twitter_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-your-marketplaces-twitter-handle", target: :_blank)
+          - twitter_instructions_link = link_to(t("admin.communities.social_media.twitter_instructions_link_text"), "#{knowledge_base_url}/#heading=h.57vlwwm2sdwe", target: :_blank)
           = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text_with_instructions", :instructions_link => twitter_instructions_link).html_safe }
         - else
           = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") }
@@ -77,7 +77,7 @@
     .row
       %h3= t('.facebook_connect')
       - if display_knowledge_base_articles
-        - facebook_instructions_link = link_to(t("admin.communities.social_media.facebook_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-facebook-connect", target: :_blank)
+        - facebook_instructions_link = link_to(t("admin.communities.social_media.facebook_instructions_link_text"), "#{knowledge_base_url}/#heading=h.wlj1orp1qe6p", target: :_blank)
         - facebook_dashboard_link = link_to t(".facebook_developers_dashboard"), 'https://developers.facebook.com/', target: '_blank'
         = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text_with_instructions", :instructions_link => facebook_instructions_link, dashboard_link: facebook_dashboard_link).html_safe}
       - else
@@ -98,7 +98,7 @@
     .row
       %h3= t('.google_connect')
       - if display_knowledge_base_articles
-        - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-google-sign-in", target: :_blank)
+        - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/#heading=h.qy7ycbgrfb56", target: :_blank)
         - google_dashboard_link = link_to t(".google_developers_console"), 'https://developers.google.com/identity/sign-in/web/sign-in', target: '_blank'
         = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text_with_instructions", :instructions_link => google_instructions_link, dashboard_link: google_dashboard_link).html_safe}
       - else
@@ -123,7 +123,7 @@
     .row
       %h3= t('.linkedin_connect')
       - if display_knowledge_base_articles
-        - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-linkedin-sign-in", target: :_blank)
+        - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/#heading=h.hden9iy1mucl", target: :_blank)
         - linkedin_dashboard_link = link_to t(".linkedin_developers_dashboard"), 'https://www.linkedin.com/developers/', target: '_blank'
         = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text_with_instructions", :instructions_link => linkedin_instructions_link, dashboard_link: linkedin_dashboard_link).html_safe}
       - else

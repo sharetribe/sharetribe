@@ -11,7 +11,7 @@
           = t('admin2.manage_transactions.waiting_for_fulfill_and_complete', provider: pr.provider_name, listing_title: listing_title, buyer: pr.buyer_name)
       - elsif pr.disputed?
         %li
-          - learn_more_link = link_to t('admin2.manage_transactions.learn_more'), "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573", target: :_blank
+          - learn_more_link = link_to t('admin2.manage_transactions.learn_more'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.e6ap8narkgk6", target: :_blank
           = t('admin2.manage_transactions.you_should_investigate', learn_more_link: learn_more_link).html_safe
 
   = render 'delivery_method', pr: pr

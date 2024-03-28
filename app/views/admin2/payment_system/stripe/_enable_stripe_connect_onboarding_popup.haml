@@ -8,11 +8,11 @@
           %span{'aria-hidden' => 'true'} ×
       .modal-body
         %p
-          = t('admin2.stripe.enable_stripe_connect_onboarding_info', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/6921884").html_safe
+          = t('admin2.stripe.enable_stripe_connect_onboarding_info', url: "#{APP_CONFIG.knowledge_base_url}/#heading=h.ba7g0spowscj").html_safe
         %p
           = t('admin2.stripe.enable_stripe_connect_onboarding_info2')
         %p
-          = t('admin2.stripe.enable_stripe_connect_onboarding_info3', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/6921854").html_safe
+          = t('admin2.stripe.enable_stripe_connect_onboarding_info3', url: "#{APP_CONFIG.knowledge_base_url}/#heading=h.7osi62628ih").html_safe
         .form-group
           .form-check
             = check_box_tag :confirm_stripe_connect_onboarding, '1', false, class: 'form-check-input single-checkbox'

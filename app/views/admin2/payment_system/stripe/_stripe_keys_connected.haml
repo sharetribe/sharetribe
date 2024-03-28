@@ -21,7 +21,7 @@
     %p.ingress
       %strong= t('admin2.stripe.start_using_onboarding')
     %p.small-ingress{:style => "padding-left: 16px; margin-bottom: 32px;"}
-      = t('admin2.stripe.onboarding_describe', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/6921884").html_safe
+      = t('admin2.stripe.onboarding_describe', url: "#{APP_CONFIG.knowledge_base_url}/#heading=h.ba7g0spowscj").html_safe
       %br
       - url_onboarding = link_to t('admin2.stripe.enable_stripe_connect_onboarding'), '#', 'data-toggle': 'modal', 'data-target': '#confirmStripeConnectOnboardingEnableModal'
       = t('admin2.stripe.enable_stripe_connect_onboarding_link', url: url_onboarding).html_safe

@@ -12,7 +12,7 @@
 = render layout: "layouts/lightbox", locals: { id: "payment_choose_popup_content"} do
   - text_with_line_breaks_html_safe do
     = t("admin.payment_preferences.choose_popup_text")
-  - help_url = "#{APP_CONFIG[:knowledge_base_url]}/differences-between-stripe-and-paypal"
+  - help_url = "#{APP_CONFIG[:knowledge_base_url]}/#heading=h.1t23qgqd07fe"
   = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), help_url,  target: "_blank"
 
 - content_for :extra_javascript do

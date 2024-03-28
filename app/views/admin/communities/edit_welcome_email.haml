@@ -33,7 +33,7 @@
       %p= t("admin.communities.outgoing_email.info")
 
       %p
-        = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", target: :_blank)
+        = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/#heading=h.nyzqn09g7ne3", target: :_blank)
 
   - content_for(:sender_address_preview) do
     - if sender_address[:type] == :default

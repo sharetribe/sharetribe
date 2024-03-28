@@ -14,7 +14,7 @@
   = form_for :email, :url => admin_community_emails_path(:community_id => @current_community.id), :html => { :id => "new_member_email" } do |form|
     = form.label :recipients, t(".recipients.title")
     - if @display_knowledge_base_articles
-      - article_link = link_to(t("admin.emails.new.send_email_article_title"), "#{@knowledge_base_url}/send-email-to-a-part-of-your-users" , target: "_blank")
+      - article_link = link_to(t("admin.emails.new.send_email_article_title"), "#{@knowledge_base_url}/#heading=h.dzcrduxcpoen" , target: "_blank")
       - article_text = t("admin.emails.new.send_email_article_text", article_link: article_link).html_safe
       = render :partial => "layouts/permanent_notification", :locals => { :text => article_text }
 

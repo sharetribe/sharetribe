@@ -26,7 +26,7 @@
         .col-12
           = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
           - link = link_to t('.column_icon_info_link'),
-            'https://help.sharetribe.com/en/articles/3597471',
+            'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.gziy0oc3a19p',
             target: '_blank'
           = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info", link: link).html_safe }
           = text_field_tag "section[columns][#{index}][icon]", column['icon']

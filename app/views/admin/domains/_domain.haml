@@ -6,12 +6,12 @@
 
     %p= t("admin.communities.domain.you_can_now_enable_a_custom_domain")
 
-    %p= link_to t("admin.communities.domain.read_more_about_the_set_up_of_your_custom_domain"), "#{APP_CONFIG.knowledge_base_url}/en/articles/1641394", target: '_blank'
+    %p= link_to t("admin.communities.domain.read_more_about_the_set_up_of_your_custom_domain"), "#{APP_CONFIG.knowledge_base_url}/#heading=h.ap05u1in7kkf", target: '_blank'
 
 .row
   .col-12
     %h3= t("admin.communities.domain.set_custom_domain")
     - link = link_to t("admin.communities.domain.instructions_to_point_your_domain"),
-      "#{APP_CONFIG.knowledge_base_url}/en/articles/666106", target: '_blank'
+      "#{APP_CONFIG.knowledge_base_url}/#heading=h.wjrb9ccyih5k", target: '_blank'
     = t("admin.communities.domain.in_order_to_set_your_custom_domain", link: link).html_safe
 

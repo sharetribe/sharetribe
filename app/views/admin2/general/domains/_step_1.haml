@@ -7,7 +7,7 @@
   %section.content-card-section
     %h2= t('admin2.domain.custom_domain')
     %p.ingress
-      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+      = t('admin2.domain.set_custom_domain_info', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.wjrb9ccyih5k').html_safe
     .form-group
       = label_tag :domain, t('admin2.domain.custom_domain')
       = text_field_tag :domain, '', placeholder: 'www.example.com', class:%i[form-control], remove_protocol: true, valid_domain: true, 'data-msg-valid_domain': t('errors.messages.domain_name_is_invalid')

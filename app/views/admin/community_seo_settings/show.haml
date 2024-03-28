@@ -17,7 +17,7 @@
     .row
       %h3= t('admin.communities.seo_settings.meta_title_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:homepage_title)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_title_info', link: "", vars: @seo_service.i18n_variables(:homepage_title)) }
@@ -40,7 +40,7 @@
     .row
       %h3= t('admin.communities.seo_settings.meta_description_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:homepage_description)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_description_info', link: "", vars: @seo_service.i18n_variables(:homepage_description)) }
@@ -64,7 +64,7 @@
     .row
       %h3= t('admin.communities.seo_settings.search_meta_title_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:search_meta_title)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_title_info', link: "", vars: @seo_service.i18n_variables(:search_meta_title)) }
@@ -87,7 +87,7 @@
     .row
       %h3= t('admin.communities.seo_settings.search_meta_description_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:search_meta_description)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_description_info', link: "", vars: @seo_service.i18n_variables(:search_meta_description)) }
@@ -111,7 +111,7 @@
     .row
       %h3= t('admin.communities.seo_settings.listing_meta_title_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:listing_meta_title)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_title_info', link: "", vars: @seo_service.i18n_variables(:listing_meta_title)) }
@@ -134,7 +134,7 @@
     .row
       %h3= t('admin.communities.seo_settings.listing_meta_description_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:listing_meta_description)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_description_info', link: "", vars: @seo_service.i18n_variables(:listing_meta_description)) }
@@ -158,7 +158,7 @@
     .row
       %h3= t('admin.communities.seo_settings.category_meta_title_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:category_meta_title)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_title_info', link: "", vars: @seo_service.i18n_variables(:category_meta_title)) }
@@ -181,7 +181,7 @@
     .row
       %h3= t('admin.communities.seo_settings.category_meta_description_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:category_meta_description)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_description_info', link: "", vars: @seo_service.i18n_variables(:category_meta_description)) }
@@ -205,7 +205,7 @@
     .row
       %h3= t('admin.communities.seo_settings.profile_meta_title_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:profile_meta_title)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_title_info', link: "", vars: @seo_service.i18n_variables(:profile_meta_title)) }
@@ -228,7 +228,7 @@
     .row
       %h3= t('admin.communities.seo_settings.profile_meta_description_label')
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.lyf7ui4euz9h", target: '_blank'
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:profile_meta_description)).html_safe }
       - else
         = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_description_info', link: "", vars: @seo_service.i18n_variables(:profile_meta_description)) }
@@ -252,7 +252,7 @@
       %h2= t('admin.communities.seo_settings.sitemap_label')
 
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.sitemap_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-sitemapxml-file-for-my-marketplace", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.sitemap_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.f7tjqq8byv2n", target: '_blank'
         %p= t('admin.communities.seo_settings.sitemap_info', link: meta_info_link).html_safe
       - else
         %p= t('admin.communities.seo_settings.sitemap_info', link: "")
@@ -268,7 +268,7 @@
       %h2= t('admin.communities.seo_settings.robots_label')
 
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.robots_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-robotstxt-file-for-my-marketplace", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.robots_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.onsmxtk8z1am", target: '_blank'
         %p= t('admin.communities.seo_settings.robots_info', link: meta_info_link).html_safe
       - else
         %p= t('admin.communities.seo_settings.robots_info', link: "")
@@ -285,7 +285,7 @@
       %p= t('admin.communities.seo_settings.google_search_console_paragraph1')
 
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.google_search_console_these_instructions'), "#{APP_CONFIG.knowledge_base_url}/en/articles/674140", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.google_search_console_these_instructions'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.48hd1tdifyjk", target: '_blank'
         %p= t('admin.communities.seo_settings.google_search_console_paragraph2', link: meta_info_link).html_safe
       - else
         %p= t('admin.communities.seo_settings.google_search_console_paragraph2', link: "")
