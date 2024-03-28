@@ -337,7 +337,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.help_center"),
         :icon_class => icon_class("help"),
-        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :path => "#{APP_CONFIG.knowledge_base_url}",
         :name => "help_center",
         :target => "_blank"
       },

@@ -4,7 +4,7 @@
           regex: regex_definition_to_js(APP_CONFIG.stripe_publishable_key_pattern),
           data: {'msg-regex': t('admin2.stripe.invalid_publishable', publishable_key: 'publishable key')}
   %small#stripePublishableKey-help.form-text
-    = t('admin2.stripe.how_to_get_publishable_key', url: "#{APP_CONFIG.knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace").html_safe
+    = t('admin2.stripe.how_to_get_publishable_key', url: "#{APP_CONFIG.knowledge_base_url}/#heading=h.9ubaacl6lg9a").html_safe
 
 .form-group
   = form.label :api_private_key, t('admin2.stripe.api_private_key')
@@ -13,7 +13,7 @@
           data: {'msg-regex': t('admin2.stripe.invalid_secret', secret_key: 'secret key')},
           autocomplete: 'off'
   %small#stripeSecretKey-help.form-text
-    = t('admin2.stripe.how_to_get_secret_key', url: "#{APP_CONFIG.knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace").html_safe
+    = t('admin2.stripe.how_to_get_secret_key', url: "#{APP_CONFIG.knowledge_base_url}/#heading=h.9ubaacl6lg9a").html_safe
 
 :javascript
   $.validator.addMethod(

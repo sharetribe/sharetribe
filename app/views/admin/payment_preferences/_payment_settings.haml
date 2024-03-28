@@ -12,13 +12,13 @@
             = t("admin.payment_preferences.connect_a_payment_provider")
           - if !stripe_allowed && !paypal_allowed
             - support_link = link_to t("admin.payment_preferences.contact_support"), "mailto:#{support_email}"
-            - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/currencies-supported-in-a-sharetribe-marketplace", target: "_blank"
+            - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/#heading=h.9smhn8tydj4d", target: "_blank"
             = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
           - else
             - if stripe_allowed && paypal_allowed && stripe_enabled && paypal_enabled
               - popup_link = link_to t("admin.payment_preferences.which_to_choose"), '#', id: "choose_payment_popup_link"
               = t("admin.payment_preferences.you_can_use_stripe_or_paypal", choose_link: popup_link).html_safe
-              - learn_more = link_to(t('layouts.branding.learn_more'), " #{knowledge_base_url}/how-to-delay-payments-and-hold-funds-with-stripe", target: "_blank")
+              - learn_more = link_to(t('layouts.branding.learn_more'), " #{knowledge_base_url}/#heading=h.ho2ayrdjnti2", target: "_blank")
               - help_text = t('admin.communities.settings.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
               = render partial: 'layouts/info_text', locals: { text: help_text }
 
@@ -28,7 +28,7 @@
               = render layout: "layouts/lightbox", locals: { id: "payment_choose_popup_content"} do
                 - text_with_line_breaks_html_safe do
                   = t("admin.payment_preferences.choose_popup_text")
-                - help_url = "#{knowledge_base_url}/differences-between-stripe-and-paypal"
+                - help_url = "#{knowledge_base_url}#heading=h.1t23qgqd07fe"
                 = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), help_url,  target: "_blank"
 
               - content_for :extra_javascript do
@@ -36,17 +36,17 @@
                   $('#choose_payment_popup_link').click(function() { $('#payment_choose_popup_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
             - elsif paypal_allowed && paypal_enabled
-              - paypal_kb_link = link_to t("admin.payment_preferences.read_more_paypal"), "#{knowledge_base_url}/payment-with-paypal/guide-to-getting-started-with-paypal-payments", target: "_blank"
+              - paypal_kb_link = link_to t("admin.payment_preferences.read_more_paypal"), "#{knowledge_base_url}/#heading=h.ydz2175vgpv", target: "_blank"
               = t("admin.payment_preferences.you_can_use_paypal_only", read_more_link: paypal_kb_link).html_safe
             - elsif stripe_allowed && stripe_enabled
-              - stripe_kb_link = link_to t("admin.payment_preferences.read_more_stripe"), "#{knowledge_base_url}/differences-between-stripe-and-paypal", target: "_blank"
+              - stripe_kb_link = link_to t("admin.payment_preferences.read_more_stripe"), "#{knowledge_base_url}/#heading=h.1t23qgqd07fe", target: "_blank"
               = t("admin.payment_preferences.you_can_use_stripe_only", read_more_link: stripe_kb_link).html_safe
-              - learn_more = link_to(t('layouts.branding.learn_more'), " #{knowledge_base_url}/how-to-delay-payments-and-hold-funds-with-stripei", target: "_blank")
+              - learn_more = link_to(t('layouts.branding.learn_more'), " #{knowledge_base_url}/#heading=h.ho2ayrdjnti2", target: "_blank")
               - help_text = t('admin.communities.settings.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
               = render partial: 'layouts/info_text', locals: { text: help_text }
             - else
               - support_link = link_to t("admin.payment_preferences.contact_support"), "mailto:#{support_email}"
-              - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/supported-payments-currencies", target: "_blank"
+              - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/#heading=h.9smhn8tydj4d", target: "_blank"
               = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
 
             .row.connect-row
@@ -121,7 +121,7 @@
       - if stripe_enabled && stripe_allowed
         .tab-content.hidden#stripe_tab
           - if !stripe_connected
-            - stripe_keys_link = "#{knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace"
+            - stripe_keys_link = "#{knowledge_base_url}/#heading=h.9ubaacl6lg9a"
             = render partial: 'stripe_form', locals: {stripe_account: stripe_account, stripe_api_form: stripe_api_form, stripe_keys_link: stripe_keys_link}
           - else
             = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}

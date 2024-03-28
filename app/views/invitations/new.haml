@@ -9,7 +9,7 @@
 
 = render partial: 'layouts/onboarding_popup_wrapper'
 #invitation_form.centered-section
-  - support_link = link_to(t("homepage.invitation_form.this_article_link"), "#{knowledge_base_url}/configuration-and-how-to/how-to-send-mass-emails-and-invitations", target: "_blank")
+  - support_link = link_to(t("homepage.invitation_form.this_article_link"), "#{knowledge_base_url}/#heading=h.4d9lzshxwhob", target: "_blank")
   %p= t("homepage.invitation_form.add_email_addresses_description")
   - if has_admin_rights
     %p= t("homepage.invitation_form.add_lots_of_email_addresses", this_article_link: support_link).html_safe

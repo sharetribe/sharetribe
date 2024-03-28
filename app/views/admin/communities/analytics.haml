@@ -14,7 +14,7 @@
     .row
       .col-6
         - if display_knowledge_base_articles
-          - instructions_link = link_to(t("admin.communities.analytics.google_analytics_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-track-your-marketplace-traffic-with-google-analytics", target: '_blank')
+          - instructions_link = link_to(t("admin.communities.analytics.google_analytics_instructions_link_text"), "#{knowledge_base_url}/#heading=h.5u75z4p0a0xm", target: '_blank')
           = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text_with_instructions", :instructions_link => instructions_link).html_safe }
         - else
           = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text") }
@@ -28,7 +28,7 @@
     .row
       .col-12
         - link = link_to t('.learn_how_to_configure_gtm'),
-          "#{knowledge_base_url}/en/articles/2529555", target: '_blank'
+          "#{knowledge_base_url}/#heading=h.61m1mnnhqavt", target: '_blank'
         = t('.gtm_paragraph_2', link: link).html_safe
     .row
       = form.button t("admin.communities.analytics.save")

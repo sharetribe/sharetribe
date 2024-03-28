@@ -35,7 +35,7 @@
             listing_title: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ,
             buyer: link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))).html_safe
         - elsif pr.disputed?
-          - learn_more_link = link_to t('.learn_more'), "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573", target: '_blank'
+          - learn_more_link = link_to t('.learn_more'), "#{APP_CONFIG.knowledge_base_url}/#heading=h.e6ap8narkgk6", target: '_blank'
           = t(".you_should_investigate", learn_more_link: learn_more_link).html_safe
     .row
       .col-12

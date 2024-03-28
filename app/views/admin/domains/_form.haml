@@ -8,7 +8,7 @@
   .col-12
     %h3= t("admin.communities.domain.main_domain")
     - link = link_to link_to t("admin.communities.domain.main_domain_link_text"),
-      "#{APP_CONFIG.knowledge_base_url}/en/articles/666106", target: '_blank'
+      "#{APP_CONFIG.knowledge_base_url}/#heading=h.wjrb9ccyih5k", target: '_blank'
     = render partial: 'layouts/info_text',
       locals: { text: t("admin.communities.domain.main_domain_info_text", link: link).html_safe }
 
