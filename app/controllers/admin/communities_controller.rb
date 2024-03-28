@@ -76,7 +76,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
         when Some(:invalid_email_address)
           t('admin.communities.outgoing_email.invalid_email_address')
         when Some(:invalid_domain)
-          kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/#heading=h.nyzqn09g7ne3", class: "flash-error-link") # rubocop:disable Layout/LineLength
+          kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/#heading=h.nyzqn09g7ne3", class: "flash-error-link")
           t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
         else
           t("admin.communities.outgoing_email.unknown_error")
