@@ -86,18 +86,14 @@ module MarketplaceRouter
   ERROR_MESSAGES = {
     closed: {
       title: "Whoops, the %{community_name} marketplace no longer exists here!",
-      description: "Unfortunately the %{community_name} team has decided to close their Sharetribe-powered platform, and it is no longer available.",
-      cta_intro: "Create your own online marketplace:",
-      cta: "Visit www.sharetribe.com",
-      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect"
+      description: "Unfortunately the %{community_name} team has decided to close their platform, and it is no longer available.",
+      sharetribe_promo: "The %{community_name} marketplace was powered by the marketplace software called Sharetribe. If you'd like to build your own marketplace like %{community_name} you should give Sharetribe a try."
     },
 
     deleted: {
       title: "Whoops, the %{community_name} marketplace no longer exists here!",
-      description: "Unfortunately the %{community_name} team has decided to close their Sharetribe-powered platform, and it is no longer available.",
-      cta_intro: "Create your own online marketplace:",
-      cta: "Visit www.sharetribe.com",
-      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=dl-manual-redirect"
+      description: "Unfortunately the %{community_name} team has decided to close their platform, and it is no longer available.",
+      sharetribe_promo: "The %{community_name} marketplace was powered by the marketplace software called Sharetribe. If you'd like to build your own marketplace like %{community_name} you should give Sharetribe a try."
     },
 
     hold: {

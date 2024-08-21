@@ -37,26 +37,9 @@ body {
   width: 450px;
   max-width: 95%;
 }
-.cta-wrapper {
+.sharetribe_promo-wrapper {
   margin-top: 100px;
   text-align: center;
-}
-.cta, .cta:link, .cta:visited {
-  letter-spacing: 0.04em;
-  font-weight: 400;
-  font-size: 18px;
-  border-radius: 5px;
-  background: #ed4f2e;
-  color: #FFF;
-  padding: 16px 26px;
-  border: 1px solid #ed4f2e;
-  text-decoration: none;
-}
-.cta:hover, .cta:active {
-  transition: all .2s ease-in-out;
-  background: #2a3d4b;
-  color: #FFF;
-  border: 1px solid #2a3d4b;
 }
 </style>
 <body>
@@ -79,10 +62,9 @@ body {
   </div>
   <div class="title"><%= message[:title] %></div>
   <div class="description <%= message[:reason] %>"><%= message[:description] %></div>
-  <% if message[:cta].present? %>
-    <div class="cta-wrapper">
-      <p class="description"><%= message[:cta_intro] %></p>
-      <a class="cta" href="<%= message[:cta_url] %>" rel="nofollow"><%= message[:cta] %></a>
+  <% if message[:sharetribe_promo].present? %>
+    <div class="sharetribe_promo-wrapper">
+      <p class="description"><%= message[:sharetribe_promo] %></p>
     </div>
   <% end %>
 </body>
