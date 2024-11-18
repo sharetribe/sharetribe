@@ -177,7 +177,7 @@ describe ApplicationController, type: :controller do
       request.env[:current_marketplace] = community
 
       get :not_available
-      expect(response.body).to match(/team has decided to close their Sharetribe-powered platform/)
+      expect(response.body).to match(/the Sharetribe marketplace no longer exists here/)
     end
 
     it "renders message on request to /not_available for closed community" do
@@ -203,7 +203,7 @@ describe ApplicationController, type: :controller do
       request.env[:current_plan] = {status: :active, expired: false, closed: true}
 
       get :not_available
-      expect(response.body).to match(/team has decided to close their Sharetribe-powered platform/)
+      expect(response.body).to match(/the Sharetribe marketplace no longer exists here/)
     end
 
     it "renders message on request to /not_available for community on hold" do
