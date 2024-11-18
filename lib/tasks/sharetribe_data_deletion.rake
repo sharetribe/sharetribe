@@ -284,20 +284,26 @@ namespace :sharetribe do
     end
 
     puts "Deleting profile images..."
-    Person.where(community_id: community.id).flat_map { |p|
-      p.image.present? && p.image.styles.map { |s, _| {key: p.image.s3_object(s).key} }
-    }.select { |o| o }.each_slice(1000) { |objects|
-      puts "  batch: #{objects.count}"
+    # Note the lazy sequence. Be careful with modifications as certain things
+    # can cause the first body to evaluate twice. For instance adding .count in
+    # the end.
+    Person.where(community_id: community.id).in_batches(of: 1000).lazy.flat_map { |people|
+      people.flat_map { |p| p.image.present? && p.image.styles.map { |s, _| {key: p.image.s3_object(s).key} }}
+    }.select { |o| o }.each_slice(1000).each_with_index { |objects, i|
+      puts "  batch #{i}: #{objects.count}"
       s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
     }
 
     puts "Deleting listing images..."
-    Listing.where(community_id: community.id).flat_map { |l|
-      l.listing_images.select { |i| i.image.present? }
+    # Note the lazy sequence. Be careful with modifications as certain things
+    # can cause the first body to evaluate twice. For instance adding .count in
+    # the end.
+    Listing.where(community_id: community.id).in_batches(of: 1000).lazy.flat_map { |listings|
+      listings.flat_map { |l| l.listing_images.select { |i| i.image.present? }}
     }.flat_map { |i|
       i.image.styles.map { |s, _| {key: i.image.s3_object(s).key }}
-    }.each_slice(1000) { |objects|
-      puts "  batch: #{objects.count}"
+    }.each_slice(1000).each_with_index{ |objects, i|
+      puts "  batch #{i}: #{objects.count}"
       s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
     }
   end
