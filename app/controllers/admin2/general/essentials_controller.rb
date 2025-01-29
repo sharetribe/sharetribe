@@ -18,11 +18,9 @@ module Admin2::General
     def update_essential
       update_results = []
       slogan_and_description_before = slogan_and_description_present?(@current_community.community_customizations)
-      analytic = AnalyticService::CommunityCustomizations.new(user: @current_user, community: @current_community)
       @current_community.locales.map do |locale|
         customizations = find_or_initialize_customizations_for_locale(locale)
         customizations.assign_attributes(community_custom_params(locale))
-        analytic.process(customizations)
         update_results.push(customizations.update({}))
       end
       update_results.push(@current_community.update(community_params))
@@ -35,7 +33,6 @@ module Admin2::General
           MarketplaceService.set_locales(@current_community, enabled_locales)
         end
       end
-      analytic.send_properties
 
       if update_results.all? && (!process_locales || enabled_locales_valid)
         slogan_and_description_after = slogan_and_description_present?(@current_community.community_customizations.reload)
