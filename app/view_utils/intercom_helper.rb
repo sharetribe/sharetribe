@@ -89,11 +89,8 @@ module IntercomHelper
     marketplace = user_model.community
 
     {
-      info_user_id_old: user_model.id,
-      info_marketplace_id: marketplace.uuid_object.to_s,
       info_marketplace_id_old: marketplace.id,
-      info_marketplace_url: marketplace.full_url,
-      info_email_confirmed: user_model.primary_email.present?
+      info_marketplace_url: marketplace.full_url
     }
   end
 

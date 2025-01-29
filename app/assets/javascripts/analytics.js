@@ -121,13 +121,7 @@ window.ST.analytics = (function(){
         name: info.user_name,
         // Custom attributes ('info_' prefix)
         info_plan_status: info.plan_status,
-        info_plan_features: info.plan_features,
-        info_plan_member_limit: info.plan_member_limit,
-        info_plan_created_at: info.plan_created_at,
-        info_plan_updated_at: info.plan_updated_at,
-        info_plan_expires_at: info.plan_expires_at,
-        info_feature_flags: info.feature_flags,
-        info_trial_creation_status: "complete"
+        info_plan_features: info.plan_features
       }, info.identity_information);
       /*jshint ignore:start*/
       (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l(),false);}}})();
