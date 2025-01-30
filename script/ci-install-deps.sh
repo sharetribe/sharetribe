@@ -2,6 +2,9 @@
 
 set -eo pipefail
 
+# Google APT key signatures have changed and we need to update the key for apt
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo tee /etc/apt/trusted.gpg.d/google.asc >/dev/null
+
 sudo ./script/setup-mysql-apt-repo.sh
 
 sudo apt-get install libmysqlclient-dev mysql-community-client sphinxsearch
