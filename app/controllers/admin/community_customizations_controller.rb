@@ -20,7 +20,6 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
 
   def update_details
     update_results = []
-    analytic = AnalyticService::CommunityCustomizations.new(user: @current_user, community: @current_community)
 
     customizations = @current_community.locales.map do |locale|
       permitted_params = [
@@ -34,7 +33,6 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
       locale_params = params.require(:community_customizations).require(locale).permit(*permitted_params)
       customizations = find_or_initialize_customizations_for_locale(locale)
       customizations.assign_attributes(locale_params)
-      analytic.process(customizations)
       update_results.push(customizations.update({}))
       customizations
     end
@@ -59,7 +57,6 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
     show_description = Maybe(params)[:community][:show_description].is_some?
     update_results.push(@current_community.update(show_description: show_description))
 
-    analytic.send_properties
     if update_results.all? && (!process_locales || enabled_locales_valid)
 
       # Onboarding wizard step recording

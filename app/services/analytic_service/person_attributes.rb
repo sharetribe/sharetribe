@@ -11,23 +11,7 @@ module AnalyticService
       result = {}
       if community
         result[INFO_MARKETPLACE_IDENT] = community.ident
-        result[ADMIN_CREATED_LISTING_FIELD] =  community.custom_fields.any?
-        result[ADMIN_CREATED_LISTING] = person.listings.where(community_id: community.id).any?
-        result[ADMIN_INVITED_USER] = person.invitations.where(community_id: community.id).any?
-        result[ADMIN_CONFIGURED_FACEBOOK_CONNECT] = community.facebook_connect_id.present? &&
-                                                    community.facebook_connect_secret.present?
-        result[ADMIN_CONFIGURED_OUTGOING_EMAIL] = community.marketplace_sender_emails.verified.any?
-        result[ORDER_TYPE_ONLINE_PAYMENT] = listing_shapes_online_payment
-        result[ORDER_TYPE_NO_ONLINE_PAYMENTS] = listing_shapes_no_online_payment
-        result[ADMIN_CONFIGURED_PAYPAL_ACOUNT] = configured_paypal_account(community)
-        result[ADMIN_CONFIGURED_PAYPAL_FEES] = configured_fees(community, 'paypal')
-        result[ADMIN_CONFIGURED_STRIPE_API] = configured_stripe_account(community)
-        result[ADMIN_CONFIGURED_STRIPE_FEES] = configured_fees(community, 'stripe')
-        result[PAYMENT_PROVIDERS_AVAILABLE] = payment_providers(result)
       end
-      result[ADMIN_CONFIRMED_EMAIL] = person.emails.confirmed.any?
-      result[ADMIN_DELETED_MARKETPLACE] = Community.where(id: CommunityMembership.accepted.admin.where(person_id: person.id)
-        .pluck(:community_id)).where(deleted: true).any?
       result.stringify_keys
     end
 
