@@ -108,7 +108,7 @@ jobs:
 
       - name: Configure AWS credentials
         id: configure_aws_credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -138,7 +138,7 @@ jobs:
         run: echo "image=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${RELEASE}" >> $GITHUB_OUTPUT
 
       - name: Login to AWS ECR
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@2fc7aceee09e9e4a7105c0d060c656fad0b4f63d # v1
 
       - name: Asset cache
         uses: actions/cache@v2
