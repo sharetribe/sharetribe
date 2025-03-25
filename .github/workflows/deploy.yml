@@ -141,7 +141,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@2fc7aceee09e9e4a7105c0d060c656fad0b4f63d # v1
 
       - name: Asset cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./assets.tar.gz
           # The key should include hash of all files that affect the asset build
