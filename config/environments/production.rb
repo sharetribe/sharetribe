@@ -89,7 +89,7 @@ Rails.application.configure do
                           compress: true,
                           timeout: 1,
                           url: "redis://#{ENV["redis_host"]}:#{ENV["redis_port"]}/#{ENV["redis_db"]}",
-                          expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
+                          expires_in: (ENV["redis_expires_in"] || 240).to_i # default, 4 hours in minutes
                         }]
 
   # Compress JavaScript and CSS
