@@ -3,21 +3,21 @@ require 'spec_helper'
 # Override the API with test API
 require_relative '../../services/plan_service/api/api'
 
-describe IntApi::MarketplacesController, type: :controller do
+describe IntAPI::MarketplacesController, type: :controller do
 
   before(:each) do
-    PlanService::API::Api.reset!
-    PlanService::API::Api.set_environment({active: true})
+    PlanService::API::API.reset!
+    PlanService::API::API.set_environment({active: true})
   end
 
   after(:each) do
-    PlanService::API::Api.reset!
-    PlanService::API::Api.set_environment({active: false})
+    PlanService::API::API.reset!
+    PlanService::API::API.set_environment({active: false})
   end
 
   def expect_trial_plan(cid)
     # Create trial plan
-    plan = PlanService::API::Api.plans.get_current(community_id: cid).data
+    plan = PlanService::API::API.plans.get_current(community_id: cid).data
     expect(plan[:expires_at]).not_to eq(nil)
   end
 
@@ -50,7 +50,7 @@ describe IntApi::MarketplacesController, type: :controller do
       default_per_unit = {kind: "quantity", name_tr_key: nil, quantity_selector: "number", selector_tr_key: nil, unit_type: "unit"}
       expect(s.units.first).to eql default_per_unit
 
-      payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: :paypal)
+      payment_settings = TransactionService::API::API.settings.get_active_by_gateway(community_id: c.id, payment_gateway: :paypal)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
       expect(payment_settings[:data][:payment_process]).to eql :preauthorize
 
@@ -64,7 +64,7 @@ describe IntApi::MarketplacesController, type: :controller do
 
       expect_trial_plan(c.id)
 
-      stripe_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: 'stripe')[:data]
+      stripe_settings = TransactionService::API::API.settings.get_active_by_gateway(community_id: c.id, payment_gateway: 'stripe')[:data]
       expect(stripe_settings[:payment_gateway]).to eql :stripe
       expect(stripe_settings[:payment_process]).to eql :preauthorize
       expect(stripe_settings[:key_encryption_padding]).to eql true

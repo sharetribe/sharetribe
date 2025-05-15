@@ -105,7 +105,7 @@ module Admin2::Listings
     end
 
     def order
-      params[:ids]&.each do |index, object|
+      params[:ids]&.each do |_index, object| # rubocop:disable Style/HashEachMethods
         ListingShape.find(object['id']).update(sort_priority: object['position'])
       end
       head :ok
@@ -119,7 +119,7 @@ module Admin2::Listings
     end
 
     def processes
-      @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+      @processes ||= TransactionService::API::API.processes.get(community_id: @current_community.id)[:data]
     end
 
     private

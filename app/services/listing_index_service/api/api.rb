@@ -1,5 +1,5 @@
 module ListingIndexService::API
-  class Api
+  class API
     class << self
       attr_accessor(
         :listings_api

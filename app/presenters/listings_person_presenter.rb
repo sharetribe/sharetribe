@@ -15,7 +15,7 @@ class ListingsPersonPresenter
     }
 
     @listings =
-      ListingIndexService::API::Api
+      ListingIndexService::API::API
       .listings
       .search(
         community_id: community.id,

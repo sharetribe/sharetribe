@@ -38,9 +38,9 @@ describe NewLayoutViewUtils do
           }
         )
 
-        allow(FeatureFlagService::API::Api.features).to receive(:get_for_person)
+        allow(FeatureFlagService::API::API.features).to receive(:get_for_person)
           .with({community_id: community_id, person_id: person_id}).and_return(Result::Success.new(person_features))
-        allow(FeatureFlagService::API::Api.features).to receive(:get_for_community)
+        allow(FeatureFlagService::API::API.features).to receive(:get_for_community)
           .with({community_id: community_id}).and_return(Result::Success.new(community_features))
       end
 
@@ -90,9 +90,9 @@ describe NewLayoutViewUtils do
           }
         )
 
-        allow(FeatureFlagService::API::Api.features).to receive(:get_for_person)
+        allow(FeatureFlagService::API::API.features).to receive(:get_for_person)
           .with({community_id: community_id, person_id: person_id}).and_return(Result::Success.new(person_features))
-        allow(FeatureFlagService::API::Api.features).to receive(:get_for_community)
+        allow(FeatureFlagService::API::API.features).to receive(:get_for_community)
           .with({community_id: community_id}).and_return(Result::Success.new(community_features))
       end
 

@@ -157,7 +157,7 @@ class SeoService
     when LOCATION_SEARCHED
       @params ? @params[:lq] : nil
     when LISTING_TITLE
-      @listing ? @listing.title : nil
+      @listing&.title
     when LISTING_AUTHOR
       @listing ? PersonViewUtils.person_display_name(@listing.author, @community) : nil
     when LISTING_PRICE
@@ -172,7 +172,7 @@ class SeoService
         end
       end
     when CATEGORY_NAME
-      @category ? @category.display_name(locale) : nil
+      @category&.display_name(locale)
     when USER_DISPLAY_NAME
       @user ? PersonViewUtils.person_display_name(@user, @community) : nil
     end

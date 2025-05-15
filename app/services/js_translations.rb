@@ -1,4 +1,4 @@
-module JSTranslations
+module JsTranslations
   module_function
 
   # Give array of keys and get back hash of translated but uninterpolated key/value hash.

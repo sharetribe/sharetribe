@@ -106,7 +106,7 @@ else
 end
 
 def create_admin_for(community)
-  person = FactoryGirl.create(:person, community_id: community.id)
+  person = FactoryBot.create(:person, community_id: community.id)
   members_count = community.community_memberships.count
   admins_length = community.admins.length
   membership = CommunityMembership.create(community: community, person: person) do |membership|
@@ -115,5 +115,5 @@ def create_admin_for(community)
   community.reload
   expect(community.members.count).to eql(members_count + 1)
   expect(community.admins.length).to eql(admins_length + 1)
-  return person
+  person
 end

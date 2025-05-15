@@ -23,7 +23,7 @@ describe MarketplaceService do
     end
 
     it "should find a free domain, if intitial domain is taken" do
-      FactoryGirl.create(:community, :ident => "common")
+      FactoryBot.create(:community, :ident => "common")
 
       c = create(@community_params.merge!({:marketplace_name => "Common"}))
       expect(c.ident). to eql "common1"
@@ -99,7 +99,7 @@ describe MarketplaceService do
     it "should have preauthorize_payments enabled" do
       community = create(@community_params)
       c = Community.find(community.id)
-      processes = TransactionService::API::Api.processes
+      processes = TransactionService::API::API.processes
                   .get(community_id: c.id).data
         .map { |p| {:author_is_seller => p.author_is_seller, :process => p.process} }
       expect(processes.size).to eq 3
@@ -111,7 +111,7 @@ describe MarketplaceService do
     it "should create marketplace without payment process" do
       community = create(@community_params.merge(payment_process: :none))
       c = Community.find(community.id)
-      processes = TransactionService::API::Api.processes
+      processes = TransactionService::API::API.processes
                   .get(community_id: c.id).data
         .map { |p| {:author_is_seller => p.author_is_seller, :process => p.process} }
       expect(processes.size).to eq 2

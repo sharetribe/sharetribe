@@ -9,7 +9,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
     }.sort_by { |l| l[:translated_name] }
     enabled_locale_keys = available_locales.map(&:second)
 
-    @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
+    @show_transaction_agreement = TransactionService::API::API.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Cannot find transaction process: #{opts}") if p.nil? }

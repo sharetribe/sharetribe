@@ -20,17 +20,17 @@
   .col-12
     %label
       = form.radio_button :cta_button_type,
-        LandingPageVersion::Section::Hero::BUTTON_TYPE_DEFAULT,
+        LandingPageVersions::Section::Hero::BUTTON_TYPE_DEFAULT,
         cta_button_type_radio: true
       = t(".button_type.default")
     %label
       = form.radio_button :cta_button_type,
-        LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON,
+        LandingPageVersions::Section::Hero::BUTTON_TYPE_BUTTON,
         cta_button_type_radio: true
       = t(".button_type.button")
     %label
       = form.radio_button :cta_button_type,
-        LandingPageVersion::Section::Hero::BUTTON_TYPE_NONE,
+        LandingPageVersions::Section::Hero::BUTTON_TYPE_NONE,
         cta_button_type_radio: true
       = t(".button_type.none")
 

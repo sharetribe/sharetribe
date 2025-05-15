@@ -299,7 +299,7 @@ class TransactionMailer < ActionMailer::Base
     @current_community = community
     @recipient = recipient
     @url_params = build_url_params(community, recipient)
-    @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
+    @show_branding_info = !PlanService::API::API.plans.get_current(community_id: community.id).data[:features][:whitelabel]
   end
 
   def mail_params(recipient, community, subject)

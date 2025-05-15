@@ -1,4 +1,4 @@
-module LandingPageVersion::DataStructure
+module DataStructure
   extend ActiveSupport::Concern
 
   def sections
@@ -7,38 +7,38 @@ module LandingPageVersion::DataStructure
     sections = []
     parsed_content['sections'].each do |content_section|
       case content_section['kind']
-      when LandingPageVersion::Section::HERO
-        sections << LandingPageVersion::Section::Hero.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::HERO
+        sections << LandingPageVersions::Section::Hero.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::FOOTER
-        sections << LandingPageVersion::Section::Footer.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::FOOTER
+        sections << LandingPageVersions::Section::Footer.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::INFO
-        sections << LandingPageVersion::Section::Info.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::INFO
+        sections << LandingPageVersions::Section::Info.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::LISTINGS
-        sections << LandingPageVersion::Section::Listings.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::LISTINGS
+        sections << LandingPageVersions::Section::Listings.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::CATEGORIES
-        sections << LandingPageVersion::Section::Categories.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::CATEGORIES
+        sections << LandingPageVersions::Section::Categories.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::LOCATIONS
-        sections << LandingPageVersion::Section::Locations.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::LOCATIONS
+        sections << LandingPageVersions::Section::Locations.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-      when LandingPageVersion::Section::VIDEO
-        sections << LandingPageVersion::Section::Video.new_from_content(content_section.merge(
+      when LandingPageVersions::Section::VIDEO
+        sections << LandingPageVersions::Section::Video.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
@@ -61,7 +61,7 @@ module LandingPageVersion::DataStructure
       attrs = existing_section.slice('id', 'kind', 'variation')
       attrs['position'] = index
       attrs['columns'] = existing_section['columns']&.count
-      section_positions << LandingPageVersion::SectionPosition.new(attrs)
+      section_positions << SectionPosition.new(attrs)
     end
     @section_positions = section_positions
   end

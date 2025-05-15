@@ -73,6 +73,15 @@ module ApplicationHelper
     haml_concat add_links(capture_haml(&block)).html_safe
   end
 
+  def haml_concat(text)
+    if respond_to?(:concat)
+      concat(text.to_s)
+    else
+      text.to_s
+    end
+    nil
+  end
+
   def small_avatar_thumb(person, avatar_html_options={})
     avatar_thumb(:thumb, person, avatar_html_options)
   end
@@ -752,7 +761,7 @@ module ApplicationHelper
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
   # with `ST.t` function
   def js_t(keys, run_js_immediately=false)
-    js = javascript_tag("ST.loadTranslations(#{JSTranslations.load(keys).to_json})")
+    js = javascript_tag("ST.loadTranslations(#{JsTranslations.load(keys).to_json})")
     if run_js_immediately
       js
     else

@@ -42,8 +42,8 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     process_token = params[:process_token]
     listing_id = params[:listing_id]
 
-    proc_status = PaypalService::API::Api.process.get_status(process_token)
-    unless (proc_status[:success] && proc_status[:data][:completed])
+    proc_status = PaypalService::API::API.process.get_status(process_token)
+    unless proc_status[:success] && proc_status[:data][:completed]
       return redirect_to error_not_found_path
     end
 
@@ -63,7 +63,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
   def paypal_op_status
     resp = Maybe(params[:process_token])
-      .map { |ptok| PaypalService::API::Api.process.get_status(ptok) }
+      .map { |ptok| PaypalService::API::API.process.get_status(ptok) }
       .select(&:success)
       .data
       .or_else(nil)
@@ -118,6 +118,6 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
 
   def paypal_payments_service
-    PaypalService::API::Api.payments
+    PaypalService::API::API.payments
   end
 end

@@ -26,11 +26,11 @@
 .row.bg-style-image
   .col-12
     %label
-      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_DARK
+      = form.radio_button :background_image_variation, LandingPageVersions::Section::BACKGROUND_VARIATION_DARK
       = t(".overlay_dark")
     %label
-      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_LIGHT
+      = form.radio_button :background_image_variation, LandingPageVersions::Section::BACKGROUND_VARIATION_LIGHT
       = t(".overlay_light")
     %label
-      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_TRANSPARENT
+      = form.radio_button :background_image_variation, LandingPageVersions::Section::BACKGROUND_VARIATION_TRANSPARENT
       = t(".overlay_transparent")

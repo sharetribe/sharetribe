@@ -1,5 +1,5 @@
 module CustomLandingPage
-  module LandingPageStoreDB
+  module LandingPageStoreDb
 
     module_function
 

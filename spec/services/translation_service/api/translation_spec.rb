@@ -1,7 +1,7 @@
 require "spec_helper"
 describe TranslationService::API::Translations do
 
-  TranslationsAPI = TranslationService::API::Api.translations
+  TranslationsAPI = TranslationService::API::API.translations
 
   before(:each) do
     @community_id = 88 # cucumber loads test data for existing test communities

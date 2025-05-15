@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe AnalyticService::PersonAttributes do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:person) do
-    person = FactoryGirl.create(:person, community: community)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 

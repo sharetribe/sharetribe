@@ -21,11 +21,11 @@ describe UserService::API::Users do
 
     before(:each) do
       expect(ActionMailer::Base.deliveries).to be_empty
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
     end
 
     it "should create a user" do
-      c = FactoryGirl.create(:community)
+      c = FactoryBot.create(:community)
       u = create_user(PERSON_HASH, c.id).data
       expect(u[:given_name]).to eql "Raymond"
       expect(Person.find_by(username: "raymondx").family_name).to eql "Xperiment"
@@ -33,7 +33,7 @@ describe UserService::API::Users do
     end
 
     it "should fail if email is taken" do
-      c = FactoryGirl.create(:community)
+      c = FactoryBot.create(:community)
       create_user(PERSON_HASH, c.id)
       expect{create_user(PERSON_HASH, c.id)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
@@ -69,13 +69,13 @@ describe UserService::API::Users do
   end
 
   describe "#delete_user" do
-    let(:user) { FactoryGirl.create(:person) }
-    let!(:membership) { FactoryGirl.create(:community_membership, person: user) }
-    let!(:auth_token) { FactoryGirl.create(:auth_token, person: user) }
-    let!(:follower) { FactoryGirl.create(:person) }
-    let!(:followed) { FactoryGirl.create(:person) }
-    let!(:follower_relationship) { FactoryGirl.create(:follower_relationship, person: user, follower: follower) }
-    let!(:followed_relationship) { FactoryGirl.create(:follower_relationship, person: followed, follower: user) }
+    let(:user) { FactoryBot.create(:person) }
+    let!(:membership) { FactoryBot.create(:community_membership, person: user) }
+    let!(:auth_token) { FactoryBot.create(:auth_token, person: user) }
+    let!(:follower) { FactoryBot.create(:person) }
+    let!(:followed) { FactoryBot.create(:person) }
+    let!(:follower_relationship) { FactoryBot.create(:follower_relationship, person: user, follower: follower) }
+    let!(:followed_relationship) { FactoryBot.create(:follower_relationship, person: followed, follower: user) }
 
     it "removes user data and adds deleted flag" do
       new_user = Person.find(user.id)

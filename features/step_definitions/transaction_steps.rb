@@ -2,18 +2,18 @@ Given(/^there is paid transaction with testimonials for a listing with title "(.
   community = @current_community
   starter = Person.find_by(username: starter_username)
   listing = Listing.where(community_id: community.id, title: listing_title).first
-  transaction = FactoryGirl.create(:transaction, community: community,
-                                                 listing: listing,
-                                                 starter: starter,
-                                                 current_state: 'confirmed')
-  @testimonial_from_author = FactoryGirl.create(:testimonial, tx: transaction,
-                                                              author: listing.author,
-                                                              receiver: starter,
-                                                              text: 'Hi from author')
-  @testimonial_from_starter = FactoryGirl.create(:testimonial, tx: transaction,
-                                                               author: starter,
-                                                               receiver: listing.author,
-                                                               text: 'Hi from starter')
+  transaction = FactoryBot.create(:transaction, community: community,
+                                                listing: listing,
+                                                starter: starter,
+                                                current_state: 'confirmed')
+  @testimonial_from_author = FactoryBot.create(:testimonial, tx: transaction,
+                                                             author: listing.author,
+                                                             receiver: starter,
+                                                             text: 'Hi from author')
+  @testimonial_from_starter = FactoryBot.create(:testimonial, tx: transaction,
+                                                              author: starter,
+                                                              receiver: listing.author,
+                                                              text: 'Hi from starter')
 end
 
 Given(/^click to author testimonial edit link/) do

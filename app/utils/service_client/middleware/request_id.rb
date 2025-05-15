@@ -6,7 +6,7 @@ module ServiceClient
     #
     # Writes to req[:headers]["X-Request-Id"]
     #
-    class RequestID < MiddlewareBase
+    class RequestId < MiddlewareBase
       def enter(ctx)
         headers = ctx.fetch(:req).fetch(:headers)
         ctx[:req][:headers] = headers.merge("X-Request-Id" => SecureRandom.uuid)

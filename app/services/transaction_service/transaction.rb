@@ -286,11 +286,11 @@ module TransactionService::Transaction
   end
 
   def paypal_payment_api
-    PaypalService::API::Api.payments
+    PaypalService::API::API.payments
   end
 
   def paypal_billing_agreement_api
-    PaypalService::API::Api.billing_agreements
+    PaypalService::API::API.billing_agreements
   end
 
   def proc_status_response(proc_token)

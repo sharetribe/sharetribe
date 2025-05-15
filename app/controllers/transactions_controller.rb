@@ -198,7 +198,7 @@ class TransactionsController < ApplicationController
     process_token = params[:process_token]
 
     proc_status = transaction_process_tokens.get_status(UUIDTools::UUID.parse(process_token))
-    unless (proc_status[:success] && proc_status[:data][:completed])
+    unless proc_status[:success] && proc_status[:data][:completed]
       return redirect_to error_not_found_path
     end
 
@@ -338,7 +338,7 @@ class TransactionsController < ApplicationController
         Result::Success.new(listing_model.author)
       },
       ->(_, listing_model, *rest) {
-        TransactionService::API::Api.processes.get(community_id: @current_community.id, process_id: listing_model.transaction_process_id)
+        TransactionService::API::API.processes.get(community_id: @current_community.id, process_id: listing_model.transaction_process_id)
       },
       ->(*) {
         Result::Success.new(@current_community.active_payment_types)
@@ -482,6 +482,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_process_tokens
-    TransactionService::API::Api.process_tokens
+    TransactionService::API::API.process_tokens
   end
 end

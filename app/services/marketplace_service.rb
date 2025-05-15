@@ -185,7 +185,7 @@ module MarketplaceService
   end
 
   def fetch_minimum_price_cents(currency)
-    PaypalService::API::Api.minimum_commissions.get(currency)&.cents || 0
+    PaypalService::API::API.minimum_commissions.get(currency)&.cents || 0
   end
 
   def customization_params(marketplace_name, locale)
@@ -220,7 +220,7 @@ module MarketplaceService
   end
 
   def create_feature_flags(community)
-    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe_connect_onboarding])
+    FeatureFlagService::API::API.features.enable(community_id: community.id, features: [:stripe_connect_onboarding])
   end
 
   def create_community_customization!(community, marketplace_name, locale)

@@ -20,7 +20,7 @@ require 'spec_helper'
 describe FollowerRelationship, type: :model do
 
   before(:each) do
-    @follower_relationship = FactoryGirl.create(:follower_relationship)
+    @follower_relationship = FactoryBot.create(:follower_relationship)
     @person = @follower_relationship.person
     @follower = @follower_relationship.follower
   end

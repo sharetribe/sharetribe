@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin2::PaymentSystem::TransactionSizeController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community)
+    community = FactoryBot.create(:community)
     payment_provision(community, 'paypal')
     payment_enable(community, 'paypal', commission_from_seller: 11)
     payment_provision(community, 'stripe')
@@ -14,8 +14,8 @@ describe Admin2::PaymentSystem::TransactionSizeController, type: :controller do
     community
   end
   let(:person) do
-    person = FactoryGirl.create(:person, community: community, is_admin: true)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community, is_admin: true)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 

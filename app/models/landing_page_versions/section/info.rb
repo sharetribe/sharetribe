@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class Info < Base
     ATTRIBUTES = [
       :id,
@@ -36,7 +36,7 @@ module LandingPageVersion::Section
 
     def initialize(attributes={})
       super
-      @kind = LandingPageVersion::Section::INFO
+      @kind = LandingPageVersions::Section::INFO
     end
 
     def attributes
@@ -55,10 +55,10 @@ module LandingPageVersion::Section
     class << self
       def new_from_content(content_section)
         case content_section['variation']
-        when LandingPageVersion::Section::VARIATION_SINGLE_COLUMN
-          LandingPageVersion::Section::InfoSingleColumn.new(content_section)
-        when LandingPageVersion::Section::VARIATION_MULTI_COLUMN
-          LandingPageVersion::Section::InfoMultiColumn.new(content_section)
+        when LandingPageVersions::Section::VARIATION_SINGLE_COLUMN
+          LandingPageVersions::Section::InfoSingleColumn.new(content_section)
+        when LandingPageVersions::Section::VARIATION_MULTI_COLUMN
+          LandingPageVersions::Section::InfoMultiColumn.new(content_section)
         else
           new(content_section)
         end

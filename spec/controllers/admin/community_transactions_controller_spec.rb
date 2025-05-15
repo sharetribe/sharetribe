@@ -1,64 +1,64 @@
 require 'spec_helper'
 
 describe Admin::CommunityTransactionsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:person1) do
-    FactoryGirl.create(:person, member_of: community,
-                                given_name: 'Florence',
-                                family_name: 'Torres',
-                                display_name: 'Floryt'
+    FactoryBot.create(:person, member_of: community,
+                               given_name: 'Florence',
+                               family_name: 'Torres',
+                               display_name: 'Floryt'
                       )
   end
   let(:person2) do
-    FactoryGirl.create(:person, member_of: community,
-                                given_name: 'Sherry',
-                                family_name: 'Rivera',
-                                display_name: 'Sky caterpillar'
+    FactoryBot.create(:person, member_of: community,
+                               given_name: 'Sherry',
+                               family_name: 'Rivera',
+                               display_name: 'Sky caterpillar'
                       )
   end
   let(:person3) do
-    FactoryGirl.create(:person, member_of: community,
-                                given_name: 'Connie',
-                                family_name: 'Brooks',
-                                display_name: 'Candidate'
+    FactoryBot.create(:person, member_of: community,
+                               given_name: 'Connie',
+                               family_name: 'Brooks',
+                               display_name: 'Candidate'
                       )
   end
   let(:listing1) do
-    FactoryGirl.create(:listing, community_id: community.id,
-                                 title: 'Apple cake',
-                                 author: person1)
+    FactoryBot.create(:listing, community_id: community.id,
+                                title: 'Apple cake',
+                                author: person1)
   end
   let(:listing2) do
-    FactoryGirl.create(:listing, community_id: community.id,
-                                 title: 'Cosmic scooter',
-                                 author: person1)
+    FactoryBot.create(:listing, community_id: community.id,
+                                title: 'Cosmic scooter',
+                                author: person1)
   end
   let(:transaction1) do
-    FactoryGirl.create(:transaction, community: community,
-                                     listing: listing1,
-                                     starter: person2,
-                                     current_state: 'confirmed',
-                                     last_transition_at: 1.minute.ago)
+    FactoryBot.create(:transaction, community: community,
+                                    listing: listing1,
+                                    starter: person2,
+                                    current_state: 'confirmed',
+                                    last_transition_at: 1.minute.ago)
   end
   let(:transaction2) do
-    FactoryGirl.create(:transaction, community: community,
-                                     listing: listing2,
-                                     starter: person2,
-                                     current_state: 'paid',
-                                     last_transition_at: 30.minutes.ago)
+    FactoryBot.create(:transaction, community: community,
+                                    listing: listing2,
+                                    starter: person2,
+                                    current_state: 'paid',
+                                    last_transition_at: 30.minutes.ago)
 
   end
   let(:transaction3) do
-    conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
-    FactoryGirl.create(:transaction, community: community,
-                                     listing: listing1,
-                                     starter: person3,
-                                     current_state: 'rejected',
-                                     last_transition_at: 60.minutes.ago,
-                                     conversation: conversation)
+    conversation = FactoryBot.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+    FactoryBot.create(:transaction, community: community,
+                                    listing: listing1,
+                                    starter: person3,
+                                    current_state: 'rejected',
+                                    last_transition_at: 60.minutes.ago,
+                                    conversation: conversation)
   end
   let(:transaction4) do
-    FactoryGirl.create(:transaction,
+    FactoryBot.create(:transaction,
                        community: community,
                        listing: listing1,
                        starter: person3,
@@ -136,17 +136,17 @@ describe Admin::CommunityTransactionsController, type: :controller do
 
   describe '#confirm #cancel'  do
     let(:paid_transaction) do
-      conversation = FactoryGirl.create(:conversation, community: community)
+      conversation = FactoryBot.create(:conversation, community: community)
       conversation.participants << listing2.author
       conversation.participants << person2
-      transaction = FactoryGirl.create(:transaction, community: community,
-                                                     listing: listing2,
-                                                     starter: person2,
-                                                     current_state: 'paid',
-                                                     payment_process: 'preauthorize',
-                                                     conversation: conversation
+      transaction = FactoryBot.create(:transaction, community: community,
+                                                    listing: listing2,
+                                                    starter: person2,
+                                                    current_state: 'paid',
+                                                    payment_process: 'preauthorize',
+                                                    conversation: conversation
                                       )
-      FactoryGirl.create(:transaction_transition, to_state: "paid", transaction_id: transaction.id, most_recent: true)
+      FactoryBot.create(:transaction_transition, to_state: "paid", transaction_id: transaction.id, most_recent: true)
       transaction.reload
       transaction
     end
@@ -175,33 +175,33 @@ describe Admin::CommunityTransactionsController, type: :controller do
   end
 
   describe 'canceled fow' do
-    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+    let(:buyer) { FactoryBot.create(:person, member_of: community) }
     let(:seller) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Sherry',
-                                  family_name: 'Rivera',
-                                  display_name: 'Sky caterpillar'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Sherry',
+                                 family_name: 'Rivera',
+                                 display_name: 'Sky caterpillar'
                         )
     end
     let(:listing) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   title: 'Apple cake',
-                                   author: seller)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  title: 'Apple cake',
+                                  author: seller)
     end
     let(:transaction) do
-      FactoryGirl.create(:transaction_process, community_id: community.id)
-      conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
-      tx = FactoryGirl.create(:transaction, community: community,
-                                            listing: listing,
-                                            starter: buyer,
-                                            current_state: 'disputed',
-                                            last_transition_at: 1.minute.ago,
-                                            payment_process: :preauthorize,
-                                            payment_gateway: :stripe,
-                                            conversation: conversation
+      FactoryBot.create(:transaction_process, community_id: community.id)
+      conversation = FactoryBot.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+      tx = FactoryBot.create(:transaction, community: community,
+                                           listing: listing,
+                                           starter: buyer,
+                                           current_state: 'disputed',
+                                           last_transition_at: 1.minute.ago,
+                                           payment_process: :preauthorize,
+                                           payment_gateway: :stripe,
+                                           conversation: conversation
                              )
-      FactoryGirl.create(:transaction_transition, to_state: 'disputed', tx: tx)
-      FactoryGirl.create(:stripe_payment, community_id: community.id, transaction_id: tx.id)
+      FactoryBot.create(:transaction_transition, to_state: 'disputed', tx: tx)
+      FactoryBot.create(:stripe_payment, community_id: community.id, transaction_id: tx.id)
       tx
     end
 

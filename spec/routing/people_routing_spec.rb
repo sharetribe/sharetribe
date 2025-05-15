@@ -68,14 +68,14 @@ require "spec_helper"
 describe "routing for people", type: :routing do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @protocol_and_host = "http://#{@community.ident}.test.host"
 
     # Person with username with no substrings that match a valid locale
-    @person = FactoryGirl.create(:person, username: "u1234")
+    @person = FactoryBot.create(:person, username: "u1234")
 
     # Person with username with a locale present as substring
-    @person_with_locale_substring = FactoryGirl.create(:person, username: "fooen")
+    @person_with_locale_substring = FactoryBot.create(:person, username: "fooen")
   end
 
   it "routes /:username to people controller" do

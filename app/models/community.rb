@@ -206,7 +206,7 @@ class Community < ApplicationRecord # rubocop:disable Metrics/ClassLength
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
 
-  serialize :settings, Hash
+  serialize :settings, coder: YAML
 
   has_attached_file :logo,
                     :styles => {
@@ -297,7 +297,7 @@ class Community < ApplicationRecord # rubocop:disable Metrics/ClassLength
     FOOTER_MARKETPLACE_COLOR = 'marketplace_color'.freeze => 2,
     FOOTER_LOGO = 'logo'.freeze => 3
   }.freeze
-  enum footer_theme: FOOTER_THEMES
+  enum :footer_theme, FOOTER_THEMES
 
   def uuid_object
     if self[:uuid].nil?
@@ -472,7 +472,7 @@ class Community < ApplicationRecord # rubocop:disable Metrics/ClassLength
   end
 
   def address
-    location ? location.address : nil
+    location&.address
   end
 
   def default_locale
@@ -710,7 +710,7 @@ class Community < ApplicationRecord # rubocop:disable Metrics/ClassLength
     favicon.processing?
   end
 
-  def as_json(options)
+  def as_json(options = {})
     attrs = super(options)
     uuid = UUIDUtils.parse_raw(attrs["uuid"])
     attrs.merge({"uuid" => uuid.to_s})

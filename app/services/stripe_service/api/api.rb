@@ -1,12 +1,12 @@
 module StripeService
   module API
-    class Api
+    class API
       def self.accounts
         @accounts ||= StripeService::API::Accounts.new
       end
 
       def self.wrapper
-        StripeService::API::StripeApiWrapper
+        StripeService::API::StripeAPIWrapper
       end
 
       def self.payments

@@ -196,14 +196,14 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def paypal_tx_settings
-    Maybe(TransactionService::API::Api.settings.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
+    Maybe(TransactionService::API::API.settings.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
     .select { |result| result[:success] }
     .map { |result| result[:data] }
     .or_else({})
   end
 
   def stripe_tx_settings
-    Maybe(TransactionService::API::Api.settings.get(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize))
+    Maybe(TransactionService::API::API.settings.get(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize))
     .select { |result| result[:success] }
     .map { |result| result[:data] }
     .or_else({})

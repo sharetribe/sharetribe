@@ -124,7 +124,7 @@
 require 'spec_helper'
 
 describe Community, type: :model do
-  let(:community) { FactoryGirl.build(:community) }
+  let(:community) { FactoryBot.build(:community) }
 
   it "is valid with valid attributes" do
     expect(community).to be_valid
@@ -168,7 +168,7 @@ describe Community, type: :model do
   describe "#get_new_listings_to_update_email" do
 
     def get_listing(created_at, updates_email_at)
-      FactoryGirl.create(:listing,
+      FactoryBot.create(:listing,
         :created_at => created_at.days.ago,
         :updates_email_at => updates_email_at.days.ago,
         :listing_shape_id => 123,
@@ -176,7 +176,7 @@ describe Community, type: :model do
     end
 
     before(:each) do
-      @p1 = FactoryGirl.create(:person, :emails => [FactoryGirl.create(:email, :address => "update_tester@example.com")])
+      @p1 = FactoryBot.create(:person, :emails => [FactoryBot.create(:email, :address => "update_tester@example.com")])
       @p1.accepted_community = community
       @l1 = get_listing(2,2)
       @l2 = get_listing(3,3)
@@ -250,9 +250,9 @@ describe Community, type: :model do
   end
 
   describe '#is_person_only_admin' do
-    let(:community1) { FactoryGirl.create(:community) }
-    let(:person_admin1) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
-    let(:person_admin2) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+    let(:community1) { FactoryBot.create(:community) }
+    let(:person_admin1) { FactoryBot.create(:person, member_of: community1, member_is_admin: true) }
+    let(:person_admin2) { FactoryBot.create(:person, member_of: community1, member_is_admin: true) }
     it 'works' do
       person_admin1
       expect(community1.is_person_only_admin(person_admin1)).to eq true
@@ -262,9 +262,9 @@ describe Community, type: :model do
   end
 
   describe "admins" do
-    let(:community1) { FactoryGirl.create(:community) }
-    let(:person_admin1) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
-    let(:person_admin2) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+    let(:community1) { FactoryBot.create(:community) }
+    let(:person_admin1) { FactoryBot.create(:person, member_of: community1, member_is_admin: true) }
+    let(:person_admin2) { FactoryBot.create(:person, member_of: community1, member_is_admin: true) }
 
     it "deleted users are not admins" do
       person_admin1

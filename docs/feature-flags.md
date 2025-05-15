@@ -33,5 +33,5 @@ Feature flags can be toggled in two ways:
 If you're logged in as superadmin, you can append `?enable_feature=<your_flag>` to enable the feature for current session
 
 2. Run a command in console
-   - Community-specific flag: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, features: [:<your_flag>])`
-   - User-specific flag: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, person_id: <person_id>, features: [:<your_flag>])`
+   - Community-specific flag: `FeatureFlagService::API::API.features.enable(community_id: <community_id>, features: [:<your_flag>])`
+   - User-specific flag: `FeatureFlagService::API::API.features.enable(community_id: <community_id>, person_id: <person_id>, features: [:<your_flag>])`

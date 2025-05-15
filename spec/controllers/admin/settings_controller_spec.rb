@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::SettingsController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community,
+    community = FactoryBot.create(:community,
                         join_with_invite_only: false,
                         users_can_invite_new_users: false,
                         private: false,
@@ -15,10 +15,10 @@ describe Admin::SettingsController, type: :controller do
                         default_min_days_between_community_updates: 5,
                         email_admins_about_new_members: false,
                         pre_approved_listings: false)
-    FactoryGirl.create(:payment_settings,
+    FactoryBot.create(:payment_settings,
                        community_id: community.id,
                        payment_gateway: 'paypal')
-    FactoryGirl.create(:payment_settings,
+    FactoryBot.create(:payment_settings,
                        community_id: community.id,
                        payment_gateway: 'stripe')
     community

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin2::Listings::ListingCommentsController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community, listing_comments_in_use: false)
+    community = FactoryBot.create(:community, listing_comments_in_use: false)
     community
   end
 

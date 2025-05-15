@@ -1,8 +1,7 @@
 require 'spec_helper'
-require 'admin/community_invitations_controller'
 
 describe Admin::CommunityInvitationsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
@@ -12,19 +11,19 @@ describe Admin::CommunityInvitationsController, type: :controller do
   end
 
   describe '#index' do
-    let(:inviter1) { FactoryGirl.create(:person, community_id: community.id, given_name: 'Dawn', family_name: 'Jones') }
-    let(:inviter2) { FactoryGirl.create(:person, community_id: community.id, given_name: 'Tracy', family_name: 'Miler') }
-    let(:invitee2) { FactoryGirl.create(:person, community_id: community.id, given_name: 'Ethel', family_name: 'Harris') }
+    let(:inviter1) { FactoryBot.create(:person, community_id: community.id, given_name: 'Dawn', family_name: 'Jones') }
+    let(:inviter2) { FactoryBot.create(:person, community_id: community.id, given_name: 'Tracy', family_name: 'Miler') }
+    let(:invitee2) { FactoryBot.create(:person, community_id: community.id, given_name: 'Ethel', family_name: 'Harris') }
     let(:invitation1) do
-      FactoryGirl.create(:invitation, community: community, inviter: inviter1, message: 'Hi, Megan!',
-                                      email: 'megan@example.com', usages_left: 1, created_at: Time.current - 1.minute)
+      FactoryBot.create(:invitation, community: community, inviter: inviter1, message: 'Hi, Megan!',
+                                     email: 'megan@example.com', usages_left: 1, created_at: Time.current - 1.minute)
     end
     let(:invitation2) do
-      invitation = FactoryGirl.create(:invitation, community: community, inviter: inviter2,
-                                                   message: 'Hi, Ethel!',
-                                                   email: 'ethel@example.com', usages_left: 0)
-      FactoryGirl.create(:community_membership, community: community, person: invitee2,
-                                                invitation_id: invitation.id)
+      invitation = FactoryBot.create(:invitation, community: community, inviter: inviter2,
+                                                  message: 'Hi, Ethel!',
+                                                  email: 'ethel@example.com', usages_left: 0)
+      FactoryBot.create(:community_membership, community: community, person: invitee2,
+                                               invitation_id: invitation.id)
       invitation
     end
 

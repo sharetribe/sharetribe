@@ -47,8 +47,8 @@ After('@www_subdomain') do
 end
 
 After do |scenario|
-  if(scenario.failed?)
-    save_screenshot("#{scenario.name}.png")
+  if scenario.failed?
+    save_screenshot("#{scenario.name}.png") # rubocop:disable Lint/Debugger
 
     if page.driver.browser.respond_to?(:manage)
       # Print browser logs after failing test

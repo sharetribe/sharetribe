@@ -121,7 +121,7 @@ class ListingPresenter < MemoisticPresenter
       community_id: community_id
     }
 
-    TransactionService::API::Api.processes.get(community_id: community_id, process_id: transaction_process_id)
+    TransactionService::API::API.processes.get(community_id: community_id, process_id: transaction_process_id)
       .maybe
       .process
       .or_else(nil)
@@ -232,7 +232,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def payment_settings_api
-    TransactionService::API::Api.settings
+    TransactionService::API::API.settings
   end
 
   def unit_options

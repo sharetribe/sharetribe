@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/favicon.ico', to: proc { [204, {}, []] }
 
   namespace :mercury do
     resources :images

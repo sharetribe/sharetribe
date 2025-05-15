@@ -23,7 +23,7 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @service = Person::ShowService.new(community: @current_community, params: params, current_user: @current_user)
+    @service = Persons::ShowService.new(community: @current_community, params: params, current_user: @current_user)
     redirect_to landing_page_path and return unless @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
@@ -40,9 +40,9 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def service_init
-    @service = Person::SettingsService.new(community: @current_community,
-                                           params: params,
-                                           required_fields_only: true)
+    @service = Persons::SettingsService.new(community: @current_community,
+                                            params: params,
+                                            required_fields_only: true)
     @service.new_person
   end
 
@@ -208,7 +208,7 @@ class PeopleController < Devise::RegistrationsController
 
     return redirect_to search_path if has_unfinished || only_admin
 
-    stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: @current_community.id,
+    stripe_del = StripeService::API::API.accounts.delete_seller_account(community_id: @current_community.id,
                                                                         person_id: target_user.id)
     unless stripe_del[:success]
       flash[:error] =  t("layouts.notifications.stripe_you_account_balance_is_not_0")

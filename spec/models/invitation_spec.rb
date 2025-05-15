@@ -36,7 +36,7 @@ describe Invitation, type: :model do
 
   describe "#use" do
     it "reduces usages left by one" do
-      i = FactoryGirl.create(:invitation)
+      i = FactoryBot.create(:invitation)
       expect(i.usages_left).to eq(1)
       i.save!
       expect(Invitation.find(i.id).usages_left).to eq(1)

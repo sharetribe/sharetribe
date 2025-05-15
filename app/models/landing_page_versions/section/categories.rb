@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class Categories < Base
     class Category
       include ActiveModel::Model
@@ -77,7 +77,7 @@ module LandingPageVersion::Section
       :background_style,
       :background_color_string,
       :background_image_variation,
-      :categories_attributes => LandingPageVersion::Section::Categories::Category::ATTRIBUTES
+      :categories_attributes => LandingPageVersions::Section::Categories::Category::ATTRIBUTES
     ]
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
@@ -88,13 +88,13 @@ module LandingPageVersion::Section
 
     def initialize(attributes={})
       super(attributes)
-      @kind = LandingPageVersion::Section::CATEGORIES
+      @kind = LandingPageVersions::Section::CATEGORIES
       DEFAULTS.each do |key, value|
         unless self.send(key)
           self.send("#{key}=", value)
         end
       end
-      categories << LandingPageVersion::Section::Categories::Category.new while categories.size < 3
+      categories << LandingPageVersions::Section::Categories::Category.new while categories.size < 3
     end
 
     def attributes
@@ -114,7 +114,7 @@ module LandingPageVersion::Section
     def categories=(list)
       @categories = list.map.with_index do |category, index|
         if category.is_a?(Hash)
-          LandingPageVersion::Section::Categories::Category.from_serialized_hash(category, index)
+          LandingPageVersions::Section::Categories::Category.from_serialized_hash(category, index)
         else
           category
         end
@@ -124,7 +124,7 @@ module LandingPageVersion::Section
     # called from controller
     def categories_attributes=(params)
       @categories = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
-        category = LandingPageVersion::Section::Categories::Category.new(attrs)
+        category = LandingPageVersions::Section::Categories::Category.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
           category.asset_id = "category_#{id}_#{new_asset.id}"
@@ -135,7 +135,7 @@ module LandingPageVersion::Section
     end
 
     def new_category
-      LandingPageVersion::Section::Categories::Category.new
+      LandingPageVersions::Section::Categories::Category.new
     end
 
     def priority_sort(params)

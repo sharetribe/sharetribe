@@ -24,8 +24,8 @@
 require 'spec_helper'
 
 describe TextFieldValue, type: :model do
-  let(:field)   { FactoryGirl.create :custom_text_field, required: false }
-  let(:required_field)   { FactoryGirl.create :custom_text_field, required: true }
+  let(:field)   { FactoryBot.create :custom_text_field, required: false }
+  let(:required_field)   { FactoryBot.create :custom_text_field, required: true }
 
   describe "validations" do
     it "should treat text value as optional if field is not required" do

@@ -38,9 +38,9 @@ describe TransactionService::Transaction do
   end
 
   context '#charge_commission_and_retry' do
-    let(:community) { FactoryGirl.create(:community) }
-    let(:transaction) { FactoryGirl.create(:transaction, community: community) }
-    let(:paypal_payment) { FactoryGirl.create(:paypal_payment, transaction_id: transaction.id) }
+    let(:community) { FactoryBot.create(:community) }
+    let(:transaction) { FactoryBot.create(:transaction, community: community) }
+    let(:paypal_payment) { FactoryBot.create(:paypal_payment, transaction_id: transaction.id) }
 
     it 'successful charge of commission' do
       paypal_payment

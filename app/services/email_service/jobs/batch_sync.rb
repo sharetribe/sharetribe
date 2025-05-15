@@ -13,7 +13,7 @@ module EmailService::Jobs
     private
 
     def ses_client
-      EmailService::API::Api.ses_client
+      EmailService::API::API.ses_client
     end
   end
 end

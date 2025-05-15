@@ -21,34 +21,34 @@ module CustomLandingPage
       [
         [
           I18n.t('admin.communities.landing_pages.sections.info_single_column'),
-          LandingPageVersion::Section::INFO,
-          {data: { variation: LandingPageVersion::Section::VARIATION_SINGLE_COLUMN}}
+          LandingPageVersions::Section::INFO,
+          {data: { variation: LandingPageVersions::Section::VARIATION_SINGLE_COLUMN}}
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.info_multi_column_2'),
-          LandingPageVersion::Section::INFO,
-          {data: { variation: LandingPageVersion::Section::VARIATION_MULTI_COLUMN, multi_columns: 2}}
+          LandingPageVersions::Section::INFO,
+          {data: { variation: LandingPageVersions::Section::VARIATION_MULTI_COLUMN, multi_columns: 2}}
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.info_multi_column_3'),
-          LandingPageVersion::Section::INFO,
-          {data: { variation: LandingPageVersion::Section::VARIATION_MULTI_COLUMN, multi_columns: 3}}
+          LandingPageVersions::Section::INFO,
+          {data: { variation: LandingPageVersions::Section::VARIATION_MULTI_COLUMN, multi_columns: 3}}
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.listings'),
-          LandingPageVersion::Section::LISTINGS,
+          LandingPageVersions::Section::LISTINGS,
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.categories'),
-          LandingPageVersion::Section::CATEGORIES,
+          LandingPageVersions::Section::CATEGORIES,
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.locations'),
-          LandingPageVersion::Section::LOCATIONS,
+          LandingPageVersions::Section::LOCATIONS,
         ],
         [
           I18n.t('admin.communities.landing_pages.sections.video'),
-          LandingPageVersion::Section::VIDEO,
+          LandingPageVersions::Section::VIDEO,
         ]
       ]
     end

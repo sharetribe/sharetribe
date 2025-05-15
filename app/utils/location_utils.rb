@@ -3,7 +3,7 @@ module LocationUtils
 
   def center(lat1, lng1, lat2, lng2)
     # Midway point along a great circle path between the two corners
-    unless (lat1.present? && lng1.present? && lat2.present? && lng2.present?)
+    unless lat1.present? && lng1.present? && lat2.present? && lng2.present?
       ArgumentError.new("Two coordinate pairs required: \"#{lat1},#{lng1}; #{lat2},#{lng2}\"")
     end
     bx = Math.cos(lat2) * Math.cos(lng2 - lng1)

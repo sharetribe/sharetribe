@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TransactionService::StateMachine do
   describe 'Stripe payment intent' do
     let(:listing) do
-      listing = FactoryGirl.create(:listing,
+      listing = FactoryBot.create(:listing,
                                     availability: :booking,
                                     quantity_selector: 'number')
       listing.working_hours_new_set
@@ -13,13 +13,13 @@ describe TransactionService::StateMachine do
     let(:start_time) { Time.parse('Nov 28, 2050 - 11:00 am') }
     let(:end_time) { Time.parse('Nov 28, 2050 - 2:00 pm') }
     let(:tx) do
-      transaction = FactoryGirl.create(:transaction,
+      transaction = FactoryBot.create(:transaction,
                          current_state: :initiated,
                          listing: listing,
                          payment_gateway: 'stripe'
                         )
-      FactoryGirl.create(:transaction_transition, to_state: 'initiated', transaction_id: transaction.id, most_recent: true)
-      FactoryGirl.create(:booking,
+      FactoryBot.create(:transaction_transition, to_state: 'initiated', transaction_id: transaction.id, most_recent: true)
+      FactoryBot.create(:booking,
                          tx: transaction,
                          start_on: start_time.to_date, end_on: end_time.to_date,
                          start_time: start_time, end_time: end_time,

@@ -14,7 +14,7 @@ module Admin2::PaymentSystem
 
       ActiveRecord::Base.transaction do
         @current_community.update!(currency: base_params[:minimum_price_currency])
-        TransactionService::API::Api.settings.update(base_params)
+        TransactionService::API::API.settings.update(base_params)
       end
       render json: { message: t('admin2.notifications.country_currency_updated') }
     rescue StandardError => e
@@ -68,7 +68,7 @@ module Admin2::PaymentSystem
     end
 
     def stripe_mode
-      StripeService::API::Api.wrapper.charges_mode(@current_community.id)
+      StripeService::API::API.wrapper.charges_mode(@current_community.id)
     end
 
     def paypal_connected
@@ -93,7 +93,7 @@ module Admin2::PaymentSystem
     end
 
     def paypal_index
-      paypal_account = PaypalService::API::Api.accounts
+      paypal_account = PaypalService::API::API.accounts
                                               .get(community_id: @current_community.id)
                                               .data
       { paypal_account: paypal_account }
@@ -112,7 +112,7 @@ module Admin2::PaymentSystem
     end
 
     def tx_settings_by_gateway(gateway)
-      TransactionService::API::Api.settings.get(community_id: @current_community.id,
+      TransactionService::API::API.settings.get(community_id: @current_community.id,
                                                 payment_gateway: gateway,
                                                 payment_process: :preauthorize)
     end

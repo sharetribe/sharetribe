@@ -1,4 +1,4 @@
-class IntApi::ListingsController < ApplicationController
+class IntAPI::ListingsController < ApplicationController
   respond_to :json
 
   before_action :ensure_current_user_is_listing_author

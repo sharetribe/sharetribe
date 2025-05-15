@@ -263,7 +263,7 @@ class TransactionTypeCreator
           }
         end
       }
-    created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
+    created_translations = TranslationService::API::API.translations.create(community.id, [name_group, action_button_group])
     name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
 
     defaults = DEFAULTS[transaction_type][transaction_process.process] || DEFAULTS[transaction_type]

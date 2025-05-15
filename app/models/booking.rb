@@ -51,7 +51,7 @@ class Booking < ApplicationRecord
   end
 
   def week_day
-    Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym
+    WorkingTimeSlot.week_days.keys[start_time.wday].to_sym
   end
 
   def final_end

@@ -38,7 +38,7 @@ class OmniauthController < ApplicationController
     origin_locale = get_origin_locale(request, available_locales())
     I18n.locale = origin_locale if origin_locale
 
-    service = Person::OmniauthService.new(
+    service = Persons::OmniauthService.new(
       community: @current_community,
       request: request,
       logger: logger)

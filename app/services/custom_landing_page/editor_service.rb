@@ -13,7 +13,7 @@ module CustomLandingPage
 
     def release_landing_page_version
       if latest_version_has_changes?
-        CustomLandingPage::LandingPageStoreDB.release_version!(community.id, landing_page_version.version)
+        CustomLandingPage::LandingPageStoreDb.release_version!(community.id, landing_page_version.version)
         Delayed::Job.enqueue(CleanupLandingPageAssetsJob.new(community.id))
 
         true
@@ -73,8 +73,8 @@ module CustomLandingPage
           google_site_verification: {value: "CHANGEME"}
         },
         sections: [
-          LandingPageVersion::Section::Hero::DEFAULTS,
-          LandingPageVersion::Section::Footer::DEFAULTS,
+          LandingPageVersions::Section::Hero::DEFAULTS,
+          LandingPageVersions::Section::Footer::DEFAULTS,
         ],
         composition: [
           { section: {type: "sections", id: "hero"}},

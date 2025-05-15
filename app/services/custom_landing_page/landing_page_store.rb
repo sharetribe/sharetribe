@@ -9,7 +9,7 @@ module CustomLandingPage
     if APP_CONFIG.clp_static_enabled.to_s == "true"
       LandingPageStoreStatic.new(APP_CONFIG.clp_static_released_version)
     else
-      LandingPageStoreDB
+      LandingPageStoreDb
     end
 
 end

@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe Admin2::PaymentSystem::StripeController, type: :controller do
   let!(:community) do
-    community = FactoryGirl.create(:community, currency: 'USD')
+    community = FactoryBot.create(:community, currency: 'USD')
     payment_provision(community, 'paypal')
     payment_provision(community, 'stripe')
     community
   end
 
   let!(:person) do
-    person = FactoryGirl.create(:person, community: community, is_admin: true)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community, is_admin: true)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 

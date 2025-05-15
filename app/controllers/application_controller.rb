@@ -1,4 +1,5 @@
 require 'will_paginate/array'
+require_relative 'concerns/hsts'
 
 class ApplicationController < ActionController::Base
 
@@ -55,7 +56,7 @@ class ApplicationController < ActionController::Base
   def redirect_removed_locale
     if params[:locale] && Rails.application.config.REMOVED_LOCALES.include?(params[:locale])
       fallback = Rails.application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
-      redirect_to_locale(fallback, :moved_permanently)
+      redirect_to_locale(fallback, :moved_permanently, allow_other_host: true)
     end
   end
 
@@ -274,7 +275,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to get the current community
   def fetch_community
-    @current_community = resolve_community()
+    @current_community = resolve_community
     m_community = Maybe(@current_community)
 
     # Save current community id in request env to be used
@@ -297,7 +298,7 @@ class ApplicationController < ActionController::Base
         render 'layouts/marketplace_router_error', layout: false, locals: {message: target[:message]}
       else
         url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-        redirect_to(url, status: target[:status])
+        redirect_to(url, status: target[:status], allow_other_host: true)
       end
     end
   end
@@ -408,7 +409,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_display_expiration_notice
-    ext_service_active = PlanService::API::Api.plans.active?
+    ext_service_active = PlanService::API::API.plans.active?
     is_expired = Maybe(@current_plan)[:expired].or_else(false)
 
     @display_expiration_notice = ext_service_active && is_expired
@@ -456,7 +457,7 @@ class ApplicationController < ActionController::Base
 
       # Clean the URL from the used token
       path_without_auth_token = URLUtils.remove_query_param(request.fullpath, "auth")
-      redirect_to path_without_auth_token
+      redirect_to path_without_auth_token, allow_other_host: true
     end
 
   end

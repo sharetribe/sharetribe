@@ -1,6 +1,10 @@
 require_relative './common.rb'
 
 Rails.application.configure do
+  # Configure 'rails notes' to inspect Cucumber files
+  config.annotations.register_directories('features')
+  config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
+
   APP_CONFIG ||= ConfigLoader.load_app_config
 
   # Settings specified here will take precedence over those in config/environment.rb

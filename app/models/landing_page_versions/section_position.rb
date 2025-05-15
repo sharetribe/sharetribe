@@ -1,4 +1,4 @@
-class LandingPageVersion::SectionPosition
+class SectionPosition
   include ActiveModel::Model
 
   attr_accessor(
@@ -10,11 +10,11 @@ class LandingPageVersion::SectionPosition
   )
 
   def removable?
-    kind != LandingPageVersion::Section::HERO && kind != LandingPageVersion::Section::FOOTER
+    kind != LandingPageVersions::Section::HERO && kind != LandingPageVersions::Section::FOOTER
   end
 
   def kind_info
-    if kind == LandingPageVersion::Section::INFO
+    if kind == LandingPageVersions::Section::INFO
       if variation == 'single_column'
         I18n.t('admin2.landing_page.sections.type.column_1')
       else
@@ -26,6 +26,6 @@ class LandingPageVersion::SectionPosition
   end
 
   def sortable?
-    removable? ? true: nil
+    removable? || nil
   end
 end

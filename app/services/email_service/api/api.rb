@@ -1,5 +1,5 @@
 module EmailService::API
-  class Api
+  class API
     extend EmailService::EmailServiceInjector
 
     def self.addresses

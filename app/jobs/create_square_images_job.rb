@@ -1,7 +1,7 @@
 class CreateSquareImagesJob < Struct.new(:image_id)
 
   PAPERCLIP_OPTIONS =
-    if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
+    if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
       {
         :path => "images/listing_images/:attachment/:id/:style/:filename",
         :url => ":s3_domain_url"

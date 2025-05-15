@@ -36,17 +36,17 @@ namespace :sharetribe do
     end
 
     def pending_migrations
-      schema_migration = ActiveRecord::Base.connection.schema_migration
-      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths, schema_migration)
-      migrator = ActiveRecord::Migrator.new(:up, context.migrations, schema_migration)
-      migrator.pending_migrations
+      @pending_migrations ||= begin
+        migration_context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths)
+        migration_context.migrations.select { |m| m.version > migration_context.current_version }
+      end
     end
 
     # Run DB migrations automatically for the given execution stage (pre-deploy, post-deploy)
     # based on definitions in db/migration_automation.yml.
     # Stops at the first manual migration or the first migration of a different execution stage.
     task :migrate, [:stage] => :environment do |t, args|
-      allowed_stages = ["pre-deploy", "post-deploy"]
+      allowed_stages = %w[pre-deploy post-deploy]
 
       stage = args[:stage] || "pre-deploy"
       raise StandardError.new("Unknown execution stage #{stage}") unless allowed_stages.include?(stage)
@@ -55,8 +55,6 @@ namespace :sharetribe do
       context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths, schema_migration)
       puts "Current database version: #{ActiveRecord::Migrator.current_version}"
       puts "Last available version: #{context.current_version}"
-
-      pending_migrations = pending_migrations()
 
       if pending_migrations.empty?
         puts "No pending migrations."
@@ -94,7 +92,7 @@ namespace :sharetribe do
     namespace :migrate do
       # Make sure there are no pending migrations. Exit with failure otherwise.
       task :ensure_latest => [:environment] do |t, args|
-        unless pending_migrations().empty?
+        unless pending_migrations.empty?
           puts "There are pending migrations!"
           raise StandardError.new("There are pending migrations!")
         end

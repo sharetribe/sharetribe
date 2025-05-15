@@ -4,12 +4,12 @@ describe SettingsController, type: :controller do
 
   describe "#unsubscribe" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
-      @person = FactoryGirl.create(:person)
+      @person = FactoryBot.create(:person)
 
-      FactoryGirl.create(:community_membership, :person => @person, :community => @community)
+      FactoryBot.create(:community_membership, :person => @person, :community => @community)
     end
 
     it "should unsubscribe the user from the email specified in parameters" do
@@ -50,35 +50,35 @@ describe SettingsController, type: :controller do
   describe "#listings" do
 
     before(:all) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
 
-      @category1 = FactoryGirl.create(:category, community: @community)
-      @category1.translations << FactoryGirl.create(:category_translation, :name => "Music", :locale => "en", :category => @category1)
+      @category1 = FactoryBot.create(:category, community: @community)
+      @category1.translations << FactoryBot.create(:category_translation, :name => "Music", :locale => "en", :category => @category1)
 
-      @category2 = FactoryGirl.create(:category, community: @community)
-      @category2.translations << FactoryGirl.create(:category_translation, :name => "Books", :locale => "en", :category => @category2)
+      @category2 = FactoryBot.create(:category, community: @community)
+      @category2.translations << FactoryBot.create(:category_translation, :name => "Books", :locale => "en", :category => @category2)
 
-      @joe = FactoryGirl.create(:person, given_name: 'Joe')
+      @joe = FactoryBot.create(:person, given_name: 'Joe')
       @joe.accepted_community = @community
 
-      @jack = FactoryGirl.create(:person, given_name: 'Jack')
+      @jack = FactoryBot.create(:person, given_name: 'Jack')
       @jack.accepted_community = @community
 
-      @listing_joe1 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "classic")
+      @listing_joe1 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "classic")
 
-      @listing_joe2 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "rock")
+      @listing_joe2 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "rock")
       @listing_joe2.update(open: 0)
 
-      @listing_joe3 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "pop")
+      @listing_joe3 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "pop")
       @listing_joe3.valid_until = 100.days.ago
       @listing_joe3.save(validate: false)
 
-      @listing_jack1 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "bible")
+      @listing_jack1 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "bible")
 
-      @listing_jack2 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "encyclopedia")
+      @listing_jack2 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "encyclopedia")
       @listing_jack2.update(open: false)
 
-      @listing_jack3 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "wonderland")
+      @listing_jack3 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "wonderland")
       @listing_jack3.valid_until = 100.days.ago
       @listing_jack3.save(validate: false)
 
@@ -178,75 +178,75 @@ describe SettingsController, type: :controller do
   end
 
   describe "#transactions" do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:person1) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Florence',
-                                  family_name: 'Torres',
-                                  display_name: 'Floryt'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Florence',
+                                 family_name: 'Torres',
+                                 display_name: 'Floryt'
                         )
     end
     let(:person2) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Sherry',
-                                  family_name: 'Rivera',
-                                  display_name: 'Sky caterpillar'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Sherry',
+                                 family_name: 'Rivera',
+                                 display_name: 'Sky caterpillar'
                         )
     end
     let(:person3) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Connie',
-                                  family_name: 'Brooks',
-                                  display_name: 'Candidate'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Connie',
+                                 family_name: 'Brooks',
+                                 display_name: 'Candidate'
                         )
     end
     let(:listing1) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   title: 'Apple cake',
-                                   author: person1)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  title: 'Apple cake',
+                                  author: person1)
     end
     let(:listing2) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   title: 'Cosmic scooter',
-                                   author: person1)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  title: 'Cosmic scooter',
+                                  author: person1)
     end
     let(:listing3) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   title: 'Cosmic scooter',
-                                   author: person2)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  title: 'Cosmic scooter',
+                                  author: person2)
     end
     let(:transaction1) do
-      FactoryGirl.create(:transaction, community: community,
-                                       listing: listing1,
-                                       starter: person2,
-                                       current_state: 'confirmed',
-                                       last_transition_at: 1.minute.ago)
+      FactoryBot.create(:transaction, community: community,
+                                      listing: listing1,
+                                      starter: person2,
+                                      current_state: 'confirmed',
+                                      last_transition_at: 1.minute.ago)
     end
     let(:transaction2) do
-      FactoryGirl.create(:transaction, community: community,
-                                       listing: listing2,
-                                       starter: person2,
-                                       current_state: 'paid',
-                                       last_transition_at: 30.minutes.ago)
+      FactoryBot.create(:transaction, community: community,
+                                      listing: listing2,
+                                      starter: person2,
+                                      current_state: 'paid',
+                                      last_transition_at: 30.minutes.ago)
 
     end
     let(:transaction3) do
-      conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
-      FactoryGirl.create(:transaction, community: community,
-                                       listing: listing1,
-                                       starter: person3,
-                                       current_state: 'rejected',
-                                       last_transition_at: 60.minutes.ago,
-                                       conversation: conversation)
+      conversation = FactoryBot.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+      FactoryBot.create(:transaction, community: community,
+                                      listing: listing1,
+                                      starter: person3,
+                                      current_state: 'rejected',
+                                      last_transition_at: 60.minutes.ago,
+                                      conversation: conversation)
     end
     let(:transaction4) do
-      conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
-      FactoryGirl.create(:transaction, community: community,
-                                       listing: listing3,
-                                       starter: person3,
-                                       current_state: 'rejected',
-                                       last_transition_at: 60.minutes.ago,
-                                       conversation: conversation)
+      conversation = FactoryBot.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+      FactoryBot.create(:transaction, community: community,
+                                      listing: listing3,
+                                      starter: person3,
+                                      current_state: 'rejected',
+                                      last_transition_at: 60.minutes.ago,
+                                      conversation: conversation)
     end
 
 

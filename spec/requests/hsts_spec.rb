@@ -35,7 +35,7 @@ describe "HSTS header", type: :request do
     let!(:domain) { "market.custom.org" }
 
     before do
-      @community = FactoryGirl.create(:community, :domain => domain, use_domain: true)
+      @community = FactoryBot.create(:community, :domain => domain, use_domain: true)
       @community.reload
     end
 
@@ -63,7 +63,7 @@ describe "HSTS header", type: :request do
     let!(:domain)    { "#{ident}.#{st_domain}" }
 
     before do
-      @community = FactoryGirl.create(:community, :ident => ident, use_domain: false)
+      @community = FactoryBot.create(:community, :ident => ident, use_domain: false)
       @community.reload
     end
 

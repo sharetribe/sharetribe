@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::Communities::TopbarController, type: :controller do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
@@ -13,7 +13,7 @@ describe Admin::Communities::TopbarController, type: :controller do
 
   describe "#update" do
     before do
-      allow(TranslationService::API::Api.translations).to receive(:create)
+      allow(TranslationService::API::API.translations).to receive(:create)
         .with(anything()).and_return(Result::Success.new("success"))
     end
 
@@ -26,7 +26,7 @@ describe Admin::Communities::TopbarController, type: :controller do
       }]
 
       RequestStore.store[:clp_enabled] = false
-      expect(TranslationService::API::Api.translations).to receive(:create)
+      expect(TranslationService::API::API.translations).to receive(:create)
         .with(@community.id, translations_group)
       put :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, configuration: { display_about_menu: 1 }}
     end
@@ -36,7 +36,7 @@ describe Admin::Communities::TopbarController, type: :controller do
       text_en = "Modified en"
 
       RequestStore.store[:clp_enabled] = false
-      expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
+      expect(TranslationService::API::API.translations).to_not receive(:create).with(anything())
       patch :update, params: {post_new_listing_button: {fi: text_fi, en: text_en}, configuration: { display_about_menu: 1 }}
     end
   end

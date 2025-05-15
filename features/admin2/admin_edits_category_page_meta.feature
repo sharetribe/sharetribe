@@ -10,6 +10,7 @@ Feature: Admin edits category page meta
   When I fill in "community_community_customizations_attributes_0_category_meta_title" with "Custom title category tag"
    And I fill in "community_community_customizations_attributes_2_category_meta_description" with "Custom description category tag"
   Then I press submit
-   And I refresh the page
-  Then I should see "Custom title category tag" in the "community_community_customizations_attributes_0_category_meta_title" input
+   And I wait for 1 seconds
+  Then I refresh the page
+   And I should see "Custom title category tag" in the "community_community_customizations_attributes_0_category_meta_title" input
    And I should see "Custom description category tag" in the "community_community_customizations_attributes_2_category_meta_description" input

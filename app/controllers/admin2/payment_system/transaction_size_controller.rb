@@ -24,11 +24,11 @@ module Admin2::PaymentSystem
     end
 
     def paypal_commission
-      PaypalService::API::Api.minimum_commissions.get(currency) || 0
+      PaypalService::API::API.minimum_commissions.get(currency) || 0
     end
 
     def stripe_commission
-      StripeService::API::Api.minimum_commissions.get(currency) || 0
+      StripeService::API::API.minimum_commissions.get(currency) || 0
     end
 
     def verify_price(tx_min_price)
@@ -52,7 +52,7 @@ module Admin2::PaymentSystem
     end
 
     def tx_settings_api
-      TransactionService::API::Api.settings
+      TransactionService::API::API.settings
     end
 
     def parse_money_with_default(str_value, default, currency)

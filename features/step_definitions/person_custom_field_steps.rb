@@ -1,6 +1,6 @@
 Given(/^there is a person custom field "(.*?)" in community "(.*?)"$/) do |name, community|
   current_community = Community.where(ident: community).first
-  @custom_field = FactoryGirl.build(:person_custom_dropdown_field, {
+  @custom_field = FactoryBot.build(:person_custom_dropdown_field, {
     community_id: current_community.id,
     names: [CustomFieldName.create(value: name, locale: "en")],
     sort_priority: @person_custom_field_sort_priority
@@ -12,7 +12,7 @@ end
 
 def create_person_custom_field_with_options(field_type, required, name, community, options)
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(field_type, {
+  custom_field = FactoryBot.build(field_type, {
     community_id: current_community.id,
     names: [CustomFieldName.create(value: name, locale: "en")],
     required: required,
@@ -20,9 +20,9 @@ def create_person_custom_field_with_options(field_type, required, name, communit
   })
 
   custom_field.options << options.hashes.each_with_index.map do |hash, index|
-    en = FactoryGirl.build(:custom_field_option_title, value: hash['fi'], locale: 'fi')
-    fi = FactoryGirl.build(:custom_field_option_title, value: hash['en'], locale: 'en')
-    FactoryGirl.build(:custom_field_option, titles: [en, fi], sort_priority: index)
+    en = FactoryBot.build(:custom_field_option_title, value: hash['fi'], locale: 'fi')
+    fi = FactoryBot.build(:custom_field_option_title, value: hash['en'], locale: 'en')
+    FactoryBot.build(:custom_field_option, titles: [en, fi], sort_priority: index)
   end
 
   custom_field.save!
@@ -43,7 +43,7 @@ end
 
 Given(/^there is a( required)?( public)? person custom text field "(.*?)" in community "(.*?)"$/) do |required, is_public, name, community|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:person_custom_text_field, {
+  custom_field = FactoryBot.build(:person_custom_text_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :required => required,
@@ -61,7 +61,7 @@ end
 
 Given(/^there is a( required)? person custom numeric field "(.*?)" in community "(.*?)"$/) do |required, name, community|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:person_custom_numeric_field, {
+  custom_field = FactoryBot.build(:person_custom_numeric_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :required => required,
@@ -78,7 +78,7 @@ end
 
 Given(/^there is a( required)? person custom date field "(.*?)" in community "(.*?)"$/) do |required, name, community|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:person_custom_date_field, {
+  custom_field = FactoryBot.build(:person_custom_date_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :required => required,

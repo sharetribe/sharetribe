@@ -93,7 +93,10 @@ Rails.application.configure do
                         }]
 
   # Compress JavaScript and CSS
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.configure do |env|
+    env.js_compressor  = :uglifier
+    env.css_compressor = :sass
+  end
 
   # Don't fallback to assets pipeline
   config.assets.compile = false

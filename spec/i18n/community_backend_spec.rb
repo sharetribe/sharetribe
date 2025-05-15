@@ -60,7 +60,7 @@ describe I18n::Backend::CommunityBackend do
     I18n.backend.set_community!(1, all_locales)
     I18n.backend.store_translations(:fi, {foo: "baari"})
 
-    expect(I18n.translate("poo", locale: :en)).to start_with("translation missing")
+    expect(I18n.translate("poo", locale: :en)).to start_with("Translation missing")
   end
 
   it "returns previous community and locales" do
@@ -90,8 +90,6 @@ describe I18n::Backend::CommunityBackend do
 
     I18n.backend.set_community!(1, all_locales)
 
-    expect(I18n.translate("foo", locale: :fi)).to start_with("translation missing")
-
+    expect(I18n.translate("foo", locale: :fi)).to start_with("Translation missing")
   end
-
 end

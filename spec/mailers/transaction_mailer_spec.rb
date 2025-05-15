@@ -3,102 +3,102 @@ require 'spec_helper'
 describe TransactionMailer, type: :mailer do
 
   describe 'Payment receipt' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:seller) {
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: "Joan", family_name: "Smith")
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: "Joan", family_name: "Smith")
     }
-    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+    let(:buyer) { FactoryBot.create(:person, member_of: community) }
     let(:listing) do
-      listing = FactoryGirl.create(:listing, community_id: community.id, author: seller)
+      listing = FactoryBot.create(:listing, community_id: community.id, author: seller)
       listing.working_hours_new_set
       listing.save
       listing
     end
     let(:paypal_transaction) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'paypal',
-                                                     unit_price_cents: 500,
-                                                     unit_price_currency: "EUR")
-      FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
-                                          payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
-                                          commission_total_cents: 0, commission_fee_total_cents: 0)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'paypal',
+                                                    unit_price_cents: 500,
+                                                    unit_price_currency: "EUR")
+      FactoryBot.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
+                                         payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
+                                         commission_total_cents: 0, commission_fee_total_cents: 0)
       service_name(transaction.community_id)
       transaction
     end
     let(:stripe_transaction) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'stripe',
-                                                     unit_price_cents: 200,
-                                                     unit_price_currency: "EUR")
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
-                                          buyer_commission: 0)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'stripe',
+                                                    unit_price_cents: 200,
+                                                    unit_price_currency: "EUR")
+      FactoryBot.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                         buyer_commission: 0)
       service_name(transaction.community_id)
       transaction
     end
     let(:paypal_transaction_per_hour) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'paypal',
-                                                     unit_price_cents: 500,
-                                                     unit_price_currency: "EUR",
-                                                     listing_quantity: 3,
-                                                     unit_type: 'hour')
-      FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
-                                          payment_total_cents: 1500, fee_total_cents: 150, payment_status: "completed",
-                                          commission_total_cents: 0, commission_fee_total_cents: 0)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'paypal',
+                                                    unit_price_cents: 500,
+                                                    unit_price_currency: "EUR",
+                                                    listing_quantity: 3,
+                                                    unit_type: 'hour')
+      FactoryBot.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
+                                         payment_total_cents: 1500, fee_total_cents: 150, payment_status: "completed",
+                                         commission_total_cents: 0, commission_fee_total_cents: 0)
       service_name(transaction.community_id)
-      FactoryGirl.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
-                                   end_time: '2017-11-14 12:00', per_hour: true)
+      FactoryBot.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
+                                  end_time: '2017-11-14 12:00', per_hour: true)
       transaction
     end
     let(:stripe_transaction_per_hour) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'stripe',
-                                                     unit_price_cents: 200,
-                                                     unit_price_currency: "EUR",
-                                                     listing_quantity: 3,
-                                                     unit_type: 'hour')
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
-                                          sum_cents: 600,
-                                          buyer_commission: 0)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'stripe',
+                                                    unit_price_cents: 200,
+                                                    unit_price_currency: "EUR",
+                                                    listing_quantity: 3,
+                                                    unit_type: 'hour')
+      FactoryBot.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                         sum_cents: 600,
+                                         buyer_commission: 0)
       service_name(transaction.community_id)
-      FactoryGirl.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
-                                   end_time: '2017-11-14 12:00', per_hour: true)
+      FactoryBot.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
+                                  end_time: '2017-11-14 12:00', per_hour: true)
       transaction
     end
     let(:stripe_transaction_with_buyer_commission) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'stripe',
-                                                     commission_from_seller: 12,
-                                                     commission_from_buyer: 8)
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
-                                          sum_cents: 11000,
-                                          commission_cents: 1200,
-                                          buyer_commission_cents: 800)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'stripe',
+                                                    commission_from_seller: 12,
+                                                    commission_from_buyer: 8)
+      FactoryBot.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                         sum_cents: 11000,
+                                         commission_cents: 1200,
+                                         buyer_commission_cents: 800)
       service_name(transaction.community_id)
       transaction
     end
     let(:stripe_transaction_per_hour_with_shipping_with_buyer_commission) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'stripe',
-                                                     unit_price_cents: 200,
-                                                     unit_price_currency: "EUR",
-                                                     listing_quantity: 3,
-                                                     unit_type: 'hour',
-                                                     shipping_price_cents: 300,
-                                                     commission_from_buyer: 20)
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
-                                          sum_cents: 1020,
-                                          buyer_commission_cents: 120)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'stripe',
+                                                    unit_price_cents: 200,
+                                                    unit_price_currency: "EUR",
+                                                    listing_quantity: 3,
+                                                    unit_type: 'hour',
+                                                    shipping_price_cents: 300,
+                                                    commission_from_buyer: 20)
+      FactoryBot.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                         sum_cents: 1020,
+                                         buyer_commission_cents: 120)
       service_name(transaction.community_id)
-      FactoryGirl.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
-                                   end_time: '2017-11-14 12:00', per_hour: true)
+      FactoryBot.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
+                                  end_time: '2017-11-14 12:00', per_hour: true)
       transaction
     end
 
@@ -232,28 +232,28 @@ describe TransactionMailer, type: :mailer do
   end
 
   describe 'new transaction notification' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:seller) {
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: "Joan", family_name: "Smith")
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: "Joan", family_name: "Smith")
     }
-    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, author: seller) }
+    let(:buyer) { FactoryBot.create(:person, member_of: community) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, author: seller) }
     let(:paypal_transaction) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
-                                                     community: community, listing: listing,
-                                                     current_state: 'paid', payment_gateway: 'paypal',
-                                                     unit_price_cents: 500,
-                                                     unit_price_currency: "EUR")
-      FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
-                                          payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
-                                          commission_total_cents: 0, commission_fee_total_cents: 0)
+      transaction = FactoryBot.create(:transaction, starter: buyer,
+                                                    community: community, listing: listing,
+                                                    current_state: 'paid', payment_gateway: 'paypal',
+                                                    unit_price_cents: 500,
+                                                    unit_price_currency: "EUR")
+      FactoryBot.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
+                                         payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
+                                         commission_total_cents: 0, commission_fee_total_cents: 0)
       service_name(transaction.community_id)
       transaction
     end
     let(:admin) {
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: "Estelle", family_name: "Perry")
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: "Estelle", family_name: "Perry")
     }
 
     it 'works' do

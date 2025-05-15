@@ -11,7 +11,7 @@ class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
   end
 
   def perform
-    return if Maybe(::PlanService::API::Api.plans.get_current(community_id: community_id).data)[:expired].or_else(false)
+    return if Maybe(::PlanService::API::API.plans.get_current(community_id: community_id).data)[:expired].or_else(false)
 
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)

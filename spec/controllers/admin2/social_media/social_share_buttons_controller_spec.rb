@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin2::SocialMedia::SocialShareButtonsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community, enable_social_share_buttons: false, private: false) }
+  let(:community) { FactoryBot.create(:community, enable_social_share_buttons: false, private: false) }
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"

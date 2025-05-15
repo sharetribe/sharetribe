@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe OmniauthController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
 
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:person]
@@ -101,19 +101,19 @@ describe OmniauthController, type: :controller do
   context 'Facebook' do
     let(:provider) { 'facebook' }
     let(:person_global_admin_with_provider_id) do
-      FactoryGirl.create(:person, is_admin: true, facebook_id: '123')
+      FactoryBot.create(:person, is_admin: true, facebook_id: '123')
     end
     let(:person_global_admin_with_provider_email) do
-      person = FactoryGirl.create(:person, is_admin: true)
-      person.emails << FactoryGirl.create(:email, address: 'global_admin@example.com')
+      person = FactoryBot.create(:person, is_admin: true)
+      person.emails << FactoryBot.create(:email, address: 'global_admin@example.com')
       person
     end
     let(:person_with_provider_id) do
-      FactoryGirl.create(:person, member_of: community, facebook_id: '345')
+      FactoryBot.create(:person, member_of: community, facebook_id: '345')
     end
     let(:person_with_provider_email) do
-      person = FactoryGirl.create(:person, member_of: community)
-      person.emails << FactoryGirl.create(:email, address: 'alejandra@example.com')
+      person = FactoryBot.create(:person, member_of: community)
+      person.emails << FactoryBot.create(:email, address: 'alejandra@example.com')
       person
     end
     it_behaves_like 'multi-provider authentication'
@@ -122,19 +122,19 @@ describe OmniauthController, type: :controller do
   context 'Google' do
     let(:provider) { 'google_oauth2' }
     let(:person_global_admin_with_provider_id) do
-      FactoryGirl.create(:person, is_admin: true, google_oauth2_id: '123')
+      FactoryBot.create(:person, is_admin: true, google_oauth2_id: '123')
     end
     let(:person_global_admin_with_provider_email) do
-      person = FactoryGirl.create(:person, is_admin: true)
-      person.emails << FactoryGirl.create(:email, address: 'global_admin@example.com')
+      person = FactoryBot.create(:person, is_admin: true)
+      person.emails << FactoryBot.create(:email, address: 'global_admin@example.com')
       person
     end
     let(:person_with_provider_id) do
-      FactoryGirl.create(:person, member_of: community, google_oauth2_id: '345')
+      FactoryBot.create(:person, member_of: community, google_oauth2_id: '345')
     end
     let(:person_with_provider_email) do
-      person = FactoryGirl.create(:person, member_of: community)
-      person.emails << FactoryGirl.create(:email, address: 'alejandra@example.com')
+      person = FactoryBot.create(:person, member_of: community)
+      person.emails << FactoryBot.create(:email, address: 'alejandra@example.com')
       person
     end
     it_behaves_like 'multi-provider authentication'
@@ -143,19 +143,19 @@ describe OmniauthController, type: :controller do
   context 'LinkedIn' do
     let(:provider) { 'linkedin' }
     let(:person_global_admin_with_provider_id) do
-      FactoryGirl.create(:person, is_admin: true, linkedin_id: '123')
+      FactoryBot.create(:person, is_admin: true, linkedin_id: '123')
     end
     let(:person_global_admin_with_provider_email) do
-      person = FactoryGirl.create(:person, is_admin: true)
-      person.emails << FactoryGirl.create(:email, address: 'global_admin@example.com')
+      person = FactoryBot.create(:person, is_admin: true)
+      person.emails << FactoryBot.create(:email, address: 'global_admin@example.com')
       person
     end
     let(:person_with_provider_id) do
-      FactoryGirl.create(:person, member_of: community, linkedin_id: '345')
+      FactoryBot.create(:person, member_of: community, linkedin_id: '345')
     end
     let(:person_with_provider_email) do
-      person = FactoryGirl.create(:person, member_of: community)
-      person.emails << FactoryGirl.create(:email, address: 'alejandra@example.com')
+      person = FactoryBot.create(:person, member_of: community)
+      person.emails << FactoryBot.create(:email, address: 'alejandra@example.com')
       person
     end
     it_behaves_like 'multi-provider authentication'

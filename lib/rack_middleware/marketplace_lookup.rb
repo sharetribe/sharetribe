@@ -1,6 +1,9 @@
 # Appends current marketplace info to env.
 #
 # Note: Is safe to run, even if there's no current_marketplace
+
+require_relative '../../app/utils/url_utils'
+
 class MarketplaceLookup
   def initialize(app)
     @app = app
@@ -14,7 +17,7 @@ class MarketplaceLookup
 
     plan =
       if marketplace
-        ::PlanService::API::Api.plans.get_current(community_id: marketplace.id).data
+        ::PlanService::API::API.plans.get_current(community_id: marketplace.id).data
       end
 
     no_marketplaces =

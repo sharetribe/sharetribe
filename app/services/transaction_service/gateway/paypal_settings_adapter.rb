@@ -30,7 +30,7 @@ module TransactionService::Gateway
     end
 
     def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))
-      acc_state = PaypalService::API::Api.accounts.get(community_id: community_id, person_id: person_id)
+      acc_state = PaypalService::API::API.accounts.get(community_id: community_id, person_id: person_id)
                   .maybe()
                   .fetch(:state, nil)
                   .or_else(:not_connected)

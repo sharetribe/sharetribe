@@ -43,8 +43,8 @@ module NewLayoutViewUtils
   end
 
   def features(community_id, person_id, private_community, clp_enabled)
-    person_flags = FeatureFlagService::API::Api.features.get_for_person(community_id: community_id, person_id: person_id).data[:features]
-    community_flags = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).data[:features]
+    person_flags = FeatureFlagService::API::API.features.get_for_person(community_id: community_id, person_id: person_id).data[:features]
+    community_flags = FeatureFlagService::API::API.features.get_for_community(community_id: community_id).data[:features]
 
     fs = all_features(person_flags, community_flags, private_community, clp_enabled)
 

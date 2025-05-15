@@ -16,7 +16,7 @@
       = form.radio_button :autoplay, false
       = t(".autoplay_no")
     %label
-      = form.radio_button :autoplay, LandingPageVersion::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay
+      = form.radio_button :autoplay, LandingPageVersions::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay
       = t(".autoplay_muted")
 
 .row

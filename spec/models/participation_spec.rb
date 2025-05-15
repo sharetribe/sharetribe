@@ -24,7 +24,7 @@ require 'spec_helper'
 describe Participation, type: :model do
 
   before(:each) do
-    @participation = FactoryGirl.build(:participation)
+    @participation = FactoryBot.build(:participation)
   end
 
   it "is valid with valid attributes" do

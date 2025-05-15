@@ -17,6 +17,11 @@
 #  "matches when a is an `Array` and b is a `Hash`"
 #
 #
+
+# Rails new autoloader seems to insist on a module being defined
+module PatternMatching
+end
+
 def matches(expected)
   ->(actual) {
     expected.zip(actual).all? do |(exp, act)|

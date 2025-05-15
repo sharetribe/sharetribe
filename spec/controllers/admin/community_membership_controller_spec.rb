@@ -1,23 +1,23 @@
 require 'spec_helper'
 
 describe Admin::CommunityMembershipsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:person1) { FactoryGirl.create(:person, member_of: community) }
-  let(:person2) { FactoryGirl.create(:person, member_of: community) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:person1) { FactoryBot.create(:person, member_of: community) }
+  let(:person2) { FactoryBot.create(:person, member_of: community) }
   let(:person_with_unconfirmed_email) do
-    person = FactoryGirl.create(:person, member_of: community)
+    person = FactoryBot.create(:person, member_of: community)
     email = person.emails.first
     email.update_column(:confirmed_at, nil)
     person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
     person
   end
   let(:person_with_pending_consent) do
-    person = FactoryGirl.create(:person, member_of: community)
+    person = FactoryBot.create(:person, member_of: community)
     person.community_membership.update_column(:status, CommunityMembership::PENDING_CONSENT)
     person
   end
   let(:person_banned) do
-    person = FactoryGirl.create(:person, member_of: community)
+    person = FactoryBot.create(:person, member_of: community)
     person.community_membership.update(status: "banned")
     person
   end

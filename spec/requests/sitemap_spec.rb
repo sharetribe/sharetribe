@@ -6,11 +6,11 @@ RSpec.describe SitemapController, type: :request do
 
   before(:each) do
     @domain = "marketplace.example.com"
-    @community = FactoryGirl.create(:community, domain: @domain, use_domain: true)
+    @community = FactoryBot.create(:community, domain: @domain, use_domain: true)
 
-    @listing = FactoryGirl.create(:listing, community_id: @community.id)
-    @community2 = FactoryGirl.create(:community)
-    @listing2 = FactoryGirl.create(:listing, community_id: @community2.id)
+    @listing = FactoryBot.create(:listing, community_id: @community.id)
+    @community2 = FactoryBot.create(:community)
+    @listing2 = FactoryBot.create(:listing, community_id: @community2.id)
   end
 
   describe "GET #sitemap" do

@@ -73,7 +73,7 @@ class Admin2::MembershipService
     only_admin = community.is_person_only_admin(person)
     return false if only_admin
 
-    stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
+    stripe_del = StripeService::API::API.accounts.delete_seller_account(community_id: community.id,
                                                                         person_id: person.id)
     unless stripe_del[:success]
       @error_message = I18n.t("layouts.notifications.stripe_you_account_balance_is_not_0")
@@ -213,10 +213,10 @@ class Admin2::MembershipService
   end
 
   def paypal_accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
   def stripe_accounts_api
-    StripeService::API::Api.accounts
+    StripeService::API::API.accounts
   end
 end

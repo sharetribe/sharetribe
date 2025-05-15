@@ -1,7 +1,7 @@
 module LoginHelpers
 
   def logout_and_login_user(username = "kassi_testperson1", password = "testi")
-    logout() if @current_user
+    logout if @current_user
     login_user(username, password)
   end
 

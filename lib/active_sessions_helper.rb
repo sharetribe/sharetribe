@@ -1,3 +1,6 @@
+require Rails.root.join('app/utils/uuid_utils')
+require Rails.root.join('app/models/application_record')
+
 module ActiveSessionsHelper
   module Store
     Session = EntityUtils.define_builder(

@@ -22,4 +22,5 @@ module PaypalService::API
       accounts_api
     end
   end
+  APIImplementation = ApiImplementation
 end

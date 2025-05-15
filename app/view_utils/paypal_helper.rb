@@ -1,6 +1,6 @@
 module PaypalHelper
 
-  TxApi = TransactionService::API::Api
+  TxApi = TransactionService::API::API
 
   module_function
 
@@ -9,7 +9,7 @@ module PaypalHelper
   # configured the gateway.
   def community_ready_for_payments?(community_id)
     account_prepared_for_community?(community_id) &&
-      Maybe(TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
+      Maybe(TransactionService::API::API.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller]}
       .map {|_| true}
@@ -28,7 +28,7 @@ module PaypalHelper
   # community
   def account_prepared_for_user?(person_id, community_id)
     payment_settings =
-      TransactionService::API::Api.settings.get(
+      TransactionService::API::API.settings.get(
       community_id: community_id,
       payment_gateway: :paypal,
       payment_process: :preauthorize)
@@ -89,6 +89,6 @@ module PaypalHelper
   end
 
   def accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 end

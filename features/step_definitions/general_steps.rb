@@ -1,6 +1,6 @@
 Given /^feature flag "([^"]*)" is enabled$/ do |arg1|
-  Community.all.each { |c|
-    FeatureFlagService::API::Api.features.enable(community_id: c.id, features: [arg1.to_sym])
+  Community.all.find_each { |c|
+    FeatureFlagService::API::API.features.enable(community_id: c.id, features: [arg1.to_sym])
   }
 end
 

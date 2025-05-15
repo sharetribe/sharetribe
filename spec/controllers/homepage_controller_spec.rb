@@ -18,7 +18,7 @@ describe HomepageController, type: :controller do
 
   describe "title and description" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
       @request.env[:current_plan] = plan
@@ -102,7 +102,7 @@ describe HomepageController, type: :controller do
 
       it "renders updated meta title and description when search by category is used" do
         @community.community_customizations.first.update(category_meta_title: "Search results for {{category_name}}", category_meta_description: "Search results for category {{category_name}}")
-        @category = FactoryGirl.create(:category, :community => @community)
+        @category = FactoryBot.create(:category, :community => @community)
         @category.translation_attributes = {en: {name: "Test Category"}}
         @category.save
         get :index, params: {category: @category.url}
@@ -114,7 +114,7 @@ describe HomepageController, type: :controller do
   end
 
   describe '#index' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
 
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:person]
@@ -122,10 +122,10 @@ describe HomepageController, type: :controller do
       @request.env[:current_marketplace] = community
     end
 
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id) }
     let(:pending_listing) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   state: Listing::APPROVAL_PENDING)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  state: Listing::APPROVAL_PENDING)
     end
 
     it 'shows approved listing' do

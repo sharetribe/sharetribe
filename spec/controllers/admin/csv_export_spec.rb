@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Admin::CommunityMembershipsController, type: :controller do
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @person = create_admin_for(@community)
-    @other_email = FactoryGirl.create(:email, person: @person)
+    @other_email = FactoryBot.create(:email, person: @person)
     sign_in_for_spec(@person)
   end
 
@@ -47,13 +47,13 @@ describe Admin::CommunityTransactionsController, type: :controller do
     # the @request is shared between test groups here so clear the request store
     RequestStore.clear!
 
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @person = create_admin_for(@community)
-    @listing = FactoryGirl.create(:listing, community_id: @community.id, transaction_process_id: 123, author: @person)
+    @listing = FactoryBot.create(:listing, community_id: @community.id, transaction_process_id: 123, author: @person)
     sign_in_for_spec(@person)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
-    @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, current_state: :initiated, community: @community)
+    @transaction = FactoryBot.create(:transaction, starter: @person, listing: @listing, current_state: :initiated, community: @community)
   end
 
   describe "transactions CSV export" do

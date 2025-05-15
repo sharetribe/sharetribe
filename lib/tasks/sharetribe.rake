@@ -37,7 +37,7 @@ namespace :sharetribe do
 
   desc "Synchnorizes verified email address states from SES to local DB"
   task :synchronize_verified_with_ses => :environment do
-    EmailService::API::Api.addresses.enqueue_batch_sync()
+    EmailService::API::API.addresses.enqueue_batch_sync()
   end
 
   namespace :person_custom_fields do

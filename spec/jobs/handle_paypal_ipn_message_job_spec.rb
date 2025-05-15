@@ -1,15 +1,15 @@
 require "spec_helper"
 
-RSpec.describe HandlePaypalIpnMessageJob, type: :job do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:transaction_process) { FactoryGirl.create(:transaction_process) }
+RSpec.describe HandlePaypalIPNMessageJob, type: :job do
+  let(:community) { FactoryBot.create(:community) }
+  let(:transaction_process) { FactoryBot.create(:transaction_process) }
   let(:listing) {
-    FactoryGirl.create(:listing, community_id: community.id,
-                                 listing_shape_id: 123,
-                                 transaction_process_id: transaction_process.id)
+    FactoryBot.create(:listing, community_id: community.id,
+                                listing_shape_id: 123,
+                                transaction_process_id: transaction_process.id)
   }
-  let(:transaction) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
-  let(:transaction2) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
+  let(:transaction) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
+  let(:transaction2) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
 
   context '#perform' do
     it 'IPN message - commission denied' do
@@ -59,8 +59,8 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
         "controller" => "paypal_ipn",
         "action" => "ipn_hook"
       }
-      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
-      paypal_payment = FactoryGirl.create(:paypal_payment,
+      paypal_ipn_message = FactoryBot.create(:paypal_ipn_message, body: body, status: 'errored')
+      paypal_payment = FactoryBot.create(:paypal_payment,
                                           community_id: community.id,
                                           transaction_id: transaction.id,
                                           payment_status: 'completed',
@@ -69,7 +69,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
 
       expect(paypal_payment.payment_status).to eq 'completed'
       expect(paypal_payment.commission_status).to eq 'pending'
-      HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform
+      HandlePaypalIPNMessageJob.new(paypal_ipn_message.id).perform
       paypal_payment.reload
       expect(paypal_payment.payment_status).to eq 'completed'
       expect(paypal_payment.commission_status).to eq 'denied'
@@ -98,8 +98,8 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
         "controller" => "paypal_ipn",
         "action" => "ipn_hook"
       }
-      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
-      paypal_payment = FactoryGirl.create(:paypal_payment,
+      paypal_ipn_message = FactoryBot.create(:paypal_ipn_message, body: body, status: 'errored')
+      paypal_payment = FactoryBot.create(:paypal_payment,
                                           community_id: community.id,
                                           transaction_id: transaction.id,
                                           payment_status: 'completed',
@@ -113,7 +113,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
                                           commission_total_cents: 1200,
                                           commission_fee_total_cents: 65)
 
-      HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform
+      HandlePaypalIPNMessageJob.new(paypal_ipn_message.id).perform
       paypal_payment.reload
       expect(paypal_payment.payment_total.cents).to eq 0
     end
@@ -169,8 +169,8 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
         "controller" => "paypal_ipn",
         "action" => "ipn_hook"
       }
-      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
-      paypal_payment = FactoryGirl.create(:paypal_payment,
+      paypal_ipn_message = FactoryBot.create(:paypal_ipn_message, body: body, status: 'errored')
+      paypal_payment = FactoryBot.create(:paypal_payment,
                                           community_id: community.id,
                                           transaction_id: transaction.id,
                                           payment_status: 'completed',
@@ -180,7 +180,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
                                           commission_pending_reason: 'none')
 
       expect(paypal_payment.commission_pending_reason).to eq 'none'
-      HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform
+      HandlePaypalIPNMessageJob.new(paypal_ipn_message.id).perform
       paypal_payment.reload
       expect(paypal_payment.commission_status).to eq 'pending'
       expect(paypal_payment.commission_pending_reason).to eq 'paymentreview'
@@ -246,8 +246,8 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
         "controller" => "paypal_ipn",
         "action" => "ipn_hook"
       }
-      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
-      FactoryGirl.create(:paypal_payment,
+      paypal_ipn_message = FactoryBot.create(:paypal_ipn_message, body: body, status: 'errored')
+      FactoryBot.create(:paypal_payment,
                                           community_id: community.id,
                                           transaction_id: transaction2.id,
                                           payment_status: 'voided',
@@ -255,7 +255,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
                                           authorization_id: '111',
                                           commission_status: 'not_charged',
                                           commission_pending_reason: 'none')
-      FactoryGirl.create(:paypal_payment,
+      FactoryBot.create(:paypal_payment,
                                           community_id: community.id,
                                           transaction_id: transaction.id,
                                           payment_status: 'voided',
@@ -263,7 +263,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
                                           authorization_id: body["txn_id"],
                                           commission_status: 'not_charged',
                                           commission_pending_reason: 'none')
-      expect{HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform}.to_not raise_error
+      expect{HandlePaypalIPNMessageJob.new(paypal_ipn_message.id).perform}.to_not raise_error
     end
   end
 end

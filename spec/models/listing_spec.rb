@@ -71,7 +71,7 @@ require 'spec_helper'
 describe Listing, type: :model do
 
   before(:each) do
-    @listing = FactoryGirl.build(:listing, listing_shape_id: 123)
+    @listing = FactoryBot.build(:listing, listing_shape_id: 123)
   end
 
   it "is valid with valid attributes" do
@@ -133,8 +133,8 @@ describe Listing, type: :model do
   end
 
   context 'manage availability per hour' do
-    let(:community) { FactoryGirl.create(:community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:community) { FactoryBot.create(:community) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it '#working_hours_periods_grouped_by_day' do
       listing.working_hours_new_set
@@ -149,8 +149,8 @@ describe Listing, type: :model do
   end
 
   describe "delete_listings" do
-    let(:location) { FactoryGirl.create(:location) }
-    let(:hammer) { FactoryGirl.create(:listing, title: "Hammer", listing_shape_id: 123, location: location)}
+    let(:location) { FactoryBot.create(:location) }
+    let(:hammer) { FactoryBot.create(:listing, title: "Hammer", listing_shape_id: 123, location: location)}
     let(:author) { hammer.author }
 
     it "delete_listings by author" do
@@ -169,27 +169,27 @@ describe Listing, type: :model do
   end
 
   context 'manage availability per day' do
-    let(:community) { FactoryGirl.create(:community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:community) { FactoryBot.create(:community) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, listing_shape_id: 123) }
     let(:transaction1) do
-      tx = FactoryGirl.create(:transaction, community: community,
-                                            listing: listing,
-                                            current_state: 'confirmed')
-      FactoryGirl.create(:booking, tx: tx, start_on: Date.parse('2020-03-01'), end_on: Date.parse('2020-03-04'))
+      tx = FactoryBot.create(:transaction, community: community,
+                                           listing: listing,
+                                           current_state: 'confirmed')
+      FactoryBot.create(:booking, tx: tx, start_on: Date.parse('2020-03-01'), end_on: Date.parse('2020-03-04'))
       tx
     end
     let(:transaction2) do
-      tx = FactoryGirl.create(:transaction, community: community,
-                                            listing: listing,
-                                            current_state: 'confirmed')
-      FactoryGirl.create(:booking, tx: tx, start_on: Date.parse('2020-03-05'), end_on: Date.parse('2020-03-06'))
+      tx = FactoryBot.create(:transaction, community: community,
+                                           listing: listing,
+                                           current_state: 'confirmed')
+      FactoryBot.create(:booking, tx: tx, start_on: Date.parse('2020-03-05'), end_on: Date.parse('2020-03-06'))
       tx
     end
     let(:listing_blocked_date1) do
-      FactoryGirl.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-08'))
+      FactoryBot.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-08'))
     end
     let(:listing_blocked_date2) do
-      FactoryGirl.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-28'))
+      FactoryBot.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-28'))
     end
 
     def expect_booked_dates(listing, start_on, end_on, expected_dates)

@@ -59,7 +59,7 @@ end
 
 Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
   numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
-  FactoryGirl.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
+  FactoryBot.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
 end
 
 When(/^I set search range for "(.*?)" between "(.*?)" and "(.*?)"$/) do |selector, min, max|
@@ -119,12 +119,12 @@ end
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_ident, opts_table|
   @community = Community.where(ident: community_ident).first
   @category = find_category_by_name(category_name)
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
-  @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
+  @custom_field = FactoryBot.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
+  @custom_field.category_custom_fields << FactoryBot.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
 
   opts_table.hashes.each do |hash|
     title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
-    option = FactoryGirl.build(:custom_field_option, :titles => [title])
+    option = FactoryBot.build(:custom_field_option, :titles => [title])
     @custom_field.options << option
   end
 
@@ -133,12 +133,12 @@ end
 
 Given(/^there is a custom checkbox field "(.*?)" in that community in category "(.*?)" with options:$/) do |field_title, category_name, opts_table|
   @category = find_category_by_name(category_name)
-  @custom_field = FactoryGirl.build(:custom_checkbox_field, :community => @current_community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
-  @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
+  @custom_field = FactoryBot.build(:custom_checkbox_field, :community => @current_community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
+  @custom_field.category_custom_fields << FactoryBot.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
 
   opts_table.hashes.each do |hash|
     title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
-    option = FactoryGirl.build(:custom_field_option, :titles => [title])
+    option = FactoryBot.build(:custom_field_option, :titles => [title])
     @custom_field.options << option
   end
 
@@ -148,7 +148,7 @@ end
 Given(/^that listing has a checkbox answer "(.*?)" for "(.*?)"$/) do |option_title, field_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
-  value = FactoryGirl.build(:checkbox_field_value, :listing => @listing, :question => field)
+  value = FactoryBot.build(:checkbox_field_value, :listing => @listing, :question => field)
   selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
   value.custom_field_option_selections << selection
   value.save!
@@ -158,7 +158,7 @@ Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_tit
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
   selection = CustomFieldOptionSelection.create!(:custom_field_option => option)
-  value = FactoryGirl.build(:dropdown_field_value, :listing => @listing, :question => field, :custom_field_option_selections => [selection])
+  value = FactoryBot.build(:dropdown_field_value, :listing => @listing, :question => field, :custom_field_option_selections => [selection])
   value.save!
 end
 
@@ -239,8 +239,8 @@ Given(/^that listing have booking at "(.*?)" from "(.*?)" till "(.*?)"$/) do |da
   start_time = "#{date} #{from}"
   end_time = "#{date} #{till}"
   community = Community.find(@listing.community_id)
-  transaction = FactoryGirl.create(:transaction, community: community, listing: @listing, current_state: 'paid')
-  FactoryGirl.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
+  transaction = FactoryBot.create(:transaction, community: community, listing: @listing, current_state: 'paid')
+  FactoryBot.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
 end
 
 Then(/^(?:|I )should not see payment logos$/) do

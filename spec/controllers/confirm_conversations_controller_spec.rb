@@ -1,33 +1,33 @@
 require 'spec_helper'
 
 describe ConfirmConversationsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:buyer) { FactoryBot.create(:person, member_of: community) }
   let(:seller) do
-    FactoryGirl.create(:person, member_of: community,
-                                given_name: 'Sherry',
-                                family_name: 'Rivera',
-                                display_name: 'Sky caterpillar'
+    FactoryBot.create(:person, member_of: community,
+                               given_name: 'Sherry',
+                               family_name: 'Rivera',
+                               display_name: 'Sky caterpillar'
                       )
   end
   let(:listing) do
-    FactoryGirl.create(:listing, community_id: community.id,
-                                 title: 'Apple cake',
-                                 author: seller)
+    FactoryBot.create(:listing, community_id: community.id,
+                                title: 'Apple cake',
+                                author: seller)
   end
   let(:transaction) do
-    FactoryGirl.create(:transaction_process, community_id: community.id)
-    conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
-    tx = FactoryGirl.create(:transaction, community: community,
-                                          listing: listing,
-                                          starter: buyer,
-                                          current_state: 'paid',
-                                          last_transition_at: 1.minute.ago,
-                                          payment_process: :preauthorize,
-                                          payment_gateway: :stripe,
-                                          conversation: conversation
+    FactoryBot.create(:transaction_process, community_id: community.id)
+    conversation = FactoryBot.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+    tx = FactoryBot.create(:transaction, community: community,
+                                         listing: listing,
+                                         starter: buyer,
+                                         current_state: 'paid',
+                                         last_transition_at: 1.minute.ago,
+                                         payment_process: :preauthorize,
+                                         payment_gateway: :stripe,
+                                         conversation: conversation
                            )
-    FactoryGirl.create(:transaction_transition, to_state: 'paid', tx: tx)
+    FactoryBot.create(:transaction_transition, to_state: 'paid', tx: tx)
     tx
   end
 
@@ -59,7 +59,7 @@ describe ConfirmConversationsController, type: :controller do
   end
 
   describe '#confirm canceled flow' do
-    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
+    let(:admin) { FactoryBot.create(:person, member_of: community, member_is_admin: true) }
 
     before(:each) do
       admin

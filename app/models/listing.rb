@@ -146,7 +146,7 @@ class Listing < ApplicationRecord
     APPROVAL_PENDING = 'approval_pending'.freeze => 'pending_admin_approval'.freeze,
     APPROVAL_REJECTED = 'approval_rejected'.freeze => 'rejected'.freeze
   }
-  enum state: APPROVALS
+  enum :state, APPROVALS
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now

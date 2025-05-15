@@ -13,7 +13,7 @@ class Admin2::FooterService
     !plan.dig(:features, :footer).present?
   end
 
-  def footer_menu_links # rubocop:disable Rails/Delegate
+  def footer_menu_links
     community.footer_menu_links
   end
 
@@ -27,7 +27,7 @@ class Admin2::FooterService
   end
 
   def enable_social_link
-    params[:community][:social_links_attributes].each do |_index, link|
+    params[:community][:social_links_attributes].each do |_index, link| # rubocop:disable Style/HashEachMethods
       link[:enabled] = link[:url].present?
     end
   end

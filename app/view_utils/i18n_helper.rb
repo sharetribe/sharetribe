@@ -60,7 +60,7 @@ module I18nHelper
   def initialize_community_backend!(community_id, locales)
     community_backend = I18n::Backend::CommunityBackend.instance
     community_backend.set_community!(community_id, locales.map(&:to_sym))
-    community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
+    community_translations = TranslationService::API::API.translations.get(community_id)[:data]
     TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
       # Store community translations to I18n backend.
       #

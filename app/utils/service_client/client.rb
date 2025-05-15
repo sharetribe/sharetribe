@@ -6,7 +6,11 @@
 # client that is suitable for different needs. It's easy to pick only
 # the middleware that is needed and it's also easy to extend the
 # client by writing a new middleware.
-#
+
+require_relative 'middleware/result_mapper'
+require_relative 'middleware/endpoint_mapper'
+require_relative 'middleware/http_client'
+
 module ServiceClient
   class Client
 
@@ -29,7 +33,7 @@ module ServiceClient
     #                                           sell: "/sell_car"
     #                                         },
     #                                         [
-    #                                           ServiceClient::Middleware::RequestID.new,
+    #                                           ServiceClient::Middleware::RequestId.new,
     #                                           ServiceClient::Middleware::Timeout.new,
     #                                           ServiceClient::Middleware::Logger.new,
     #                                           ServiceClient::Middleware::Timing.new,

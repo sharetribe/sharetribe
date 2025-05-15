@@ -4,7 +4,7 @@ class Admin::DomainsController < Admin::AdminBaseController
 
   def update
     if @service.update
-      redirect_to "#{APP_CONFIG.always_use_ssl ? 'https' : 'http'}://#{@service.ident}.#{APP_CONFIG.domain}"
+      redirect_to "#{APP_CONFIG.always_use_ssl ? 'https' : 'http'}://#{@service.ident}.#{APP_CONFIG.domain}", allow_other_host: true
     else
       redirect_to admin_domain_path
     end

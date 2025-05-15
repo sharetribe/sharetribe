@@ -18,7 +18,7 @@ module PaypalService::Jobs
     end
 
     def payments_api
-      PaypalService::API::Api.payments
+      PaypalService::API::API.payments
     end
 
   end

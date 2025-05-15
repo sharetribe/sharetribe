@@ -183,7 +183,7 @@ module Payments
       allow_nil: false,
       greater_than_or_equal_to: MIN_COMMISSION_PERCENTAGE,
       less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE,
-      if: proc { mode == 'transaction_fee' || mode == 'paypal' }
+      if: proc { %w[transaction_fee paypal].include?(mode) }
     )
 
     available_currencies = TransactionService::AvailableCurrencies::CURRENCIES
@@ -250,7 +250,7 @@ module Payments
         end
       end
 
-      if form.mode == 'transaction_fee' || form.mode == 'paypal'
+      if %w[transaction_fee paypal].include?(form.mode)
         # Onboarding wizard step recording
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
                                                .update_from_event(:payment_preferences_updated, @current_community)
@@ -270,15 +270,15 @@ module Payments
   end
 
   def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions
+    PaypalService::API::API.minimum_commissions
   end
 
   def tx_settings_api
-    TransactionService::API::Api.settings
+    TransactionService::API::API.settings
   end
 
   def paypal_accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
   def parse_money_with_default(str_value, default, currency)
@@ -349,7 +349,7 @@ module Payments
   end
 
   def stripe_api
-    StripeService::API::Api.wrapper
+    StripeService::API::API.wrapper
   end
 
   def ensure_params_payment_gateway

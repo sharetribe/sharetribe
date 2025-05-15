@@ -1,3 +1,7 @@
+# Rails new autoloader seems to insist on a module being defined
+module IconMap
+end
+
 ICON_MAP = {
     "ss-pika" => {
 

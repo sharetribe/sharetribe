@@ -4,7 +4,7 @@ class Admin::PlansController < Admin::AdminBaseController
   def show
     marketplace_default_name = @current_community.name(@current_community.default_locale)
 
-    PlanService::API::Api.plans.get_external_service_link(
+    PlanService::API::API.plans.get_external_service_link(
       id: @current_community.id,
       ident: @current_community.ident,
       domain: @current_community.use_domain? ? @current_community.domain : nil,

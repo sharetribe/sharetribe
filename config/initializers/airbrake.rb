@@ -12,7 +12,7 @@ if APP_CONFIG.use_airbrake
     config.environment = Rails.env
 
     config.ignore_environments = %w(development test)
-    config.blacklist_keys = Rails.application.config.filter_parameters
+    config.blocklist_keys = Rails.application.config.filter_parameters
   end
 
   Airbrake.add_filter do |notice|

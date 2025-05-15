@@ -50,22 +50,22 @@ module Admin2::Advanced
       updates = []
       unless user_enabled.blank?
         updates << -> {
-          FeatureFlagService::API::Api.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
+          FeatureFlagService::API::API.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
         }
       end
       unless user_disabled.blank?
         updates << ->(*) {
-          FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, person_id: @current_user.id, features: user_disabled)
+          FeatureFlagService::API::API.features.disable(community_id: @current_community.id, person_id: @current_user.id, features: user_disabled)
         }
       end
       unless community_enabled.blank?
         updates << ->(*) {
-          FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: community_enabled)
+          FeatureFlagService::API::API.features.enable(community_id: @current_community.id, features: community_enabled)
         }
       end
       unless community_disabled.blank?
         updates << ->(*) {
-          FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, features: community_disabled)
+          FeatureFlagService::API::API.features.disable(community_id: @current_community.id, features: community_disabled)
         }
       end
       Result.all(*updates)

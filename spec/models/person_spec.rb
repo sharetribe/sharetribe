@@ -69,8 +69,8 @@ describe Person, type: :model do
 
    before(:all) do
       #These will be created only once for the whole example group
-      @community_membership = FactoryGirl.create(:community_membership)
-      @test_person = FactoryGirl.create(:person, community_membership: @community_membership)
+      @community_membership = FactoryBot.create(:community_membership)
+      @test_person = FactoryBot.create(:person, community_membership: @community_membership)
     end
 
     it "should be valid" do
@@ -132,7 +132,7 @@ describe Person, type: :model do
 
     describe "#create_listing" do
       it "creates a new listing with the submitted attributes" do
-        listing = FactoryGirl.create(:listing,
+        listing = FactoryBot.create(:listing,
           :title => "Test",
           :author => @test_person,
           :listing_shape_id => 123
@@ -192,8 +192,8 @@ describe Person, type: :model do
 
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          expect(FactoryGirl.build(:person).valid_password?('testi')).to be_truthy
-          expect(FactoryGirl.build(:person).valid_password?('something_else')).not_to be_truthy
+          expect(FactoryBot.build(:person).valid_password?('testi')).to be_truthy
+          expect(FactoryBot.build(:person).valid_password?('something_else')).not_to be_truthy
         end
       end
 
@@ -201,13 +201,13 @@ describe Person, type: :model do
 
     describe "#delete" do
       it "should delete also related conversations and testimonials" do
-        conv = FactoryGirl.create(:conversation)
+        conv = FactoryBot.create(:conversation)
         conv.participants << @test_person
         conv_id = conv.id
         expect(Conversation.find_by_id(conv_id)).not_to be_nil
         expect(@test_person.conversations).to include(conv)
 
-        tes = FactoryGirl.create(:testimonial, :author => @test_person)
+        tes = FactoryBot.create(:testimonial, :author => @test_person)
         tes_id = tes.id
         expect(Testimonial.find_by_id(tes_id)).not_to be_nil
         expect(@test_person.authored_testimonials).to include(tes)
@@ -224,7 +224,7 @@ describe Person, type: :model do
     describe "#latest_pending_email_address" do
 
       before (:each) do
-        @p = FactoryGirl.create(:person)
+        @p = FactoryBot.create(:person)
       end
 
       it "should return nil if none pending" do
@@ -237,18 +237,18 @@ describe Person, type: :model do
       end
 
       it "should pick the right email to return" do
-        c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
-        e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
-        e2 = FactoryGirl.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
-        # e3 = FactoryGirl.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
+        c = FactoryBot.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
+        e = FactoryBot.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        e2 = FactoryBot.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
+        # e3 = FactoryBot.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
 
         expect(@p.latest_pending_email_address(c)).to eq("jack@example.com")
       end
     end
 
   describe "inherits_settings_from" do
-    let(:person) { FactoryGirl.build(:person) }
-    let(:community) { FactoryGirl.build(:community, :default_min_days_between_community_updates => 30) }
+    let(:person) { FactoryBot.build(:person) }
+    let(:community) { FactoryBot.build(:community, :default_min_days_between_community_updates => 30) }
 
     it "inherits_settings_from" do
       person.inherit_settings_from(community)
@@ -259,12 +259,12 @@ describe Person, type: :model do
   end
 
   describe "delete_person" do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:field1) do
-      FactoryGirl.create(:custom_numeric_field, community: community, entity_type: :for_person)
+      FactoryBot.create(:custom_numeric_field, community: community, entity_type: :for_person)
     end
     let(:person) do
-      person = FactoryGirl.create(:person, member_of: community,
+      person = FactoryBot.create(:person, member_of: community,
                                   display_name: 'Jack of All Trades',
                                   facebook_id: '123',
                                   google_oauth2_id: '345',
@@ -275,13 +275,13 @@ describe Person, type: :model do
                                   last_sign_in_ip: '1.1.1.1',
                                   image: StringIO.new(png_image)
                                  )
-      person.emails << FactoryGirl.create(:email)
-      person.location = FactoryGirl.create(:location)
-      person.followers << FactoryGirl.create(:person, member_of: community)
-      person.followed_people << FactoryGirl.create(:person, member_of: community)
-      person.followed_listings << FactoryGirl.create(:listing, community: community)
-      person.auth_tokens << FactoryGirl.create(:auth_token)
-      person.custom_field_values << FactoryGirl.create(:custom_numeric_field_value,
+      person.emails << FactoryBot.create(:email)
+      person.location = FactoryBot.create(:location)
+      person.followers << FactoryBot.create(:person, member_of: community)
+      person.followed_people << FactoryBot.create(:person, member_of: community)
+      person.followed_listings << FactoryBot.create(:listing, community: community)
+      person.auth_tokens << FactoryBot.create(:auth_token)
+      person.custom_field_values << FactoryBot.create(:custom_numeric_field_value,
                                                        question: field1,
                                                        listing: nil,
                                                        numeric_value: 77)
@@ -341,54 +341,54 @@ describe Person, type: :model do
   end
 
   describe 'username generation' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     it 'works' do
       # blank names
-      person = FactoryGirl.create(:person, :given_name => '', :family_name => '', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => '', :family_name => '', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'username'
 
       # incremental
-      person = FactoryGirl.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'joes'
       1.upto(20) do |index|
-        person = FactoryGirl.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
+        person = FactoryBot.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
         expect(person).to be_valid
         expect(person.username).to eq "joes#{index}"
       end
 
       # long first name + increment
-      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'joelongfirstnamehe'
-      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'joelongfirstnamehe1'
-      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'joelongfirstnamehe2'
 
       # Kanji
-      person = FactoryGirl.create(:person, :given_name => 'あべ', :family_name => 'しんぞう', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'あべ', :family_name => 'しんぞう', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'abesi'
 
       # Cyrillic
-      person = FactoryGirl.create(:person, :given_name => 'Ащьф', :family_name => 'Лштшфум', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Ащьф', :family_name => 'Лштшфум', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'ashchfl'
-      person = FactoryGirl.create(:person, :given_name => 'Александр', :family_name => 'Мишкин', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Александр', :family_name => 'Мишкин', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'alieksandrm'
 
       # diacritics
-      person = FactoryGirl.create(:person, :given_name => 'Arturs Krišjānis', :family_name => 'Kariņš', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => 'Arturs Krišjānis', :family_name => 'Kariņš', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'arturskrisjanisk'
 
       # Clean extra chars
-      person = FactoryGirl.create(:person, :given_name => '1 Tho + mas & _ ;', :family_name => 'Malbaux', :username => '', community: community)
+      person = FactoryBot.create(:person, :given_name => '1 Tho + mas & _ ;', :family_name => 'Malbaux', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq '1thomasm'
 

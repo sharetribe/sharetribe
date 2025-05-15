@@ -24,7 +24,7 @@ module Analytics
     flash_or_now[EVENT_KEY].push(
       {event: event_name, props: props}
     )
-    AnalyticService::API::Api.send_event(
+    AnalyticService::API::API.send_event(
       person: @current_user,
       community: @current_community,
       event_data: {
@@ -36,7 +36,7 @@ module Analytics
 
   def mark_logged_out(flash_or_now, user = nil)
     flash_or_now[LOGOUT_KEY] = true
-    AnalyticService::API::Api.send_event(
+    AnalyticService::API::API.send_event(
       person: user,
       community: @current_community,
       event_data: {

@@ -39,7 +39,7 @@ class Admin::Communities::TopbarController < Admin::AdminBaseController
       translation_key: "homepage.index.post_new_listing",
       translations: translations
     }]
-    TranslationService::API::Api.translations.create(@current_community.id, translations_group)
+    TranslationService::API::API.translations.create(@current_community.id, translations_group)
 
     menu_links_params[:logo_link] = params[:logo_link]
 

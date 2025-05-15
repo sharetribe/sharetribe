@@ -16,7 +16,7 @@ class Admin::SettingsPresenter
   end
 
   def can_delete_marketplace
-    PlanService::API::Api.plans.get_current(community_id: community.id).data.try(:[], :features).try(:[], :deletable)
+    PlanService::API::API.plans.get_current(community_id: community.id).data.try(:[], :features).try(:[], :deletable)
   end
 
   def main_search
@@ -73,7 +73,7 @@ class Admin::SettingsPresenter
 
   def keyword_and_location
     @keyword_and_location ||=
-      if FeatureFlagService::API::Api.features.get_for_community(community_id: community.id).data[:features].include?(:topbar_v1)
+      if FeatureFlagService::API::API.features.get_for_community(community_id: community.id).data[:features].include?(:topbar_v1)
         [:keyword_and_location]
       else
         []

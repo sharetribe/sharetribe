@@ -35,7 +35,7 @@
               <% if c["icon"] %>
                 <div class="info__column-icon <%= section_id %>__info__column-icon">
                   <% if CUSTOM_ICONS.include?(c["icon"]) %>
-                    <%= render template: "custom_icons/#{c["icon"]}" %>
+                    <%= render template: "custom_icons/#{c["icon"]}".gsub(/\.svg$/, ""), formats: [:svg] %>
                   <% else %>
                     <%= render partial: "icon", locals: { icon: c["icon"] } %>
                   <% end %>

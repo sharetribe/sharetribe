@@ -26,7 +26,7 @@ require 'spec_helper'
 describe CommunityMembership, type: :model do
 
   before(:each) do
-    @community_membership = FactoryGirl.build(:community_membership)
+    @community_membership = FactoryBot.build(:community_membership)
   end
 
   it "is valid with valid attributes" do

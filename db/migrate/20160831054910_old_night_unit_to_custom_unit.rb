@@ -2,7 +2,7 @@
 class OldNightUnitToCustomUnit < ActiveRecord::Migration
 
   class Community < ApplicationRecord
-    serialize :settings, Hash
+    serialize :settings, coder: JSON
 
     def locales
      if settings && !settings["locales"].blank?

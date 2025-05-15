@@ -1,24 +1,24 @@
 require 'spec_helper'
 
 describe StripeService::API::Accounts do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:person) { FactoryGirl.create(:person, community_id: community.id) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:person) { FactoryBot.create(:person, community_id: community.id) }
 
   describe '#delete_seller_account' do
     let(:unfinished_account) do
-      FactoryGirl.create(:stripe_account,
+      FactoryBot.create(:stripe_account,
                          community_id: community.id,
                          person_id: person.id)
     end
     let(:finished_account) do
-      FactoryGirl.create(:stripe_account,
+      FactoryBot.create(:stripe_account,
                          stripe_seller_id: 'acct_ABCDEFGHIJKLMOPR',
                          community_id: community.id,
                          person_id: person.id)
     end
     let(:payment_settings) do
       sk = TransactionService::Store::PaymentSettings.encrypt_value('sk_test_123456789012345678901234', false)
-      FactoryGirl.create(:payment_settings,
+      FactoryBot.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
                          api_private_key: sk,

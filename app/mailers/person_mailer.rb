@@ -265,7 +265,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     @email_type = "email_from_admins"
     set_up_layout_variables(recipient, community, @email_type)
 
-    sender_address = EmailService::API::Api.addresses.get_sender(community_id: community.id).data
+    sender_address = EmailService::API::API.addresses.get_sender(community_id: community.id).data
     if sender_address[:type] == :default
       sender_name = sender.name(community)
       sender_email = sender.confirmed_notification_email_to
@@ -370,7 +370,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
     @host = community.full_domain
     @email_address = email.address
     @url_params = build_url_params(community, email.person)
-    @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
+    @show_branding_info = !PlanService::API::API.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     with_locale(email.person.locale, community.locales.map(&:to_sym), community.id) do
       email.update_attribute(:confirmation_sent_at, Time.now)
       mail(:to => email.address,
@@ -407,7 +407,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
       @regular_email = regular_email
       @url_params = build_url_params(community, recipient, 'welcome_email')
       @test_email = test_email
-      @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
+      @show_branding_info = !PlanService::API::API.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       subject = t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => PersonViewUtils.person_display_name_for_type(person, "first_name_only"))
       mail(:to => recipient.confirmed_notification_emails_to,

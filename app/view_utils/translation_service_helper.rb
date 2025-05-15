@@ -125,7 +125,7 @@ module TranslationServiceHelper
   # Out: <tr_key>
   #
   def translation_hashes_to_tr_key!(hash, community_id, tr_key = nil)
-    TranslationService::API::Api.translations.create(
+    TranslationService::API::API.translations.create(
      community_id,
      [{ translation_key: tr_key, translations: hash}]
     ).data.first[:translation_key]

@@ -26,7 +26,7 @@ class ListingsFeedPresenter
     if community.private
       Result::Success.new({count: 0, listings: []})
      else
-       ListingIndexService::API::Api
+       ListingIndexService::API::API
          .listings
          .search(
            community_id: community.id,

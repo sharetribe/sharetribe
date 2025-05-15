@@ -6,7 +6,10 @@ module Demoji
   def create_or_update(**args)
     _rescued_counter ||= 0
 
-    ActiveSupport::Deprecation.silence { super }
+    deprecator = ActiveSupport::Deprecation.new
+    deprecator.silence do
+      super
+    end
   rescue ActiveRecord::StatementInvalid => ex
     raise ex unless ex.message.match /Mysql2::Error: Incorrect string value:/
 

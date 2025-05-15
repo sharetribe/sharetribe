@@ -16,8 +16,8 @@ else
     # Edit the script/asset-variables.sh file to e.g. set font locations, icon pack, etc.
     [ -f "script/asset-variables.sh" ] && source "script/asset-variables.sh"
 
-    secret_key_base=$(ruby -r securerandom -e "puts SecureRandom.hex(64)")
-    export secret_key_base
+    export secret_key_base=$(ruby -r securerandom -e "puts SecureRandom.hex(64)")
+    export SECRET_KEY_BASE="$secret_key_base"
 
     bundle exec rake assets:precompile
 fi

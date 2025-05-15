@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin2::Users::UserRightsController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community,
+    community = FactoryBot.create(:community,
                         join_with_invite_only: false,
                         users_can_invite_new_users: false,
                         require_verification_to_post_listings: false,

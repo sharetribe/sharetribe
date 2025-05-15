@@ -33,7 +33,7 @@ Given /^there are following emails:$/ do |emails_table|
   # Create new emails
   emails_table.hashes.each do |hash|
     person = Person.find_by(username: hash[:person])
-    @hash_email = FactoryGirl.create(:email, :person => person)
+    @hash_email = FactoryBot.create(:email, :person => person)
 
     attributes_to_update = hash.except('person')
     @hash_email.update(attributes_to_update) unless attributes_to_update.empty?

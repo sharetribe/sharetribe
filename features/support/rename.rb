@@ -109,6 +109,7 @@ module Rename
     end
 
     def step_name(keyword, step_match, status, source_indent, background, file_colon_line)
+      # rubocop:disable Style/HashEachMethods
       replaces = {
         %Q{/^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/} => :rename_to_listing_shape
         # %Q{/^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/} => :rename1,
@@ -126,6 +127,7 @@ module Rename
 
         puts "Replaced #{search} from #{file_name}"
       end
+      # rubocop:enable Style/HashEachMethods
     end
   end
 end

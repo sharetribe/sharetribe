@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class Locations < Base
     class Location
       include ActiveModel::Model
@@ -94,7 +94,7 @@ module LandingPageVersion::Section
       :background_color_string,
       :background_image_variation,
       :location_color_hover,
-      :locations_attributes => LandingPageVersion::Section::Locations::Location::ATTRIBUTES
+      :locations_attributes => LandingPageVersions::Section::Locations::Location::ATTRIBUTES
     ]
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
@@ -105,7 +105,7 @@ module LandingPageVersion::Section
 
     def initialize(attributes={})
       super(attributes)
-      @kind = LandingPageVersion::Section::LOCATIONS
+      @kind = LandingPageVersions::Section::LOCATIONS
       DEFAULTS.each do |key, value|
         unless self.send(key)
           self.send("#{key}=", value)
@@ -130,7 +130,7 @@ module LandingPageVersion::Section
     def locations=(list)
       @locations = list.map.with_index do |location, index|
         if location.is_a?(Hash)
-          LandingPageVersion::Section::Locations::Location.from_serialized_hash(location, index)
+          LandingPageVersions::Section::Locations::Location.from_serialized_hash(location, index)
         else
           location
         end
@@ -140,7 +140,7 @@ module LandingPageVersion::Section
     # called from controller
     def locations_attributes=(params)
       @locations = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
-        location = LandingPageVersion::Section::Locations::Location.new(attrs)
+        location = LandingPageVersions::Section::Locations::Location.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
           location.asset_id = "location_#{id}_#{new_asset.id}"
@@ -151,7 +151,7 @@ module LandingPageVersion::Section
     end
 
     def new_location
-      LandingPageVersion::Section::Locations::Location.new
+      Section::Locations::Location.new
     end
 
     def priority_sort(params)

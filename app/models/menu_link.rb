@@ -26,7 +26,7 @@ class MenuLink < ApplicationRecord
     for_footer: 1
   }.freeze
 
-  enum entity_type: ENTITY_TYPES
+  enum :entity_type, ENTITY_TYPES
 
   validates_presence_of :community
 

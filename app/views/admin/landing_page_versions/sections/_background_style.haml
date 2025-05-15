@@ -4,11 +4,11 @@
 
 .row
   %label
-    = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE, class: 'bg-style-selector'
+    = form.radio_button :background_style, LandingPageVersions::Section::BACKGROUND_STYLE_IMAGE, class: 'bg-style-selector'
     = t(".style_image")
   %label
-    = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_COLOR, class: 'bg-style-selector'
+    = form.radio_button :background_style, LandingPageVersions::Section::BACKGROUND_STYLE_COLOR, class: 'bg-style-selector'
     = t(".style_color")
   %label
-    = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_NONE, class: 'bg-style-selector'
+    = form.radio_button :background_style, LandingPageVersions::Section::BACKGROUND_STYLE_NONE, class: 'bg-style-selector'
     = t(".style_none")

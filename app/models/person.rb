@@ -73,7 +73,7 @@ class Person < ApplicationRecord
   include ErrorsHelper
   include ApplicationHelper
   include DeletePerson
-  include Person::ToView
+  include ToView
 
   self.primary_key = "id"
 
@@ -204,7 +204,7 @@ class Person < ApplicationRecord
     "email_from_admins"
   ]
 
-  serialize :preferences
+  serialize :preferences, coder: YAML
 
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true

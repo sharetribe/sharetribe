@@ -39,7 +39,7 @@ class CommunitiesController < ApplicationController
       auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
       @user_token = auth_token[:token]
       url = URLUtils.append_query_param(marketplace.full_domain({with_protocol: true}), "auth", @user_token)
-      redirect_to url
+      redirect_to url, allow_other_host: true
     else
       render_form(errors: form.errors.full_messages)
     end

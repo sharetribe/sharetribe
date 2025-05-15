@@ -177,11 +177,11 @@ class PaypalAccountsController < ApplicationController
   end
 
   def payment_settings_api
-    TransactionService::API::Api.settings
+    TransactionService::API::API.settings
   end
 
   def accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
 end

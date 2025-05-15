@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin2::Listings::ListingApprovalController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community, pre_approved_listings: false)
+    community = FactoryBot.create(:community, pre_approved_listings: false)
     community
   end
 

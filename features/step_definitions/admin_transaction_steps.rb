@@ -3,8 +3,8 @@ module AdminTransactionSteps
   def build_transaction(transaction_data)
     last_message = eval(transaction_data[:latest_activity].gsub(' ', '.'))
 
-    message = FactoryGirl.build(:message, created_at: last_message)
-    conversation = FactoryGirl.build(:conversation, created_at: last_message, messages: [message])
+    message = FactoryBot.build(:message, created_at: last_message)
+    conversation = FactoryBot.build(:conversation, created_at: last_message, messages: [message])
 
     community = Community.find_by(ident: transaction_data[:community_ident])
 
@@ -38,7 +38,7 @@ module AdminTransactionSteps
         author: author
       })
 
-    transaction = FactoryGirl.build(
+    transaction = FactoryBot.build(
       :transaction,
       transaction_opts.merge({
           listing: listing,
@@ -63,6 +63,15 @@ module AdminTransactionSteps
     page.all("thead > tr > th").find { |elem| elem.text.starts_with?(to_title(column)) }
   end
 
+  def find_sort_link(column)
+    column_header = find_column(column)
+    within(column_header) do
+      find("a.table-sort")
+    end
+  rescue Capybara::ElementNotFound
+    column_header.find("a")
+  end
+
   def find_column_index(column)
     page.all("thead > tr > th").find_index { |elem| elem.text.starts_with?(to_title(column)) }
   end
@@ -84,6 +93,10 @@ end
 
 Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |count, status_text|
   expect(page.all("td", :text => status_text).length).to eq count.to_i
+end
+
+When(/^I sort records by "(.*?)"$/) do |column|
+  find_sort_link(column).click
 end
 
 When(/^I sort by "(.*?)"$/) do |column|

@@ -15,7 +15,7 @@ class CleanupLandingPageAssetsJob < Struct.new(:community_id)
     existing_asset_ids = LandingPageVersion.where(community_id: community_id).map do |lpv|
       (lpv.parsed_content['assets'] || []).map{|asset| asset['asset_id']}
     end.flatten.compact.uniq
-    community.landing_page_assets.where.not(id: existing_asset_ids).each do |attachment|
+    community.landing_page_assets.where.not(id: existing_asset_ids).find_each do |attachment|
       attachment.purge
     end
   end

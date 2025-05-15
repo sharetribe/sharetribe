@@ -48,7 +48,7 @@ To build and launch a marketplace without writing a single line of code, and ext
     -  [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
     -  [passenger](https://github.com/phusion/passenger) | Web application server
     -  [react_on_rails](https://github.com/shakacode/react_on_rails) | Integration of React + Webpack + Rails
-    -  factory_girl, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
+    -  factory_bot, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
 
 ## Installation
 
@@ -117,7 +117,7 @@ Before you get started, install the following:
 1.  Create and initialize the database:
 
     ```bash
-    bundle exec rake db:create db:structure:load
+    bundle exec rake db:create db:schema:load
     ```
 
 1.  Run Sphinx index:
@@ -291,7 +291,7 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1.  Initialize your database:
 
     ```bash
-    RAILS_ENV=production bundle exec rake db:structure:load
+    RAILS_ENV=production bundle exec rake db:schema:load
     ```
 
 1.  Run Sphinx index:
@@ -416,9 +416,9 @@ You should fill the `app_encryption_key` variable in the `config/config.yml` fil
 Stripe can be configured from the admin panel, in the "Payment settings" section. Instructions on how to get Stripe API keys can be found there.
 
 If Stripe isn't automatically enabled in the admin panel after upgrading to 7.2.0, you should run the following commands in your Rails console, where `<ID>` is your marketplace ID (probably `1`):
-`TransactionService::API::Api.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)`
+`TransactionService::API::API.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)`
 and
-`TransactionService::API::Api.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)`.
+`TransactionService::API::API.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)`.
 
 ## Custom Landing Page
 

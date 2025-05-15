@@ -1,5 +1,5 @@
 class Person::PaymentSettingsPresenter
-  include Person::PaymentSettingsCommon
+  include Persons::PaymentSettingsCommon
 
   private
 
@@ -58,7 +58,7 @@ class Person::PaymentSettingsPresenter
   end
 
   def account_link(stripe_seller_id:, return_url:)
-    StripeService::API::Api.accounts.create_account_link(community_id: community.id,
+    StripeService::API::API.accounts.create_account_link(community_id: community.id,
                                                          account_id: stripe_seller_id,
                                                          return_url: return_url)
   end
@@ -354,23 +354,23 @@ class Person::PaymentSettingsPresenter
   end
 
   def stripe_api
-    StripeService::API::Api.wrapper
+    StripeService::API::API.wrapper
   end
 
   def stripe_payments_api
-    StripeService::API::Api.payments
+    StripeService::API::API.payments
   end
 
   def settings_api
-    TransactionService::API::Api.settings
+    TransactionService::API::API.settings
   end
 
   def stripe_accounts_api
-    StripeService::API::Api.accounts
+    StripeService::API::API.accounts
   end
 
   def paypal_accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
   def mask_us_pr_as_puerto_rico(form_params)

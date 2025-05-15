@@ -151,8 +151,8 @@ class CommunityMembershipsController < ApplicationController
   private
 
   def render_pending_consent_form(form_values = {})
-    @service = Person::SettingsService.new(community: @current_community, params: params,
-                                           required_fields_only: true, person: @current_user)
+    @service = Persons::SettingsService.new(community: @current_community, params: params,
+                                            required_fields_only: true, person: @current_user)
     values = Form.call(form_values)
     invite_only = @current_community.join_with_invite_only?
     allowed_emails = Maybe(@current_community.allowed_emails).split(",").or_else([])

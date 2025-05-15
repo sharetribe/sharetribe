@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Admin::CategoriesController, type: :controller do
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
 
-    @cat1 = FactoryGirl.create(:category, sort_priority: 1, community: @community)
-    @cat2 = FactoryGirl.create(:category, sort_priority: 2, community: @community)
-    @cat3 = FactoryGirl.create(:category, sort_priority: 3, community: @community)
+    @cat1 = FactoryBot.create(:category, sort_priority: 1, community: @community)
+    @cat2 = FactoryBot.create(:category, sort_priority: 2, community: @community)
+    @cat3 = FactoryBot.create(:category, sort_priority: 3, community: @community)
 
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
@@ -28,8 +28,8 @@ describe Admin::CategoriesController, type: :controller do
     end
 
     it "does not allow updates to other communities' categories" do
-      community_other = FactoryGirl.create(:community)
-      cat_other_community = FactoryGirl.create(:category, sort_priority: 3, community: community_other)
+      community_other = FactoryBot.create(:community)
+      cat_other_community = FactoryBot.create(:category, sort_priority: 3, community: community_other)
 
       new_order = [cat_other_community.id]
       post :order, params: { order: new_order }

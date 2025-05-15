@@ -1,4 +1,4 @@
-class PaypalIpnController < ApplicationController
+class PaypalIPNController < ApplicationController
 
   include PaypalService::MerchantInjector
   include PaypalService::IPNInjector

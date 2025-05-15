@@ -94,7 +94,7 @@ module StripeService::API
     private
 
     def stripe_api
-      StripeService::API::Api.wrapper
+      StripeService::API::API.wrapper
     end
 
     def stripe_accounts_store

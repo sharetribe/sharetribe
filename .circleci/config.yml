@@ -44,6 +44,11 @@ jobs:
           keys:
             - node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
       - run:
+          name: Install System Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libvips42 libvips-dev
+      - run:
           name: install system deps
           command: script/ci-install-deps.sh
       - run:
@@ -79,7 +84,7 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: db setup
-          command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
+          command: bundle exec rake db:create db:schema:load ts:configure ts:index ts:start --trace
       - run:
           name: rspec tests to run
           command: shopt -s globstar && echo $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)

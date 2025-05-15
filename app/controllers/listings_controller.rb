@@ -187,7 +187,7 @@ class ListingsController < ApplicationController
   end
 
   def update
-    if (params[:listing][:origin] && (params[:listing][:origin_loc_attributes][:address].empty? || params[:listing][:origin].blank?))
+    if params[:listing][:origin] && (params[:listing][:origin_loc_attributes][:address].empty? || params[:listing][:origin].blank?)
       params[:listing].delete("origin_loc_attributes")
       if @listing.origin_loc
         @listing.origin_loc.delete

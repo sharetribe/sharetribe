@@ -447,7 +447,7 @@ window.ST.imageUploader = function(listings, opts) {
 
       return {
         type: "PUT",
-        url: opts.saveFromUrl,
+        url: opts.saveFromURL,
         data: {
           filename: filename,
           path: path

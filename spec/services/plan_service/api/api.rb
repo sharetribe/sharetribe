@@ -1,5 +1,8 @@
+require_relative '../../../../app/services/plan_service/api/plans'
+require_relative '../../../../app/services/plan_service/api/no_plans'
+
 module PlanService::API
-  class Api
+  class API
     Configuration = PlanService::DataTypes::Configuration
 
     def self.plans

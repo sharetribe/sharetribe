@@ -1,7 +1,7 @@
 module CommunitySteps
 
   def save_name_and_action(community_id, groups)
-    created_translations = TranslationService::API::Api.translations.create(community_id, groups)
+    created_translations = TranslationService::API::API.translations.create(community_id, groups)
     created_translations[:data].map { |translation| translation[:translation_key] }
   end
 end
@@ -13,7 +13,7 @@ Given /^there are following communities:$/ do |communities_table|
     ident = hash[:community]
     existing_community = Community.where(ident: ident).first
     existing_community.destroy if existing_community
-    @hash_community = FactoryGirl.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
+    @hash_community = FactoryBot.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
     @hash_community.update(attributes_to_update) unless attributes_to_update.empty?
@@ -138,7 +138,7 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
   listing_shapes.hashes.map do |hash|
     name_tr_key, action_button_tr_key = save_name_and_action(current_community.id, [
       {translations: [{locale: 'fi', translation: hash['fi']}, {locale: 'en', translation: hash['en']}]},
-      {translations: [{locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')}]}
+      {translations: [{locale: 'fi', translation: hash['button'] || 'Action'}, {locale: 'en', translation: hash['button'] || 'Action'}]}
     ])
 
     ListingShape.create_with_opts(
@@ -182,7 +182,7 @@ Given(/^this community does not send automatic newsletters$/) do
 end
 
 Given(/^community emails are sent from name "(.*?)" and address "(.*?)"$/) do |name, email|
-  EmailService::API::Api.addresses.create(
+  EmailService::API::API.addresses.create(
     community_id: @current_community.id,
     address: {
       name: name,
@@ -203,24 +203,24 @@ end
 Given /^community "(.*?)" has payment method "(.*?)" provisioned$/ do |community, payment_gateway|
   community = Community.where(ident: community).first
   if payment_gateway
-    TransactionService::API::Api.settings.provision(
+    TransactionService::API::API.settings.provision(
       community_id: community.id,
       payment_gateway: payment_gateway,
       payment_process: :preauthorize,
       active: true)
   end
   if payment_gateway == 'stripe'
-    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe])
+    FeatureFlagService::API::API.features.enable(community_id: community.id, features: [:stripe])
   end
 end
 
 Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |community, payment_gateway|
   community = Community.where(ident: community).first
-  tx_settings_api = TransactionService::API::Api.settings
+  tx_settings_api = TransactionService::API::API.settings
   if payment_gateway == 'paypal'
-    FactoryGirl.create(:paypal_account,
+    FactoryBot.create(:paypal_account,
                        community_id: community.id,
-                       order_permission: FactoryGirl.build(:order_permission))
+                       order_permission: FactoryBot.build(:order_permission))
   end
   tx_settings_api.activate(community_id: community.id,
                            payment_process: :preauthorize,
@@ -258,7 +258,7 @@ end
 
 Given /^community "(.*?)" has feature flag "(.*?)" enabled$/ do |community, feature_flag|
   community = Community.where(ident: community).first
-  FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [feature_flag.to_sym])
+  FeatureFlagService::API::API.features.enable(community_id: community.id, features: [feature_flag.to_sym])
 end
 
 Given /^community "(.*?)" has social network "(.*?)" enabled$/ do |community, provider|

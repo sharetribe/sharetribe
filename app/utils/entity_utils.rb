@@ -38,7 +38,7 @@ module EntityUtils
 
   VALIDATORS = {
     mandatory: -> (_, v, _) {
-      if (v.nil? || (v.is_a?(String) && v == ""))
+      if v.nil? || (v.is_a?(String) && v == "")
         {code: :mandatory, msg: "Missing mandatory value." }
       end
     },
@@ -49,92 +49,92 @@ module EntityUtils
       end
     },
     string: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(String))
+      unless v.nil? || v.is_a?(String)
         {code: :string, msg: "Value must be a String. Was: #{v} (#{v.class.name})." }
       end
     },
     time: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Time))
+      unless v.nil? || v.is_a?(Time)
         {code: :time, msg: "Value must be a Time. Was: #{v} (#{v.class.name})." }
       end
     },
     date: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Date))
+      unless v.nil? || v.is_a?(Date)
         {code: :date, msg: "Value must be a Date. Was: #{v} (#{v.class.name})." }
       end
     },
     fixnum: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Integer))
+      unless v.nil? || v.is_a?(Integer)
         {code: :fixnum, msg: "Value must be a Integer. Was: #{v} (#{v.class.name})." }
       end
     },
     symbol: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Symbol))
+      unless v.nil? || v.is_a?(Symbol)
         {code: :symbol, msg: "Value must be a Symbol. Was: #{v} (#{v.class.name})." }
       end
     },
     hash: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Hash))
+      unless v.nil? || v.is_a?(Hash)
         {code: :hash, msg: "Value must be a Hash. Was: #{v} (#{v.class.name})." }
       end
     },
     callable: -> (_, v, _) {
-      unless (v.nil? || v.respond_to?(:call))
+      unless v.nil? || v.respond_to?(:call)
         {code: :callable, msg: "Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)." }
       end
     },
     enumerable: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Enumerable))
+      unless v.nil? || v.is_a?(Enumerable)
         {code: :enumerable, msg: "Value must be an Enumerable. Was: #{v}." }
       end
     },
     array: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Array))
+      unless v.nil? || v.is_a?(Array)
         {code: :array, msg: "Value must be an Array. Was: #{v}." }
       end
     },
     set: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Set))
+      unless v.nil? || v.is_a?(Set)
         {code: :set, msg: "Value must be a Set. Was: #{v} (#{v.class.name})." }
       end
     },
     range: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Range))
+      unless v.nil? || v.is_a?(Range)
         {code: :range, msg: "Value must be a Range. Was: #{v} (#{v.class.name})"}
       end
     },
     money: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Money))
+      unless v.nil? || v.is_a?(Money)
         {code: :money, msg: "Value must be a Money. Was: #{v}." }
       end
     },
     bool: -> (_, v, _) {
-      unless (v.nil? || v == true || v == false)
+      unless v.nil? || v == true || v == false
         {code: :bool, msg: "Value must be boolean true or false. Was: #{v} (#{v.class.name})." }
       end
     },
     gt: -> (limit, v, _) {
-      unless (v.nil? || v > limit)
+      unless v.nil? || v > limit
         {code: :gt, msg: "Value must be greater than #{limit}. Was: #{v} (#{v.class.name})."}
       end
     },
     gte: -> (limit, v, _) {
-      unless (v.nil? || v >= limit)
+      unless v.nil? || v >= limit
         {code: :gte, msg: "Value must be greater than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
       end
     },
     lt: -> (limit, v, _) {
-      unless (v.nil? || v < limit)
+      unless v.nil? || v < limit
         {code: :lt, msg: "Value must be less than #{limit}. Was: #{v} (#{v.class.name})." }
       end
     },
     lte: -> (limit, v, _) {
-      unless (v.nil? || v <= limit)
+      unless v.nil? || v <= limit
         {code: :lte, msg: "Value must be less than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
       end
     },
     uuid: ->(_, v, _) {
-      unless (v.nil? || v.is_a?(UUIDTools::UUID))
+      unless v.nil? || v.is_a?(UUIDTools::UUID)
         {code: :uuid, msg: "Value must be an instance of UUIDTools::UUID. Was: #{v} (#{v.class.name})."}
       end
     },

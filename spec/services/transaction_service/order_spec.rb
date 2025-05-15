@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TransactionService::Order do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
 
   before do
     request = OpenStruct.new
@@ -9,7 +9,7 @@ describe TransactionService::Order do
   end
 
   it "calculates the item total" do
-    listing = FactoryGirl.create(:listing, price: Money.new(0, "USD"), community_id: community.id)
+    listing = FactoryBot.create(:listing, price: Money.new(0, "USD"), community_id: community.id)
     tx_params = {quantity: 10}
 
     oder = TransactionService::Order.new(
@@ -18,7 +18,7 @@ describe TransactionService::Order do
       listing: listing)
     expect(oder.item_total).to eq(Money.new(0, "USD"))
 
-    listing = FactoryGirl.create(:listing, price: Money.new(2500, "USD"), community_id: community.id)
+    listing = FactoryBot.create(:listing, price: Money.new(2500, "USD"), community_id: community.id)
     tx_params = {quantity: 10}
 
     oder = TransactionService::Order.new(
@@ -36,9 +36,9 @@ describe TransactionService::Order do
   end
 
   it "calculates the shipping total" do
-    listing = FactoryGirl.create(:listing, shipping_price: Money.new(5000, "USD"),
-                                           shipping_price_additional: nil,
-                                           community_id: community.id)
+    listing = FactoryBot.create(:listing, shipping_price: Money.new(5000, "USD"),
+                                          shipping_price_additional: nil,
+                                          community_id: community.id)
     tx_params = {quantity: 1, delivery: :shipping}
 
     oder = TransactionService::Order.new(
@@ -55,9 +55,9 @@ describe TransactionService::Order do
       listing: listing)
     expect(oder.shipping_total).to eq(Money.new(5000, "USD"))
 
-    listing = FactoryGirl.create(:listing, shipping_price: Money.new(5000, "USD"),
-                                           shipping_price_additional: Money.new(1000, "USD"),
-                                           community_id: community.id)
+    listing = FactoryBot.create(:listing, shipping_price: Money.new(5000, "USD"),
+                                          shipping_price_additional: Money.new(1000, "USD"),
+                                          community_id: community.id)
     tx_params = {quantity: 1, delivery: :shipping}
 
     oder = TransactionService::Order.new(
@@ -76,7 +76,7 @@ describe TransactionService::Order do
   end
 
   it "calculates the order total (item total + shipping total)" do
-    listing = FactoryGirl.create(:listing,
+    listing = FactoryBot.create(:listing,
                                  price: Money.new(25_000, "EUR"),
                                  shipping_price: Money.new(2_000, "EUR"),
                                  shipping_price_additional: Money.new(500, "EUR"),
@@ -92,7 +92,7 @@ describe TransactionService::Order do
 
   describe "buyer fee when stripe in use and paypal is not used" do
     let(:stripe_settings_without_buyer_fee) do
-      FactoryGirl.create(:payment_settings,
+      FactoryBot.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
                          payment_process: :preauthorize,
@@ -100,7 +100,7 @@ describe TransactionService::Order do
                          api_verified: true)
     end
     let(:stripe_settings_buyer_fee_relative) do
-      FactoryGirl.create(:payment_settings,
+      FactoryBot.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
                          payment_process: :preauthorize,
@@ -109,7 +109,7 @@ describe TransactionService::Order do
                          commission_from_buyer: 10)
     end
     let(:stripe_settings_buyer_fee_fixed) do
-      FactoryGirl.create(:payment_settings,
+      FactoryBot.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
                          payment_process: :preauthorize,
@@ -120,7 +120,7 @@ describe TransactionService::Order do
                          minimum_buyer_transaction_fee_currency: 'EUR')
     end
     let(:stripe_settings_buyer_fee_relative_and_fixed) do
-      FactoryGirl.create(:payment_settings,
+      FactoryBot.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
                          payment_process: :preauthorize,
@@ -133,7 +133,7 @@ describe TransactionService::Order do
 
     it "calculates the order total when buyer_fee is not present" do
       stripe_settings_without_buyer_fee
-      listing = FactoryGirl.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
+      listing = FactoryBot.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
       create_stripe_account(listing)
       tx_params = {quantity: 1}
 
@@ -146,7 +146,7 @@ describe TransactionService::Order do
 
     it "calculates the order total when buyer_fee is relative" do
       stripe_settings_buyer_fee_relative
-      listing = FactoryGirl.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
+      listing = FactoryBot.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
       create_stripe_account(listing)
       tx_params = {quantity: 1}
 
@@ -159,7 +159,7 @@ describe TransactionService::Order do
 
     it "calculates the order total when buyer_fee is fixed" do
       stripe_settings_buyer_fee_fixed
-      listing = FactoryGirl.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
+      listing = FactoryBot.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
       create_stripe_account(listing)
       tx_params = {quantity: 1}
 
@@ -172,7 +172,7 @@ describe TransactionService::Order do
 
     it "calculates the order total when buyer_fee is relative and fixed" do
       stripe_settings_buyer_fee_relative_and_fixed
-      listing = FactoryGirl.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
+      listing = FactoryBot.create(:listing, price: Money.new(5000, "EUR"), community_id: community.id)
       create_stripe_account(listing)
       tx_params = {quantity: 1}
 
@@ -185,7 +185,7 @@ describe TransactionService::Order do
     end
 
     def create_stripe_account(listing)
-      FactoryGirl.create(:stripe_account,
+      FactoryBot.create(:stripe_account,
                          community_id: community.id,
                          person_id: listing.author_id,
                          stripe_seller_id: 'abc',

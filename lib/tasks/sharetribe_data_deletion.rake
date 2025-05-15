@@ -277,7 +277,7 @@ namespace :sharetribe do
 
     puts "Deleting marketplace social_logo..."
     social_logo = community.social_logo&.image
-    if social_logo&.present?
+    if social_logo.present?
       s3_delete_objects(s3,
                         APP_CONFIG.s3_bucket_name,
                         social_logo.styles.map { |s, _| {key: social_logo.s3_object(s).key} })
@@ -473,7 +473,7 @@ namespace :sharetribe do
         next unless stripe_acc
 
         puts "Deleting Stripe account for user #{person.id}..."
-        stripe_res = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
+        stripe_res = StripeService::API::API.accounts.delete_seller_account(community_id: community.id,
                                                                             person_id: person.id)
         unless stripe_res[:success]
           puts "WARN: Failed to delete Stripe account for user #{person.id}: #{stripe_acc.stripe_seller_id}"

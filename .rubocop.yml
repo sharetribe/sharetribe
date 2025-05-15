@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
 
@@ -12,6 +12,8 @@ WordArray:
   Enabled: false
 
 AllCops:
+  SuggestExtensions: false
+  NewCops: disable
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
@@ -20,7 +22,7 @@ AllCops:
     - 'vendor/bundle/**/*'
     - '.pryrc'
     - 'Procfile.spec'
-  TargetRubyVersion: 2.7.5
+  TargetRubyVersion: 3.2.2
 
 Style/RegexpLiteral:
   Enabled: false
@@ -30,3 +32,20 @@ Style/RegexpLiteral:
 # code.
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Naming/VariableNumber:
+  Exclude:
+    - app/services/persons/payment_settings_common.rb
+    - app/services/persons/payment_settings_service.rb
+    - app/helpers/payments_helper.rb
+    - app/services/stripe_service/api/payments.rb
+    - spec/controllers/admin/landing_page_versions/sections_controller_spec.rb
+    - spec/controllers/admin2/design/landing_page_versions/sections_controller_spec.rb
+    - spec/services/paypal_service/data_types/ipn_spec.rb
+    - spec/services/transaction_service/process_spec.rb
+    - spec/services/util_spec.rb
+    - spec/utils/jwt_utils_spec.rb
+    -
+Rails/Delegate:
+  Enabled: false
+

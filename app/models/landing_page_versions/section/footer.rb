@@ -1,6 +1,5 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class Footer < Base
-
     class SocialLink
       include ActiveModel::Model
 
@@ -80,7 +79,7 @@ module LandingPageVersion::Section
       theme: "logo",
       social_media_icon_color: {type: "marketplace_data", id: "primary_color"},
       social_media_icon_color_hover: {type: "marketplace_data", id: "primary_color_darken"},
-      links: [ ],
+      links: [],
       social: [
         {service: "facebook", url: ""},
         {service: "twitter", url: ""},
@@ -102,15 +101,15 @@ module LandingPageVersion::Section
       :theme,
       :previous_id,
       :copyright,
-      :social_attributes => LandingPageVersion::Section::Footer::SocialLink::ATTRIBUTES,
-      :links_attributes => LandingPageVersion::Section::Footer::MenuLink::ATTRIBUTES,
+      :social_attributes => LandingPageVersions::Section::Footer::SocialLink::ATTRIBUTES,
+      :links_attributes => LandingPageVersions::Section::Footer::MenuLink::ATTRIBUTES,
     ].freeze
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
     def initialize(attributes={})
       super(attributes)
-      @kind = LandingPageVersion::Section::FOOTER
+      @kind = LandingPageVersions::Section::FOOTER
       DEFAULTS.each do |key, value|
         unless self.send(key)
           self.send("#{key}=", value)
@@ -135,7 +134,7 @@ module LandingPageVersion::Section
     def social=(list)
       @social = list.map.with_index do |link, index|
         if link.is_a?(Hash)
-          LandingPageVersion::Section::Footer::SocialLink.from_serialized_hash(link, index)
+          LandingPageVersions::Section::Footer::SocialLink.from_serialized_hash(link, index)
         else
           link
         end
@@ -146,7 +145,7 @@ module LandingPageVersion::Section
     # called from controller
     def social_attributes=(params)
       @social = priority_sort(params).map do |attrs|
-        LandingPageVersion::Section::Footer::SocialLink.new(attrs)
+        SocialLink.new(attrs)
       end
       add_missing_social
     end
@@ -155,7 +154,7 @@ module LandingPageVersion::Section
     def links=(list)
       @links = list.map.with_index do |link, index|
         if link.is_a?(Hash)
-          LandingPageVersion::Section::Footer::MenuLink.from_serialized_hash(link, index)
+          LandingPageVersions::Section::Footer::MenuLink.from_serialized_hash(link, index)
         else
           link
         end
@@ -165,12 +164,12 @@ module LandingPageVersion::Section
     # called from controller
     def links_attributes=(params)
       @links = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
-        LandingPageVersion::Section::Footer::MenuLink.new(attrs)
+        LandingPageVersions::Section::Footer::MenuLink.new(attrs)
       end
     end
 
     def new_footer_menu_link
-      LandingPageVersion::Section::Footer::MenuLink.new
+      LandingPageVersions::Section::Footer::MenuLink.new
     end
 
     def priority_sort(params)
@@ -185,7 +184,7 @@ module LandingPageVersion::Section
       DEFAULTS[:social].each do |link|
         new_link = link.stringify_keys.merge('enabled' => false)
         unless existing.include?(new_link['service'])
-          @social << LandingPageVersion::Section::Footer::SocialLink.from_serialized_hash(new_link, index)
+          @social << LandingPageVersions::Section::Footer::SocialLink.from_serialized_hash(new_link, index)
           index += 1
         end
       end

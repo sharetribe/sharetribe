@@ -77,7 +77,7 @@ class Admin::Communities::MembershipService
     only_admin = community.is_person_only_admin(person)
     return false if only_admin
 
-    stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
+    stripe_del = StripeService::API::API.accounts.delete_seller_account(community_id: community.id,
                                                                         person_id: person.id)
     unless stripe_del[:success]
       display_name = person.display_name.present? ? " (#{person.display_name})" : ''
@@ -221,11 +221,11 @@ class Admin::Communities::MembershipService
   end
 
   def paypal_accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
   def stripe_accounts_api
-    StripeService::API::Api.accounts
+    StripeService::API::API.accounts
   end
 
 end

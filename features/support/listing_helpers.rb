@@ -12,12 +12,12 @@ module ListingHelpers
 
     listing_opts = shape_opts.merge(opts).merge(community_id: community.id)
 
-    @listing = FactoryGirl.create(:listing, listing_opts)
+    @listing = FactoryBot.create(:listing, listing_opts)
   end
 
   def find_shape(name:, community: nil)
     community ||= @current_community
-    # all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
+    # all_translations = TranslationService::API::API.translations.get(community.id)[:data]
     all_translations = CommunityTranslation.where(community_id: community.id)
                                            .pluck(:translation, :translation_key)
                                            .map{ |a| {translation: a[0], translation_key: a[1]} }

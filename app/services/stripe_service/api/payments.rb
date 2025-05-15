@@ -113,11 +113,11 @@ module StripeService::API
       end
 
       def stripe_api
-        StripeService::API::Api.wrapper
+        StripeService::API::API.wrapper
       end
 
       def accounts_api
-        StripeService::API::Api.accounts
+        StripeService::API::API.accounts
       end
 
       def order_total(tx)

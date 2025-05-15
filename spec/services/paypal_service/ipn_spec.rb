@@ -455,47 +455,47 @@ describe PaypalService::IPN do
 
       @ipn_service.store_and_create_handler(@auth_created_params)
 
-      expect(PaypalIpnMessage.count).to eql 1
-      expect(PaypalIpnMessage.first.status).to eql nil
+      expect(PaypalIPNMessage.count).to eql 1
+      expect(PaypalIPNMessage.first.status).to eql nil
 
       SyncDelayedJobObserver.process_queue!
 
       expect(SyncDelayedJobObserver.total_processed).to eql 1
 
-      expect(PaypalIpnMessage.first.status).to eql :success
+      expect(PaypalIPNMessage.first.status).to eql :success
     end
 
   end
 
   describe 'update payment with locale' do
-    let(:community) { FactoryGirl.create(:community, settings: {"locales"=>["en", "de", "sv"]}) }
+    let(:community) { FactoryBot.create(:community, settings: {"locales"=>["en", "de", "sv"]}) }
     let(:person1) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Florence',
-                                  family_name: 'Torres',
-                                  display_name: 'Floryt',
-                                  locale: 'sv'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Florence',
+                                 family_name: 'Torres',
+                                 display_name: 'Floryt',
+                                 locale: 'sv'
                         )
     end
     let(:person2) do
-      FactoryGirl.create(:person, member_of: community,
-                                  given_name: 'Sherry',
-                                  family_name: 'Rivera',
-                                  display_name: 'Sky caterpillar',
-                                  locale: 'de'
+      FactoryBot.create(:person, member_of: community,
+                                 given_name: 'Sherry',
+                                 family_name: 'Rivera',
+                                 display_name: 'Sky caterpillar',
+                                 locale: 'de'
                         )
     end
     let(:listing1) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   title: 'Apple cake',
-                                   author: person1)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  title: 'Apple cake',
+                                  author: person1)
     end
     let(:transaction1) do
-      FactoryGirl.create(:transaction, community: community,
-                                       listing: listing1,
-                                       starter: person2,
-                                       current_state: 'confirmed',
-                                       last_transition_at: 1.minute.ago)
+      FactoryBot.create(:transaction, community: community,
+                                      listing: listing1,
+                                      starter: person2,
+                                      current_state: 'confirmed',
+                                      last_transition_at: 1.minute.ago)
     end
     let(:events) do
       Events.new({

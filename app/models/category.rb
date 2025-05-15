@@ -66,7 +66,7 @@ class Category < ApplicationRecord
   end
 
   def default_translation_without_cache
-    (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
+    translations.find { |translation| translation.locale == community.default_locale } || translations.first
   end
 
   # TODO this should be done on service layer

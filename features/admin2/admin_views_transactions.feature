@@ -24,21 +24,21 @@ I want to see see all the transactions happening in my community
     Then I should see 3 transaction with status "Free transaction"
 
   Scenario: Admin sorts transactions by listing
-    When I sort by "listing"
+    When I sort records by "listing"
     Then I should see the transactions in ascending order by "listing"
-    When I sort by "listing"
+    When I sort records by "listing"
     Then I should see the transactions in descending order by "listing"
 
   Scenario: Admin sorts transactions by start date
-    When I sort by "started"
+    When I sort records by "started"
     Then I should see the transactions in ascending time order by "started"
-    When I sort by "started"
+    When I sort records by "started"
     Then I should see the transactions in descending time order by "started"
 
   Scenario: Admin sorts transactions by latest activity
-    When I sort by "latest"
+    When I sort records by "latest"
     Then I should see the transactions in ascending time order by "latest"
-    When I sort by "latest"
+    When I sort records by "latest"
     Then I should see the transactions in descending time order by "latest"
 
   Scenario: Admin filters transaction by free status

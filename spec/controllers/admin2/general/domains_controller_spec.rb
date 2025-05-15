@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Admin2::General::DomainsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:community_with_domain) { FactoryGirl.create(:community, domain: 'bonnie.com', use_domain: true) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:community_with_domain) { FactoryBot.create(:community, domain: 'bonnie.com', use_domain: true) }
   let(:plan) do
     {
       expired: false,

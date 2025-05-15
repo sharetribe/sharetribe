@@ -15,12 +15,12 @@ describe "CommunityMailer", type: :mailer do
   describe "#community_updates" do
 
     before(:each) do
-      @c1 = FactoryGirl.create(:community)
+      @c1 = FactoryBot.create(:community)
       @c1.community_customizations.first.update_attribute(:name, "MarketTestPlace")
 
-      @p1 = FactoryGirl.create(:person, :emails => [FactoryGirl.create(:email, :address => "update_tester@example.com")])
+      @p1 = FactoryBot.create(:person, :emails => [FactoryBot.create(:email, :address => "update_tester@example.com")])
       @p1.accepted_community = @c1
-      @l2 = FactoryGirl.create(:listing,
+      @l2 = FactoryBot.create(:listing,
           :title => "hammer",
           :created_at => 2.days.ago,
           :updates_email_at => 2.days.ago,
@@ -56,23 +56,23 @@ describe "CommunityMailer", type: :mailer do
 
       # for some reason there were more existing users here than should, which confused results
       # delete all to have clear table
-      Person.all.each(&:destroy)
+      Person.all.find_each(&:destroy)
 
-      @c1 = FactoryGirl.create(:community)
-      @c2 = FactoryGirl.create(:community)
-      @p1 = FactoryGirl.create(:person)
+      @c1 = FactoryBot.create(:community)
+      @c2 = FactoryBot.create(:community)
+      @p1 = FactoryBot.create(:person)
       @p1.accepted_community = @c1
-      @p2 = FactoryGirl.create(:person)
+      @p2 = FactoryBot.create(:person)
       @p2.accepted_community = @c1
 
-      @l1 = FactoryGirl.create(:listing,
+      @l1 = FactoryBot.create(:listing,
           :title => "bike",
           :description => "A very nice bike",
           :created_at => 3.hours.ago,
           :listing_shape_id => 123,
           :community_id => @c1.id,
           :author => @p1)
-      @l2 = FactoryGirl.create(:listing,
+      @l2 = FactoryBot.create(:listing,
           :title => "motorbike",
           :description => "fast!",
           :created_at => 1.hour.ago,
@@ -80,9 +80,9 @@ describe "CommunityMailer", type: :mailer do
           :community_id => @c2.id,
           :author => @p2)
 
-      @p3 = FactoryGirl.create(:person)
+      @p3 = FactoryBot.create(:person)
       @p3.accepted_community = @c1
-      @p4 = FactoryGirl.create(:person)
+      @p4 = FactoryBot.create(:person)
       @p4.accepted_community = @c1
 
       @p1.update_attribute(:community_updates_last_sent_at, 8.hours.ago)
@@ -119,7 +119,7 @@ describe "CommunityMailer", type: :mailer do
     end
 
     it "should send with default 7 days to those with nil as last time sent" do
-      @p5 = FactoryGirl.create(:person)
+      @p5 = FactoryBot.create(:person)
       @p5.accepted_community = @c1
       @p5.update_attribute(:community_updates_last_sent_at, nil)
       CommunityMailer.deliver_community_updates

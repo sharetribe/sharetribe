@@ -1,5 +1,5 @@
 module EmailService::API
-  class Api
+  class API
 
     def self.ses_client
       EmailService::SES::Client.new(

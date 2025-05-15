@@ -31,7 +31,7 @@ class SocialLink < ApplicationRecord
     tiktok: 8
   }.freeze
 
-  enum provider: SOCIAL_NETWORKS
+  enum :provider, SOCIAL_NETWORKS
 
   scope :by_provider, ->(provider) { where(provider: provider) }
   scope :sorted, -> { order('social_links.sort_priority ASC') }

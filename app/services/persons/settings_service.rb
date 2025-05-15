@@ -1,4 +1,4 @@
-class Person::SettingsService
+class Persons::SettingsService
   attr_reader :community, :params, :required_fields_only, :current_user
 
   def initialize(community:, params:, required_fields_only: false, person: nil, current_user: nil)

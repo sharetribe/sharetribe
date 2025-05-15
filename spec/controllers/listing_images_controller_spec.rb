@@ -52,7 +52,7 @@ describe ListingImagesController, type: :controller do
         }
       }
     }
-    created_translations = TranslationService::API::Api.translations.create(community_id, [name_group])
+    created_translations = TranslationService::API::API.translations.create(community_id, [name_group])
     name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
 
     opts = defaults.merge(
@@ -71,16 +71,16 @@ describe ListingImagesController, type: :controller do
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
-    @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
-    @c1.community_customizations << FactoryGirl.create(:community_customization, :locale => "fi")
+    @c1 = FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]})
+    @c1.community_customizations << FactoryBot.create(:community_customization, :locale => "fi")
 
-    @p1 = FactoryGirl.create(:person)
+    @p1 = FactoryBot.create(:person)
     @p1.accepted_community = @c1
 
     c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
     request_shape    = create_shape(@c1.id, "Request", c1_request_process.id)
 
-    @l1 = FactoryGirl.create(
+    @l1 = FactoryBot.create(
       :listing,
       :transaction_process_id => request_shape[:transaction_process_id],
       :listing_shape_id => request_shape[:id],
@@ -99,7 +99,7 @@ describe ListingImagesController, type: :controller do
   end
 
   def stubbed_upload(filename, content_type)
-    fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
+    Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/#{filename}").to_s, content_type)
   end
 
   describe "POST #add_from_file" do

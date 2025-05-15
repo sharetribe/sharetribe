@@ -55,7 +55,7 @@ module StripeService::Store::StripeAccount
       account_model.update(entity)
     else
       capabilities = FeatureFlag.feature_enabled?(entity[:community_id], :stripe_capabilities)
-      api_version = capabilities ? StripeService::API::StripeApiWrapper::API_2019_12_03 : StripeService::API::StripeApiWrapper::API_2019_02_19
+      api_version = capabilities ? StripeService::API::StripeAPIWrapper::API_2019_12_03 : StripeService::API::StripeAPIWrapper::API_2019_02_19
       entity[:api_version] = api_version
       account_model = StripeAccountModel.create!(entity)
     end

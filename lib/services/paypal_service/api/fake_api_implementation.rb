@@ -5,10 +5,10 @@ require_relative '../test_permissions'
 require_relative '../test_api'
 require "#{Rails.root}/app/services/paypal_service/paypal_service_injector"
 
-# Rewrite PaypalService::API::Api to inject test paypal client
+# Rewrite PaypalService::API::API to inject test paypal client
 module PaypalService
   module API
-    class FakeApiImplementation
+    class FakeAPIImplementation
       include PaypalService::PaypalServiceInjector
 
       def initialize(store)

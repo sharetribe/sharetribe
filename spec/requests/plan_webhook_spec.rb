@@ -6,7 +6,7 @@ require_relative '../services/plan_service/api/api'
 describe "plan provisioning", type: :request do
 
   let(:log_target) {
-    PlanService::API::Api.log_target
+    PlanService::API::API.log_target
   }
 
   before(:each) do
@@ -21,13 +21,13 @@ describe "plan provisioning", type: :request do
     }
 
     before(:each) do
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: true)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: true)
     end
 
     after(:each) do
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: false)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: false)
     end
 
     describe "security" do
@@ -81,7 +81,7 @@ describe "plan provisioning", type: :request do
 
         post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: body
 
-        plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
+        plan1234 = PlanService::API::API.plans.get_current(community_id: 1234).data
 
         expect(plan1234.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 1234,
@@ -90,7 +90,7 @@ describe "plan provisioning", type: :request do
                                expires_at: nil
                              })
 
-        plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555).data
+        plan5555 = PlanService::API::API.plans.get_current(community_id: 5555).data
 
         expect(plan5555.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 5555,
@@ -115,13 +115,13 @@ describe "plan provisioning", type: :request do
 
   describe "plans service not in use" do
     before(:each) {
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: false)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: false)
     }
 
     after(:each) {
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: true)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: true)
     }
 
     let(:token) {
@@ -143,13 +143,13 @@ describe "plan provisioning", type: :request do
     }
 
     before(:each) do
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: true)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: true)
     end
 
     after(:each) do
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: false)
+      PlanService::API::API.reset!
+      PlanService::API::API.set_environment(active: false)
     end
 
     context "success" do
@@ -160,15 +160,15 @@ describe "plan provisioning", type: :request do
         id333 = nil
 
         Timecop.freeze(Time.utc(2015, 9, 15)) {
-          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111).data[:id]
+          id111 = PlanService::API::API.plans.create_initial_trial(community_id: 111).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 10, 15)) {
-          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222).data[:id]
+          id222 = PlanService::API::API.plans.create_initial_trial(community_id: 222).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 11, 15)) {
-          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333).data[:id]
+          id333 = PlanService::API::API.plans.create_initial_trial(community_id: 333).data[:id]
         }
 
         after = Time.utc(2015, 10, 1).to_i
@@ -216,15 +216,15 @@ describe "plan provisioning", type: :request do
         id333 = nil
 
         Timecop.freeze(Time.utc(2015, 9, 15)) {
-          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111).data[:id]
+          id111 = PlanService::API::API.plans.create_initial_trial(community_id: 111).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 10, 15)) {
-          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222).data[:id]
+          id222 = PlanService::API::API.plans.create_initial_trial(community_id: 222).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 11, 15)) {
-          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333).data[:id]
+          id333 = PlanService::API::API.plans.create_initial_trial(community_id: 333).data[:id]
         }
 
         after = Time.utc(2015, 9, 1).to_i

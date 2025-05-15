@@ -4,14 +4,14 @@ describe LandingPageController, type: :controller do
   render_views
 
   let(:community) do
-    community = FactoryGirl.create(:community, slogan: 'Rain on Your Parade',
-                                               description: 'Cup Of Joe')
+    community = FactoryBot.create(:community, slogan: 'Rain on Your Parade',
+                                              description: 'Cup Of Joe')
     customization = community.community_customizations.first
     customization.update_columns(name: 'Lucille',
                                  slogan: 'Rain on Your Parade',
                                  description: 'Cup Of Joe')
-    FactoryGirl.create(:landing_page, community_id: community.id)
-    FactoryGirl.create(:landing_page_version, community_id: community.id)
+    FactoryBot.create(:landing_page, community_id: community.id)
+    FactoryBot.create(:landing_page_version, community_id: community.id)
     community.reload
   end
   let(:image_file) do

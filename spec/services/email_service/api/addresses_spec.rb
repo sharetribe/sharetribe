@@ -493,7 +493,7 @@ describe EmailService::API::Addresses do
           })
 
         Timecop.travel(now + 3.seconds) do
-          addresses_with_ses.enqueue_batch_sync()
+          addresses_with_ses.enqueue_batch_sync
 
           addresses = [addresses_with_ses.get_user_defined(community_id: 123).data,
                        addresses_with_ses.get_user_defined(community_id: 321).data]

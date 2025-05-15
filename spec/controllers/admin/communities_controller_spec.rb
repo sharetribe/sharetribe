@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::CommunitiesController, type: :controller do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
@@ -46,39 +46,39 @@ describe Admin::CommunitiesController, type: :controller do
         .with([]).and_return([:foo, :bar, :wat])
 
       # mock feature flag service calls
-      allow(FeatureFlagService::API::Api.features).to receive(:enable)
+      allow(FeatureFlagService::API::API.features).to receive(:enable)
         .with(anything()).and_return(Result::Success.new("success"))
-      allow(FeatureFlagService::API::Api.features).to receive(:disable)
+      allow(FeatureFlagService::API::API.features).to receive(:disable)
         .with(anything()).and_return(Result::Success.new("success"))
     end
 
     it "should enable given features for a user" do
-      expect(FeatureFlagService::API::Api.features).to receive(:enable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar])
+      expect(FeatureFlagService::API::API.features).to receive(:enable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar])
       put :update_new_layout, params: { enabled_for_user: { foo: "true", bar: "true"  } }
     end
 
     it "should disable missing features for a user" do
-      expect(FeatureFlagService::API::Api.features)
+      expect(FeatureFlagService::API::API.features)
         .to receive(:disable).with(community_id: @community.id, person_id: @user.id, features: [:wat])
       put :update_new_layout, params: { enabled_for_user: { foo: "true", bar: "true"  } }
     end
 
     it "should enable given features for a community" do
-      expect(FeatureFlagService::API::Api.features)
+      expect(FeatureFlagService::API::API.features)
         .to receive(:enable).with(community_id: @community.id, features: [:foo, :bar])
       put :update_new_layout, params: { enabled_for_community: { foo: "true", bar: "true"  } }
     end
 
     it "should disable missing features for a community" do
-      expect(FeatureFlagService::API::Api.features)
+      expect(FeatureFlagService::API::API.features)
         .to receive(:disable).with(community_id: @community.id, features: [:wat])
       put :update_new_layout, params: { enabled_for_community: { foo: "true", bar: "true"  } }
     end
 
     it "should disable all features when nothind is passed" do
-      expect(FeatureFlagService::API::Api.features)
+      expect(FeatureFlagService::API::API.features)
         .to receive(:disable).with(community_id: @community.id, features: [:foo, :bar, :wat])
-      expect(FeatureFlagService::API::Api.features)
+      expect(FeatureFlagService::API::API.features)
         .to receive(:disable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar, :wat])
       put :update_new_layout
     end
@@ -162,7 +162,7 @@ describe Admin::CommunitiesController, type: :controller do
   end
 
   def attempt_to_update_different_community_with(action, params)
-    different_community = FactoryGirl.create(:community)
+    different_community = FactoryBot.create(:community)
     put action, params: {id: different_community.id, community: params}
     different_community.reload
     params.each { |key, value| expect(different_community.send(key)).not_to eql(value) }

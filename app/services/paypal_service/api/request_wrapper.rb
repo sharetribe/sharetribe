@@ -8,7 +8,7 @@ module PaypalService::API::RequestWrapper
     retry_codes, try_max, finally = parse_policy(opts[:error_policy])
     response = try_operation(retry_codes, try_max) { paypal_merchant.do_request(request) }
 
-    if (response[:success])
+    if response[:success]
       block.call(response)
     else
       finally.call(cid, txid, request, response)
@@ -25,7 +25,7 @@ module PaypalService::API::RequestWrapper
     result = op.call()
     attempts = 1
 
-    while (!result[:success] && attempts < try_max && retry_codes.include?(result[:error_code]))
+    while !result[:success] && attempts < try_max && retry_codes.include?(result[:error_code])
       result = op.call()
       attempts = attempts + 1
     end

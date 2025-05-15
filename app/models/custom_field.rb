@@ -49,14 +49,14 @@ class CustomField < ApplicationRecord
     for_person: 1
   }.freeze
 
-  enum entity_type: ENTITY_TYPES
+  enum :entity_type, ENTITY_TYPES
 
   ASSIGNMENTS = {
     unassigned: 0,
     phone_number: 1
   }.freeze
 
-  enum assignment: ASSIGNMENTS
+  enum :assignment, ASSIGNMENTS
 
   VALID_TYPES = ["TextField", "NumericField", "DropdownField", "CheckboxField","DateField"]
 

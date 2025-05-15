@@ -14,7 +14,7 @@ require 'jwt'
   "app/utils/service_client/middleware/jwt_authenticator",
 ].each { |file| require_relative "../../../../#{file}" }
 
-describe ServiceClient::Middleware::JwtAuthenticator do
+describe ServiceClient::Middleware::JWTAuthenticator do
 
   SECRET = "secret"
 
@@ -31,7 +31,7 @@ describe ServiceClient::Middleware::JwtAuthenticator do
 
 
   it "encodes an authorization header" do
-    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(secret: SECRET)
+    authenticator = ServiceClient::Middleware::JWTAuthenticator.new(secret: SECRET)
 
     m_id = UUIDUtils.create
     a_id = UUIDUtils.create
@@ -47,14 +47,14 @@ describe ServiceClient::Middleware::JwtAuthenticator do
   end
 
   it "fails with a missing auth context" do
-    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(secret: SECRET)
+    authenticator = ServiceClient::Middleware::JWTAuthenticator.new(secret: SECRET)
 
     ctx = {req: {headers: {}}, opts: {}}
     expect { authenticator.enter(ctx) }.to raise_error(TypeError)
   end
 
   it "fails with an invalid missing auth context" do
-    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(secret: SECRET)
+    authenticator = ServiceClient::Middleware::JWTAuthenticator.new(secret: SECRET)
 
     auth_context = {
       marketplace_id: 1,
@@ -75,7 +75,7 @@ describe ServiceClient::Middleware::JwtAuthenticator do
       }
     }
 
-    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(
+    authenticator = ServiceClient::Middleware::JWTAuthenticator.new(
       secret: SECRET, default_auth_context: default_auth_context)
 
     ctx = authenticator.enter({req: {headers: {}},

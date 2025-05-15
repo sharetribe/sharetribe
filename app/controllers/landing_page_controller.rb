@@ -1,3 +1,5 @@
+require_relative '../view_utils/custom_icons'
+
 class LandingPageController < ActionController::Metal
 
   # Shorthand for accessing CustomLandingPage service namespace

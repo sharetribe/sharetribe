@@ -73,7 +73,7 @@ module TransactionService::Gateway
     private
 
     def paypal_api
-      PaypalService::API::Api
+      PaypalService::API::API
     end
 
     def order_total(tx)

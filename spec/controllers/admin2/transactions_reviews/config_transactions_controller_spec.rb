@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe Admin2::TransactionsReviews::ConfigTransactionsController, type: :controller do
   let(:community) do
-    FactoryGirl.create(:community,
+    FactoryBot.create(:community,
                        automatic_confirmation_after_days: 1,
                        transaction_agreement_in_use: false)
   end
 
   let(:community_customization) do
-    FactoryGirl.create(:community_customization,
+    FactoryBot.create(:community_customization,
                        community: community,
                        transaction_agreement_label: nil,
                        transaction_agreement_content: nil)

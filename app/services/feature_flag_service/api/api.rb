@@ -1,5 +1,5 @@
 module FeatureFlagService::API
-  class Api
+  class API
 
     def self.features
       @features ||= FeatureFlagService::API::Features.new(

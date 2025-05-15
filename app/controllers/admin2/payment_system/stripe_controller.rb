@@ -21,7 +21,7 @@ module Admin2::PaymentSystem
 
     def onboarding_enable
       unless FeatureFlagHelper.feature_enabled?(:stripe_connect_onboarding)
-        FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: [:stripe_connect_onboarding])
+        FeatureFlagService::API::API.features.enable(community_id: @current_community.id, features: [:stripe_connect_onboarding])
       end
       flash[:notice] = t('admin2.notifications.onboarding_enabled')
     rescue StandardError => e

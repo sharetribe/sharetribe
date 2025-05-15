@@ -110,7 +110,7 @@ class SitemapController < ActionController::Metal
 
     plan =
       if marketplace
-        PlanService::API::Api.plans.get_current(community_id: marketplace.id).data
+        PlanService::API::API.plans.get_current(community_id: marketplace.id).data
       end
 
     no_marketplaces =

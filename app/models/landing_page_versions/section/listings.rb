@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class Listings < Base
     ATTRIBUTES = [
       :id,

@@ -73,7 +73,7 @@ end
 
 Given(/^community "(.*?)" payment gateway stripe has buyer fee "(.*?)"%$/) do |community, buyer_commission|
   community = Community.where(ident: community).first
-  tx_settings_api = TransactionService::API::Api.settings
+  tx_settings_api = TransactionService::API::API.settings
   data = {
     community_id: community.id,
     payment_process: :preauthorize,

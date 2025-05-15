@@ -26,7 +26,7 @@
 require 'spec_helper'
 
 describe ListingShape, type: :model do
-  let(:listing_shape) { FactoryGirl.create(:listing_shape) }
+  let(:listing_shape) { FactoryBot.create(:listing_shape) }
 
   context '#update_with_opts' do
     it 'creates and destroys listing units' do

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 # rubocop:disable Metrics/BlockLength
 describe Admin2::Design::LandingPageVersions::SectionsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:landing_page_version) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
+  let(:community) { FactoryBot.create(:community) }
+  let(:landing_page_version) { FactoryBot.create(:landing_page_version, community: community, version: '1') }
   let(:plan) do
     {
       expired: false,
@@ -17,7 +17,7 @@ describe Admin2::Design::LandingPageVersions::SectionsController, type: :control
   end
 
   def stubbed_upload(filename, content_type)
-    fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
+    Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/#{filename}").to_s, content_type)
   end
 
   before(:each) do
@@ -517,9 +517,9 @@ describe Admin2::Design::LandingPageVersions::SectionsController, type: :control
   end
 
   describe 'listings' do
-    let(:listing_1){ FactoryGirl.create(:listing, community: community) }
-    let(:listing_2){ FactoryGirl.create(:listing, community: community) }
-    let(:listing_3){ FactoryGirl.create(:listing, community: community) }
+    let(:listing_1){ FactoryBot.create(:listing, community: community) }
+    let(:listing_2){ FactoryBot.create(:listing, community: community) }
+    let(:listing_3){ FactoryBot.create(:listing, community: community) }
     let(:listings_section) do
       {"id" => "test1",
        "kind" => "listings",
@@ -601,7 +601,7 @@ describe Admin2::Design::LandingPageVersions::SectionsController, type: :control
 
     it 'updates' do
       section_id = 'test1'
-      section = LandingPageVersion::Section::Listings.new(listings_section.merge(landing_page_version: landing_page_version))
+      section = LandingPageVersions::Section::Listings.new(listings_section.merge(landing_page_version: landing_page_version))
       section.save
       lpv = LandingPageVersion.find(landing_page_version.id)
       sections = lpv.parsed_content['sections']
@@ -631,9 +631,9 @@ describe Admin2::Design::LandingPageVersions::SectionsController, type: :control
   end
 
   describe 'categories' do
-    let(:category_1) { FactoryGirl.create(:category, community: community) }
-    let(:category_2) { FactoryGirl.create(:category, community: community) }
-    let(:category_3) { FactoryGirl.create(:category, community: community) }
+    let(:category_1) { FactoryBot.create(:category, community: community) }
+    let(:category_2) { FactoryBot.create(:category, community: community) }
+    let(:category_3) { FactoryBot.create(:category, community: community) }
 
     it 'creates categories section with title and paragraph' do
       section_id = 'all_categories'

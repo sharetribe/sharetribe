@@ -4,8 +4,8 @@ describe Admin::SortingService do
 
     it "returns next int" do
       categories = [
-        FactoryGirl.create(:category, sort_priority: 0),
-        FactoryGirl.create(:category, sort_priority: 4)
+        FactoryBot.create(:category, sort_priority: 0),
+        FactoryBot.create(:category, sort_priority: 4)
       ]
 
       expect(Admin::SortingService.next_sort_priority(categories)).to eq(5)
@@ -13,9 +13,9 @@ describe Admin::SortingService do
 
     it "handles nils" do
       categories = [
-        FactoryGirl.create(:category, sort_priority: 2),
-        FactoryGirl.create(:category, sort_priority: nil),
-        FactoryGirl.create(:category, sort_priority: 8)
+        FactoryBot.create(:category, sort_priority: 2),
+        FactoryBot.create(:category, sort_priority: nil),
+        FactoryBot.create(:category, sort_priority: 8)
       ]
 
       expect(Admin::SortingService.next_sort_priority(categories)).to eq(9)

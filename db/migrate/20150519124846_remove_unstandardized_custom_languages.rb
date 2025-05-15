@@ -7,7 +7,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
       has_many :community_customizations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CommunityCustomization"
       has_many :custom_fields, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomField"
       has_many :menu_links, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLink"
-      serialize :settings, Hash
+      serialize :settings, coder: JSON
 
       def locales
         Maybe(settings)["locales"].or_else([])

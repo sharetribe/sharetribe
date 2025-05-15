@@ -64,7 +64,7 @@ class CommunityMailer < ActionMailer::Base
       @url_params = build_url_params(@community, @recipient, "weeklymail")
 
       @show_listing_shape_label = community.shapes.count > 1
-      @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
+      @show_branding_info = !PlanService::API::API.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       @title_link_text = t("emails.community_updates.title_link_text",
                            :community_name => @community.full_name(@recipient.locale))

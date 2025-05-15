@@ -1,6 +1,6 @@
 module AnalyticService
   module API
-    class Api
+    class API
       class << self
         def send_event(person:, community:, event_data:)
           AnalyticService::API::Intercom.send_event(person: person,

@@ -10,7 +10,7 @@ describe "omniauth csrf protection", type: :request do
   let!(:domain) { "market.custom.org" }
 
   before do
-    @community = FactoryGirl.create(:community, :domain => domain, use_domain: true)
+    @community = FactoryBot.create(:community, :domain => domain, use_domain: true)
     @community.reload
     @allow_forgery_protection = ActionController::Base.allow_forgery_protection
     ActionController::Base.allow_forgery_protection = true

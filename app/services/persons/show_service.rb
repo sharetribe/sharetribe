@@ -1,4 +1,4 @@
-class Person::ShowService
+class Persons::ShowService
   attr_reader :community, :params, :current_user
 
   def initialize(community:, params:, current_user:)
@@ -53,7 +53,7 @@ class Person::ShowService
     raise_errors = Rails.env.development?
 
     @listings =
-      ListingIndexService::API::Api
+      ListingIndexService::API::API
       .listings
       .search(
         community_id: community.id,

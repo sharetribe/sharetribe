@@ -14,7 +14,8 @@
 #  index_listing_blocked_dates_on_listing_id_and_blocked_at  (listing_id,blocked_at) UNIQUE
 #
 
-class Listing::BlockedDate < ApplicationRecord
+class BlockedDate < ApplicationRecord
+  self.table_name = 'listing_blocked_dates'
   belongs_to :listing
 
   validates :blocked_at, uniqueness: { scope: :listing_id }

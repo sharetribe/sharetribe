@@ -9,10 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-class PaypalIpnMessage < ApplicationRecord
+class PaypalIPNMessage < ApplicationRecord
   validates_presence_of :body
 
-  serialize :body, Hash
+  serialize :body, coder: YAML
 
   def status
     read_attribute(:status).to_sym unless read_attribute(:status).nil?

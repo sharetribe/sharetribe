@@ -16,7 +16,7 @@
 #
 
 class LandingPageVersion < ApplicationRecord
-  include LandingPageVersion::DataStructure
+  include DataStructure
 
   belongs_to :community
 end

@@ -282,7 +282,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   end
 
   def processes
-    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    @processes ||= TransactionService::API::API.processes.get(community_id: @current_community.id)[:data]
   end
 
   def validate_shape(form)

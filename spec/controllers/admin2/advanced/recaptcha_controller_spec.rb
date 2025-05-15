@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin2::Advanced::RecaptchaController, type: :controller do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)

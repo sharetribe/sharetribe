@@ -28,7 +28,7 @@ class InvitationsController < ApplicationController
     )
 
     raw_invitation_emails = invitation_params[:email].split(",").map(&:strip)
-    invitation_emails = Invitation::Unsubscribe.remove_unsubscribed_emails(@current_community, raw_invitation_emails)
+    invitation_emails = Unsubscribe.remove_unsubscribed_emails(@current_community, raw_invitation_emails)
 
     unless validate_daily_limit(@current_user.id, invitation_emails.size, @current_community)
       return redirect_to new_invitation_path, flash: { error: t("layouts.notifications.invitation_limit_reached")}
@@ -71,7 +71,7 @@ class InvitationsController < ApplicationController
   def unsubscribe
     if request.get? ||
        (request.post? && params["List-Unsubscribe"] == "One-Click")
-      invitation_unsubscribe = Invitation::Unsubscribe.unsubscribe(params[:code])
+      invitation_unsubscribe = Unsubscribe.unsubscribe(params[:code])
       if invitation_unsubscribe.persisted?
         flash[:notice] = t("layouts.notifications.invitation_successfully_unsubscribed")
       else

@@ -14,7 +14,8 @@
 #  index_invitation_unsubscribes_on_email         (email)
 #
 
-class Invitation::Unsubscribe < ApplicationRecord
+class Unsubscribe < ApplicationRecord
+  self.table_name = 'invitation_unsubscribes'
   belongs_to :community
 
   validates :community, :email, presence: true

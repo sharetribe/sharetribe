@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe IntApi::ListingsController, type: :controller do
+describe IntAPI::ListingsController, type: :controller do
   render_views
 
-  let(:community) { FactoryGirl.create(:community) }
-  let(:listing) { FactoryGirl.create(:listing, community_id: community.id) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:listing) { FactoryBot.create(:listing, community_id: community.id) }
 
   describe "#update_working_time_slots" do
     before(:each) do
@@ -50,7 +50,7 @@ describe IntApi::ListingsController, type: :controller do
 
   describe "#update_blocked_dates" do
     let(:blocked_date) do
-      FactoryGirl.create(:listing_blocked_date, listing_id: listing.id, blocked_at: '2020-01-01')
+      FactoryBot.create(:listing_blocked_date, listing_id: listing.id, blocked_at: '2020-01-01')
     end
 
     before(:each) do
@@ -91,7 +91,7 @@ describe IntApi::ListingsController, type: :controller do
   end
 
   describe 'authorization' do
-    let(:other_community) { FactoryGirl.create(:community) }
+    let(:other_community) { FactoryBot.create(:community) }
 
     before(:each) do
       @request.host = "#{other_community.ident}.lvh.me"

@@ -4,7 +4,7 @@ module ManageAvailabilityPerHour
   def working_hours_new_set(force_create: false)
     return if per_hour_ready
 
-    Listing::WorkingTimeSlot.week_days.keys.each do |week_day|
+    WorkingTimeSlot.week_days.keys.each do |week_day|
       next if ['sun', 'sat'].include?(week_day)
 
       if force_create
@@ -47,7 +47,7 @@ module ManageAvailabilityPerHour
 
   def working_hours_prepare_hash
     result = {}
-    Listing::WorkingTimeSlot.week_days.keys.each do |week_day|
+    WorkingTimeSlot.week_days.keys.each do |week_day|
       day = {}
       working_time_slots.by_week_day(week_day).each do |time_slot|
         day[time_slot.from] = time_slot.till

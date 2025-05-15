@@ -1,3 +1,5 @@
+require_relative '../../../app/models/landing_page_versions/landing_page_versions'
+
 module CustomLandingPage
   class SectionService
     attr_reader :community, :params
@@ -61,27 +63,27 @@ module CustomLandingPage
 
     def section_factory_class
       case params[:section][:kind]
-      when LandingPageVersion::Section::INFO
+      when LandingPageVersions::Section::INFO
         case params[:section][:variation]
         when 'single_column'
-          LandingPageVersion::Section::InfoSingleColumn
+          LandingPageVersions::Section::InfoSingleColumn
         when 'multi_column'
-          LandingPageVersion::Section::InfoMultiColumn
+          LandingPageVersions::Section::InfoMultiColumn
         else
-          LandingPageVersion::Section::Info
+          LandingPageVersions::Section::Info
         end
-      when LandingPageVersion::Section::HERO
-        LandingPageVersion::Section::Hero
-      when LandingPageVersion::Section::FOOTER
-        LandingPageVersion::Section::Footer
-      when LandingPageVersion::Section::LISTINGS
-        LandingPageVersion::Section::Listings
-      when LandingPageVersion::Section::CATEGORIES
-        LandingPageVersion::Section::Categories
-      when LandingPageVersion::Section::LOCATIONS
-        LandingPageVersion::Section::Locations
-      when LandingPageVersion::Section::VIDEO
-        LandingPageVersion::Section::Video
+      when LandingPageVersions::Section::HERO
+        LandingPageVersions::Section::Hero
+      when LandingPageVersions::Section::FOOTER
+        LandingPageVersions::Section::Footer
+      when LandingPageVersions::Section::LISTINGS
+        LandingPageVersions::Section::Listings
+      when LandingPageVersions::Section::CATEGORIES
+        LandingPageVersions::Section::Categories
+      when LandingPageVersions::Section::LOCATIONS
+        LandingPageVersions::Section::Locations
+      when LandingPageVersions::Section::VIDEO
+        LandingPageVersions::Section::Video
       end
     end
 

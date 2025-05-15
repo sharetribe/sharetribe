@@ -201,10 +201,10 @@ module InboxService
     payment_total =
       case payment_gateway.to_sym
       when :paypal
-        paypal_payments = PaypalService::API::Api.payments
+        paypal_payments = PaypalService::API::API.payments
         Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
       when :stripe
-        stripe_payments = StripeService::API::Api.payments
+        stripe_payments = StripeService::API::API.payments
         tx_model = Transaction.find(transaction[:transaction_id])
         buyer_commission = tx_model.buyer_commission > 0
         stripe_payments.payment_details(tx_model)[:payment_total]

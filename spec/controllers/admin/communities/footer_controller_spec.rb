@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin::Communities::FooterController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:plan) do
     {
       expired: false,

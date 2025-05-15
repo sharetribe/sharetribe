@@ -74,10 +74,10 @@ class PaymentSettingsController < ApplicationController
 
   def set_service
     @selected_left_navi_link = "payments"
-    @service = Person::PaymentSettingsService.new(community: @current_community,
-                                                  params: params,
-                                                  person: @current_user,
-                                                  person_url: person_url(@current_user.username))
+    @service = Persons::PaymentSettingsService.new(community: @current_community,
+                                                   params: params,
+                                                   person: @current_user,
+                                                   person_url: person_url(@current_user.username))
     @presenter = Person::PaymentSettingsPresenter.new(service: @service,
                                                       person_id: @current_user.id,
                                                       person_url: person_url(@current_user.username))

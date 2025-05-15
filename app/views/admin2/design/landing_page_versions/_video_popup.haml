@@ -16,7 +16,7 @@
       = form.radio_button :autoplay, false, class: %i[form-check-input]
       = form.label :autoplay_false, t('admin2.landing_page.sections.video.no_autoplay'), class: %i[form-check-label]
     .form-radiobutton.form-check-inline
-      = form.radio_button :autoplay, LandingPageVersion::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay, class: %i[form-check-input]
+      = form.radio_button :autoplay, LandingPageVersions::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay, class: %i[form-check-input]
       = form.label :autoplay_muted, t('admin2.landing_page.sections.video.muted_autoplay'), class: %i[form-check-label]
 .form-group
   = form.label :text, t('admin2.landing_page.sections.video.text')

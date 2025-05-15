@@ -4,7 +4,7 @@
   - if @community_customization && @community_customization.terms_page_content
     = @community_customization.terms_page_content.html_safe
   - else
-    = render "infos/localized_terms/terms.en"
+    = render "infos/localized_terms/terms_en"
 
 - if params[:controller] == 'infos'
   - content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))

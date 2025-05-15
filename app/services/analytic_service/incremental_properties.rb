@@ -10,7 +10,7 @@ module AnalyticService
 
     def send_properties
       if changes?
-        AnalyticService::API::Api.send_incremental_properties(person: user,
+        AnalyticService::API::API.send_incremental_properties(person: user,
                                                               community: community,
                                                               properties: properties)
       end

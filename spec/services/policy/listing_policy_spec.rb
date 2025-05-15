@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe Policy::ListingPolicy do
   describe "#visible?" do
-    let(:community) { FactoryGirl.create(:community, private: true) }
-    let(:community2) { FactoryGirl.create(:community) }
-    let(:person) { FactoryGirl.create(:person, communities: [community]) }
-    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
-    let(:author) { FactoryGirl.create(:person, communities: [community]) }
+    let(:community) { FactoryBot.create(:community, private: true) }
+    let(:community2) { FactoryBot.create(:community) }
+    let(:person) { FactoryBot.create(:person, communities: [community]) }
+    let(:admin) { FactoryBot.create(:person, member_of: community, member_is_admin: true) }
+    let(:author) { FactoryBot.create(:person, communities: [community]) }
     let(:listing) do
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   listing_shape_id: 123, author: author)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  listing_shape_id: 123, author: author)
     end
 
     it "is not visible, if the listing doesn't belong to the given community" do

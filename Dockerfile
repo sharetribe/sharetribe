@@ -58,7 +58,8 @@ RUN curl -sfSL \
 
 # Install:
 # - nginx - used to serve maintenance mode page
-RUN apt-get install -y nginx
+# - libvips - image library
+RUN apt-get install -y nginx libvips
 
 # Install latest bundler
 ENV BUNDLE_BIN=

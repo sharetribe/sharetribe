@@ -6,7 +6,7 @@ module Admin2::General
 
     def update
       if @service.update
-        redirect_to @service.community_url
+        redirect_to @service.community_url, allow_other_host: true
       else
         redirect_to admin2_general_domains_path
       end

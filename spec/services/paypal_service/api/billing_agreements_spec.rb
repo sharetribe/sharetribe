@@ -6,11 +6,11 @@ describe PaypalService::API::BillingAgreements do
 
   before(:each) do
     # Test version of merchant client
-    PaypalService::API::Api.reset!
-    @events = PaypalService::API::Api.build_test_events
-    @api_builder = PaypalService::API::Api.api_builder
-    @payments = PaypalService::API::Api.build_test_payments(events: @events)
-    @billing_agreements = PaypalService::API::Api.billing_agreements
+    PaypalService::API::API.reset!
+    @events = PaypalService::API::API.build_test_events
+    @api_builder = PaypalService::API::API.api_builder
+    @payments = PaypalService::API::API.build_test_payments(events: @events)
+    @billing_agreements = PaypalService::API::API.billing_agreements
 
     @process = PaypalService::API::Process.new
 

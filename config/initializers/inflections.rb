@@ -14,3 +14,17 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+  inflect.acronym 'IPN'
+  inflect.acronym 'SES'
+  inflect.acronym 'IO'
+  inflect.acronym 'HTTP'
+  inflect.acronym 'JSON'
+  inflect.acronym 'JWT'
+  inflect.acronym 'SQL'
+  inflect.acronym 'HSTS'
+  inflect.acronym 'URL'
+  inflect.acronym 'UUID'
+end

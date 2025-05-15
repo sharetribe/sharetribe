@@ -62,7 +62,7 @@ class PlansController < ApplicationController
         plan_entity = to_entity(plan_request)
 
         ->(*) {
-          PlanService::API::Api.plans.create(community_id: plan_entity[:community_id], plan: plan_entity)
+          PlanService::API::API.plans.create(community_id: plan_entity[:community_id], plan: plan_entity)
         }
       }
 
@@ -124,7 +124,7 @@ class PlansController < ApplicationController
 
       logger.info("Fetching plans that are created after #{after}", nil, {after: after, limit: limit})
 
-      PlanService::API::Api.plans.get_trials(after: after, limit: limit)
+      PlanService::API::API.plans.get_trials(after: after, limit: limit)
     }.on_success { |res|
       return_value = res.merge(plans: res[:plans].map { |p| from_entity(p) })
       count = return_value[:plans].count
@@ -150,7 +150,7 @@ class PlansController < ApplicationController
   private
 
   def logger
-    PlanService::API::Api.logger
+    PlanService::API::API.logger
   end
 
   def parse_json(body)
@@ -184,6 +184,6 @@ class PlansController < ApplicationController
   end
 
   def plans_api
-    PlanService::API::Api.plans
+    PlanService::API::API.plans
   end
 end

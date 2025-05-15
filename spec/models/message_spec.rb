@@ -20,7 +20,7 @@ require 'spec_helper'
 describe Message, type: :model do
 
   before(:each) do
-    @message = FactoryGirl.build(:message)
+    @message = FactoryBot.build(:message)
   end
 
   it "is valid with valid attributes" do

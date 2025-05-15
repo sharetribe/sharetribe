@@ -72,7 +72,7 @@ class PreauthorizeTransactionsController < ApplicationController
     stripe_payment = tx.stripe_payments.find(params[:stripe_payment_id])
 
     begin
-      intent = StripeService::API::StripeApiWrapper.confirm_payment_intent(
+      intent = StripeService::API::StripeAPIWrapper.confirm_payment_intent(
         community: @current_community,
         payment_intent_id: params[:payment_intent_id])
     rescue Stripe::CardError => e

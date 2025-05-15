@@ -10,7 +10,7 @@ APP_CONFIG = ConfigLoader.load_app_config
 # See more: https://coderwall.com/p/s-zwrg
 ActionView::Base.field_error_proc = proc do |html_tag, instance|
   wrap_field_with_error_classes = [
-    LandingPageVersion::Section::Listings
+    LandingPageVersions::Section::Listings
   ]
   object = instance.object
   method_name = instance.instance_variable_get("@method_name")

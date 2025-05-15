@@ -11,7 +11,7 @@ module PaypalService
     end
 
     def to_money(pp_amount)
-      pp_amount.value.to_money(pp_amount.currency_id) unless (pp_amount.nil? || pp_amount.value.nil?)
+      pp_amount.value.to_money(pp_amount.currency_id) unless pp_amount.nil? || pp_amount.value.nil?
     end
 
 

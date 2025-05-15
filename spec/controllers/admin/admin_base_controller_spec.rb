@@ -8,9 +8,9 @@ describe Admin::AdminBaseController, type: :controller do
   end
 
   describe "redirect non admin" do
-    let(:community) { FactoryGirl.create(:community) }
-    let(:person) {  FactoryGirl.create(:person, member_of: community) }
-    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
+    let(:community) { FactoryBot.create(:community) }
+    let(:person) {  FactoryBot.create(:person, member_of: community) }
+    let(:admin) { FactoryBot.create(:person, member_of: community, member_is_admin: true) }
 
     before(:each) do
       @request.host = "#{community.ident}.lvh.me"

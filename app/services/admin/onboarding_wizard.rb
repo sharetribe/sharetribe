@@ -97,8 +97,8 @@ module Admin
       # places.
       shapes = community.shapes
       unless setup_status[:payment]
-        if (PaypalHelper.community_ready_for_payments?(community.id) ||
-           StripeHelper.community_ready_for_payments?(community.id))
+        if PaypalHelper.community_ready_for_payments?(community.id) ||
+            StripeHelper.community_ready_for_payments?(community.id)
           :payment
         elsif shapes.any? && shapes.count == shapes.by_process_none.count
           :payment

@@ -17,7 +17,7 @@ module PaypalService::Jobs
     end
 
     def billing_agreements_api
-      PaypalService::API::Api.billing_agreements
+      PaypalService::API::API.billing_agreements
     end
 
   end

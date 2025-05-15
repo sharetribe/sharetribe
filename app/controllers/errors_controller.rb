@@ -69,7 +69,7 @@ class ErrorsController < ActionController::Base
   end
 
   def can_notify_airbrake
-    Airbrake&.respond_to?(:notify)
+    Airbrake.respond_to?(:notify)
   end
 
   def use_airbrake

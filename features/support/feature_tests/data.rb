@@ -14,14 +14,14 @@ module FeatureTests
       )
 
       if payment_gateway
-        TransactionService::API::Api.settings.provision(
+        TransactionService::API::API.settings.provision(
           community_id: marketplace[:id],
           payment_gateway: payment_gateway,
           payment_process: :preauthorize,
           active: true)
       end
       if payment_gateway == :stripe
-        FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:stripe])
+        FeatureFlagService::API::API.features.enable(community_id: marketplace[:id], features: [:stripe])
       end
 
       {
@@ -39,12 +39,12 @@ module FeatureTests
     def create_user(username:, marketplace_id:)
       password = "test"
 
-      u = FactoryGirl.create(:person,
+      u = FactoryBot.create(:person,
         username: username,
         community_id: marketplace_id,
         password: password,
         emails: [
-          FactoryGirl.build(:email, address: "#{username}@example.com")
+          FactoryBot.build(:email, address: "#{username}@example.com")
         ]
       )
 
@@ -56,7 +56,7 @@ module FeatureTests
     end
 
     def create_membership(user_id:, marketplace_id:, admin: false)
-      FactoryGirl.create(:community_membership,
+      FactoryBot.create(:community_membership,
                          person_id: user_id,
                          community_id: marketplace_id,
                          consent: "SHARETRIBE1.0",

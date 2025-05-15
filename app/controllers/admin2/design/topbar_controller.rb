@@ -29,7 +29,7 @@ module Admin2::Design
       translations = params.to_unsafe_hash[:post_new_listing_button].map { |k, v| { locale: k, translation: v } }
       translations_group = [{ translation_key: 'homepage.index.post_new_listing',
                               translations: translations }]
-      TranslationService::API::Api.translations.create(@current_community.id, translations_group)
+      TranslationService::API::API.translations.create(@current_community.id, translations_group)
     end
 
     def display_params

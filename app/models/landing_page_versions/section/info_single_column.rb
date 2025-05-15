@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class InfoSingleColumn < Info
 
     DEFAULTS = {
@@ -60,18 +60,18 @@ module LandingPageVersion::Section
         self.button_path = nil
       end
 
-      self.background_color = nil unless background_style == LandingPageVersion::Section::BACKGROUND_STYLE_COLOR
-      self.background_image = nil unless background_style == LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE
+      self.background_color = nil unless background_style == LandingPageVersions::Section::BACKGROUND_STYLE_COLOR
+      self.background_image = nil unless background_style == LandingPageVersions::Section::BACKGROUND_STYLE_IMAGE
     end
 
     def background_style
       @background_style ||=
         if background_image.present?
-          LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE
+          LandingPageVersions::Section::BACKGROUND_STYLE_IMAGE
         elsif background_color.present?
-          LandingPageVersion::Section::BACKGROUND_STYLE_COLOR
+          LandingPageVersions::Section::BACKGROUND_STYLE_COLOR
         else
-          LandingPageVersion::Section::BACKGROUND_STYLE_NONE
+          LandingPageVersions::Section::BACKGROUND_STYLE_NONE
         end
     end
 
@@ -104,7 +104,7 @@ module LandingPageVersion::Section
 
     class << self
       def permitted_params
-        LandingPageVersion::Section::Info::PERMITTED_PARAMS + EXTRA_PERMITTED_PARAMS
+        LandingPageVersions::Section::Info::PERMITTED_PARAMS + EXTRA_PERMITTED_PARAMS
       end
     end
   end

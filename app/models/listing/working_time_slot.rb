@@ -15,12 +15,13 @@
 #  index_listing_working_time_slots_on_listing_id  (listing_id)
 #
 
-class Listing::WorkingTimeSlot < ApplicationRecord
+class WorkingTimeSlot < ApplicationRecord
+  self.table_name = 'listing_working_time_slots'
   belongs_to :listing
 
   validate :from_is_less_than_till
 
-  enum week_day: {sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6}
+  enum :week_day, {sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6}
 
   scope :by_week_day, ->(day) { where(week_day: day) }
   scope :ordered, -> { order('listing_working_time_slots.week_day ASC, listing_working_time_slots.from ASC') }

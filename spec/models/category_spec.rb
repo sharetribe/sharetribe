@@ -23,9 +23,9 @@ require 'spec_helper'
 describe Category, type: :model do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
-    @category = FactoryGirl.create(:category, :community => @community)
-    @subcategory = FactoryGirl.create(:category)
+    @community = FactoryBot.create(:community)
+    @category = FactoryBot.create(:category, :community => @community)
+    @subcategory = FactoryBot.create(:category)
     @subcategory.update_attribute(:parent_id, @category.id)
 
     @community.reload
@@ -36,7 +36,7 @@ describe Category, type: :model do
   it "has listings?" do
     expect(@category.has_own_or_subcategory_listings?).to be_falsey
 
-    @listing = FactoryGirl.create(:listing, {category: @category})
+    @listing = FactoryBot.create(:listing, {category: @category})
     @category.reload
 
     expect(@category.has_own_or_subcategory_listings?).to be_truthy
@@ -51,7 +51,7 @@ describe Category, type: :model do
   end
 
   it "removes subcategories if parent is removed" do
-    @category2 = FactoryGirl.create(:category, :community => @community)
+    @category2 = FactoryBot.create(:category, :community => @community)
 
     expect(Category.find_by_id(@category.id)).not_to be_nil
     expect(Category.find_by_id(@subcategory.id)).not_to be_nil

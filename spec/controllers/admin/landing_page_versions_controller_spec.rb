@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Admin::LandingPageVersionsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:landing_page) { FactoryGirl.create(:landing_page, community: community, released_version: '1') }
-  let(:landing_page_version1) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
-  let(:landing_page_version2) { FactoryGirl.create(:landing_page_version, community: community, version: '2') }
+  let(:community) { FactoryBot.create(:community) }
+  let(:landing_page) { FactoryBot.create(:landing_page, community: community, released_version: '1') }
+  let(:landing_page_version1) { FactoryBot.create(:landing_page_version, community: community, version: '1') }
+  let(:landing_page_version2) { FactoryBot.create(:landing_page_version, community: community, version: '2') }
   let(:plan) do
     {
       expired: false,

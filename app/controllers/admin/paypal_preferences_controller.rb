@@ -59,9 +59,9 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
 
   def flash_error_and_redirect_to_settings(error_response: nil)
     error =
-      if (error_response && error_response[:error_code] == "570058")
+      if error_response && error_response[:error_code] == "570058"
         t("paypal_accounts.new.account_not_verified")
-      elsif (error_response && error_response[:error_code] == "520009")
+      elsif error_response && error_response[:error_code] == "520009"
         t("paypal_accounts.new.account_restricted")
       else
         t("paypal_accounts.new.something_went_wrong")
@@ -72,15 +72,15 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
   end
 
   def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions
+    PaypalService::API::API.minimum_commissions
   end
 
   def tx_settings_api
-    TransactionService::API::Api.settings
+    TransactionService::API::API.settings
   end
 
   def accounts_api
-    PaypalService::API::Api.accounts
+    PaypalService::API::API.accounts
   end
 
 end

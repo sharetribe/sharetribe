@@ -1,20 +1,20 @@
 require "spec_helper"
 
 RSpec.describe ListingPresenter, type: :presenter do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:person) do
-    person = FactoryGirl.create(:person, community: community, is_admin: true)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community, is_admin: true)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 
   context '#shapes' do
-    let(:listing_shape1) { FactoryGirl.create(:listing_shape, community_id: community.id, sort_priority: 0) }
-    let(:listing_shape2) { FactoryGirl.create(:listing_shape, community_id: community.id, sort_priority: 1) }
-    let(:listing_shape3) { FactoryGirl.create(:listing_shape, community_id: community.id, sort_priority: 2, deleted: true) }
+    let(:listing_shape1) { FactoryBot.create(:listing_shape, community_id: community.id, sort_priority: 0) }
+    let(:listing_shape2) { FactoryBot.create(:listing_shape, community_id: community.id, sort_priority: 1) }
+    let(:listing_shape3) { FactoryBot.create(:listing_shape, community_id: community.id, sort_priority: 2, deleted: true) }
     let(:listing) do
-      FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: listing_shape1.id,
-                                   author: person)
+      FactoryBot.create(:listing, community_id: community.id, listing_shape_id: listing_shape1.id,
+                                  author: person)
     end
 
     before do
@@ -35,17 +35,17 @@ RSpec.describe ListingPresenter, type: :presenter do
   end
 
   context 'availability per hour' do
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
-    let(:time_slot1) { FactoryGirl.create(:listing_working_time_slot, listing: listing, week_day: :tue, from: '09:00', till: '11:00') }
-    let(:time_slot2) { FactoryGirl.create(:listing_working_time_slot, listing: listing, week_day: :tue, from: '14:00', till: '15:00') }
-    let(:transaction1) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'paid') }
-    let(:transaction2) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'paid') }
-    let(:transaction3) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'paid') }
-    let(:transaction4) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'rejected') }
-    let(:booking1) { FactoryGirl.create(:booking, tx: transaction1, start_time: '2017-11-14 09:00', end_time: '2017-11-14 10:00', per_hour: true) }
-    let(:booking2) { FactoryGirl.create(:booking, tx: transaction2, start_time: '2017-11-14 10:00', end_time: '2017-11-14 11:00', per_hour: true) }
-    let(:booking3) { FactoryGirl.create(:booking, tx: transaction2, start_time: '2017-11-14 14:00', end_time: '2017-11-14 15:00', per_hour: true) }
-    let(:booking4) { FactoryGirl.create(:booking, tx: transaction4, start_time: '2017-11-14 09:00', end_time: '2017-11-14 10:00', per_hour: true) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:time_slot1) { FactoryBot.create(:listing_working_time_slot, listing: listing, week_day: :tue, from: '09:00', till: '11:00') }
+    let(:time_slot2) { FactoryBot.create(:listing_working_time_slot, listing: listing, week_day: :tue, from: '14:00', till: '15:00') }
+    let(:transaction1) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'paid') }
+    let(:transaction2) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'paid') }
+    let(:transaction3) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'paid') }
+    let(:transaction4) { FactoryBot.create(:transaction, community: community, listing: listing, current_state: 'rejected') }
+    let(:booking1) { FactoryBot.create(:booking, tx: transaction1, start_time: '2017-11-14 09:00', end_time: '2017-11-14 10:00', per_hour: true) }
+    let(:booking2) { FactoryBot.create(:booking, tx: transaction2, start_time: '2017-11-14 10:00', end_time: '2017-11-14 11:00', per_hour: true) }
+    let(:booking3) { FactoryBot.create(:booking, tx: transaction2, start_time: '2017-11-14 14:00', end_time: '2017-11-14 15:00', per_hour: true) }
+    let(:booking4) { FactoryBot.create(:booking, tx: transaction4, start_time: '2017-11-14 09:00', end_time: '2017-11-14 10:00', per_hour: true) }
 
 
     it '#working_hours_blocked_days 2017-11-14 is busy full day.

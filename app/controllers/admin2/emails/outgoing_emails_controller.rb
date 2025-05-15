@@ -11,9 +11,9 @@ module Admin2::Emails
         protocol: APP_CONFIG.always_use_ssl.to_s == 'true' ? 'https://' : 'http://'
       }
 
-      sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
-      user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
-      ses_in_use = EmailService::API::Api.ses_client.present?
+      sender_address = EmailService::API::API.addresses.get_sender(community_id: @current_community.id).data
+      user_defined_address = EmailService::API::API.addresses.get_user_defined(community_id: @current_community.id).data
+      ses_in_use = EmailService::API::API.ses_client.present?
 
       enqueue_status_sync!(user_defined_address)
 
@@ -35,15 +35,15 @@ module Admin2::Emails
     end
 
     def create
-      user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
+      user_defined_address = EmailService::API::API.addresses.get_user_defined(community_id: @current_community.id).data
 
       if user_defined_address && user_defined_address[:email] == params[:email].to_s.downcase.strip
-        EmailService::API::Api.addresses.update(community_id: @current_community.id, id: user_defined_address[:id], name: params[:name])
+        EmailService::API::API.addresses.update(community_id: @current_community.id, id: user_defined_address[:id], name: params[:name])
         render json: { message: t('admin2.outgoing_address.successfully_saved_name') }
         return
       end
 
-      res = EmailService::API::Api.addresses.create(
+      res = EmailService::API::API.addresses.create(
         community_id: @current_community.id,
         address: {
           name: params[:name],
@@ -73,7 +73,7 @@ module Admin2::Emails
     end
 
     def check_email_status
-      res = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id)
+      res = EmailService::API::API.addresses.get_user_defined(community_id: @current_community.id)
 
       if res.success
         address = res.data
@@ -89,7 +89,7 @@ module Admin2::Emails
     end
 
     def resend_verification_email
-      EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
+      EmailService::API::API.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
       render layout: false
     end
 
@@ -99,7 +99,7 @@ module Admin2::Emails
       Maybe(address)
         .reject { |addr| addr[:verification_status] == :verified }
         .each { |addr|
-          EmailService::API::Api.addresses.enqueue_status_sync(
+          EmailService::API::API.addresses.enqueue_status_sync(
             community_id: addr[:community_id],
             id: addr[:id])
         }

@@ -1,5 +1,5 @@
-class Person::PaymentSettingsService
-  include Person::PaymentSettingsCommon
+class Persons::PaymentSettingsService
+  include Persons::PaymentSettingsCommon
   attr_reader :community, :params, :person, :stripe_error, :stripe_error_message
   attr_accessor :presenter
 
@@ -138,6 +138,7 @@ class Person::PaymentSettingsService
 
   class StripeParseBankParams
     attr_reader :bank_country, :bank_currency, :form_params, :parsed_seller_account
+
     def initialize(parsed_seller_account:, params:)
       @parsed_seller_account = parsed_seller_account
       @bank_country = parsed_seller_account[:address_country]
@@ -185,6 +186,6 @@ class Person::PaymentSettingsService
   end
 
   def stripe_accounts_api
-    StripeService::API::Api.accounts
+    StripeService::API::API.accounts
   end
 end

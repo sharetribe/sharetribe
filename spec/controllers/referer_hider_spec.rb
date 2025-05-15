@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Devise::PasswordsController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
 
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:person]
@@ -15,8 +15,8 @@ describe Devise::PasswordsController, type: :controller do
 end
 
 describe ApplicationController, type: :controller do
-  let(:community) { FactoryGirl.create(:community) }
-  let(:person) { FactoryGirl.create(:person, community_id: community.id) }
+  let(:community) { FactoryBot.create(:community) }
+  let(:person) { FactoryBot.create(:person, community_id: community.id) }
 
   controller do
     def index; end

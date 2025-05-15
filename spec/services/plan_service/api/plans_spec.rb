@@ -5,13 +5,13 @@ require_relative './api'
 describe PlanService::API::Plans do
 
   before(:each) {
-    PlanService::API::Api.reset!
+    PlanService::API::API.reset!
   }
 
   context "external service in use" do
     let(:plans_api) {
-      PlanService::API::Api.set_environment(active: true)
-      PlanService::API::Api.plans
+      PlanService::API::API.set_environment(active: true)
+      PlanService::API::API.plans
     }
 
     describe "#create" do
@@ -264,8 +264,8 @@ describe PlanService::API::Plans do
 
   context "external service not in use" do
     let(:plans_api) {
-      PlanService::API::Api.set_environment(active: false)
-      PlanService::API::Api.plans
+      PlanService::API::API.set_environment(active: false)
+      PlanService::API::API.plans
     }
 
     it "does not creates a new initial trial" do

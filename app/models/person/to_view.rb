@@ -1,5 +1,4 @@
-class Person
-  module ToView
+module ToView
   extend ActiveSupport::Concern
 
   def name_or_username(community_or_display_type=nil)
@@ -49,6 +48,5 @@ class Person
     else
       return username
     end
-  end
   end
 end

@@ -25,7 +25,7 @@ require 'spec_helper'
 describe Testimonial, type: :model do
 
   before(:each) do
-    @testimonial = FactoryGirl.build(:testimonial)
+    @testimonial = FactoryBot.build(:testimonial)
   end
 
   it "is valid with valid attributes" do

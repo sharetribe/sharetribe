@@ -66,7 +66,7 @@ When /^I add a new category "(.*?)" with invalid data$/ do |category_name|
 end
 
 When /^I deselect all listing shapes$/ do
-  page.all(:css, ".category-listing-shape-checkbox").each do |checkbox|
+  page.all(:css, ".category-listing-shape-checkbox").each do |checkbox| # rubocop:disable Style/FindEach
     checkbox.set(false)
   end
 end
@@ -202,7 +202,7 @@ Given(/^category "(.*?)" should have the following listing shapes:$/) do |catego
   shapes = CategoryListingShape.where(category_id: category.id).map { |associations|
     category.community.shapes.find(associations.listing_shape_id)
   }.map { |s|
-    TranslationService::API::Api.translations.get(category.community_id, translation_keys: [s[:name_tr_key]], locales: ["en"])[:data]
+    TranslationService::API::API.translations.get(category.community_id, translation_keys: [s[:name_tr_key]], locales: ["en"])[:data]
   }.flat_map { |tr|
     tr.map { |tr_hash| tr_hash[:translation] }
   }

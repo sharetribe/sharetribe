@@ -3,9 +3,9 @@
   "app/utils/service_client/middleware/request_id",
 ].each { |file| require_relative "../../../../#{file}" }
 
-describe ServiceClient::Middleware::RequestID do
+describe ServiceClient::Middleware::RequestId do
 
-  let(:request_id) { ServiceClient::Middleware::RequestID.new }
+  let(:request_id) { ServiceClient::Middleware::RequestId.new }
 
   it "adds request ID header" do
     ctx = request_id.enter(req: { headers: {}})

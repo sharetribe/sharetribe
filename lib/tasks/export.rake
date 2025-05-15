@@ -3,7 +3,7 @@ namespace :export do
   def print_image_urls(image)
     return unless image.present?
 
-    image.styles.each { |s, _| puts image.url(s) }
+    image.styles.each_key { |s| puts image.url(s) }
   end
 
   def print_current_clp_images(community_id)

@@ -15,7 +15,7 @@ class Admin::Communities::FooterService
     end
   end
 
-  def footer_menu_links # rubocop:disable Rails/Delegate
+  def footer_menu_links
     community.footer_menu_links
   end
 

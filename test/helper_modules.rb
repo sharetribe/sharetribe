@@ -1,5 +1,4 @@
 # Modules in this file are included in both specs and cucumber steps.
-
 module TestHelpers
   module CategoriesHelper
 
@@ -49,7 +48,7 @@ module TestHelpers
     def self.load_categories_and_listing_shapes_to_db(community, listing_shape_templates, categories)
       processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
         memo.tap { |m|
-          process_res = TransactionService::API::Api.processes.create(
+          process_res = TransactionService::API::API.processes.create(
             community_id: community.id,
             process: process,
             author_is_seller: true
@@ -73,7 +72,7 @@ module TestHelpers
             {locale: locale, translation: translation[:action_button_label]} unless translation.blank?
           end.compact
         }
-        created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, ab_group])
+        created_translations = TranslationService::API::API.translations.create(community.id, [name_group, ab_group])
         name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
 
         translations = community.locales.map do |locale|
@@ -164,7 +163,7 @@ module TestHelpers
   end
 
   def find_or_build_category(category_name)
-    TestHelpers::find_category_by_name(category_name) || FactoryGirl.build(:category)
+    TestHelpers::find_category_by_name(category_name) || FactoryBot.build(:category)
   end
 
   module_function :find_or_build_category
@@ -200,15 +199,15 @@ module TestHelpers
       ThinkingSphinx::Test.start_with_autostop
     end
     ThinkingSphinx::Test.index
-    wait_until_index_finished()
+    wait_until_index_finished
   end
 
   # This is loaded only once before running the whole test set
   def load_default_test_data_to_db_before_suite
-    community1 = FactoryGirl.create(:community, :ident => "test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
+    community1 = FactoryBot.create(:community, :ident => "test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
     community1.community_customizations.create(name: "Sharetribe", locale: "fi")
-    community2 = FactoryGirl.create(:community, :ident => "test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
-    community3 = FactoryGirl.create(:community, :ident => "test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
+    community2 = FactoryBot.create(:community, :ident => "test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
+    community3 = FactoryBot.create(:community, :ident => "test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
 
     [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_listing_shapes_to_db(c) }
   end
@@ -216,68 +215,72 @@ module TestHelpers
 
   # This is loaded before each test
   def load_default_test_data_to_db_before_test
-    community1 = Community.where(ident: "test").first
-    community2 = Community.where(ident: "test2").first
-    community3 = Community.where(ident: "test3").first
+    ActiveRecord::Base.transaction(requires_new: true) do
+      community1 = Community.where(ident: "test").first
+      if community1.nil?
+        load_default_test_data_to_db_before_suite
+        community1 = Community.where(ident: "test").first
+      end
+      community2 = Community.where(ident: "test2").first
+      community3 = Community.where(ident: "test3").first
 
-    person1 = FactoryGirl.create(:person,
-                                 community_id: community1.id,
-                                 username: "kassi_testperson1",
-                                 emails: [
-                                   FactoryGirl.build(:email, community_id: community1.id, :address => "kassi_testperson3@example.com")],
-                                 is_admin: 0,
-                                 locale: "en",
-                                 encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
-                                 given_name: "Kassi",
-                                 family_name: "Testperson1",
-                                 phone_number: "0000-123456",
-                                 created_at: "2012-05-04 18:17:04")
+      person1 = FactoryBot.create(:person,
+                                   community_id: community1.id,
+                                   username: "kassi_testperson1",
+                                   emails: [
+                                     FactoryBot.build(:email, community_id: community1.id, :address => "kassi_testperson3@example.com")],
+                                   is_admin: 0,
+                                   locale: "en",
+                                   encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
+                                   given_name: "Kassi",
+                                   family_name: "Testperson1",
+                                   phone_number: "0000-123456",
+                                   created_at: "2012-05-04 18:17:04")
 
-    person2 = FactoryGirl.create(:person,
-                                 community_id: community1.id,
-                                 username: "kassi_testperson2",
-                                 emails: [
-                                   FactoryGirl.build(:email, community_id: community1.id, :address => "kassi_testperson4@example.com")],
-                                 is_admin: false,
-                                 locale: "en",
-                                 encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
-                                 given_name: "Kassi",
-                                 family_name: "Testperson2",
-                                 created_at: "2012-05-04 18:17:04")
+      person2 = FactoryBot.create(:person,
+                                   community_id: community1.id,
+                                   username: "kassi_testperson2",
+                                   emails: [
+                                     FactoryBot.build(:email, community_id: community1.id, :address => "kassi_testperson4@example.com")],
+                                   is_admin: false,
+                                   locale: "en",
+                                   encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
+                                   given_name: "Kassi",
+                                   family_name: "Testperson2",
+                                   created_at: "2012-05-04 18:17:04")
 
-    FactoryGirl.create(:community_membership, :person => person1,
-                        :community => community1,
-                        :admin => 1,
+      FactoryBot.create(:community_membership, :person => person1,
+                          :community => community1,
+                          :admin => 1,
+                          :consent => "test_consent0.1",
+                          :last_page_load_date => DateTime.now,
+                          :status => "accepted" )
+
+      FactoryBot.create(:community_membership, :person => person2,
+                        :community=> community1,
+                        :admin => 0,
                         :consent => "test_consent0.1",
                         :last_page_load_date => DateTime.now,
-                        :status => "accepted" )
+                        :status => "accepted")
 
-    FactoryGirl.create(:community_membership, :person => person2,
-                      :community=> community1,
-                      :admin => 0,
-                      :consent => "test_consent0.1",
-                      :last_page_load_date => DateTime.now,
-                      :status => "accepted")
+      FactoryBot.create(:email,
+      :person => person1,
+      :address => "kassi_testperson1@example.com",
+      :send_notifications => true,
+      :confirmed_at => "2012-05-04 18:17:04")
 
-    FactoryGirl.create(:email,
-    :person => person1,
-    :address => "kassi_testperson1@example.com",
-    :send_notifications => true,
-    :confirmed_at => "2012-05-04 18:17:04")
+      FactoryBot.create(:email,
+      :person => person2,
+      :address => "kassi_testperson2@example.com",
+      :send_notifications => true,
+      :confirmed_at => "2012-05-04 18:17:04")
 
-    FactoryGirl.create(:email,
-    :person => person2,
-    :address => "kassi_testperson2@example.com",
-    :send_notifications => true,
-    :confirmed_at => "2012-05-04 18:17:04")
-
-    FactoryGirl.create(:marketplace_configurations,
-                      community_id: community1.id,
-                      main_search: "keyword",
-                      distance_unit: "metric",
-                      limit_search_distance: 0)
-
+      FactoryBot.create(:marketplace_configurations,
+                        community_id: community1.id,
+                        main_search: "keyword",
+                        distance_unit: "metric",
+                        limit_search_distance: 0)
+    end
   end
   module_function :load_default_test_data_to_db_before_test
-
 end

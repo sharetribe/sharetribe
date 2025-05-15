@@ -175,20 +175,20 @@ end
 
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.where(ident: community).first
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, {
+  @custom_field = FactoryBot.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
-    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)]
+    :category_custom_fields => [FactoryBot.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)]
   })
   @custom_field.save
 end
 
 Given /^there is a numeric field "(.*?)" in community "(.*?)" for category "(.*?)" with min value "(.*?)" and max value "(.*?)"$/ do |name, community, category_name, min, max|
   current_community = Community.where(ident: community).first
-  @custom_field = FactoryGirl.build(:custom_numeric_field, {
+  @custom_field = FactoryBot.build(:custom_numeric_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
-    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
+    :category_custom_fields => [FactoryBot.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
     :min => min.to_i,
     :max => max.to_i
   })
@@ -268,7 +268,7 @@ end
 
 Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category_name, options|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:custom_dropdown_field, {
+  custom_field = FactoryBot.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })
@@ -281,9 +281,9 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
   end
 
   custom_field.options << options.hashes.each_with_index.map do |hash, index|
-    en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
-    fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
-    FactoryGirl.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
+    en = FactoryBot.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
+    fi = FactoryBot.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
+    FactoryBot.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
   end
 
   custom_field.save!
@@ -294,15 +294,15 @@ end
 
 Given /^there is a custom user dropdown field "(.*?)" in community "(.*?)" with options:$/ do |name, community, options|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:custom_dropdown_field, {
+  custom_field = FactoryBot.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })
 
   custom_field.options << options.hashes.each_with_index.map do |hash, index|
-    en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
-    fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
-    FactoryGirl.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
+    en = FactoryBot.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
+    fi = FactoryBot.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
+    FactoryBot.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
   end
 
   custom_field.entity_type = :for_person
@@ -313,7 +313,7 @@ end
 
 Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
   current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:custom_text_field, {
+  custom_field = FactoryBot.build(:custom_text_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })
@@ -332,7 +332,7 @@ Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category
 end
 
 Given(/^there is a custom numeric field "(.*?)" in that community in category "(.*?)" with min value (\d+) and with max value (\d+)$/) do |name, category_name, min, max|
-  custom_field = FactoryGirl.build(:custom_numeric_field, {
+  custom_field = FactoryBot.build(:custom_numeric_field, {
     :community_id => @current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :min => min,
@@ -348,7 +348,7 @@ Given(/^there is a custom numeric field "(.*?)" in that community in category "(
 end
 
 Given(/^there is a custom date field "(.*?)" in that community in category "(.*?)"$/) do |name, category_name|
-  custom_field = FactoryGirl.build(:custom_date_field, {
+  custom_field = FactoryBot.build(:custom_date_field, {
       :community_id => @current_community.id,
       :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })

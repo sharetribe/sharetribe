@@ -73,7 +73,7 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       @request.host = "#{community.ident}.lvh.me"
       @request.env[:current_marketplace] = community
     end
@@ -86,15 +86,15 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
     end
 
     it "should return unavailable if email is in use" do
-      person = FactoryGirl.create(:person, community_id: @community.id, :emails => [
-                                    FactoryGirl.create(:email, community_id: @community.id, :address => "test@example.com")])
-      FactoryGirl.create(:community_membership,
+      person = FactoryBot.create(:person, community_id: @community.id, :emails => [
+                                   FactoryBot.create(:email, community_id: @community.id, :address => "test@example.com")])
+      FactoryBot.create(:community_membership,
                          community: @community,
                          person: person,
                          admin: 0,
@@ -111,8 +111,8 @@ describe PeopleController, type: :controller do
     end
 
     it "should return NOT available for user's own adress" do
-      person = FactoryGirl.create(:person, community_id: @community.id)
-      FactoryGirl.create(:community_membership,
+      person = FactoryBot.create(:person, community_id: @community.id)
+      FactoryBot.create(:community_membership,
                          community: @community,
                          person: person,
                          admin: 0,
@@ -129,22 +129,22 @@ describe PeopleController, type: :controller do
   end
 
   describe "#create" do
-    let(:ordinary_community) { FactoryGirl.create(:community) }
-    let(:no_allowed_emails_community) { FactoryGirl.create(:community, allowed_emails: "@examplecompany.co") }
+    let(:ordinary_community) { FactoryBot.create(:community) }
+    let(:no_allowed_emails_community) { FactoryBot.create(:community, allowed_emails: "@examplecompany.co") }
     let(:field1) do
-      FactoryGirl.create(:person_custom_text_field, community: ordinary_community)
+      FactoryBot.create(:person_custom_text_field, community: ordinary_community)
     end
     let(:field2) do
-      FactoryGirl.create(:person_custom_dropdown_field, community: ordinary_community)
+      FactoryBot.create(:person_custom_dropdown_field, community: ordinary_community)
     end
     let(:field3) do
-      FactoryGirl.create(:custom_numeric_field, community: ordinary_community)
+      FactoryBot.create(:custom_numeric_field, community: ordinary_community)
     end
     let(:field4) do
-      FactoryGirl.create(:custom_checkbox_field, community: ordinary_community)
+      FactoryBot.create(:custom_checkbox_field, community: ordinary_community)
     end
     let(:field5) do
-      FactoryGirl.create(:custom_date_field, community: ordinary_community)
+      FactoryBot.create(:custom_date_field, community: ordinary_community)
     end
 
     it "creates a person" do
@@ -220,11 +220,11 @@ describe PeopleController, type: :controller do
 
   describe "#destroy" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
-      @location = FactoryGirl.create(:location)
-      @person = FactoryGirl.create(:person,
+      @location = FactoryBot.create(:location)
+      @person = FactoryBot.create(:person,
                                    community_id: @community.id,
                                    location: @location,
                                    display_name: "A User",
@@ -253,7 +253,7 @@ describe PeopleController, type: :controller do
     end
 
     it "doesn't delete if not logged in as target person" do
-      b = FactoryGirl.create(:person)
+      b = FactoryBot.create(:person)
       @community.members << b
       sign_in_for_spec(b)
 
@@ -266,24 +266,24 @@ describe PeopleController, type: :controller do
   end
 
   describe "#update" do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:field1) do
-      FactoryGirl.create(:person_custom_text_field, community: community)
+      FactoryBot.create(:person_custom_text_field, community: community)
     end
     let(:field2) do
-      FactoryGirl.create(:person_custom_dropdown_field, community: community)
+      FactoryBot.create(:person_custom_dropdown_field, community: community)
     end
     let(:field3) do
-      FactoryGirl.create(:custom_numeric_field, community: community)
+      FactoryBot.create(:custom_numeric_field, community: community)
     end
     let(:field4) do
-      FactoryGirl.create(:custom_checkbox_field, community: community)
+      FactoryBot.create(:custom_checkbox_field, community: community)
     end
     let(:field5) do
-      FactoryGirl.create(:custom_date_field, community: community, required: false)
+      FactoryBot.create(:custom_date_field, community: community, required: false)
     end
     let(:person) do
-      FactoryGirl.create(:person,
+      FactoryBot.create(:person,
                          member_of: community,
                          custom_field_values_attributes: [
                            { type: "#{field1.class}Value", custom_field_id: field1.id, text_value: 'text1' },
@@ -407,29 +407,29 @@ describe PeopleController, type: :controller do
     end
 
     let(:community) do
-      community = FactoryGirl.create(:community)
-      FactoryGirl.create(:custom_text_field, community: community,
-                                             public: true, entity_type: :for_person)
+      community = FactoryBot.create(:community)
+      FactoryBot.create(:custom_text_field, community: community,
+                                            public: true, entity_type: :for_person)
       community
     end
     let(:person1) do
-      person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
-      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
-                                       receiver: person, grade: 0)
-      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
-                                       receiver: person, grade: 1)
-      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
-                                       receiver: person, grade: 1)
-      followed_person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
+      person = FactoryBot.create(:person, member_of: community, community_id: community.id)
+      FactoryBot.create(:testimonial, tx: FactoryBot.create(:transaction, community: community),
+                                      receiver: person, grade: 0)
+      FactoryBot.create(:testimonial, tx: FactoryBot.create(:transaction, community: community),
+                                      receiver: person, grade: 1)
+      FactoryBot.create(:testimonial, tx: FactoryBot.create(:transaction, community: community),
+                                      receiver: person, grade: 1)
+      followed_person = FactoryBot.create(:person, member_of: community, community_id: community.id)
       followed_person.followers << person
       person
     end
     let(:person_banned) do
-      person = FactoryGirl.create(:person, community_id: community.id)
+      person = FactoryBot.create(:person, community_id: community.id)
       person.create_community_membership(community: community, status: CommunityMembership::BANNED)
       person
     end
-    let(:person_deleted) { FactoryGirl.create(:person, member_of: community, community_id: community.id, deleted: true) }
+    let(:person_deleted) { FactoryBot.create(:person, member_of: community, community_id: community.id, deleted: true) }
 
     it 'works' do
       community_host(community)
@@ -467,24 +467,24 @@ describe PeopleController, type: :controller do
   end
 
   describe "#update" do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:field1) do
-      FactoryGirl.create(:custom_numeric_field, community: community, entity_type: :for_person)
+      FactoryBot.create(:custom_numeric_field, community: community, entity_type: :for_person)
     end
     let(:admin) {
-      FactoryGirl.create(:person, member_of: community,
-                                  member_is_admin: true,
-                                  community_id: community.id)
+      FactoryBot.create(:person, member_of: community,
+                                 member_is_admin: true,
+                                 community_id: community.id)
     }
     let(:person) do
-      person = FactoryGirl.create(:person, member_of: community,
-                                           community_id: community.id,
-                                           username: 'louisemorris',
-                                           given_name: 'Louise',
-                                           family_name: 'Morris',
-                                           display_name: 'Morris Ltd'
+      person = FactoryBot.create(:person, member_of: community,
+                                          community_id: community.id,
+                                          username: 'louisemorris',
+                                          given_name: 'Louise',
+                                          family_name: 'Morris',
+                                          display_name: 'Morris Ltd'
                                           )
-      person.custom_field_values << FactoryGirl.create(:custom_numeric_field_value,
+      person.custom_field_values << FactoryBot.create(:custom_numeric_field_value,
                                                        question: field1,
                                                        listing: nil,
                                                        numeric_value: 77)

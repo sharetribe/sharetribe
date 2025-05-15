@@ -1,4 +1,4 @@
-class IntApi::MarketplacesController < ApplicationController
+class IntAPI::MarketplacesController < ApplicationController
 
   skip_before_action :fetch_community, :check_http_auth, :perform_redirect
 
@@ -30,15 +30,15 @@ class IntApi::MarketplacesController < ApplicationController
     plan = {
       expires_at: Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days
     }
-    PlanService::API::Api.plans.create_initial_trial(community_id: marketplace.id, plan: plan)
+    PlanService::API::API.plans.create_initial_trial(community_id: marketplace.id, plan: plan)
 
     if marketplace
-      TransactionService::API::Api.settings.provision(
+      TransactionService::API::API.settings.provision(
         community_id: marketplace.id,
         payment_gateway: :paypal,
         payment_process: :preauthorize,
         active: true)
-      TransactionService::API::Api.settings.provision(
+      TransactionService::API::API.settings.provision(
         community_id: marketplace.id,
         payment_gateway: :stripe,
         payment_process: :preauthorize,
@@ -61,9 +61,9 @@ class IntApi::MarketplacesController < ApplicationController
     url = URLUtils.append_query_param(url, "auth", auth_token[:token])
 
     # Enable specific features for all new trials
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:topbar_v1])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:stripe_connect_onboarding])
+    FeatureFlagService::API::API.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
+    FeatureFlagService::API::API.features.enable(community_id: marketplace.id, features: [:topbar_v1])
+    FeatureFlagService::API::API.features.enable(community_id: marketplace.id, features: [:stripe_connect_onboarding])
 
     # TODO handle error cases with proper response
 

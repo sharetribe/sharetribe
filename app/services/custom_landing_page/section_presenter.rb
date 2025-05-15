@@ -20,35 +20,35 @@ module CustomLandingPage
     end
 
     def section_info_single_column?
-      section.is_a?(LandingPageVersion::Section::InfoSingleColumn)
+      section.is_a?(LandingPageVersions::Section::InfoSingleColumn)
     end
 
     def section_info_multi_column?
-      section.is_a?(LandingPageVersion::Section::InfoMultiColumn)
+      section.is_a?(LandingPageVersions::Section::InfoMultiColumn)
     end
 
     def section_hero?
-      section.is_a?(LandingPageVersion::Section::Hero)
+      section.is_a?(LandingPageVersions::Section::Hero)
     end
 
     def section_footer?
-      section.is_a?(LandingPageVersion::Section::Footer)
+      section.is_a?(LandingPageVersions::Section::Footer)
     end
 
     def section_listings?
-      section.is_a?(LandingPageVersion::Section::Listings)
+      section.is_a?(LandingPageVersions::Section::Listings)
     end
 
     def section_categories?
-      section.is_a?(LandingPageVersion::Section::Categories)
+      section.is_a?(LandingPageVersions::Section::Categories)
     end
 
     def section_locations?
-      section.is_a?(LandingPageVersion::Section::Locations)
+      section.is_a?(LandingPageVersions::Section::Locations)
     end
 
     def section_video?
-      section.is_a?(LandingPageVersion::Section::Video)
+      section.is_a?(LandingPageVersions::Section::Video)
     end
 
     def section_errors?

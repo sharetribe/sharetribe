@@ -1,4 +1,4 @@
-class IntApi::Listing::BlockedDatesController < ApplicationController
+class IntAPI::Listing::BlockedDatesController < ApplicationController
   respond_to :json
 
   before_action :ensure_current_user_is_listing_author

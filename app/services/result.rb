@@ -56,7 +56,7 @@ module Result
     def and_then(&block)
       result = block.call(data)
       result.tap do |res|
-        raise ArgumentError.new("Block must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+        raise ArgumentError.new("Block must return Result") unless res.is_a?(Result::Success) || res.is_a?(Result::Error)
       end
     end
 
@@ -120,7 +120,7 @@ module Result
     def rescue(&block)
       result = block.call(error_msg, data)
       result.tap do |res|
-        raise ArgumentError.new("Block must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+        raise ArgumentError.new("Block must return Result") unless res.is_a?(Result::Success) || res.is_a?(Result::Error)
       end
     end
 
@@ -174,7 +174,7 @@ module Result
         res_data = res.data
         op_res = op.call(*res_data)
 
-        raise ArgumentError.new("Lambda must return Result") unless (op_res.is_a?(Result::Success) || op_res.is_a?(Result::Error))
+        raise ArgumentError.new("Lambda must return Result") unless op_res.is_a?(Result::Success) || op_res.is_a?(Result::Error)
 
         if op_res.success
           Result::Success.new(res_data.concat([op_res.data]))

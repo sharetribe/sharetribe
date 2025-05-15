@@ -8,7 +8,7 @@ module ServiceClient
       [:actor_id, :uuid, :mandatory]
     )
 
-    class JwtAuthenticator < MiddlewareBase
+    class JWTAuthenticator < MiddlewareBase
 
       def initialize(secret:, default_auth_context: IDENTITY)
         @_secret = secret

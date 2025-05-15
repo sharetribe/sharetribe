@@ -1,5 +1,5 @@
 def build_conversation(community, listing, starter, message)
-  conversation = FactoryGirl.build(:conversation,
+  conversation = FactoryBot.build(:conversation,
     community: community,
     listing: listing )
 
@@ -24,7 +24,7 @@ def build_conversation(community, listing, starter, message)
 end
 
 def create_transaction(community, listing, starter, message, payment_gateway = :none)
-  transaction = FactoryGirl.create(:transaction,
+  transaction = FactoryBot.create(:transaction,
     listing: listing,
     community: community,
     starter: starter,
@@ -110,14 +110,14 @@ def create_paid_transaction(community, listing, starter, message, payment_gatewa
       minimum_buyer_fee_cents: 100,
       minimum_buyer_fee_currency: listing.price.currency)
   end
-  tx = FactoryGirl.create(:transaction, tx_attributes)
+  tx = FactoryBot.create(:transaction, tx_attributes)
   if booking
-    FactoryGirl.create(:booking, tx: tx, start_on: nil, end_on: nil,
-                                 start_time: "2019-01-02 09:00:00",
-                                 end_time: "2019-01-02 12:00:00",
-                                 per_hour: true)
+    FactoryBot.create(:booking, tx: tx, start_on: nil, end_on: nil,
+                                start_time: "2019-01-02 09:00:00",
+                                end_time: "2019-01-02 12:00:00",
+                                per_hour: true)
   end
-  FactoryGirl.create(:transaction_transition, tx: tx, to_state: state)
+  FactoryBot.create(:transaction_transition, tx: tx, to_state: state)
   tx
 end
 

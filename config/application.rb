@@ -31,7 +31,7 @@ module Kassi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     # and thus class const
-    config.load_defaults 5.1
+    config.load_defaults 7.2
     config.active_record.belongs_to_required_by_default = false
 
     # This is a little cubersome, but this needs to be shared with the StylesheetCompiler,
@@ -48,6 +48,9 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'view_utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
     config.autoload_paths += Dir[Rails.root.join('app', 'validators')]
+    # config.autoload_paths += Dir[Rails.root.join('app', 'models', 'landing_page_versions', 'section')]
+    config.eager_load_paths += %W(#{config.root}/app/view_utils/)
+    config.eager_load_paths += %W(#{config.root}/app/presenters)
 
     # Fakepal
     config.autoload_paths += Dir[Rails.root.join('lib', 'services')]

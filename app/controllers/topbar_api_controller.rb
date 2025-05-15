@@ -1,4 +1,4 @@
-class TopbarApiController < ApplicationController
+class TopbarAPIController < ApplicationController
 
   skip_before_action :cannot_access_without_confirmation, :ensure_consent_given
 

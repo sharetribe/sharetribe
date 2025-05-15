@@ -2,6 +2,9 @@
 # This module contains helper methods for dealing with the two
 # icon sets we use: ss-pika and font-awesome
 #
+
+require_relative '../../app/view_utils/icon_map'
+
 module IconHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
@@ -15,7 +18,7 @@ module IconHelper
     if icon.nil?
       icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
     end
-    return icon
+    icon
   end
 
   def self.icon_specified?(icon_name)

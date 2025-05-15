@@ -102,7 +102,7 @@ describe ListingsController, type: :controller do
           }
         }
       }
-    created_translations = TranslationService::API::Api.translations.create(community_id, [name_group])
+    created_translations = TranslationService::API::API.translations.create(community_id, [name_group])
     name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
 
     opts = defaults.merge(
@@ -122,18 +122,18 @@ describe ListingsController, type: :controller do
     before(:each) do
       Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
-      @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
-      @c1.community_customizations << FactoryGirl.create(:community_customization, :locale => "fi")
-      @c2 = FactoryGirl.create(:community)
+      @c1 = FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]})
+      @c1.community_customizations << FactoryBot.create(:community_customization, :locale => "fi")
+      @c2 = FactoryBot.create(:community)
 
-      @p1 = FactoryGirl.create(:person)
+      @p1 = FactoryBot.create(:person)
       @p1.accepted_community = @c1
 
-      @category_item      = FactoryGirl.create(:category, :community => @c1)
-      @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
-      @category_favor     = FactoryGirl.create(:category, :community => @c1)
-      @category_rideshare = FactoryGirl.create(:category, :community => @c1)
-      @category_furniture = FactoryGirl.create(:category, :community => @c1)
+      @category_item      = FactoryBot.create(:category, :community => @c1)
+      @category_item.translations << FactoryBot.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
+      @category_favor     = FactoryBot.create(:category, :community => @c1)
+      @category_rideshare = FactoryBot.create(:category, :community => @c1)
+      @category_furniture = FactoryBot.create(:category, :community => @c1)
 
       c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
       c1_offer_process   = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
@@ -149,7 +149,7 @@ describe ListingsController, type: :controller do
       # This is needed in the spec, thus save it in instance variable
       @sell_shape = sell_shape
 
-      @l1 = FactoryGirl.create(
+      @l1 = FactoryBot.create(
         :listing,
         :transaction_process_id => request_shape[:transaction_process_id],
         :listing_shape_id => request_shape[:id],
@@ -163,7 +163,7 @@ describe ListingsController, type: :controller do
         :community_id => @c1.id,
       )
 
-      @l2 = FactoryGirl.create(
+      @l2 = FactoryBot.create(
         :listing,
         :title => "hammer",
         :category => @category_item,
@@ -177,7 +177,7 @@ describe ListingsController, type: :controller do
         :community_id => @c1.id,
       )
 
-      FactoryGirl.create(
+      FactoryBot.create(
         :listing,
         :transaction_process_id => request_c2_shape[:transaction_process_id],
         :listing_shape_id => request_c2_shape[:id],
@@ -189,7 +189,7 @@ describe ListingsController, type: :controller do
         :community_id => @c2.id,
       )
 
-      FactoryGirl.create(
+      FactoryBot.create(
         :listing,
         :transaction_process_id => request_shape[:transaction_process_id],
         :listing_shape_id => request_shape[:id],
@@ -202,7 +202,7 @@ describe ListingsController, type: :controller do
         :community_id => @c1.id,
       )
 
-      @l4 = FactoryGirl.create(
+      @l4 = FactoryBot.create(
         :listing,
         :title => "car",
         :created_at => 2.months.ago,
@@ -270,16 +270,16 @@ describe ListingsController, type: :controller do
   end
 
   describe 'approval' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:offer_process) {
-      FactoryGirl.create(:transaction_process,
+      FactoryBot.create(:transaction_process,
                                                community_id: community.id,
                                                process: :none)
     }
     let(:sell_shape) { create_shape(community.id, "Sell", offer_process) }
-    let(:person) { FactoryGirl.create(:person, member_of: community) }
+    let(:person) { FactoryBot.create(:person, member_of: community) }
     let(:listing) {
-      FactoryGirl.create(:listing,
+      FactoryBot.create(:listing,
                          community_id: community.id,
                          author: person,
                          transaction_process_id: sell_shape[:transaction_process_id],
@@ -289,26 +289,26 @@ describe ListingsController, type: :controller do
                         )
     }
     let(:pending_listing) {
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   author: person,
-                                   state: Listing::APPROVAL_PENDING,
-                                   transaction_process_id: sell_shape[:transaction_process_id],
-                                   listing_shape_id: sell_shape[:id],
-                                   shape_name_tr_key: sell_shape[:name_tr_key],
-                                   action_button_tr_key: sell_shape[:action_button_tr_key]
+      FactoryBot.create(:listing, community_id: community.id,
+                                  author: person,
+                                  state: Listing::APPROVAL_PENDING,
+                                  transaction_process_id: sell_shape[:transaction_process_id],
+                                  listing_shape_id: sell_shape[:id],
+                                  shape_name_tr_key: sell_shape[:name_tr_key],
+                                  action_button_tr_key: sell_shape[:action_button_tr_key]
                         )
     }
     let(:rejected_listing) {
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   author: person,
-                                   state: Listing::APPROVAL_REJECTED,
-                                   transaction_process_id: sell_shape[:transaction_process_id],
-                                   listing_shape_id: sell_shape[:id],
-                                   shape_name_tr_key: sell_shape[:name_tr_key],
-                                   action_button_tr_key: sell_shape[:action_button_tr_key]
+      FactoryBot.create(:listing, community_id: community.id,
+                                  author: person,
+                                  state: Listing::APPROVAL_REJECTED,
+                                  transaction_process_id: sell_shape[:transaction_process_id],
+                                  listing_shape_id: sell_shape[:id],
+                                  shape_name_tr_key: sell_shape[:name_tr_key],
+                                  action_button_tr_key: sell_shape[:action_button_tr_key]
                         )
     }
-    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
+    let(:admin) { FactoryBot.create(:person, member_of: community, member_is_admin: true) }
 
     before :each do
       @request.host = "#{community.ident}.lvh.me"
@@ -449,16 +449,16 @@ describe ListingsController, type: :controller do
   end
 
   describe "custom meta tags" do
-    let(:community){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
+    let(:community){ FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]}) }
     let(:offer_process) {
-      FactoryGirl.create(:transaction_process,
+      FactoryBot.create(:transaction_process,
                                                community_id: community.id,
                                                process: :none)
     }
     let(:sell_shape) { create_shape(community.id, "Sell", offer_process) }
-    let(:person) { FactoryGirl.create(:person, member_of: community) }
+    let(:person) { FactoryBot.create(:person, member_of: community) }
     let(:listing) {
-      FactoryGirl.create(:listing,
+      FactoryBot.create(:listing,
                          community_id: community.id,
                          author: person,
                          transaction_process_id: sell_shape[:transaction_process_id],
@@ -472,7 +472,7 @@ describe ListingsController, type: :controller do
                         )
     }
     let(:listing_without_price) {
-      FactoryGirl.create(:listing,
+      FactoryBot.create(:listing,
                          community_id: community.id,
                          author: person,
                          transaction_process_id: sell_shape[:transaction_process_id],
@@ -515,16 +515,16 @@ describe ListingsController, type: :controller do
   end
 
   describe "update and delete" do
-    let(:community){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
+    let(:community){ FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]}) }
     let(:offer_process) {
-      FactoryGirl.create(:transaction_process,
+      FactoryBot.create(:transaction_process,
                                                community_id: community.id,
                                                process: :none)
     }
     let(:sell_shape) { create_shape(community.id, "Sell", offer_process) }
-    let(:person) { FactoryGirl.create(:person, member_of: community) }
+    let(:person) { FactoryBot.create(:person, member_of: community) }
     let(:listing) {
-      FactoryGirl.create(:listing,
+      FactoryBot.create(:listing,
                          community_id: community.id,
                          author: person,
                          transaction_process_id: sell_shape[:transaction_process_id],
@@ -537,7 +537,7 @@ describe ListingsController, type: :controller do
                          price: Money.new(4567, "USD")
                         )
     }
-    let(:other_community) { FactoryGirl.create(:community) }
+    let(:other_community) { FactoryBot.create(:community) }
 
     context 'allowed' do
       before :each do

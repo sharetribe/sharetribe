@@ -31,7 +31,7 @@ class DomainSetup < ApplicationRecord
     SETUP_FAILED = 'setup_failed'.freeze => 'setup-failed'.freeze
   }
 
-  enum state: STATE
+  enum :state, STATE
 
   DOMAIN_REGEX = /(?!(.*sharetribe.*|.*sharetri\.be.*))(?=.{4,253})(\A((?!-)[a-z0-9-]{1,63}(?<!-)\.)+((?![0-9]+\z)(?!-)[a-z0-9-]{1,63}(?<!-)))\z/
 

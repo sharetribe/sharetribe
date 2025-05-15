@@ -53,7 +53,7 @@ describe ApplicationController, type: :controller do
 
   describe "#check_auth_token" do
     it "logs person in when auth_token is valid" do
-      p1 = FactoryGirl.create(:person)
+      p1 = FactoryBot.create(:person)
       t = AuthToken.create!(:person_id => p1.id, :expires_at => 10.minutes.from_now, :token_type => "login")
       get :index, params: { :auth => t.token}
       expect(response.status).to eq(302) #redirection to url withouth token in query string
@@ -72,7 +72,7 @@ describe ApplicationController, type: :controller do
 
   describe "showing not available message" do
     it "redirects to /not_available for deleted community" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -97,7 +97,7 @@ describe ApplicationController, type: :controller do
     end
 
     it "redirects to /not_available for closed community" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -123,7 +123,7 @@ describe ApplicationController, type: :controller do
     end
 
     it "redirects to /not_available for community on hold" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -156,7 +156,7 @@ describe ApplicationController, type: :controller do
 
   describe "showing not available message" do
     it "renders message on request /not_available for deleted community" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -181,7 +181,7 @@ describe ApplicationController, type: :controller do
     end
 
     it "renders message on request to /not_available for closed community" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -207,7 +207,7 @@ describe ApplicationController, type: :controller do
     end
 
     it "renders message on request to /not_available for community on hold" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       community.update(deleted: true)
 
       # stub request.env like MarketplaceLookup middleware
@@ -263,7 +263,7 @@ describe ApplicationController, type: :controller do
 
   describe 'seo service for meta tags' do
     it "initializes seo_service" do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       request.env[:current_marketplace] = community
       get :index, params: {}
       expect(assigns("seo_service")).to be_kind_of(SeoService)

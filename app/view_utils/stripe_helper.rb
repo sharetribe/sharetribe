@@ -1,6 +1,6 @@
 module StripeHelper
 
-  TxApi = TransactionService::API::Api
+  TxApi = TransactionService::API::API
 
   module_function
 
@@ -35,7 +35,7 @@ module StripeHelper
   end
 
   def stripe_available?(community)
-    stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
+    stripe_mode = StripeService::API::API.wrapper.charges_mode(community.id)
     TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(
       community.country,
       community.currency,
@@ -48,14 +48,14 @@ module StripeHelper
   end
 
   def user_stripe_active?(community_id, person_id)
-    account = StripeService::API::Api.accounts.get(community_id: community_id, person_id: person_id).data
+    account = StripeService::API::API.accounts.get(community_id: community_id, person_id: person_id).data
     account && account[:stripe_seller_id].present? && account[:stripe_bank_id].present?
   end
 
   def publishable_key(community_id)
     return nil unless StripeHelper.stripe_active?(community_id)
 
-    payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :stripe).maybe.get
+    payment_settings = TransactionService::API::API.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :stripe).maybe.get
     payment_settings[:api_publishable_key]
   end
 

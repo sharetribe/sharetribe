@@ -1,4 +1,4 @@
-module LandingPageVersion::Section
+module LandingPageVersions::Section
   class InfoMultiColumn < Info
 
     attr_accessor :multi_columns
@@ -41,7 +41,7 @@ module LandingPageVersion::Section
       :background_color_string,
       :background_image_variation,
       :multi_columns,
-      :columns => [ :icon, :title, :paragraph, :button_title, :button_path => [:value] ]
+      :columns => [:icon, :title, :paragraph, :button_title, :button_path => [:value]]
     ]
 
     def initialize(attributes={})
@@ -87,7 +87,7 @@ module LandingPageVersion::Section
 
     class << self
       def permitted_params
-        LandingPageVersion::Section::Info::PERMITTED_PARAMS + EXTRA_PERMITTED_PARAMS
+        LandingPageVersions::Section::Info::PERMITTED_PARAMS + EXTRA_PERMITTED_PARAMS
       end
     end
   end

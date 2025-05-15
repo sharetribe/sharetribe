@@ -33,6 +33,7 @@ Feature: Buyer initiate order and pays for listing per hour
     Then I should see "Subtotal: $4.65"
     Then I should see "Total: $4.65"
     And I pay with stripe
+    And I wait 4 seconds
     Then I should see "Payment authorized"
     Then I should see "Booked hours: Mon, Nov 28, 2050 - 9:00 am to 12:00 pm (3 hours)"
     Then I should see "Price per hour: $1.55"

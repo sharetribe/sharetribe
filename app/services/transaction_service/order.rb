@@ -122,7 +122,7 @@ module TransactionService
 
     def stripe_tx_settings
       @stripe_tx_settings ||=
-        Maybe(TransactionService::API::Api.settings.get(community_id: community.id, payment_gateway: :stripe, payment_process: :preauthorize))
+        Maybe(TransactionService::API::API.settings.get(community_id: community.id, payment_gateway: :stripe, payment_process: :preauthorize))
         .select { |result| result[:success] }
         .map { |result| result[:data] }
         .or_else({})

@@ -27,7 +27,7 @@ module TransactionService::Gateway
     private
 
     def stripe_api
-      StripeService::API::Api
+      StripeService::API::API
     end
   end
 end

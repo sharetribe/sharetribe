@@ -230,9 +230,9 @@ describe PaypalService::API::Accounts do
 
   before(:each) do
     # Test version of merchant and permission clients
-    PaypalService::API::Api.reset!
-    @api_builder = PaypalService::API::Api.api_builder
-    @accounts = PaypalService::API::Api.build_test_accounts(prepend_country_code: true)
+    PaypalService::API::API.reset!
+    @api_builder = PaypalService::API::API.api_builder
+    @accounts = PaypalService::API::API.build_test_accounts(prepend_country_code: true)
 
     # Test data
 

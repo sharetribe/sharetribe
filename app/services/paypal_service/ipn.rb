@@ -56,8 +56,8 @@ module PaypalService
       # :controller and :action keys hold frozen strings and should not be modified
       converted = HashUtils.map_values(params) { |val| val.frozen? ? val : val.force_encoding(params[:charset]).encode("utf-8", invalid: :replace, replace: "") }
 
-      msg = PaypalIpnMessage.create(body: converted)
-      Delayed::Job.enqueue(HandlePaypalIpnMessageJob.new(msg.id))
+      msg = PaypalIPNMessage.create(body: converted)
+      Delayed::Job.enqueue(HandlePaypalIPNMessageJob.new(msg.id))
     end
 
     def handle_payment_update(ipn_msg)

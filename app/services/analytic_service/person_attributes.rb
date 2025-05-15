@@ -19,7 +19,7 @@ module AnalyticService
 
     def payment_providers(attrs)
       result = []
-      stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
+      stripe_mode = StripeService::API::API.wrapper.charges_mode(community.id)
       if TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(community.country,
                                                                                      community.currency,
                                                                                      stripe_mode)
@@ -59,11 +59,11 @@ module AnalyticService
     end
 
     def transaction_processes(community)
-      @transaction_processes ||= TransactionService::API::Api.processes.get(community_id: community.id)
+      @transaction_processes ||= TransactionService::API::API.processes.get(community_id: community.id)
     end
 
     def configured_paypal_account(community)
-      result = PaypalService::API::Api.accounts.get(community_id: community.id)
+      result = PaypalService::API::API.accounts.get(community_id: community.id)
       result.data ? result.data[:state] == :verified : false
     end
 
@@ -72,7 +72,7 @@ module AnalyticService
     end
 
     def configured_fees(community, payment_gateway)
-      result = TransactionService::API::Api.settings.get_active_by_gateway(community_id: community.id,
+      result = TransactionService::API::API.settings.get_active_by_gateway(community_id: community.id,
                                                                            payment_gateway: payment_gateway)
       result.data ? payment_fees?(result.data) : false
     end

@@ -13,7 +13,7 @@ class EnsureCanAccessPerson
     username = controller.params[param_name]
 
     allow = current_user && current_user.username == username
-    allow ||= (allow_admin && current_user.has_admin_rights?(current_community))
+    allow ||= allow_admin && current_user.has_admin_rights?(current_community)
     unless allow
       controller.flash[:error] = I18n.t(error_message_key)
       controller.redirect_to controller.search_path and return

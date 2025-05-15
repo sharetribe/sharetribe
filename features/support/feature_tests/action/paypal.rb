@@ -68,6 +68,8 @@ module FeatureTests
         Delayed::Worker.delay_jobs = false
         listing_book.proceed_to_payment
 
+        sleep(2)
+
         expect(page).to have_content("Payment authorized")
         expect(page).to have_content("Snowman ☃ sells: #{title}")
         Delayed::Worker.delay_jobs = true

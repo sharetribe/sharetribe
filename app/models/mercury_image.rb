@@ -11,13 +11,13 @@
 #  updated_at         :datetime         not null
 #
 
-class Mercury::Image < ApplicationRecord
+class MercuryImage < ApplicationRecord
 
   self.table_name = :mercury_images
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-        :path => ":rails_root/public/system/mercury/images/:attachment/:id/:style/:filename",
-        :url => "/system/:class/:attachment/:id/:style/:filename"
+                            :path => ":rails_root/public/system/mercury/images/:attachment/:id/:style/:filename",
+                            :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_attachment_content_type :image,
                                     :content_type => IMAGE_CONTENT_TYPE
@@ -30,5 +30,4 @@ class Mercury::Image < ApplicationRecord
     options[:methods] << :url
     super(options)
   end
-
 end

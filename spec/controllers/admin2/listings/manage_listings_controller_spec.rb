@@ -4,36 +4,36 @@ describe Admin2::Listings::ManageListingsController, type: :controller do
 
   describe 'filtering' do
     before(:all) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @user = create_admin_for(@community)
 
-      @category1 = FactoryGirl.create(:category, community: @community)
-      @category1.translations << FactoryGirl.create(:category_translation, :name => "Music", :locale => "en", :category => @category1)
+      @category1 = FactoryBot.create(:category, community: @community)
+      @category1.translations << FactoryBot.create(:category_translation, :name => "Music", :locale => "en", :category => @category1)
 
-      @category2 = FactoryGirl.create(:category, community: @community)
-      @category2.translations << FactoryGirl.create(:category_translation, :name => "Books", :locale => "en", :category => @category2)
+      @category2 = FactoryBot.create(:category, community: @community)
+      @category2.translations << FactoryBot.create(:category_translation, :name => "Books", :locale => "en", :category => @category2)
 
-      @joe = FactoryGirl.create(:person, given_name: 'Joe')
+      @joe = FactoryBot.create(:person, given_name: 'Joe')
       @joe.accepted_community = @community
 
-      @jack = FactoryGirl.create(:person, given_name: 'Jack')
+      @jack = FactoryBot.create(:person, given_name: 'Jack')
       @jack.accepted_community = @community
 
-      @listing_joe1 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "classic")
+      @listing_joe1 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "classic")
 
-      @listing_joe2 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "rock")
+      @listing_joe2 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "rock")
       @listing_joe2.update(open: 0)
 
-      @listing_joe3 = FactoryGirl.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "pop")
+      @listing_joe3 = FactoryBot.create(:listing, community_id: @community.id, author: @joe, category_id: @category1.id, title: "pop")
       @listing_joe3.valid_until = 100.days.ago
       @listing_joe3.save(validate: false)
 
-      @listing_jack1 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "bible")
+      @listing_jack1 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "bible")
 
-      @listing_jack2 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "encyclopedia")
+      @listing_jack2 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "encyclopedia")
       @listing_jack2.update(open: false)
 
-      @listing_jack3 = FactoryGirl.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "wonderland")
+      @listing_jack3 = FactoryBot.create(:listing, community_id: @community.id, author: @jack, category_id: @category2.id, title: "wonderland")
       @listing_jack3.valid_until = 100.days.ago
       @listing_jack3.save(validate: false)
 
@@ -142,13 +142,13 @@ describe Admin2::Listings::ManageListingsController, type: :controller do
   end
 
   describe 'actions' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:listing) {
-      FactoryGirl.create(:listing, community_id: community.id,
-                                   state: Listing::APPROVAL_PENDING)
+      FactoryBot.create(:listing, community_id: community.id,
+                                  state: Listing::APPROVAL_PENDING)
     }
     let(:follower_of_listing_author) do
-      person = FactoryGirl.create(:person, member_of: community)
+      person = FactoryBot.create(:person, member_of: community)
       listing.author.followers << person
       person
     end

@@ -1,16 +1,16 @@
 module EmailService::EmailServiceInjector
   def addresses_api
-    @addresses ||= build_addresses_api()
+    @addresses ||= build_addresses_api
   end
 
   def ses_client_instance
-    @ses_client ||= build_ses_client()
+    @ses_client ||= build_ses_client
   end
 
   def build_addresses_api
     EmailService::API::Addresses.new(
       default_sender: APP_CONFIG.sharetribe_mail_from_address,
-      ses_client: build_ses_client()
+      ses_client: build_ses_client
     )
   end
 

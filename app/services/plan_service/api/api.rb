@@ -1,5 +1,5 @@
 module PlanService::API
-  class Api
+  class API
     Configuration = PlanService::DataTypes::Configuration
 
     def self.plans
