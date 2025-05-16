@@ -364,7 +364,7 @@ class Listing < ApplicationRecord
 
     if params[:listing_ordered_images].present?
       params[:listing_ordered_images].split(",").each_with_index do |image_id, position|
-        ListingImage.where(id: image_id, author_id: user_id).update_all(position: position+1)
+        ListingImage.where(id: image_id, listing_id: id).update_all(position: position + 1)
       end
     end
   end
