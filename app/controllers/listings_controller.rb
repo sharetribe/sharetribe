@@ -219,6 +219,7 @@ class ListingsController < ApplicationController
         location_params = ListingFormViewUtils.permit_location_params(params)
         @listing.location.update(location_params)
       end
+      @listing.reorder_listing_images(params, @current_user.id)
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       reprocess_missing_image_styles(@listing) if @listing.closed?
