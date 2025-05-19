@@ -38,6 +38,18 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
+## Upgrade from 12.0.0 to [Unreleased]
+
+Nothing special at the moment, see the [General update instructions](#general-update-instructions).
+
+## Upgrade from 11.0.0 to 12.0.0
+
+The new version contains a Rails upgrade to 7.2.2.1, that you should review.
+
+Make sure to have `libvips` installed.
+
+Otherwise, see the [General update instructions](#general-update-instructions).
+
 ## Upgrade from 10.3.0 to 11.0.0
 
 The new version contains a Ruby upgrade to 3.2.2 and Node to v18.16, that you should review.
