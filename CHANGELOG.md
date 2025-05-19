@@ -10,14 +10,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
-- Information about *The New Sharetribe* [62b29b2](https://github.com/sharetribe/sharetribe/commit/62b29b27766ed53b2c604d5a3ed3d721196961a0)
-
 ### Changed
-
-- Updated translations to remove uses of non `example.com` domain, thanks [villu164](https://github.com/villu164)
-- Updates to Facebook SDK and Like button [3fdbf1e](https://github.com/sharetribe/sharetribe/commit/3fdbf1ed41fa5816a081ce9d1425724975dfda91)
-- Support for LinkedIn Sign In v2 [a64113c](https://github.com/sharetribe/sharetribe/commit/a64113c0058e575954aad7d9e9260f463d9f11ec)
-- Add support for KWD currency [df1eb1d](https://github.com/sharetribe/sharetribe/commit/df1eb1d9bcd9fe4b31617afdaf603820ebf25b1d)
 
 ### Deprecated
 
@@ -25,9 +18,33 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+### Security
+
+## [12.0.0] - 2025-05-19
+
+### Added
+
+- Support for KWD currency [df1eb1d](https://github.com/sharetribe/sharetribe/commit/df1eb1d9bcd9fe4b31617afdaf603820ebf25b1d)
+- Information about *The New Sharetribe* [62b29b2](https://github.com/sharetribe/sharetribe/commit/62b29b27766ed53b2c604d5a3ed3d721196961a0)
+- Support for one-click unsubscribes in emails [026e56a](https://github.com/sharetribe/sharetribe/commit/026e56aac05e84ee52266f21382fbb90a8169610)
+
+### Changed
+
+- Updated translations to remove uses of non `example.com` domain, thanks [villu164](https://github.com/villu164)
+- Updated Facebook SDK and Like button [3fdbf1e](https://github.com/sharetribe/sharetribe/commit/3fdbf1ed41fa5816a081ce9d1425724975dfda91)
+- Support for LinkedIn Sign In v2 [a64113c](https://github.com/sharetribe/sharetribe/commit/a64113c0058e575954aad7d9e9260f463d9f11ec)
+- Changed links to the new Help Center [61f186b](https://github.com/sharetribe/sharetribe/commit/61f186bb111cef79a57c02887b355f8599e67d26)
+
+### Fixed
+
 - Fixed incorrect "git clone" link in the Readme instructions, thanks [@romanzes](https://github.com/romanzes)
+- Fixed color picker dropdown UI [b33b086](https://github.com/sharetribe/sharetribe/commit/b33b08637a1f034e068d0e1aff887786f418eb67)
+- Fixed listing image reordering [a7ef19a](https://github.com/sharetribe/sharetribe/commit/a7ef19ab64541a1e5fc4dddc8db81448d22e94ce)
+- Fixed unsafe redirect [a7ef19a](https://github.com/sharetribe/sharetribe/commit/a7ef19ab64541a1e5fc4dddc8db81448d22e94ce)
 
 ### Security
+
+- Updated Rails to 7.2.2.1 [5c7d3fc](https://github.com/sharetribe/sharetribe/commit/5c7d3fcda3a66a45a62943d26e0bd3c034e30a12)
 
 ## [11.0.0] - 2023-07-05
 
@@ -1058,7 +1075,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v11.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v12.0.0...HEAD
+[12.0.0]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...v12.0.0
 [11.0.0]: https://github.com/sharetribe/sharetribe/compare/v10.3.0...v11.0.0
 [10.3.0]: https://github.com/sharetribe/sharetribe/compare/v10.2.1...v10.3.0
 [10.2.1]: https://github.com/sharetribe/sharetribe/compare/v10.2.0...v10.2.1
