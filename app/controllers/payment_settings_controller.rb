@@ -37,7 +37,7 @@ class PaymentSettingsController < ApplicationController
 
     link = @presenter.account_link(stripe_seller_id: stripe_seller_id, return_url: person_payment_settings_stripe_callback_url)
 
-    redirect_to link
+    redirect_to link, allow_other_host: true
   rescue StandardError => e
     flash[:error] = e.message
     redirect_to person_payment_settings_path(@current_user.username)

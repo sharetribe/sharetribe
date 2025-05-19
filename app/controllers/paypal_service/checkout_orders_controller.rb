@@ -84,7 +84,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       redirect_to transaction_created_path(transaction_id: response_data[:transaction_id])
     else
       if response_data[:paypal_error_code] == "10486"
-        redirect_to response_data[:redirect_url]
+        redirect_to response_data[:redirect_url], allow_other_host: true
       elsif response_data[:paypal_error_code] == "13113"
         flash[:error] = t("error_messages.paypal.buyer_cannot_pay_error",
                           customer_service_link: view_context.link_to("https://www.paypal.com/contactus",
