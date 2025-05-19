@@ -31,7 +31,7 @@ To build and launch a marketplace without writing a single line of code, and ext
 ## Technology stack
 
 - Ruby 3.2.2
-- Ruby on Rails 6.1.7.3
+- Ruby on Rails 7.2.2.1
 - MySQL 8.0
 - React + jQuery
 - Node.js 18.16 (for compiling JavaScript assets)
