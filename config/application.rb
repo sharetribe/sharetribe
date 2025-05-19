@@ -237,6 +237,7 @@ module Kassi
     config.exceptions_app = self.routes
 
     config.active_job.queue_adapter = :delayed_job
+    config.action_controller.raise_on_open_redirects = false
 
     # TODO remove deprecation warnings when removing legacy analytics
     ActiveSupport::Deprecation.warn("Support for Kissmetrics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_kissmetrics.to_s == "true"
