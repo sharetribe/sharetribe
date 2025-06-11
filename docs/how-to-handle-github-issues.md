@@ -6,7 +6,7 @@
 
 1.  Is it a general question or a bug report?
 
-    - *Question:* Leave it open for some time and see if it creates traction and discussion. If it becomes inactive, close it and add a friendly reminder that the [Community Forum](https://www.sharetribe.com/community/) is the right place for general questions and discussion.
+    - *Question:* Leave it open for some time and see if it creates traction and discussion. If it becomes inactive, close it.
     - *Bug:* Move on to step 2.
 
 2.  Does the report contain enough information to reproduce the issue?
