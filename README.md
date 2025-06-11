@@ -25,7 +25,6 @@ To build and launch a marketplace without writing a single line of code, and ext
 - [Translation](#translation)
 - [Bug tracker](#bug-tracker)
 - [Documentation](#documentation)
-- [Sharetribe Go Community forum](#community-forum)
 - [License](#license)
 
 ## Technology stack
@@ -392,8 +391,6 @@ React components can be created using hot module replacement HMR technique in St
 
 Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
 
-If you have installation instructions that you would like to share, don't hesitate to share them at the [Sharetribe Go community forum](https://www.sharetribe.com/community).
-
 - [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
 - [How to install Sharetribe on Centos 7.x](https://medium.com/@resilientbeast/how-to-install-sharetribe-on-centos-7-x-cbdb6d0366e5) by [Arek Hukalowicz](https://www.linkedin.com/in/arek-hukalowicz-8ab0228a/)
 
@@ -467,23 +464,14 @@ Translations are available through YAML files in the `/config/locales` folder.
 
 ## Bug tracker
 
-Browse open issues and submit new ones in [Github Issues](http://github.com/sharetribe/sharetribe/issues).
+Browse open issues and submit new ones in [Github Issues](http://github.com/sharetribe/sharetribe/issues). After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md).
 
-We are dedicating the Github Issue only for bugs in the Sharetribe Go codebase. For general questions, start a new thread in the [Sharetribe Go Community forum](https://www.sharetribe.com/community/) instead of opening a new Issue.
-
-After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md).
+We are dedicating the Github Issue only for bugs in the Sharetribe Go codebase.
 
 
 ## Documentation
 
-More detailed technical documentation is located in [docs/](docs/)
-
-
-## Sharetribe Go Community forum
-
-The Sharetribe Go Community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
-
-The forum is a great place to ask support and help regarding Sharetribe Go Community Edition, for example with issues during the installation.
+More detailed technical documentation is located in [docs/](docs/).
 
 
 ## License

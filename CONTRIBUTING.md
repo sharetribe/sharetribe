@@ -32,7 +32,9 @@ Of course, there might be exceptions to the rule, e.g. removing some unused code
 
 By default, we don't accept pull requests that introduce new features if it hasn’t been greenlighted by the Sharetribe team in advance.
 
-Join the [Sharetribe Community Forum](https://www.sharetribe.com/community/) and tell us what you are about to do. The team might be able to offer some suggestions on how to proceed. Features that don’t fit with Sharetribe’s vision and roadmap will not be accepted. Talking with the team is the best way to find out whether your feature is in line with Sharetribe’s plans.
+You can contact us and tell us what you are about to do. The team might be able to offer some suggestions on how to proceed. Features that don’t fit with Sharetribe’s vision and roadmap will not be accepted. Talking with the team is the best way to find out whether your feature is in line with Sharetribe’s plans.
+
+Note that Sharetribe Go is no longer being actively maintained.
 
 From a technical point of view, the Sharetribe Ruby on Rails app is not always built using the traditional "Rails way". In addition to the MVC layers, additional API and Store layers are used to define self-contained boundaries inside the application. All new features have to follow this structure.
 
