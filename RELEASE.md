@@ -96,5 +96,3 @@ These instructions assume that you want to release what is at the top of the mas
 
     After you have deployed the new version you need to clear Rails cache by running to following command in your production application Rails console:
     ```
-
-1.  Announce the new version at the [Community Forum](https://www.sharetribe.com/community/c/announcements)
