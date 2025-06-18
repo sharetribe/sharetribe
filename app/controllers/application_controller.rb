@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   include RefererHider
   include HSTS::Concern
   include EnsureAdmin
-  protect_from_forgery
+  protect_from_forgery with: :null_session
   layout 'application'
 
   before_action :check_http_auth,
