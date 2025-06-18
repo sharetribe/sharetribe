@@ -239,6 +239,11 @@ module Kassi
     config.active_job.queue_adapter = :delayed_job
     config.action_controller.raise_on_open_redirects = false
 
+    # Maintain behavior of earlier Rails versions. The new default is to throw
+    # on exception, when we want to handle as :null_session. See
+    # ApplicationController and protect_from_forgery with:... call.
+    config.action_controller.default_protect_from_forgery = false
+
     # TODO remove deprecation warnings when removing legacy analytics
     ActiveSupport::Deprecation.warn("Support for Kissmetrics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_kissmetrics.to_s == "true"
     ActiveSupport::Deprecation.warn("Support for Google Analytics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_google_analytics.to_s == "true"
