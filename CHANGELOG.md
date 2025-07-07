@@ -12,6 +12,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Updated Facebook SDK
+
 ### Deprecated
 
 ### Removed
