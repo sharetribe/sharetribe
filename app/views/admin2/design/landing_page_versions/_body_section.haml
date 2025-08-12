@@ -15,4 +15,4 @@
 - elsif presenter.section_video?
   = render 'admin2/design/landing_page_versions/video_popup', presenter: presenter, form: form
 
-= render template: 'custom_icons/custom-icons.svg' rescue nil
+= render template: 'custom_icons/custom-icons', formats: [:svg] rescue nil
