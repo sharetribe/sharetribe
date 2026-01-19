@@ -5,6 +5,7 @@ class PersonMessagesController < ApplicationController
   end
 
   before_action :fetch_recipient
+  before_action :ensure_free_conversations_enabled
 
   def new
     @conversation = Conversation.new
@@ -65,6 +66,13 @@ class PersonMessagesController < ApplicationController
     if @current_user == @recipient
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
       redirect_to search_path
+    end
+  end
+
+  def ensure_free_conversations_enabled
+    unless @current_community.allow_free_conversations?
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to person_path(@recipient)
     end
   end
 end

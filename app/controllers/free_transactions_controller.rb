@@ -8,6 +8,7 @@ class FreeTransactionsController < ApplicationController
   before_action :ensure_listing_is_open
   before_action :ensure_listing_author_is_not_current_user
   before_action :ensure_authorized_to_reply
+  before_action :ensure_free_conversations_enabled
 
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
@@ -100,6 +101,13 @@ class FreeTransactionsController < ApplicationController
 
   def fetch_listing_from_params
     @listing = Listing.find(params[:listing_id] || params[:id])
+  end
+
+  def ensure_free_conversations_enabled
+    unless @current_community.allow_free_conversations?
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to listing_path(@listing)
+    end
   end
 
   def new_contact_form(conversation_params = {})
