@@ -4,10 +4,11 @@ set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
-DEB="mysql-apt-config_0.8.29-1_all.deb"
+# See https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
+# and https://dev.mysql.com/doc/refman/8.0/en/checking-gpg-signature.html
+DEB="mysql-apt-config_0.8.36-1_all.deb"
 
 apt-get update --allow-releaseinfo-change && apt-get install -y lsb-release
-gpg --import ./script/mysql-repo-signing-key.asc
 
 wget -O "/tmp/$DEB" "http://repo.mysql.com/$DEB"
 
@@ -15,16 +16,12 @@ wget -O "/tmp/$DEB" "http://repo.mysql.com/$DEB"
 # to select 5.7. The package uses debconf, so we need to pass the correct
 # selections non-interactively.
 
-# Note that buster (previous debian stable) is selected in the config below,
-# because the MySQL APT repository doesn't yet have packages for bullseye. The
-# client packages for buster seem to wor.
-
 debconf-set-selections <<HERE
 mysql-apt-config mysql-apt-config/tools-component string mysql-tools
-mysql-apt-config mysql-apt-config/repo-codename select buster
+mysql-apt-config mysql-apt-config/repo-codename select bullseye
 mysql-apt-config mysql-apt-config/unsupported-platform select abort
 mysql-apt-config mysql-apt-config/repo-url string http://repo.mysql.com/apt
-mysql-apt-config mysql-apt-config/select-server select mysql-5.7
+mysql-apt-config mysql-apt-config/select-server select mysql-8.0
 mysql-apt-config mysql-apt-config/dmr-warning note
 mysql-apt-config mysql-apt-config/select-preview select Disabled
 mysql-apt-config mysql-apt-config/preview-component string
@@ -35,17 +32,17 @@ HERE
 
 cat <<HERE > /etc/apt/preferences.d/mysql
 Package: libmysqlclient-dev
-Pin: version 5.7*
+Pin: version 8.0*
 Pin: origin repo.mysql.com
 Pin-Priority: 1001
 
 Package: mysql-common
-Pin: version 5.7*
+Pin: version 8.0*
 Pin: origin repo.mysql.com
 Pin-Priority: 1001
 
 Package: mysql-community-client
-Pin: version 5.7*
+Pin: version 8.0*
 Pin: origin repo.mysql.com
 Pin-Priority: 1001
 HERE
