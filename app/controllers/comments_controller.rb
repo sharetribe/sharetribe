@@ -41,6 +41,16 @@ class CommentsController < ApplicationController
       community_id: @current_community.id
     )
 
+    unless @current_community.listing_comments_in_use
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to listing_path(@comment.listing_id) and return
+    end
+
+    if @comment.listing.closed?
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to listing_path(@comment.listing_id) and return
+    end
+
     unless Policy::ListingPolicy.new(@comment.listing, @current_community, @current_user).visible?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to search_path and return
