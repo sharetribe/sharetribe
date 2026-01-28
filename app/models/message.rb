@@ -33,6 +33,16 @@ class Message < ApplicationRecord
   scope :by_converation_ids, -> (converation_ids) { where(conversation_id: converation_ids) }
   scope :latest, -> { order('messages.created_at DESC') }
 
+  # Returns transformed content based on sender status.
+  # Hides content when the sender has been deleted or banned.
+  def display_content
+    if sender&.deleted? || sender&.banned?
+      I18n.t("messages.content_hidden_sender_removed")
+    else
+      content
+    end
+  end
+
   def update_conversation_read_status
     conversation.update_attribute(:last_message_at, created_at)
     conversation.participations.each do |p|

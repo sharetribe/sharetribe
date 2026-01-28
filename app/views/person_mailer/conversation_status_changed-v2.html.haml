@@ -13,7 +13,7 @@
       =raw t("emails.conversation_status_changed_v2.has_#{@transaction.status}_your_request_text", :accepter => PersonViewUtils.person_display_name(@transaction.listing.author, @current_community), :listing => listing_link)
 
     - if @transaction.conversation.last_message.present? && @transaction.conversation.last_message.sender_id != @recipient.id
-      = render :partial => "quote-v2", :locals => { :quote => @transaction.conversation.last_message.content }
+      = render :partial => "quote-v2", :locals => { :quote => @transaction.conversation.last_message.display_content }
 
     - if TransactionService::StateMachine.can_transition_to?(@transaction.id, :confirmed) && !@recipient.should_pay?(@transaction, @community)
       %p
