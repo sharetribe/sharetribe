@@ -77,6 +77,10 @@ es:
         como mínimo cuando los pagos se hacen por medio de Stripe. La comisión de
         Stripe ya está incluida en esta cantidad y no se te cobrará ningún valor adicional."
       link_to_stripe_text: aquí
+  messages:
+    content_hidden_sender_removed: "Este mensaje está oculto por razones de seguridad."
+  comments:
+    content_hidden_author_removed: "Este comentario está oculto por razones de seguridad."
   conversations:
     accept:
       details: Detalles de la orden

@@ -89,6 +89,10 @@ de:
         für jede Transaktion beträgt %{minimum_transaction_fee}. Die Stripe Gebühren
         sind bereits darin enthalten.
       link_to_stripe_text: hier
+  messages:
+    content_hidden_sender_removed: "Diese Nachricht ist aus Sicherheitsgründen ausgeblendet."
+  comments:
+    content_hidden_author_removed: "Diese Kommentar ist aus Sicherheitsgründen ausgeblendet."
   conversations:
     accept:
       details: Auftragsdetails
