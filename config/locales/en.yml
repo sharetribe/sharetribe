@@ -79,6 +79,8 @@ en:
       link_to_stripe_text: here
   messages:
     content_hidden_sender_removed: "This message is hidden for safety reasons."
+  comments:
+    content_hidden_author_removed: "This comment is hidden for safety reasons."
   conversations:
     accept:
       details: Order details
