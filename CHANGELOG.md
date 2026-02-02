@@ -12,13 +12,16 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
-- Updated Facebook SDK
+- Updated Facebook SDK [b634b70](https://github.com/sharetribe/sharetribe/commit/b634b7067710e3893aca868663b5daeabe7c377d)
+- Hide messages and comments from disabled/banned users [69f27fe](https://github.com/sharetribe/sharetribe/commit/69f27fed01c4c806cbe43015a20e9093f9b09fc0)
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Ensure comments can't be posted if disabled [c08739c](https://github.com/sharetribe/sharetribe/commit/c08739c92a86be79a048f3a76f402d2ef88bd9cc)
 
 ### Security
 
