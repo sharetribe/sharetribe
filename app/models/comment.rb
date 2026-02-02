@@ -42,4 +42,12 @@ class Comment < ApplicationRecord
     end
   end
 
+  def display_content
+    if author&.deleted? || author&.banned?
+      I18n.t("comments.content_hidden_author_removed")
+    else
+      content
+    end
+  end
+
 end

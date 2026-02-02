@@ -78,6 +78,10 @@ fr:
         de %{stripe_commission}%. La commission minimale par transaction est de %{minimum_transaction_fee}.
         Les frais de transaction Stripe sont inclus dans ces frais de service.
       link_to_stripe_text: ici
+  messages:
+    content_hidden_sender_removed: "Ce message est masqué pour des raisons de sécurité."
+  comments:
+    content_hidden_author_removed: "Ce commentaire est masqué pour des raisons de sécurité."
   conversations:
     accept:
       details: Détails de la commande

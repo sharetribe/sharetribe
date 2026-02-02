@@ -77,6 +77,10 @@ en:
         The minimum commission per transaction is %{minimum_transaction_fee}. Stripe's
         fees are included in this commission.
       link_to_stripe_text: here
+  messages:
+    content_hidden_sender_removed: "This message is hidden for safety reasons."
+  comments:
+    content_hidden_author_removed: "This comment is hidden for safety reasons."
   conversations:
     accept:
       details: Order details

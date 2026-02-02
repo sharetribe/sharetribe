@@ -16,7 +16,7 @@
     %td{:align => "left", :style => "padding-top: 15px;"}
       %font{body_font}
         = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@transaction.other_party(@recipient), "first_name_only"))
-  = render :partial => "quote", :locals => { :quote => @transaction.conversation.last_message.content }
+  = render :partial => "quote", :locals => { :quote => @transaction.conversation.last_message.display_content }
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
 

@@ -10,7 +10,7 @@
     %p.text-bold
       = t("emails.new_message.has_sent_you_a_message_in_kassi", sender: PersonViewUtils.person_display_name(@message.sender, @current_community))
 
-    = render :partial => "quote-v2", locals: {quote: @message.content}
+    = render :partial => "quote-v2", locals: {quote: @message.display_content}
 
 = render :partial => "action_button-v2", :locals => { text: action_text, url: url}
 = render 'person_mailer/cant_click', url: url

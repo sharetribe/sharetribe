@@ -371,19 +371,37 @@ module InboxService
 
     message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: conversation_ids)
     latest_messages = {}
-    connection.execute(message_sql).each do |id, conversation_id, content, created_at|
+    connection.execute(message_sql).each do |id, conversation_id, content, created_at, sender_id|
       _, memo_id, memo_at = latest_messages[conversation_id]
       if memo_at.nil? || memo_at < created_at || memo_id < id
-        latest_messages[conversation_id] = [content, id, created_at]
+        latest_messages[conversation_id] = [content, id, created_at, sender_id]
       end
     end
 
-    HashUtils.map_values(latest_messages) { |(content, _, at)| [content, at] }
+    # Fetch sender statuses for content transformation
+    sender_ids = latest_messages.values.map { |(_, _, _, sender_id)| sender_id }.compact.uniq
+    hidden_sender_ids = if sender_ids.any?
+      deleted_ids = Person.where(id: sender_ids, deleted: true).pluck(:id)
+      banned_ids = Person.joins(:community_memberships)
+                         .where(id: sender_ids)
+                         .where(community_memberships: { status: 'banned' })
+                         .pluck(:id)
+      (deleted_ids + banned_ids).uniq
+    else
+      []
+    end
+
+    hidden_content = I18n.t("messages.content_hidden_sender_removed")
+
+    HashUtils.map_values(latest_messages) { |(content, _, at, sender_id)|
+      display_content = hidden_sender_ids.include?(sender_id) ? hidden_content : content
+      [display_content, at]
+    }
   end
 
   @construct_last_message_content_sql = ->(params){
     "
-      SELECT id, conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
+      SELECT id, conversation_id, content, created_at, sender_id FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
     "
   }
 end

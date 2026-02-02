@@ -76,7 +76,7 @@ module TransactionViewUtils
   def conversation_messages(messages, name_display_type)
     messages.map { |message|
       MessageBubble.call(
-        content: message.content,
+        content: message.display_content,
         sender: message.sender,
         created_at: message.created_at,
         mood: :neutral
