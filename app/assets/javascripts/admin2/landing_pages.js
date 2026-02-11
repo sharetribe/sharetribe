@@ -13,8 +13,8 @@ function renderDeleteBlock(elem, caption, body) {
         html_header = delete_block.find('.delete_header'),
         html_body = delete_block.find('.delete_body');
 
-    html_header.html(caption);
-    html_body.html(body);
+    html_header.text(caption);
+    html_body.text(body);
 }
 
 function sortPriority() {
@@ -151,8 +151,8 @@ function initFooter() {
         var caption = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_title", {'name': title}),
             body = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_body", {'name': title}),
             remove_message_div = container.next('.remove-footerLink-content');
-        remove_message_div.find('.remove-title').html(caption);
-        remove_message_div.find('.remove-body').html(body);
+        remove_message_div.find('.remove-title').text(caption);
+        remove_message_div.find('.remove-body').text(body);
         remove_message_div.show(200);
         return event.preventDefault();
     });
@@ -299,7 +299,7 @@ $(function() {
         var caption = $(this).data('caption'),
             url = $(this).data('url');
         $('#delete-landing-page-form').attr('action', url);
-        $('#landingPageDeleteModalTitle').html(caption);
+        $('#landingPageDeleteModalTitle').text(caption);
         $('#landingPageDeleteModal').modal('show');
         return false;
     });

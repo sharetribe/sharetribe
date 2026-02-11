@@ -92,7 +92,7 @@ $(function(){
         var caption = $(this).data('caption'),
             url = $(this).data('url');
         $('#delete-category-form').attr('action', url);
-        $('#categoriesDeleteModalSimpleLabel').html(caption);
+        $('#categoriesDeleteModalSimpleLabel').text(caption);
         $('#categoriesDeleteModalSimple').modal('show');
     });
 
