@@ -40,6 +40,12 @@ class ListingImagesController < ApplicationController
     if !url.present?
       logger.info("No image URL provided", :no_image_url_provided, params)
       render json: {:errors => "No image URL provided"}, status: :bad_request, content_type: 'text/plain'
+      return
+    end
+
+    unless valid_s3_upload_url?(url)
+      render json: {:errors => "Invalid image URL"}, status: :bad_request, content_type: 'text/plain'
+      return
     end
 
     add_image(params[:listing_id], {}, url)
@@ -77,6 +83,16 @@ class ListingImagesController < ApplicationController
   def escape_s3_url(path, filename)
     escaped_filename = CGI.escape(filename.encode('UTF-8')).gsub('+', '%20').gsub('%7E', '~')
     path.sub("${filename}", escaped_filename)
+  end
+
+  def valid_s3_upload_url?(url)
+    return false unless APP_CONFIG.s3_upload_bucket_name.present?
+
+    allowed_host = "#{APP_CONFIG.s3_upload_bucket_name}.s3.amazonaws.com"
+    uri = URI.parse(url)
+    uri.scheme == 'https' && uri.host == allowed_host
+  rescue URI::InvalidURIError
+    false
   end
 
   def add_image(listing_id, params, url)
