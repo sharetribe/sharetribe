@@ -34,6 +34,6 @@ Feature: Transaction process between two users
 
     # Admin sees free transaction with proper currency
     When I log in as "kassi_testperson3"
-    And I am on the transactions admin page
+    And I am on the transactions admin2 page
     Then I should see "$0"
     And I should not see "€0"
