@@ -19,7 +19,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
-- The old /admin_old panel is no longer accessible.
+- The old /admin_old panel is no longer accessible. [16dfc50](https://github.com/sharetribe/sharetribe/commit/16dfc508ca5478fa7ed4ff4e92bc61fad9981116)
 
 ### Fixed
 
@@ -29,12 +29,17 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - [Critical] Fix multiple XSS vulnerabilities in the admin panel that can lead
   to admin user session compromise.
+  [747335b](https://github.com/sharetribe/sharetribe/commit/747335b680fe46daf6eb72d7947a37837330186d)
 - Fix missing access check in listing shape management in multi-tenant installations.
+  [17dc58c](https://github.com/sharetribe/sharetribe/commit/17dc58c2f7bbf57a6fc546e7db24a70394f5e899)
 - Avoid using GET requests for listing approval / rejection.
+  [7bce83c](https://github.com/sharetribe/sharetribe/commit/7bce83ca9aeb7940067228cc438a5d38b8b70885)
 - Avoid unsafe rendering of admin-controlled HTML email template when the admin
   user is a multi-tenant super-admin.
+  [617bf1a](https://github.com/sharetribe/sharetribe/commit/617bf1aaa4a2af3acd71dcf3c646f5fcec1218a3)
 - Improve image upload URL validation, ensuring that only URLs to the configured
   S3 uploads bucket are allowed.
+  [a819dfc](https://github.com/sharetribe/sharetribe/commit/a819dfc9902d68d72d7dbe9feca489812f80fe51)
 
 ## [12.0.0] - 2025-05-19
 
