@@ -5,7 +5,7 @@ $(function() {
             title_popup = $('#listingPendingModalLabel'),
             listing_name = $(this).data('title');
 
-        title_popup.html(listing_name);
+        title_popup.text(listing_name);
         $('#listing_id').val(id);
         $('#listingPendingModal').modal('show');
     });
@@ -15,7 +15,7 @@ $(function() {
             title_popup = $('#listingRejectModalLabel'),
             listing_name = $(this).data('title');
 
-        title_popup.html(listing_name);
+        title_popup.text(listing_name);
         $('#reject_listing_id').val(id);
         $('#listingRejectModal').modal('show');
     });
@@ -25,7 +25,7 @@ $(function() {
             title_popup = $('#listingCloseModalLabel'),
             listing_name = $(this).data('title');
 
-        title_popup.html(listing_name);
+        title_popup.text(listing_name);
         $('#listing_close_id').val(id);
         $('#listingCloseModal').modal('show');
     });
@@ -35,7 +35,7 @@ $(function() {
             title_popup = $('#listingDeleteModalLabel'),
             listing_name = $(this).data('title');
 
-        title_popup.html(listing_name);
+        title_popup.text(listing_name);
         $('#listing_delete_id').val(id);
         $('#listingDeleteModal').modal('show');
     });

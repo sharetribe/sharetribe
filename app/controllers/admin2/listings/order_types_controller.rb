@@ -3,6 +3,8 @@ module Admin2::Listings
 
     include FormViewLayer
 
+    before_action :find_listing_shape, only: %i[edit update destroy]
+
     def index
       @category_count = @current_community.categories.count
       @templates = ListingShapeTemplates.new(process_summary).label_key_list
@@ -23,7 +25,7 @@ module Admin2::Listings
     end
 
     def edit
-      url_name = ListingShape.find(params[:id]).name
+      url_name = @listing_shape.name
       form = ShapeService.new(processes).get(
         community: @current_community,
         name: url_name,
@@ -40,7 +42,7 @@ module Admin2::Listings
     def update
       params[:id] = params[:id].to_i
       shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
-      url_name = ListingShape.find(params[:id]).name
+      url_name = @listing_shape.name
       update_result = validate_shape(shape).and_then { |s|
         ShapeService.new(processes).update(
           community: @current_community,
@@ -88,11 +90,10 @@ module Admin2::Listings
     end
 
     def destroy
-      shape = ListingShape.find(params[:id])
-      url_name = shape.name
-      raise t('admin2.order_types.errors.cannot_delete_msg', error_msg: shape.delete_shape_msg) unless shape.can_delete_shape?
+      url_name = @listing_shape.name
+      raise t('admin2.order_types.errors.cannot_delete_msg', error_msg: @listing_shape.delete_shape_msg) unless @listing_shape.can_delete_shape?
 
-      @current_community.listings.where(listing_shape_id: shape.id).update_all(open: false, listing_shape_id: nil)
+      @current_community.listings.where(listing_shape_id: @listing_shape.id).update_all(open: false, listing_shape_id: nil)
       deleted_shape = @current_community.shapes.by_name(url_name).first
       raise t('admin2.order_types.errors.cannot_delete') unless deleted_shape
 
@@ -106,7 +107,7 @@ module Admin2::Listings
 
     def order
       params[:ids]&.each do |_index, object| # rubocop:disable Style/HashEachMethods
-        ListingShape.find(object['id']).update(sort_priority: object['position'])
+        @current_community.listing_shapes.find(object['id']).update(sort_priority: object['position'])
       end
       head :ok
     end
@@ -123,6 +124,10 @@ module Admin2::Listings
     end
 
     private
+
+    def find_listing_shape
+      @listing_shape = @current_community.listing_shapes.find(params[:id])
+    end
 
     def pick_translation(translations)
       translations.find { |(locale, _translation)|

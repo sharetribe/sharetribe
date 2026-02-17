@@ -128,5 +128,5 @@ end
 When(/^I open last transaction for listing "(.*?)"$/) do |listing_title|
   listing = Listing.where(title: listing_title).first
   tx = Transaction.where(listing_id: listing.id).last
-  visit admin_community_transaction_path(community_id: @current_community, id: tx)
+  visit admin2_transactions_reviews_manage_transaction_path(community_id: @current_community, id: tx)
 end

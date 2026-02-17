@@ -35,9 +35,9 @@ $(function() {
         var caption = $(this).data('caption'),
             url = $(this).data('url'),
             notice = $(this).data('notice');
-        $('#delete-order-type-body').html(notice);
+        $('#delete-order-type-body').text(notice);
         $('#delete-order-form').attr('action', url);
-        $('#orderTypesDeleteModalLabel').html(caption);
+        $('#orderTypesDeleteModalLabel').text(caption);
         $('#orderTypesDeleteModal').modal('show');
     });
 
@@ -45,9 +45,9 @@ $(function() {
         var caption = $(this).data('caption'),
             url = $(this).data('url'),
             notice = $(this).data('notice');
-        $('#delete-simple-order-type-body').html(notice);
+        $('#delete-simple-order-type-body').text(notice);
         $('#delete-simple-order-form').attr('action', url);
-        $('#orderTypesDeleteModalSimpleLabel').html(caption);
+        $('#orderTypesDeleteModalSimpleLabel').text(caption);
         $('#orderTypesDeleteModalSimple').modal('show');
     });
 

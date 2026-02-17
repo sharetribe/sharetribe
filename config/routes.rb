@@ -319,8 +319,8 @@ Rails.application.routes.draw do
             get :export_status
           end
           member do
-            get :approve
-            get :reject
+            put :approve
+            put :reject
           end
         end
         resources :listing_approval, path: 'listing-approval', only: %i[index] do
@@ -620,8 +620,8 @@ Rails.application.routes.draw do
         end
         resources :listings, controller: :community_listings, only: [:index, :edit, :update] do
           member do
-            get :approve
-            get :reject
+            put :approve
+            put :reject
           end
           collection do
             get 'export'

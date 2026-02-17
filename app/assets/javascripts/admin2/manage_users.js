@@ -57,8 +57,8 @@ $(function() {
             caption = $(this).data('caption'),
             button = $(this).data('button'),
             url = $(this).data('url');
-        $('#userRevokeAdminRightsModalBody').html(msg);
-        $('#userRevokeAdminRightsModalLabel').html(caption);
+        $('#userRevokeAdminRightsModalBody').text(msg);
+        $('#userRevokeAdminRightsModalLabel').text(caption);
         $('#userRevokeAdminRightsModalButton').attr('href', url);
         $('#userRevokeAdminRightsModalButton').text(button);
         $('#userRevokeAdminRightsModal').modal('show');
@@ -67,7 +67,7 @@ $(function() {
     $(document).on('click', '.confirm-user', function () {
         var name = $(this).data('name'),
             url = $(this).data('url');
-        $('#userUnconfirmedModalLabel').html(name);
+        $('#userUnconfirmedModalLabel').text(name);
         $('#btn-send-confirm-user').attr('href', url);
         $('#userUnconfirmedModal').modal('show');
     });
@@ -78,7 +78,7 @@ $(function() {
         }
         var name = $(this).data('name'),
             url = $(this).data('url');
-        $('#userDeleteModalLabel').html(name);
+        $('#userDeleteModalLabel').text(name);
         $('#form-delete-user').attr('action', url);
         $('#userDeleteModal').modal('show');
     });

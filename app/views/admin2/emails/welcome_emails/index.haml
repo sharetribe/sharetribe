@@ -23,7 +23,10 @@
           = t('admin2.welcome_email.hello')
         #welcome_email_content{data: {mercury: :full}}
           - if @community_customization&.welcome_email_content
-            = @community_customization.welcome_email_content.html_safe
+            - if @current_user.is_admin?
+              = @community_customization.welcome_email_content
+            - else
+              = @community_customization.welcome_email_content.html_safe
           - else
             = render 'default_email'
         %small#welcomeEmailContent-help.form-text
