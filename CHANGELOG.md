@@ -12,10 +12,20 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [13.0.0] - 2026-02-17
+
+### Changed
+
 - Updated Facebook SDK [b634b70](https://github.com/sharetribe/sharetribe/commit/b634b7067710e3893aca868663b5daeabe7c377d)
 - Hide messages and comments from disabled/banned users [69f27fe](https://github.com/sharetribe/sharetribe/commit/69f27fed01c4c806cbe43015a20e9093f9b09fc0)
-
-### Deprecated
 
 ### Removed
 
@@ -1096,7 +1106,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v12.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v13.0.0...HEAD
+[13.0.0]: https://github.com/sharetribe/sharetribe/compare/v12.0.0...v13.0.0
 [12.0.0]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...v12.0.0
 [11.0.0]: https://github.com/sharetribe/sharetribe/compare/v10.3.0...v11.0.0
 [10.3.0]: https://github.com/sharetribe/sharetribe/compare/v10.2.1...v10.3.0
