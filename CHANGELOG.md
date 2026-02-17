@@ -19,11 +19,22 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
+- The old /admin_old panel is no longer accessible.
+
 ### Fixed
 
 - Ensure comments can't be posted if disabled [c08739c](https://github.com/sharetribe/sharetribe/commit/c08739c92a86be79a048f3a76f402d2ef88bd9cc)
 
 ### Security
+
+- [Critical] Fix multiple XSS vulnerabilities in the admin panel that can lead
+  to admin user session compromise.
+- Fix missing access check in listing shape management in multi-tenant installations.
+- Avoid using GET requests for listing approval / rejection.
+- Avoid unsafe rendering of admin-controlled HTML email template when the admin
+  user is a multi-tenant super-admin.
+- Improve image upload URL validation, ensuring that only URLs to the configured
+  S3 uploads bucket are allowed.
 
 ## [12.0.0] - 2025-05-19
 
