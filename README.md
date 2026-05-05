@@ -31,7 +31,7 @@ To build and launch a marketplace without writing a single line of code, and ext
 
 - Ruby 3.4.8
 - Ruby on Rails 8.1.2
-- MySQL 8.0
+- MySQL 8.4
 - React + jQuery
 - Node.js 18.16 (for compiling JavaScript assets)
 - "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
