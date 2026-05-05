@@ -8,17 +8,14 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
 
+- Fix broken logging [dc857e4](https://github.com/sharetribe/sharetribe/commit/dc857e4a7df4dd34fb9c3cf272f392b4185a180a)
+
 ### Security
+
+- Updated Rails to 8.1.2 [2ec4c96](https://github.com/sharetribe/sharetribe/commit/2ec4c96ba7d9b5334cf680577258807b8a314def), [cf4f4a0](https://github.com/sharetribe/sharetribe/commit/cf4f4a07ea0e46c92a43ae8e1ed0ebe31daa5469), [c1bc0c0](https://github.com/sharetribe/sharetribe/commit/c1bc0c0edd30afb566926223e4a6b3fe622e0c58)
+- Updated Ruby to 3.4.8 [2ec4c96](https://github.com/sharetribe/sharetribe/commit/2ec4c96ba7d9b5334cf680577258807b8a314def)
 
 ## [13.0.0] - 2026-02-17
 
