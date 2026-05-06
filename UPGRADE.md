@@ -38,9 +38,14 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
-## Upgrade from 13.0.0 to [Unreleased]
+
+## Upgrade from 14.0.0 to [Unreleased]
 
 Nothing special at the moment, see the [General update instructions](#general-update-instructions).
+
+## Upgrade from 13.0.0 to [14.0.0]
+
+The new version contains a Ruby upgrade to 3.4.8 and Rails to 8.1.2, that you should review. Otherwise, see the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 12.0.0 to [13.0.0]
 
