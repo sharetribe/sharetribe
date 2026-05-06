@@ -8,6 +8,24 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [14.0.0] - 2026-05-06
+
+### Changed
+
+- Updated MySQL version on CI [c8b1fa2](https://github.com/sharetribe/sharetribe/commit/c8b1fa23d8fd7eca411b4d7750717eaa1c74ee93)
+
 ### Fixed
 
 - Fix broken logging [dc857e4](https://github.com/sharetribe/sharetribe/commit/dc857e4a7df4dd34fb9c3cf272f392b4185a180a)
