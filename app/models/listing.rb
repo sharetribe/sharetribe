@@ -110,6 +110,8 @@ class Listing < ApplicationRecord
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
 
+  ThinkingSphinx::Callbacks.append(self, behaviours: [:sql, :deltas])
+
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
