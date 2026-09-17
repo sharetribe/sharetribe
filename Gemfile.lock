@@ -489,7 +489,8 @@ GEM
     parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
-    passenger (6.0.27)
+    passenger (6.2.0)
+      logger (>= 1.7.0)
       rack (>= 1.6.13)
       rackup (>= 1.0.1)
       rake (>= 12.3.3)
@@ -846,7 +847,7 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 1.2.2)
   omniauth-linkedin-openid
   omniauth-rails_csrf_protection (~> 2.0.1)
-  passenger (~> 6.0.27)
+  passenger (~> 6.2.0)
   paypal-sdk-merchant (~> 1.117.2)
   paypal-sdk-permissions (~> 1.96.4)
   poltergeist (~> 1.18.1)
