@@ -44,6 +44,8 @@ class CustomField < ApplicationRecord
   scope :is_public, ->{ where(public: true) }
   scope :required, ->{ where(required: true) }
 
+  ThinkingSphinx::Callbacks.append(self, behaviours: [:sql, :deltas])
+
   ENTITY_TYPES = {
     for_listing: 0,
     for_person: 1
