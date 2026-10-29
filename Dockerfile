@@ -1,4 +1,4 @@
-FROM ruby:3.4.8-bookworm
+FROM ruby:3.4.12-bookworm
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
