@@ -61,11 +61,6 @@ RUN curl -sfSL \
 # - libvips - image library
 RUN apt-get install -y nginx libvips
 
-# Install latest bundler
-ENV BUNDLE_BIN=
-# Get new ruby gems and bundler, resolves issue with installation of mini_racer and libv8-node
-RUN gem update --system 3.4.6
-
 # Run as non-privileged user
 RUN useradd -m -s /bin/bash app \
 	&& mkdir /opt/app /opt/app/client /opt/app/log /opt/app/tmp && chown -R app:app /opt/app
