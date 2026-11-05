@@ -8,7 +8,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: medium
     docker:
-      - image: cimg/ruby:3.4.8-browsers
+      - image: cimg/ruby:3.4.12-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
@@ -114,7 +114,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: small
     docker:
-      - image: cimg/ruby:3.4.8-browsers
+      - image: cimg/ruby:3.4.12-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml

@@ -1,4 +1,4 @@
-FROM ruby:3.4.8-bookworm
+FROM ruby:3.4.12-bookworm
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
@@ -60,11 +60,6 @@ RUN curl -sfSL \
 # - nginx - used to serve maintenance mode page
 # - libvips - image library
 RUN apt-get install -y nginx libvips
-
-# Install latest bundler
-ENV BUNDLE_BIN=
-# Get new ruby gems and bundler, resolves issue with installation of mini_racer and libv8-node
-RUN gem update --system 3.4.6
 
 # Run as non-privileged user
 RUN useradd -m -s /bin/bash app \
