@@ -43,11 +43,16 @@ jobs:
       - restore_cache:
           keys:
             - node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
+      - restore_cache:
+          keys:
+            - libvips-cache-v1-{{ checksum "script/ci-install-libvips.sh" }}
       - run:
-          name: Install System Dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y libvips42 libvips-dev
+          name: Install libvips
+          command: script/ci-install-libvips.sh
+      - save_cache:
+          key: libvips-cache-v1-{{ checksum "script/ci-install-libvips.sh" }}
+          paths:
+            - ~/libvips
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
@@ -135,6 +140,16 @@ jobs:
       - restore_cache:
           keys:
             - node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
+      - restore_cache:
+          keys:
+            - libvips-cache-v1-{{ checksum "script/ci-install-libvips.sh" }}
+      - run:
+          name: Install libvips
+          command: script/ci-install-libvips.sh
+      - save_cache:
+          key: libvips-cache-v1-{{ checksum "script/ci-install-libvips.sh" }}
+          paths:
+            - ~/libvips
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
