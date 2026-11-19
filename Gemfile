@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.4.12'
+ruby '3.4.13'
 
 gem 'rails', '8.1.4.1'
 gem 'csv', '3.3.2'
