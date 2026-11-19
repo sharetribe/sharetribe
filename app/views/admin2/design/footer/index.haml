@@ -14,7 +14,7 @@
         .statusbar.business
           %span
             ✨
-            = t('admin2.footer.footer_disabled', url: admin2_plan_path).html_safe
+            = subscription_link_html(t('admin2.footer.footer_disabled', url: admin2_subscription_url))
       %p.ingress
         = t('admin2.footer.footer_enabling_info_text', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.aw3jsyh0zl4').html_safe
       .form-group

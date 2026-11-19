@@ -9,7 +9,7 @@
         <%= t("expiration.admin.sub_title_new") %>
       </h2>
       <div class="expiration-plan-external">
-        <a href="<%= external_plan_service_login_url %>">
+        <a href="<%= external_plan_service_login_url %>"<% if external_subscription_url %> target="_blank" rel="noopener"<% end %>>
           <div class="expiration-plan-biannual">
             <p class="expiration-subscribe-title"><%= t("expiration.admin.link_to_external_service") %></p>
           </div>
