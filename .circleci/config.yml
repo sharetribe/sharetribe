@@ -8,7 +8,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: medium
     docker:
-      - image: cimg/ruby:3.4.12-browsers
+      - image: cimg/ruby:3.4.13-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
@@ -25,6 +25,12 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
+      # The 3.4.13 image ships Chrome 158, which breaks the cucumber suite with
+      # selenium-webdriver 4.29.1. Pin to the last known good version until
+      # selenium/capybara are updated.
+      - browser-tools/install-chrome:
+          chrome-version: 156.0.8078.47
+          replace-existing: true
       - browser-tools/install-chromedriver
       # Chrome driver installation leaves a license file in project dir, which
       # prevents checkout. The project dir must be empty.
@@ -119,7 +125,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: small
     docker:
-      - image: cimg/ruby:3.4.12-browsers
+      - image: cimg/ruby:3.4.13-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
