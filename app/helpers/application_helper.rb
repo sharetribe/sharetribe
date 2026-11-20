@@ -330,6 +330,50 @@ module ApplicationHelper
     }
   end
 
+  # URL of an external page with information about subscriptions (e.g. a
+  # documentation page), or nil if not configured. When configured, the
+  # subscription links in the admin UI point to this page, instead of the
+  # external plan service.
+  def external_subscription_url
+    APP_CONFIG.external_plan_service_subscription_url.presence
+  end
+
+  # URL for subscription links in the admin UI
+  def admin2_subscription_url
+    external_subscription_url || admin2_plan_path
+  end
+
+  # URL for subscription links in the old admin UI
+  def admin_subscription_url
+    external_subscription_url || admin_plan_path
+  end
+
+  # HTML options for a subscription link. If the link points to an external
+  # page, it is opened in a new tab and (unless external_style is false) styled
+  # as an external link.
+  def subscription_link_options(options = {}, external_style: true)
+    return options unless external_subscription_url
+
+    classes = Array(options[:class])
+    classes += [:'external-link'] if external_style
+
+    options = options.merge(target: :_blank, rel: :noopener)
+    options = options.merge(class: classes) if classes.present?
+    options
+  end
+
+  # Takes a translated HTML snippet that contains a subscription link. If the
+  # link points to an external page, makes it open in a new tab and styles it as
+  # an external link.
+  def subscription_link_html(html)
+    return html.html_safe unless external_subscription_url
+
+    attrs = +'class="external-link" rel="noopener"'
+    attrs << ' target="_blank"' unless html.include?('target=')
+
+    html.sub(/<a\s/, "<a #{attrs} ").html_safe
+  end
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # Admin view left hand navigation content
   def admin_links_for(community)
@@ -366,8 +410,9 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.subscription"),
         :icon_class => icon_class("credit_card"),
-        :path => admin_plan_path,
-        :name => "plan"
+        :path => admin_subscription_url,
+        :name => "plan",
+        :target => external_subscription_url ? "_blank" : nil
       }
     end
 

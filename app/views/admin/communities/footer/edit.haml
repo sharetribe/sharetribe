@@ -21,7 +21,7 @@
             %span.alert-box-icon<>
               = icon_tag("alert", ["icon-fix"])
             %span
-              = t("admin.communities.footer.offer_pro", upgrade_pro_plan_link: link_to(t("admin.communities.footer.upgrade_plan_link"), admin_plan_path)).html_safe
+              = t("admin.communities.footer.offer_pro", upgrade_pro_plan_link: link_to(t("admin.communities.footer.upgrade_plan_link"), admin_subscription_url, subscription_link_options({}, external_style: false))).html_safe
 
   %h2= t("admin.communities.footer.footer")
   = form_for @service.community, url: admin_footer_path, method: :patch,

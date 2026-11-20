@@ -1,7 +1,11 @@
 class Admin2::PlansController < Admin2::AdminBaseController
 
-  # Redirect to external plan service. Nothing else.
+  # Redirect to the subscription information page, if one is configured.
+  # Otherwise, redirect to external plan service. Nothing else.
   def show
+    subscription_url = APP_CONFIG.external_plan_service_subscription_url.presence
+    return redirect_to(subscription_url, allow_other_host: true) if subscription_url
+
     marketplace_default_name = @current_community.name(@current_community.default_locale)
 
     PlanService::API::API.plans.get_external_service_link(

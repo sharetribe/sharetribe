@@ -15,7 +15,7 @@
         .statusbar.business
           %span
             ✨
-            = t('admin2.custom_script.script_disabled', url: admin2_plan_path).html_safe
+            = subscription_link_html(t('admin2.custom_script.script_disabled', url: admin2_subscription_url))
 
       %p.ingress
         = t('admin2.custom_script.info_text', url: 'https://docs.google.com/document/d/1AdGRFAxQkc_g9UP-IUtwAwo5eOAvGGOw2md-LjybR60/#heading=h.p177l16l0c78').html_safe

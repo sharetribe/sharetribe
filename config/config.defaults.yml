@@ -301,6 +301,10 @@ default: &default_settings
   external_plan_service_in_use: false
   external_plan_service_secret:
   external_plan_service_login_url:
+  # URL of a page with information about subscriptions (e.g. a documentation page).
+  # If set, the subscription links in the admin UI point to this page, instead of
+  # the external plan service (external_plan_service_login_url).
+  external_plan_service_subscription_url:
 
   # External search service connection
   external_search_in_use: false
