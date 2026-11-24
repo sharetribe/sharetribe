@@ -18,6 +18,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Restore delayed Sphinx delta indexing after the Thinking Sphinx 5 upgrade.
 - Fix omniauth preventing Google Login from working [b3d879c](b3d879cd5ad93167faeb75d6c910d2c4624290bb)
 
 ### Security
