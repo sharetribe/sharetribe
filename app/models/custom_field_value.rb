@@ -23,6 +23,8 @@
 
 class CustomFieldValue < ApplicationRecord
 
+  ThinkingSphinx::Callbacks.append(self, behaviours: [:sql, :deltas])
+
   belongs_to :listing
   belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id" # rubocop:disable Rails/InverseOf
   belongs_to :person
